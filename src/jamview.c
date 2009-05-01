@@ -19,6 +19,7 @@
 #include "security.h"
 #include "marshalers.h"
 #include "datesel.h"
+#include "tags.h"
 
 #define KEY_PICTUREKEYWORD "logjam-picturekeyword"
 
@@ -408,11 +409,35 @@ music_store(JamView *view) {
 	jam_doc_set_music(view->doc, music);
 }
 
+static void tags_store(JamView *view);
+
+static void
+tags_select_cb(JamView *view) {
+  gchar *tags;
+  GtkWidget *toplevel = gtk_widget_get_toplevel(GTK_WIDGET(view));
+
+  tags = tags_dialog(toplevel,
+		     JAM_ACCOUNT_LJ(view->account),
+		     jam_doc_get_usejournal(view->doc),
+		     (gchar *) gtk_entry_get_text(GTK_ENTRY(view->tags)));
+
+  if (tags) {
+      gtk_entry_set_text(GTK_ENTRY(view->tags), tags);
+      tags_store(view);
+  }
+}
+
 static void
 tags_add(JamView *view) {
+	GtkWidget *tagbutton;
 	view->tags = gtk_entry_new();
 	view->tagsbar = labelled_box_new_sg(_("_Tags:"), view->tags, view->sizegroup);
 	gtk_box_pack_start(GTK_BOX(view), view->tagsbar, FALSE, FALSE, 0);
+	tagbutton = gtk_button_new_with_label("...");
+	g_signal_connect_swapped(G_OBJECT(tagbutton), "clicked",
+				 G_CALLBACK(tags_select_cb), view);
+	gtk_box_pack_start(GTK_BOX(view->tagsbar),
+			   tagbutton, FALSE, FALSE, 0);
 	gtk_box_reorder_child(GTK_BOX(view), view->tagsbar, view->musicbar ? 2 : 1);
 	gtk_widget_show_all(view->tagsbar);
 }

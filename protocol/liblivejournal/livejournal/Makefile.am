@@ -7,7 +7,7 @@ liblivejournal_la_LIBADD = @LIVEJOURNAL_LIBS@
 liblivejournal_la_SOURCES = \
 	md5.c              md5.h            \
 	protocol.c         protocol.h       \
-	friends.h                           \
+	friends.h          tags.h           \
 	serveruser.c       serveruser.h     \
 	entry.c            entry.h          \
 	types.c            types.h          \
@@ -21,6 +21,7 @@ liblivejournal_la_SOURCES = \
 	getchallenge.c     getchallenge.h   \
 	getevents.c        getevents.h      \
 	getfriends.c       getfriends.h     \
+	gettags.c          gettags.h        \
 	syncitems.c        syncitems.h      \
 	sync.c             sync.h           \
 	livejournal.h

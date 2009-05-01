@@ -14,6 +14,7 @@
 
 #include "entry.h"
 #include "friends.h"
+#include "tags.h"
 #include "types.h"
 
 char*
@@ -73,6 +74,18 @@ lj_friend_compare_username(gconstpointer a, gconstpointer b) {
 	const LJFriend *fb = b;
 
 	return strcmp(fa->username, fb->username);
+}
+
+LJTag*
+lj_tag_new(void) {
+    LJTag *t = g_new0(LJTag, 1);
+    return t;
+}
+
+void
+lj_tag_free(LJTag *t) {
+   g_free(t->tag);
+   g_free(t);
 }
 
 void 

@@ -16,5 +16,6 @@
 #include <livejournal/serveruser.h>
 #include <livejournal/friends.h>
 #include <livejournal/entry.h>
+#include <livejournal/tags.h>
 
 #endif /* __LIVEJOURNAL_H__ */
