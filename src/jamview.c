@@ -816,26 +816,30 @@ jam_view_set_doc(JamView *view, JamDoc *doc) {
 
 void
 jam_view_settings_changed(JamView *view) {
-#if 0
-	XXX make this work
 #ifdef HAVE_GTKSPELL
-	if (conf.options.usespellcheck != hadspell) {
-		GtkSpell *spell;
-		if (conf.options.usespellcheck) {
+	GtkSpell *spell;
+	GError *err = NULL;
+	spell = gtkspell_get_from_text_view(GTK_TEXT_VIEW(view->entry));
+	if (conf.options.usespellcheck) {
+		if (spell) {
+			if (!gtkspell_set_language(spell, conf.spell_language, &err)) {
+				jam_warning(NULL, // XXX GTK_WINDOW(view->jw),
+						_("GtkSpell error: %s"), err->message);
+				g_error_free(err);
+			}
+		} else {
 			GError *err = NULL;
-			if (gtkspell_new_attach(GTK_TEXT_VIEW(fetcheentry(jw)), conf.spell_language , &err) == NULL) {
-				jam_warning(GTK_WINDOW(jw),
+			if (gtkspell_new_attach(GTK_TEXT_VIEW(view->entry), conf.spell_language , &err) == NULL) {
+				jam_warning(NULL,
 						_("GtkSpell error: %s"), err->message);
 				conf.options.usespellcheck = FALSE;
 				g_error_free(err);
 			}
-		} else {
-			spell = gtkspell_get_from_text_view(GTK_TEXT_VIEW(fetcheentry(jw)));
-			if (spell)
-				gtkspell_detach(spell);
 		}
+	} else {
+		if (spell)
+			gtkspell_detach(spell);
 	}
-#endif
 #endif
 	if (conf.uifont)
 		jam_widget_set_font(view->entry, conf.uifont);
