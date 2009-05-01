@@ -74,25 +74,35 @@ if test "$with_gtk" = "yes" ; then
                    [compile with GtkSpell support (default autodetect)]),
     gtkspell-2.0)
 
-  LJ_PKG_ARG_WITH(gtkhtml36, GTKHTML36,
-    AC_HELP_STRING([--with-gtkhtml36],
-                   [compile with GtkHtml3.6 support (default autodetect)]),
-    libgtkhtml-3.6)
-  if test "$with_gtkhtml36" = "yes"; then
-    with_gtkhtml="3.6"
+  dnl This is kind of silly? The API doesn't seem to have changed enough
+  dnl to warrant different module versions, yet here they are.
+  LJ_PKG_ARG_WITH(gtkhtml314, GTKHTML,
+    AC_HELP_STRING([--with-gtkhtml314],
+                   [compile with GtkHtml3.14 support (default autodetect)]),
+    libgtkhtml-3.14)
+  if test "$with_gtkhtml314" = "yes"; then
+    with_gtkhtml="3.14"
   else
-    LJ_PKG_ARG_WITH(gtkhtml30, GTKHTML30,
-      AC_HELP_STRING([--with-gtkhtml30],
-                     [compile with GtkHtml3.0 support (default autodetect)]),
-      libgtkhtml-3.0)
-    if test "$with_gtkhtml30" = "yes"; then
-      with_gtkhtml="3.0"
+    LJ_PKG_ARG_WITH(gtkhtml36, GTKHTML,
+      AC_HELP_STRING([--with-gtkhtml36],
+                     [compile with GtkHtml3.6 support (default autodetect)]),
+      libgtkhtml-3.6)
+    if test "$with_gtkhtml36" = "yes"; then
+      with_gtkhtml="3.6"
     else
-      with_gtkhtml="no"
+      LJ_PKG_ARG_WITH(gtkhtml30, GTKHTML,
+        AC_HELP_STRING([--with-gtkhtml30],
+                       [compile with GtkHtml3.0 support (default autodetect)]),
+        libgtkhtml-3.0)
+      if test "$with_gtkhtml30" = "yes"; then
+        with_gtkhtml="3.0"
+      else
+        with_gtkhtml="no"
+      fi
     fi
-  fi
-  if test "$with_gtkhtml" != "no"; then
-    AC_DEFINE(HAVE_GTKHTML,1,[do we have a gtkhtml?])
+    if test "$with_gtkhtml" != "no"; then
+      AC_DEFINE(HAVE_GTKHTML,1,[do we have a gtkhtml?])
+    fi
   fi
 
   LJ_PKG_ARG_WITH(librsvg, LIBRSVG,
