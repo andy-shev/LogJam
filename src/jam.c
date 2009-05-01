@@ -757,6 +757,11 @@ jam_quit(JamWin *jw) {
 
 static gboolean
 delete_event_cb(JamWin *jw) {
+#ifdef USE_DOCK
+	if (app.docklet)
+		gtk_widget_hide(GTK_WIDGET(jw));
+	else
+#endif
 	jam_quit(jw);
 	return TRUE; /* don't ever let this delete the window; quit will do it. */
 }
