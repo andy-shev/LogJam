@@ -215,7 +215,7 @@ tools_insert_command_output(GtkWindow *win, JamDoc *doc) {
 
 	while (gtk_dialog_run(GTK_DIALOG(cmd_dlg)) == GTK_RESPONSE_OK) {
 		const gchar *command;
-		const gchar *encoding;
+		const gchar *encoding = 0;
 		GError *err = NULL;
 
 		command = gtk_entry_get_text(GTK_ENTRY(entry));

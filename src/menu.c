@@ -444,7 +444,6 @@ static GtkItemFactoryEntry menu_items[] = {
 
 };
 	int itemcount = sizeof(menu_items) / sizeof(menu_items[0]);
-	int i;
 	JamView *view;
 
 	accelgroup = gtk_accel_group_new();

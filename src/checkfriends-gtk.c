@@ -254,8 +254,6 @@ cf_float_destroyed_cb(GtkWidget *widget, CFFloat *cff) {
 
 static void
 cf_float_destroy(CFFloat *cff) {
-	CFMgr *cfm = cff->cfmgr;
-
 	if (GTK_IS_WIDGET(cff->win))
 		gtk_widget_destroy(cff->win);
 
@@ -276,8 +274,6 @@ cf_app_update_float(void) {
 #ifdef USE_DOCK
 static void
 cf_dock_destroy(CFFloat *cff) {
-	CFMgr *cfm = cff->cfmgr;
-
 	g_signal_handlers_disconnect_by_func(G_OBJECT(cff->win),
 			G_CALLBACK(cf_dock_destroyed_cb), NULL);
 	gtk_widget_destroy(GTK_WIDGET(cff->win));
@@ -289,7 +285,11 @@ static void
 cf_dock_destroyed_cb(GtkWidget *widget, CFFloat *cff) {
 	app.docklet = NULL;
 }
-	
+
+/*
+ * Not currently used.
+ */
+/*
 static void
 cf_dock_setup(CFFloat *ind) {
 	GtkWidget *docklet = app.docklet;
@@ -302,6 +302,7 @@ cf_dock_setup(CFFloat *ind) {
 
 	ind->win = docklet;
 }
+*/
 #endif /* USE_DOCK */
 
 void cf_float_decorate_refresh(void) {

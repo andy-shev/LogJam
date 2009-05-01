@@ -665,7 +665,7 @@ cmdline_load_file(JamDoc *doc, char *filename, GError **err) {
 
 static void
 command_dispatch(Cmdline *cmdline, Command *commands, const char *help, int argc, gchar *argv[]) {
-	JamAccount *acc;
+	JamAccount *acc = NULL;
 	Command *command = NULL;
 	char *cmdname;
 	int i;
