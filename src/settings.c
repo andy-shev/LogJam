@@ -87,6 +87,8 @@ static SettingsWidget settingswidgets[] = {
 #ifndef G_OS_WIN32
 	{ "ui_docklet", &conf.options.docklet,
 		SW_TOGGLE, N_("Add icon to system _tray (for GNOME/KDE/etc. dock)") },
+	{ "ui_start_in_dock", &conf.options.start_in_dock,
+		SW_TOGGLE, N_("Start in system tray") },
 #endif
 
 #ifndef G_OS_WIN32
@@ -460,6 +462,7 @@ uisettings(JamWin *jw) {
 	g_signal_connect(G_OBJECT(button), "toggled",
 			G_CALLBACK(docklet_change_cb), jw);
 	groupedbox_pack(GROUPEDBOX(misc), button, FALSE);
+	groupedbox_pack(GROUPEDBOX(misc), sw_make("ui_start_in_dock"), FALSE);
 #endif /* USE_DOCK */
 
 	return vbox;

@@ -832,8 +832,6 @@ jam_run(JamDoc *doc) {
 	gtk_widget_show(vbox);
 	jam_update_actions(jw);
 
-	gtk_widget_show(GTK_WIDGET(jw));
-
 	/* suck a bunch of events in. */
 	while (gtk_events_pending())
 		gtk_main_iteration();
@@ -853,7 +851,13 @@ jam_run(JamDoc *doc) {
 #ifdef USE_DOCK
 	if (conf.options.docklet)
 		docklet_setup(GTK_WINDOW(jw));
+
+	if (app.docklet) {
+		if (!conf.options.start_in_dock)
+			gtk_widget_show(GTK_WIDGET(jw));
+	} else
 #endif
+	gtk_widget_show(GTK_WIDGET(jw));
 
 	draftentry = jam_load_autosave(jw);
 	if (draftentry) {

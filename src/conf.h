@@ -59,6 +59,7 @@ typedef struct {
 	gboolean allowmultipleinstances;
 	gboolean smartquotes;
 	gboolean showmeta[JAM_VIEW_META_COUNT];
+	gboolean start_in_dock;
 #endif /* HAVE_GTK */
 } Options;
 
