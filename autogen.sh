@@ -494,3 +494,6 @@ if test x$NOCONFIGURE = x; then
 else
     echo Skipping configure process.
 fi
+
+printbold "Generating logjam documentation..."
+cd gen; ./regen.sh; cd $topdir
