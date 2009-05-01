@@ -610,6 +610,12 @@ rfc822_load_entry(const char *key, const char *val, LJEntry *entry) {
 	else if (g_ascii_strcasecmp(key, "time") == 0) {
 		if (entry) lj_ljdate_to_tm(val, &entry->time);
 	}
+	else if (g_ascii_strcasecmp(key, "backdated") == 0) {
+		if (entry && val[0]) {
+			if (g_ascii_strcasecmp(val, "yes") == 0)
+				entry->backdated = TRUE;
+		}
+	}
 	else return FALSE;
 
 	return TRUE;
