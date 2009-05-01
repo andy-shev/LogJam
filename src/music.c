@@ -14,7 +14,7 @@
 const CommandList music_commands[] = {
 	{ N_("None"), NULL },
 	{ "Music Player Daemon", "sh -c \"mpc | grep -v '^volume: .* repeat: .* random: .*'\"" },
-	{ "Rhythmbox", "rhythmbox --print-playing" },
+	{ "Rhythmbox", "rhythmbox-client --print-playing" },
 	{ "XMMS / Beep", "logjam-xmms-client" },
 	{ "amaroK", "dcop amarok player nowPlaying" },
 	{ NULL, NULL }
