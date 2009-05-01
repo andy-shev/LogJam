@@ -74,3 +74,8 @@ void
 html_mark_monospaced(JamDoc *doc) {
 	html_mark_tag(doc, "tt");
 }
+
+void
+html_mark_blockquote(JamDoc *doc) {
+	html_mark_tag(doc, "blockquote");
+}

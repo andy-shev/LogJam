@@ -321,6 +321,10 @@ static void
 menu_html_mark_monospaced(JamWin *jw) {
 	html_mark_monospaced(jw->doc);
 }
+static void
+menu_html_mark_blockquote(JamWin *jw) {
+	html_mark_blockquote(jw->doc);
+}
 
 void manager_dialog(GtkWidget *parent);
 
@@ -435,6 +439,7 @@ static GtkItemFactoryEntry menu_items[] = {
 { N_("/HTML/_Strikeout"),			"<ctl><alt>S", menu_html_mark_strikeout },
 { N_("/HTML/_Monospaced"),			"<ctl><alt>M", menu_html_mark_monospaced },
 { N_("/HTML/_Underline"),			"<ctl><alt>U", menu_html_mark_underline },
+{ N_("/HTML/_Blockquote"),			"<ctl><alt>Q", menu_html_mark_blockquote },
 
 { N_("/_Journal"),                      NULL,          NULL, ACTION_JOURNAL, "<Branch>" },
 { N_("/Journal/_Use Journal"),          NULL,          NULL, ACTION_JOURNAL_USE, NULL },

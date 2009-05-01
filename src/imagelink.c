@@ -13,7 +13,7 @@
 
 typedef struct {
 	GtkWidget *dlg;
-	GtkWidget *url, *get, *width, *height;
+	GtkWidget *url, *get, *width, *height, *tit, *anchor;
 } ImageDlg;
 
 static void
@@ -88,6 +88,14 @@ make_dialog(ImageDlg *idlg, GtkWindow *win) {
 			labelled_box_new_sg(_("_URL:"), idlg->url, sg),
 			FALSE, FALSE, 0);
 
+	idlg->tit = gtk_entry_new();
+	gtk_box_pack_start(GTK_BOX(vbox),
+		labelled_box_new_sg(_("Title:"), idlg->tit, sg),
+		FALSE, FALSE, 0);
+	idlg->anchor = gtk_entry_new();
+	gtk_box_pack_start(GTK_BOX(vbox),
+		labelled_box_new_sg(_("Link:"), idlg->anchor, sg),
+		FALSE, FALSE, 0);
 	hbox = gtk_hbox_new(FALSE, 6);
 
 	dimbox = gtk_vbox_new(FALSE, 6);
@@ -132,6 +140,7 @@ image_dialog_run(GtkWindow *win, JamDoc *doc) {
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	char *sel = NULL, *url = NULL;
+	const gchar *tit, *anch;
 	const char *data;
 	int width = -1, height = -1;
 
@@ -161,9 +170,15 @@ image_dialog_run(GtkWindow *win, JamDoc *doc) {
 
 		url = g_strdup(gtk_entry_get_text(GTK_ENTRY(idlg->url)));
 		xml_escape(&url);
-		gtk_text_buffer_insert(buffer, &start, "<img src='", -1);
+		anch = gtk_entry_get_text(GTK_ENTRY(idlg->anchor));
+		if (anch && *anch) {
+			gtk_text_buffer_insert(buffer, &start, "<a href=\"", -1);
+			gtk_text_buffer_insert(buffer, &start, anch, -1);
+			gtk_text_buffer_insert(buffer, &start, "\">", -1);
+		}
+		gtk_text_buffer_insert(buffer, &start, "<img src=\"", -1);
 		gtk_text_buffer_insert(buffer, &start, url, -1);
-		gtk_text_buffer_insert(buffer, &start, "'", -1);
+		gtk_text_buffer_insert(buffer, &start, "\"", -1);
 		g_free(url);
 
 		data = gtk_entry_get_text(GTK_ENTRY(idlg->width));
@@ -182,7 +197,18 @@ image_dialog_run(GtkWindow *win, JamDoc *doc) {
 			gtk_text_buffer_insert(buffer, &start, data, -1);
 			g_free(data);
 		}
+
+		tit = gtk_entry_get_text(GTK_ENTRY(idlg->tit));
+		if (tit && *tit) {
+			gtk_text_buffer_insert(buffer, &start, " title=\"", -1);
+			gtk_text_buffer_insert(buffer, &start, tit, -1);
+			gtk_text_buffer_insert(buffer, &start, "\"", -1);
+		}
+
 		gtk_text_buffer_insert(buffer, &start, " />", -1);
+		if (anch && *anch) {
+			gtk_text_buffer_insert(buffer, &start, "</a>", -1);
+		}
 	}
 
 	g_free(sel);
