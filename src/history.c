@@ -368,9 +368,13 @@ hc_show_current(history_calendar_dlg *hcdlg) {
 
 static gint
 hc_list_click_idle_cb(gpointer d) {
+#if defined (G_OS_WIN32)
 	gdk_threads_enter();
+#endif
 	hc_show_current(d);
+#if defined (G_OS_WIN32)
 	gdk_threads_leave();
+#endif
 	return FALSE;
 }
 	

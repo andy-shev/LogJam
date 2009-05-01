@@ -177,13 +177,13 @@ setup_locales() {
 
 static void
 setup_glibgdk() {
-#ifdef HAVE_GTK
+#if defined (HAVE_GTK) && defined (G_OS_WIN32)
 	/* calls to these thread inits must happen before any other
 	 * g* calls. */
 	if (!g_thread_supported()) g_thread_init(NULL);
 	gdk_threads_init();
 	gdk_threads_enter();
-#endif /* HAVE_GTK */
+#endif /* HAVE_GTK && G_OS_WIN32 */
 
 	g_type_init();
 

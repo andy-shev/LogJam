@@ -171,6 +171,7 @@ net_post_mainloop(const char *url, GSList *headers, GString *post,
 		GString *response;
 		GError *err = NULL;
 
+		if (!g_thread_supported ()) g_thread_init (NULL);
 		response = net_post_blocking(url, headers, post, fork_cb, &forkdata, &err);
 		if (response == NULL) {
 			int len = strlen(err->message);
