@@ -63,7 +63,7 @@ LJ_PKG_ARG_WITH(sqlite3, [SQLITE3],
 LJ_PKG_ARG_WITH(libsoup, [LIBSOUP],
   AC_HELP_STRING([--with-libsoup],
                  [use libsoup network backend]),
-  libsoup-2.2)
+  libsoup-2.4)
 
 AC_MSG_CHECKING(whether to use gtk)
 if test "$with_gtk" = "yes" ; then

@@ -22,18 +22,16 @@ typedef struct {
 } CallbackInfo;
 
 static void
-got_chunk_cb(SoupMessage *msg, CallbackInfo *info) {
+got_chunk_cb(SoupMessage *msg, SoupBuffer *chunk, CallbackInfo *info) {
 	NetStatusProgress progress = {0};
 	const char* clen;
 
 	if (info->total == 0) {
-		clen = soup_message_get_header(msg->response_headers,
-				"Content-length");
-		if (!clen)
+		info->total = soup_message_headers_get_content_length(msg->response_headers);
+		if (info->total == 0)
 			return;
-		info->total = atoi(clen);
 	}
-	info->current += msg->response.length;
+	info->current += chunk->length;
 
 	progress.current = info->current;
 	progress.total = info->total;
@@ -44,31 +42,27 @@ GString*
 net_post_blocking(const char *url, GSList *headers, GString *post,
                   NetStatusCallback cb, gpointer data,
                   GError **err) {
-	SoupUri* suri = NULL;
+	SoupURI* suri = NULL;
 	SoupMessage *req = NULL;
-	SoupSocket *sock = NULL;
+	SoupSession *session = NULL;
 	guint status = 0;
 	GString *response = NULL;
 	CallbackInfo info = { cb, data, 0, 0 };
 
-	suri = soup_uri_new(conf.options.useproxy ? conf.proxy : url);
-	sock = soup_socket_client_new_sync(suri->host, suri->port, NULL, &status);
-	if (status != SOUP_STATUS_OK) {
-		g_set_error(err, NET_ERROR, NET_ERROR_GENERIC,
-				soup_status_get_phrase(status));
-		goto out;
-	}
-	g_free(suri);
-	suri = NULL;
+	if (conf.options.useproxy) {
+		suri = soup_uri_new(conf.proxy);
+		if (conf.options.useproxyauth) {
+			soup_uri_set_user(suri, conf.proxyuser);
+			soup_uri_set_password(suri, conf.proxypass);
+		}
+		session = soup_session_sync_new_with_options (
+			SOUP_SESSION_PROXY_URI, suri,
+			NULL);
+		soup_uri_free(suri);
+	} else
+		session = soup_session_sync_new ();
 
-	suri = soup_uri_new(url);
-	if (conf.options.useproxy && conf.options.useproxyauth) {
-		g_free(suri->user);
-		g_free(suri->passwd);
-		suri->user = g_strdup(conf.proxyuser);
-		suri->passwd = g_strdup(conf.proxypass);
-	}
-	req = soup_message_new_from_uri(post ? "POST" : "GET", suri);
+	req = soup_message_new(post ? "POST" : "GET", url);
 	g_signal_connect(G_OBJECT(req), "got-chunk",
 			G_CALLBACK(got_chunk_cb), &info);
 	for (; headers; headers = headers->next) {
@@ -77,31 +71,27 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 		 * a bit. */
 		char *colonpos = strchr(header, ':');
 		*colonpos = 0;
-		soup_message_add_header(req->request_headers, header, colonpos+1);
+		soup_message_headers_append(req->request_headers, header, colonpos+1);
 		*colonpos = ':';
 	}
 	soup_message_set_request(req, "application/x-www-form-urlencoded",
-			SOUP_BUFFER_USER_OWNED, post->str, post->len);
+			SOUP_MEMORY_TEMPORARY, post? post->str : NULL, post? post->len : 0);
 
-	soup_message_send_request(req, sock, conf.options.useproxy);
+	status = soup_session_send_message(session, req);
 	if (status != SOUP_STATUS_OK) {
 		g_set_error(err, NET_ERROR, NET_ERROR_GENERIC,
-				soup_status_get_phrase(status));
+			    req->reason_phrase);
 		goto out;
 	}
 
-	response = g_string_new_len(req->response.body, req->response.length);
+	response = g_string_new_len(req->response_body->data, req->response_body->length);
 
 	if (conf.options.netdump) 
 		fprintf(stderr, _("Response: [%s]\n"), response->str);
 
 out:
-	if (suri) soup_uri_free(suri);
-	if (sock) {
-		soup_socket_disconnect(sock);
-		g_object_unref(G_OBJECT(sock));
-	}
 	if (req) g_object_unref(G_OBJECT(req));
+	if (session) g_object_unref(G_OBJECT(session));
 
 	return response;
 }
