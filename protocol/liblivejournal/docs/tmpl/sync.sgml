@@ -1,0 +1,87 @@
+<!-- ##### SECTION Title ##### -->
+sync
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM LJSyncProgress ##### -->
+<para>
+
+</para>
+
+@LJ_SYNC_PROGRESS_ITEMS: 
+@LJ_SYNC_PROGRESS_ENTRIES: 
+
+<!-- ##### USER_FUNCTION LJPutLastSyncCallback ##### -->
+<para>
+
+</para>
+
+@Param1: 
+@Param2: 
+@Param3: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION LJRunVerbCallback ##### -->
+<para>
+
+</para>
+
+@Param1: 
+@Param2: 
+@Param3: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION LJPutEntryCallback ##### -->
+<para>
+
+</para>
+
+@Param1: 
+@Param2: 
+@Param3: 
+@Returns: 
+
+
+<!-- ##### USER_FUNCTION LJSyncProgressCallback ##### -->
+<para>
+
+</para>
+
+@Param1: 
+@Param2: 
+@cur: 
+@max: 
+@date: 
+
+
+<!-- ##### FUNCTION lj_sync_run ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@lastsync: 
+@put_lastsync_cb: 
+@run_verb_cb: 
+@put_entry_cb: 
+@sync_progress_cb: 
+@user_data: 
+@warnings: 
+@err: 
+@Returns: 
+
+

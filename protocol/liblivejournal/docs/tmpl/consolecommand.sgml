@@ -1,0 +1,55 @@
+<!-- ##### SECTION Title ##### -->
+consolecommand
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM LJConsoleLineType ##### -->
+<para>
+
+</para>
+
+@LJ_CONSOLE_LINE_TYPE_UNKNOWN: 
+@LJ_CONSOLE_LINE_TYPE_INFO: 
+@LJ_CONSOLE_LINE_TYPE_ERROR: 
+
+<!-- ##### TYPEDEF LJConsoleLine ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### TYPEDEF LJConsoleCommand ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_consolecommand_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@command: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_consolecommand_free ##### -->
+<para>
+
+</para>
+
+@consolecommand: 
+
+

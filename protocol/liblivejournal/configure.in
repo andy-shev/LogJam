@@ -1,0 +1,81 @@
+AC_PREREQ(2.52)
+AC_INIT(liblivejournal,0.1.0,evan@livejournal.com)
+dnl If we were building liblivejournal independently, this would be useful:
+dnl don't use parent for auxfiles; allows separate dist
+dnl AC_CONFIG_AUX_DIR([.])
+AC_CANONICAL_SYSTEM
+AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION, [dist-bzip2])
+AC_CONFIG_SRCDIR(livejournal/livejournal.h)
+AM_CONFIG_HEADER(config.h)
+
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_DISABLE_SHARED
+AC_PROG_LIBTOOL
+AC_CACHE_SAVE
+
+AC_CHECK_FUNCS(timegm)
+
+MODULES="glib-2.0 gobject-2.0"
+LJ_PKG_ARG_WITH(libxml, [LIBXML],
+  AC_HELP_STRING([--with-libxml],
+                 [compile with libXml support (default autodetect)]),
+  libxml-2.0)
+PKG_CHECK_MODULES(LIVEJOURNAL, $MODULES)
+AC_SUBST(LIVEJOURNAL_CFLAGS)
+AC_SUBST(LIVEJOURNAL_LIBS)
+
+dnl *** tests.
+AC_ARG_ENABLE(tests,
+  AC_HELP_STRING([--enable-tests],
+                 [enable tests]),
+  , [enable_tests=no])
+if test "$enable_tests" = "yes"; then
+	AC_PATH_PROG(CURL_CONFIG, curl-config, no)
+	if test "$CURL_CONFIG" = "no" ; then
+		AC_MSG_ERROR([the curl-config script installed by libcurl could not be found.  libcurl is required for tests.])
+	fi
+	CURL_CFLAGS=`curl-config --cflags`
+	CURL_LIBS=`curl-config --libs`
+fi
+AC_SUBST(CURL_CFLAGS)
+AC_SUBST(CURL_LIBS)
+AM_CONDITIONAL(ENABLE_TESTS, test "$enable_tests" = "yes")
+
+dnl *** docs.
+dnl AC_ARG_WITH(html-dir, [  --with-html-dir=PATH path to installed docs ])
+dnl  
+dnl if test "x$with_html_dir" = "x" ; then
+dnl   HTML_DIR='${datadir}/gtk-doc/html'
+dnl else
+dnl   HTML_DIR=$with_html_dir
+dnl fi
+dnl  
+dnl AC_SUBST(HTML_DIR)
+dnl  
+dnl gtk_doc_min_version=1.0
+dnl AC_MSG_CHECKING([gtk-doc version >= $gtk_doc_min_version])
+dnl if pkg-config --atleast-version=$gtk_doc_min_version gtk-doc; then
+dnl   AC_MSG_RESULT(yes)
+dnl   GTKDOC=true
+dnl else
+dnl   AC_MSG_RESULT(no)
+dnl   GTKDOC=false
+dnl fi
+dnl  
+dnl dnl Let people disable the gtk-doc stuff.
+dnl AC_ARG_ENABLE(gtk-doc, AC_HELP_STRING([--enable-gtk-doc],[Use gtk-doc to build documentation [default=no]]), enable_gtk_doc="$enableval", enable_gtk_doc=auto)
+dnl  
+dnl if test x$enable_gtk_doc = xauto ; then
+dnl   if test x$GTKDOC = xtrue ; then
+dnl     enable_gtk_doc=yes
+dnl   else
+dnl     enable_gtk_doc=no
+dnl   fi
+dnl fi
+dnl  
+dnl AM_CONDITIONAL(ENABLE_GTK_DOC, test x$enable_gtk_doc = xyes)
+
+AC_CONFIG_FILES(livejournal/Makefile tests/Makefile Makefile)
+AC_OUTPUT
+

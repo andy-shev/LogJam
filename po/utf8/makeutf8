@@ -1,0 +1,6 @@
+#!//bin/sh
+
+msginit -i logjam.pot --no-translator -l en -o - 2>/dev/null | \
+  msgconv -t UTF-8 | \
+  msgfilter sed -f utf8/utf8.sed 2>/dev/null > \
+  en_US.UTF-8.po

@@ -1,0 +1,2624 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2003 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2003.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-08-24 09:12-0700\n"
+"PO-Revision-Date: 2003-12-07 17:53-0800\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/logjam.desktop.in.h:1 ../src/docklet.c:67 ../src/init.c:190
+msgid "LogJam"
+msgstr "LogJam"
+
+#: ../data/logjam.desktop.in.h:2
+msgid "Manage journal/weblog"
+msgstr "Manage journal/weblog"
+
+#: ../src/about.c:63
+#, c-format
+msgid ""
+"<b><big>LogJam %s</big></b>\n"
+"<small>Copyright (C) 2000-2004 Evan Martin</small>"
+msgstr ""
+"<b><big>LogJam %s</big></b>\n"
+"<small>Copyright © 2000-2004 Evan Martin</small>"
+
+#: ../src/about.c:157
+msgid "About LogJam"
+msgstr "About LogJam"
+
+#: ../src/about.c:172
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or\n"
+"(at your option) any later version."
+msgstr ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or\n"
+"(at your option) any later version."
+
+#: ../src/about.c:180
+msgid "LogJam was made with the help of many people, including:"
+msgstr "LogJam was made with the help of many people, including:"
+
+#: ../src/account.c:144
+#, c-format
+msgid "host %s not found in conf"
+msgstr "host %s not found in conf"
+
+#: ../src/account.c:146
+#, c-format
+msgid "user %s not found in server %s"
+msgstr "user %s not found in server %s"
+
+#: ../src/checkfriends.c:280
+msgid "Too many network errors; checking friends disabled."
+msgstr "Too many network errors; checking friends disabled."
+
+#: ../src/checkfriends.c:324
+#, c-format
+msgid "Can't unlink %s: %s."
+msgstr "Can’t unlink %s: %s."
+
+#: ../src/checkfriends.c:360
+#, c-format
+msgid "Error opening %s for write: %s."
+msgstr "Error opening %s for write: %s."
+
+#: ../src/checkfriends.c:393
+#, c-format
+msgid ""
+"Maximum error count reached in contacting server.\n"
+"Run \"%s --checkfriends=purge\" and try again.\n"
+msgstr ""
+"Maximum error count reached in contacting server.\n"
+"Run “%s --checkfriends=purge” and try again.\n"
+
+#: ../src/checkfriends.c:400
+msgid "Request rate exceeded. Slow down.\n"
+msgstr "Request rate exceeded. Slow down.\n"
+
+#: ../src/checkfriends.c:405
+#, c-format
+msgid ""
+"Read your friends page, then run\n"
+"\"%s checkfriends purge\".\n"
+msgstr ""
+"Read your friends page, then run\n"
+"“%s --checkfriends=purge”\n"
+
+#: ../src/checkfriends-gtk.c:28
+msgid ""
+"The Check Friends feature is enabled by right-clicking on this button and "
+"selecting \"Check friends view for new entries\". Once you do so, you will "
+"be notified every time one of your friends updates their journal with a new "
+"entry.\n"
+"\n"
+"Once this happens, the indicator will turn red. You can then read your "
+"friends page (as a convenience, double-clicking on the indicator will take "
+"you there). Click on the indicator once you've read the new entries to "
+"resume monitoring for newer entries.\n"
+"\n"
+msgstr ""
+"The Check Friends feature is enabled by right-clicking on this button and "
+"selecting “Check friends view for new entries”. Once you do so, you will be "
+"notified every time one of your friends updates their journal with a new "
+"entry.\n"
+"\n"
+"Once this happens, the indicator will turn red. You can then read your "
+"friends page (as a convenience, double-clicking on the indicator will take "
+"you there). Click on the indicator once you’ve read the new entries to "
+"resume monitoring for newer entries.\n"
+"\n"
+
+#: ../src/checkfriends-gtk.c:52
+msgid "Check Friends disabled"
+msgstr "Check Friends disabled"
+
+#: ../src/checkfriends-gtk.c:57
+msgid "No new entries in your friends view"
+msgstr "No new entries in your friends view"
+
+#: ../src/checkfriends-gtk.c:61
+msgid "There are new entries in your friends view"
+msgstr "There are new entries in your friends view"
+
+#: ../src/checkfriends-gtk.c:110
+msgid "_Check friends view for new entries"
+msgstr "_Check friends view for new entries"
+
+#: ../src/checkfriends-gtk.c:136
+msgid "_Open friends list in browser"
+msgstr "_Open friends list in browser"
+
+#: ../src/cmdline.c:84
+#, c-format
+msgid ""
+"LogJam %s\n"
+"Copyright (C) 2000-2004 Evan Martin\n"
+"\n"
+msgstr ""
+"LogJam %s\n"
+"Copyright © 2000-2004 Evan Martin\n"
+"\n"
+
+#: ../src/cmdline.c:106
+msgid "Subcommands:\n"
+msgstr "Subcommands:\n"
+
+#: ../src/cmdline.c:114
+#, c-format
+msgid "Use:  %s [options] [command [commandargs]]\n"
+msgstr "Use:  %s [options] [command [commandargs]]\n"
+
+#: ../src/cmdline.c:118
+msgid ""
+"If no subcommand is provided, the default behavior is to load the GUI.\n"
+msgstr ""
+"If no subcommand is provided, the default behavior is to load the GUI.\n"
+
+#: ../src/cmdline.c:128
+msgid "Also, GTK+ command line options (such as --display) can be used.\n"
+msgstr "Also, GTK+ command line options (such as --display) can be used.\n"
+
+#. unknown option character.
+#. missing option character.
+#: ../src/cmdline.c:154
+msgid "Unknown or missing option character\n"
+msgstr "Unknown or missing option character\n"
+
+#: ../src/cmdline.c:197
+msgid "Blogger accounts do not have a console interface.\n"
+msgstr "Blogger accounts do not have a console interface.\n"
+
+#: ../src/cmdline.c:203
+msgid "Must specify a console command.  Try \"help\".\n"
+msgstr "Must specify a console command.  Try \"help\".\n"
+
+#: ../src/cmdline.c:246
+msgid "Success.\n"
+msgstr "Success.\n"
+
+#: ../src/cmdline.c:261
+msgid "Checkfriends is only supported by LiveJournal accounts.\n"
+msgstr "Checkfriends is only supported by LiveJournal accounts.\n"
+
+#: ../src/cmdline.c:275
+#, c-format
+msgid "Checkfriends information for %s purged.\n"
+msgstr "Checkfriends information for %s purged.\n"
+
+#: ../src/cmdline.c:279
+#, c-format
+msgid "Unknown argument %s to --checkfriends\n"
+msgstr "Unknown argument %s to --checkfriends\n"
+
+#: ../src/cmdline.c:294
+msgid "Sync is only supported by LiveJournal accounts.\n"
+msgstr "Sync is only supported by LiveJournal accounts.\n"
+
+#: ../src/cmdline.c:322
+#, c-format
+msgid "Specify at least one itemid or 'latest'.\n"
+msgstr "Specify at least one itemid or ‘latest’.\n"
+
+#: ../src/cmdline.c:340
+#, c-format
+msgid "expected itemid, got %s\n"
+msgstr "expected itemid, got %s\n"
+
+#: ../src/cmdline.c:348
+#, c-format
+msgid "entry %d not found\n"
+msgstr "entry %d not found\n"
+
+#: ../src/cmdline.c:429
+msgid "Specify a regexp to match\n"
+msgstr "Specify a regexp to match\n"
+
+#: ../src/cmdline.c:439
+#, c-format
+msgid "Regexp error: %s.\n"
+msgstr "Regexp error: %s.\n"
+
+#: ../src/cmdline.c:456
+msgid "Regexp error: out of memory.\n"
+msgstr "Regexp error: out of memory.\n"
+
+#: ../src/cmdline.c:487
+msgid "LogJam was compiled without regular expression support.\n"
+msgstr "LogJam was compiled without regular expression support.\n"
+
+#: ../src/cmdline.c:510
+#, c-format
+msgid "Offline journal for '%s':\n"
+msgstr "Offline journal for ‘%s’:\n"
+
+#: ../src/cmdline.c:514
+#, c-format
+msgid "  Last synced: %s.\n"
+msgstr "  Last synced: %s.\n"
+
+#: ../src/cmdline.c:517
+#, c-format
+msgid "  Entry count: %d.\n"
+msgstr "  Entry count: %d.\n"
+
+#: ../src/cmdline.c:518
+#, c-format
+msgid "  Latest itemid: %d.\n"
+msgstr "  Latest itemid: %d.\n"
+
+#: ../src/cmdline.c:530
+msgid "Rebuilding index..."
+msgstr "Rebuilding index..."
+
+#: ../src/cmdline.c:533
+#, c-format
+msgid " ERROR: %s.\n"
+msgstr " ERROR: %s.\n"
+
+#: ../src/cmdline.c:537 ../src/sync.c:233
+msgid "done.\n"
+msgstr "done.\n"
+
+#: ../src/cmdline.c:566
+#, fuzzy
+msgid "Error: specify a user.\n"
+msgstr "Error:  Must specify account.\n"
+
+#: ../src/cmdline.c:628
+#, c-format
+msgid "Unknown account '%s'.\n"
+msgstr "Unknown account ‘%s’.\n"
+
+#: ../src/cmdline.c:636
+msgid "Password: "
+msgstr "Password: "
+
+#: ../src/cmdline.c:691
+#, c-format
+msgid "Error: Unknown action '%s'.\n"
+msgstr "Error: Unknown action ‘%s’.\n"
+
+#: ../src/cmdline.c:699
+msgid "Error:  Must specify account.\n"
+msgstr "Error:  Must specify account.\n"
+
+#: ../src/cmdline_data.h:18
+msgid "Efficiently check friends list for updates."
+msgstr "Efficiently check friends list for updates."
+
+#: ../src/cmdline_data.h:19
+msgid "Run a command on the LiveJournal console."
+msgstr "Run a command on the LiveJournal console."
+
+#: ../src/cmdline_data.h:20
+msgid "Post event immediately."
+msgstr "Post event immediately."
+
+#: ../src/cmdline_data.h:21
+msgid "Manage offline copies of your journal."
+msgstr "Manage offline copies of your journal."
+
+#: ../src/cmdline_data.h:22
+msgid "Manage user list."
+msgstr ""
+
+#: ../src/cmdline_data.h:46
+msgid "Reset checkfriends information."
+msgstr "Reset checkfriends information."
+
+#: ../src/cmdline_data.h:111
+msgid "Synchronize offline journal."
+msgstr "Synchronize offline journal."
+
+#: ../src/cmdline_data.h:112
+msgid "Show entries from local store."
+msgstr "Show entries from local store."
+
+#: ../src/cmdline_data.h:113
+msgid "Find entries by regexp."
+msgstr "Find entries by regexp."
+
+#: ../src/cmdline_data.h:114
+msgid "Show a summary of an offline store."
+msgstr "Show a summary of an offline store."
+
+#: ../src/cmdline_data.h:115
+msgid "Rebuild the index an offline store."
+msgstr "Rebuild the index an offline store."
+
+#: ../src/cmdline_data.h:218
+msgid "Add a user to the user list."
+msgstr ""
+
+#: ../src/conf.c:88
+msgid "new host name is invalid"
+msgstr "new host name is invalid"
+
+#: ../src/conf.c:100
+#, c-format
+msgid "renaming '%s' to '%s': %s"
+msgstr "renaming ‘%s’ to ‘%s’: %s"
+
+#: ../src/conf_xml.c:79
+#, c-format
+msgid "error parsing configuration file.\n"
+msgstr "error parsing configuration file.\n"
+
+#: ../src/conf_xml.c:87
+#, c-format
+msgid "empty document.\n"
+msgstr "empty document.\n"
+
+#: ../src/console.c:70
+msgid "Running command: '"
+msgstr "Running command: ’"
+
+#: ../src/console.c:76
+msgid "Running Command"
+msgstr "Running Command"
+
+#: ../src/console.c:78
+msgid "Error running command.\n"
+msgstr "Error running command.\n"
+
+#: ../src/console.c:120
+msgid "LiveJournal Console"
+msgstr "LiveJournal Console"
+
+#: ../src/console.c:137
+msgid " _Submit "
+msgstr " _Submit "
+
+#: ../src/console.c:175
+msgid "LiveJournal console ready.\n"
+msgstr "LiveJournal console ready.\n"
+
+#: ../src/datesel.c:176
+msgid "Select Date"
+msgstr "Select Date"
+
+#: ../src/datesel.c:190
+msgid "_Time:"
+msgstr "_Time:"
+
+#: ../src/datesel.c:218
+msgid "Use _current date/time"
+msgstr "Use _current date/time"
+
+#: ../src/datesel.c:222
+msgid "Entry is _backdated"
+msgstr ""
+
+#: ../src/docklet.c:49 ../src/settings.c:738
+msgid "Check Friends"
+msgstr "Check Friends"
+
+#: ../src/draftstore_ui.c:55 ../src/history_recent.c:177
+msgid "Date"
+msgstr "Date"
+
+#: ../src/draftstore_ui.c:62 ../src/history_recent.c:183
+msgid "Subject"
+msgstr "Subject"
+
+#: ../src/draftstore_ui.c:82 ../src/jam.c:345 ../src/jam.c:390
+msgid "Delete"
+msgstr "Delete"
+
+#: ../src/draftstore_ui.c:82
+msgid "Delete entry?"
+msgstr "Delete entry?"
+
+#: ../src/draftstore_ui.c:104 ../src/settings.c:398
+msgid "Entries"
+msgstr "Entries"
+
+#: ../src/friendedit.c:85
+msgid "Select Background Color"
+msgstr "Select Background Color"
+
+#: ../src/friendedit.c:90
+msgid "Select Foreground Color"
+msgstr "Select Foreground Color"
+
+#: ../src/friendedit.c:99
+msgid "Adding Friend"
+msgstr "Adding Friend"
+
+#: ../src/friendedit.c:153
+msgid "Edit Friend"
+msgstr "Edit Friend"
+
+#: ../src/friendedit.c:154
+msgid "Add This Friend"
+msgstr "Add This Friend"
+
+#: ../src/friendedit.c:154
+msgid "Add a Friend"
+msgstr "Add a Friend"
+
+#: ../src/friendedit.c:157
+msgid "Change"
+msgstr "Change"
+
+#: ../src/friendedit.c:157
+msgid "Add"
+msgstr "Add"
+
+#: ../src/friendedit.c:176
+msgid "Friend's _username:"
+msgstr "Friend’s _username:"
+
+#: ../src/friendedit.c:185
+msgid "_Text color:"
+msgstr "_Text color:"
+
+#: ../src/friendedit.c:194
+msgid "_Background color:"
+msgstr "_Background color:"
+
+#: ../src/friendgroupedit.c:50
+msgid "Modifying Friend Group"
+msgstr "Modifying Friend Group"
+
+#: ../src/friendgroupedit.c:91
+msgid "Edit Friend Group"
+msgstr "Edit Friend Group"
+
+#: ../src/friendgroupedit.c:91
+msgid "New Friend Group"
+msgstr "New Friend Group"
+
+#: ../src/friendgroupedit.c:105
+msgid "Group ID:"
+msgstr "Group ID:"
+
+#: ../src/friendgroupedit.c:109
+msgid "_Group Name:"
+msgstr "_Group name:"
+
+#: ../src/friendgroups.c:48
+msgid "Couldn't find free friend group(?)"
+msgstr "Couldn’t find free friend group(?)"
+
+#: ../src/friendgroups.c:158
+msgid "Removing Friend Group"
+msgstr "Removing Friend Group"
+
+#: ../src/friendgroups.c:255 ../src/friendgroups.c:514
+msgid "Friend Groups"
+msgstr "Friend Groups"
+
+#: ../src/friendgroups.c:335
+msgid "Modifying Friends"
+msgstr "Modifying Friends"
+
+#: ../src/friendgroups.c:377
+msgid "Add new friend group"
+msgstr "Add new friend group"
+
+#: ../src/friendgroups.c:378
+msgid ""
+"Use this to add a friend group. These are useful for reading only a specific "
+"protion of your friends list. You could, for example, use this to filter out "
+"high-volume communities that you like to read occasionally but not all the "
+"time. If you add a friend group here, you can later use it with custom "
+"security modes, and also check for new entries only from this group."
+msgstr ""
+"Use this to add a friend group. These are useful for reading only a specific "
+"protion of your friends list. You could, for example, use this to filter out "
+"high-volume communities that you like to read occasionally but not all the "
+"time. If you add a friend group here, you can later use it with custom "
+"security modes, and also check for new entries only from this group."
+
+#: ../src/friendgroups.c:388
+msgid "Edit group"
+msgstr "Edit group"
+
+#: ../src/friendgroups.c:389
+msgid ""
+"Use this to edit a friend group. You can modify its name and whether other "
+"people can see you have this group."
+msgstr ""
+"Use this to edit a friend group. You can modify its name and whether other "
+"people can see you have this group."
+
+#: ../src/friendgroups.c:396
+msgid "Remove friend group"
+msgstr "Remove friend group"
+
+#: ../src/friendgroups.c:397
+msgid "Use this to erase this friend group from your list of friend groups."
+msgstr "Use this to erase this friend group from your list of friend groups."
+
+#: ../src/friendgroups.c:453 ../src/friendgroups.c:538
+msgid "Included"
+msgstr "Included"
+
+#: ../src/friendgroups.c:460
+msgid "Remove friend from group"
+msgstr "Remove friend from group"
+
+#: ../src/friendgroups.c:461
+msgid ""
+"Click here to remove the currently selected user from the list of users "
+"included in this friend group. This does not stop this user from being "
+"listed as your friend; it only removes them from this specific group."
+msgstr ""
+"Click here to remove the currently selected user from the list of users "
+"included in this friend group. This does not stop this user from being "
+"listed as your friend; it only removes them from this specific group."
+
+#: ../src/friendgroups.c:481 ../src/friendgroups.c:539
+msgid "Excluded"
+msgstr "Excluded"
+
+#: ../src/friendgroups.c:487
+msgid "Add friend to group"
+msgstr "Add friend to group"
+
+#: ../src/friendgroups.c:488
+msgid ""
+"Click here to include this user in the currently selected friend group. If "
+"you have old protected entries with custom security set to this group, this "
+"means among other things that they will now have access to these entries."
+msgstr ""
+"Click here to include this user in the currently selected friend group. If "
+"you have old protected entries with custom security set to this group, this "
+"means among other things that they will now have access to these entries."
+
+#: ../src/friends.c:125
+#, c-format
+msgid ""
+"Total Connections: %d\n"
+"\n"
+"Inclusive:\n"
+"Friends: %d\n"
+"Friend Of: %d\n"
+"Ratio: %d%%\n"
+"\n"
+"Exclusive:\n"
+"Friends: %d\n"
+"Friend Of: %d\n"
+"Friend Both: %d\n"
+msgstr ""
+"Total Connections: %d\n"
+"\n"
+"Inclusive:\n"
+"Friends: %d\n"
+"Friend Of: %d\n"
+"Ratio: %d%%\n"
+"\n"
+"Exclusive:\n"
+"Friends: %d\n"
+"Friend Of: %d\n"
+"Friend Both: %d\n"
+
+#: ../src/friends.c:172
+msgid "Loading Friends"
+msgstr "Loading Friends"
+
+#: ../src/friends.c:232
+msgid "/_Friends"
+msgstr "/_Friends"
+
+#: ../src/friends.c:233
+msgid "/Friends/_Friend Groups..."
+msgstr "/Friends/_Friend Groups..."
+
+#: ../src/friends.c:234
+msgid "/Friends/sep"
+msgstr "/Friends/sep"
+
+#: ../src/friends.c:235
+msgid "/Friends/_Close"
+msgstr "/Friends/_Close"
+
+#: ../src/friends.c:238 ../src/menu.c:385
+msgid "/_Edit"
+msgstr "/_Edit"
+
+#: ../src/friends.c:239
+msgid "/Edit/_Add Friend..."
+msgstr "/Edit/_Add Friend..."
+
+#: ../src/friends.c:241
+msgid "/Edit/_Edit Friend..."
+msgstr "/Edit/_Edit Friend..."
+
+#: ../src/friends.c:243
+msgid "/Edit/_Remove Friend"
+msgstr "/Edit/_Remove Friend"
+
+#: ../src/friends.c:245
+msgid "/Edit/sep"
+msgstr "/Edit/sep"
+
+#: ../src/friends.c:246
+msgid "/Edit/Open _Journal"
+msgstr "/Edit/Open _Journal"
+
+#: ../src/friends.c:248
+msgid "/Edit/Open _User Info"
+msgstr "/Edit/Open _User Info"
+
+#: ../src/friends.c:251
+msgid "/_Tools"
+msgstr "/_Tools"
+
+#: ../src/friends.c:252
+msgid "/Tools/Hide _Statistics"
+msgstr "/Tools/Hide _Statistics"
+
+#: ../src/friends.c:253
+msgid "/Tools/Export..."
+msgstr "/Tools/Export..."
+
+#: ../src/friends.c:488
+msgid "Deleting Friend"
+msgstr "Deleting Friend"
+
+#: ../src/friends.c:755
+msgid "Link"
+msgstr "Link"
+
+#: ../src/friends.c:768 ../src/link.c:248
+msgid "User"
+msgstr "User"
+
+#: ../src/friends.c:787
+msgid "Full Name"
+msgstr "Full Name"
+
+#: ../src/friends.c:821
+msgid "<b>Statistics</b>"
+msgstr "<b>Statistics</b>"
+
+#: ../src/friends.c:828
+msgid "Include Communities"
+msgstr "Include Communities"
+
+#: ../src/friends.c:911
+msgid "All Journal Types"
+msgstr "All Journal Types"
+
+#: ../src/friends.c:914
+msgid "Users"
+msgstr "Users"
+
+#: ../src/friends.c:916
+msgid "Communitites"
+msgstr "Communitites"
+
+#: ../src/friends.c:924
+msgid "All Connections"
+msgstr "All Connections"
+
+#: ../src/friends.c:927
+msgid "Two-way Friends"
+msgstr "Two-way Friends"
+
+#: ../src/friends.c:929
+msgid "One-way Friends"
+msgstr "One-way Friends"
+
+#: ../src/friends.c:931
+msgid "One-way Friendofs"
+msgstr "One-way Friendofs"
+
+#: ../src/friends.c:938
+msgid "Show:"
+msgstr "Show:"
+
+#: ../src/friends.c:957
+msgid "Friends Manager"
+msgstr "Friends Manager"
+
+#: ../src/friends.c:993
+#, c-format
+msgid "Unable to open %s: %s\n"
+msgstr "Unable to open %s: %s\n"
+
+#: ../src/friends.c:1029
+msgid "Select output file"
+msgstr "Select output file"
+
+#: ../src/friends.c:1035
+msgid "  Suggest Filename  "
+msgstr "  Suggest Filename  "
+
+#: ../src/get_cmd_out.c:99 ../src/get_cmd_out.c:115
+msgid "Command is running..."
+msgstr ""
+
+#: ../src/get_cmd_out.c:151 ../src/get_cmd_out.c:179
+#, fuzzy, c-format
+msgid "command failed: %s"
+msgstr "Command _line:"
+
+#. Set err->code to 127 so caller will know that command
+#. * was not found. It is probably a spelling error
+#. * in command string and in this case caller should not
+#. * close a dialog asking for command name, but rather let
+#. * the user correct it (or click "Cancel").
+#.
+#: ../src/get_cmd_out.c:191
+#, fuzzy
+msgid "command not found"
+msgstr "entry %d not found\n"
+
+#: ../src/getopt.c:693
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: option ‘%s’ is ambiguous\n"
+
+#: ../src/getopt.c:718
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: option ‘--%s’ doesn’t allow an argument\n"
+
+#: ../src/getopt.c:723
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: option ‘%c%s’ doesn’t allow an argument\n"
+
+#: ../src/getopt.c:741 ../src/getopt.c:914
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: option ‘%s’ requires an argument\n"
+
+#. --option
+#: ../src/getopt.c:770
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: unrecognized option ‘--%s’\n"
+
+#. +option or -option
+#: ../src/getopt.c:774
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: unrecognized option ‘%c%s’\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/getopt.c:800
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: illegal option -- %c\n"
+
+#: ../src/getopt.c:803
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: invalid option -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/getopt.c:833 ../src/getopt.c:963
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: option requires an argument -- %c\n"
+
+#: ../src/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: option ‘-W %s’ is ambiguous\n"
+
+#: ../src/getopt.c:898
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: option ‘-W %s’ doesn’t allow an argument\n"
+
+#: ../src/helptext.h:3
+msgid ""
+"Commands:\n"
+"  post            Post event immediately.\n"
+"  sync            Synchronize offline journal.\n"
+"  checkfriends    Efficiently check friends list for updates.\n"
+"  cat             Dump entries to stdout.\n"
+"  grep            Grep through entries.\n"
+"  reindex         Rebuild offline index.\n"
+msgstr ""
+"Commands:\n"
+"  post            Post event immediately.\n"
+"  sync            Synchronize offline journal.\n"
+"  checkfriends    Efficiently check friends list for updates.\n"
+"  cat             Dump entries to stdout.\n"
+"  grep            Grep through entries.\n"
+"  reindex         Rebuild offline index.\n"
+
+#: ../src/helptext.h:13
+msgid ""
+"Command line options:\n"
+"  -h, --help                 Show summary of options.\n"
+"  -v, --version              Show version of program.\n"
+"  -q, --quiet                Say less.\n"
+"  -c, --console              Don't load GUI.\n"
+"\n"
+"  -u, --username=USERNAME    Username to operate as.\n"
+"  -U, --save-username        Save the username.\n"
+"  -p, --password=PASSWORD    Password for the current user.\n"
+"  -P, --save-password        Save the password.\n"
+"  -n, --no-login             Use with -u to start without logging in.\n"
+"\n"
+"  -s, --subject=SUBJECT      Subject for the post.\n"
+"  -a, --postas=USERNAME      User/community to post as.\n"
+"  -k, --userpic=KEYWORD      Keyword for the user picture to use.\n"
+"  -e, --edit                 Use default editor to edit post.\n"
+msgstr ""
+"Command line options:\n"
+"  -h, --help                 Show summary of options.\n"
+"  -v, --version              Show version of program.\n"
+"  -q, --quiet                Say less.\n"
+"  -c, --console              Don’t load GUI.\n"
+"\n"
+"  -u, --username=USERNAME    Username to operate as.\n"
+"  -U, --save-username        Save the username.\n"
+"  -p, --password=PASSWORD    Password for the current user.\n"
+"  -P, --save-password        Save the password.\n"
+"  -n, --no-login             Use with -u to start without logging in.\n"
+"\n"
+"  -s, --subject=SUBJECT      Subject for the post.\n"
+"  -a, --postas=USERNAME      User/community to post as.\n"
+"  -k, --userpic=KEYWORD      Keyword for the user picture to use.\n"
+"  -e, --edit                 Use default editor to edit post.\n"
+
+#: ../src/history.c:744
+msgid "Loading Entry"
+msgstr "Loading Entry"
+
+#: ../src/history_recent.c:73
+#, c-format
+msgid ""
+"%d entries displayed.  %.1f%% public / %.1f%% friends-only / %.1f%% private."
+msgstr ""
+"%d entries displayed.  %.1f%% public / %.1f%% friends-only / %.1f%% private."
+
+#: ../src/history_recent.c:100
+msgid "Loading History"
+msgstr "Loading History"
+
+#: ../src/history_recent.c:171
+msgid "Security"
+msgstr "Security"
+
+#: ../src/history_recent.c:200
+msgid "History"
+msgstr "History"
+
+#: ../src/history_recent.c:218
+msgid "_Load More..."
+msgstr "_Load More..."
+
+#: ../src/host.c:161
+msgid "Submitting Entry"
+msgstr "Submitting Entry"
+
+#: ../src/host.c:168
+msgid "Saving Changes"
+msgstr "Saving changes"
+
+#: ../src/host.c:175
+msgid "Deleting Entry"
+msgstr "Deleting Entry"
+
+#. XXX we shouldn't need those spaces in there for this to look good. :(
+#: ../src/icons.c:19
+msgid " Submit "
+msgstr " Submit "
+
+#: ../src/imagelink.c:48
+#, fuzzy
+msgid "Retrieving Image..."
+msgstr "Requesting challenge..."
+
+#: ../src/imagelink.c:58
+#, fuzzy, c-format
+msgid "Error loading image: %s."
+msgstr "Error loading file: %s"
+
+#: ../src/imagelink.c:70
+#, fuzzy
+msgid "Insert Image"
+msgstr "/_Insert"
+
+#: ../src/imagelink.c:88 ../src/link.c:131 ../src/manager.c:457
+msgid "_URL:"
+msgstr "_URL:"
+
+#: ../src/imagelink.c:97
+msgid "_Width:"
+msgstr ""
+
+#: ../src/imagelink.c:103
+msgid "_Height:"
+msgstr ""
+
+#: ../src/imagelink.c:109
+msgid "_Retrieve Dimensions from Network"
+msgstr ""
+
+#. we popped up another window, so we're done.
+#: ../src/init.c:75
+msgid "Bringing already-running LogJam instance to the foreground...\n"
+msgstr "Bringing already-running LogJam instance to the foreground...\n"
+
+#: ../src/init.c:79
+#, c-format
+msgid "Error sending remote command: %s.\n"
+msgstr "Error sending remote command: %s.\n"
+
+#: ../src/init.c:221
+msgid "GTK init failed -- are you in X?\n"
+msgstr "GTK init failed -- are you in X?\n"
+
+#: ../src/init.c:222 ../src/init.c:229
+#, c-format
+msgid "Run %s --help for command-line options.\n"
+msgstr "Run %s --help for command-line options.\n"
+
+#: ../src/init.c:228
+msgid "Error: No action given.\n"
+msgstr "Error: No action given.\n"
+
+#: ../src/jam.c:68
+msgid "Your entry has unsaved changes.  Save them now?"
+msgstr "Your entry has unsaved changes.  Save them now?"
+
+#: ../src/jam.c:70
+msgid "Don't Save"
+msgstr "Don’t Save"
+
+#: ../src/jam.c:102 ../src/jam.c:114
+msgid "Save Entry As"
+msgstr "Save Entry As"
+
+#: ../src/jam.c:115
+msgid "File already exists!  Overwrite?"
+msgstr ""
+
+#: ../src/jam.c:136
+msgid "New Draft Title"
+msgstr "New Draft Title"
+
+#: ../src/jam.c:148
+msgid "_Draft Title:"
+msgstr "_Draft Title:"
+
+#: ../src/jam.c:176
+#, c-format
+msgid "Error saving draft: %s."
+msgstr "Error saving draft: %s."
+
+#: ../src/jam.c:193
+msgid "Saving File"
+msgstr "Saving File"
+
+#: ../src/jam.c:194
+msgid ""
+"Current file was imported from an non-XML file.  Saving to this file will "
+"overwrite the file with XML content.  Overwrite the file?"
+msgstr ""
+"Current file was imported from an non-XML file.  Saving to this file will "
+"overwrite the file with XML content.  Overwrite the file?"
+
+#: ../src/jam.c:202
+#, c-format
+msgid "Error saving: %s."
+msgstr "Error saving: %s."
+
+#: ../src/jam.c:257
+#, c-format
+msgid "LogJam - %s%s"
+msgstr "LogJam - %s%s"
+
+#: ../src/jam.c:345 ../src/jam.c:384
+msgid "Delete this draft from disk?"
+msgstr "Delete this draft from disk?"
+
+#: ../src/jam.c:385
+msgid "Delete this entry from server?"
+msgstr "Delete this entry from server?"
+
+#: ../src/jam.c:490
+msgid "Autodetect"
+msgstr "Autodetect"
+
+#: ../src/jam.c:491
+msgid "XML"
+msgstr "XML"
+
+#: ../src/jam.c:492
+msgid "RFC822-Style"
+msgstr "RFC822-Style"
+
+#: ../src/jam.c:493
+msgid "Plain Text"
+msgstr "Plain Text"
+
+#: ../src/jam.c:499
+msgid "Open Entry"
+msgstr "Open Entry"
+
+#: ../src/jam.c:515
+msgid "File Type:"
+msgstr "File Type:"
+
+#: ../src/jam.c:572
+msgid "Error Changing Text Format"
+msgstr "Error Changing Text Format"
+
+#: ../src/jam.c:586
+msgid "Normal"
+msgstr "Normal"
+
+#: ../src/jam.c:590
+msgid "Structured"
+msgstr "Structured"
+
+#: ../src/jam.c:605
+msgid "Entry Format:"
+msgstr "Entry Format:"
+
+#: ../src/jam.c:739
+#, c-format
+msgid "Error loading draft: %s."
+msgstr "Error loading draft: %s."
+
+#: ../src/jam.c:843
+#, c-format
+msgid "Error initializing remote command socket: %s."
+msgstr "Error initializing remote command socket: %s."
+
+#: ../src/jam.c:857
+msgid "Autosaved Draft Found"
+msgstr "Autosaved Draft Found"
+
+#: ../src/jam.c:858
+msgid ""
+"An autosaved draft was found, possibly from a previous run of LogJam that "
+"crashed.  Would you like to recover it?"
+msgstr ""
+"An autosaved draft was found, possibly from a previous run of LogJam that "
+"crashed.  Would you like to recover it?"
+
+#: ../src/jamdoc.c:477
+#, c-format
+msgid "Draft %d"
+msgstr "Draft %d"
+
+#: ../src/jamdoc.c:479
+#, c-format
+msgid "Entry %d"
+msgstr "Entry %d"
+
+#: ../src/jamdoc.c:481
+msgid "New Entry"
+msgstr "New Entry"
+
+#: ../src/jamdoc.c:521
+#, c-format
+msgid "Invalid UTF-8 starting at byte %d."
+msgstr "Invalid UTF-8 starting at byte %d."
+
+#: ../src/jamview.c:81
+msgid "_Subject:"
+msgstr "_Subject:"
+
+#. view->moodbox = gtk_hbox_new(FALSE, 12);
+#. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodbutton, FALSE, FALSE, 0);
+#. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodcombo, TRUE, TRUE, 0);
+#: ../src/jamview.c:234
+msgid "_Mood:"
+msgstr "_Mood:"
+
+#: ../src/jamview.c:286
+msgid "[default]"
+msgstr "[default]"
+
+#: ../src/jamview.c:304
+msgid "_Picture:"
+msgstr "_Picture:"
+
+#: ../src/jamview.c:366 ../src/settings.c:506
+#, c-format
+msgid "Error detecting music: %s"
+msgstr "Error detecting music: %s"
+
+#: ../src/jamview.c:374
+msgid "_Music:"
+msgstr "_Music:"
+
+#: ../src/jamview.c:414
+msgid "_Tags:"
+msgstr "_Tags:"
+
+#: ../src/jamview.c:466
+msgid "_Preformatted"
+msgstr "_Preformatted"
+
+#: ../src/jamview.c:500
+msgid "Default"
+msgstr "Default"
+
+#: ../src/jamview.c:501
+msgid "Don't Email"
+msgstr "Don’t Email"
+
+#: ../src/jamview.c:502
+msgid "Disable"
+msgstr "Disable"
+
+#: ../src/jamview.c:517
+msgid "_Comments:"
+msgstr "_Comments:"
+
+#. XXX GTK_WINDOW(view->jw),
+#: ../src/jamview.c:808 ../src/jamview.c:828
+#, c-format
+msgid "GtkSpell error: %s"
+msgstr "GtkSpell error: %s"
+
+#: ../src/journalstore.c:54
+#, c-format
+msgid "Can't open '%s': %s"
+msgstr "Can‘t open ’%s’: %s"
+
+#: ../src/journalstore_xml.c:128
+#, c-format
+msgid "Error opening index: %s"
+msgstr "Error opening index: %s"
+
+#: ../src/journalstore_xml.c:135
+#, c-format
+msgid "Error writing index: %s"
+msgstr "Error writing index: %s"
+
+#: ../src/journalstore_xml.c:228
+#, c-format
+msgid "Error writing journal xml file to %s: %s"
+msgstr "Error writing journal xml file to %s: %s"
+
+#: ../src/journalstore_xml.c:234
+#, c-format
+msgid "Error renaming journal xml file %s to %s: %s"
+msgstr "Error renaming journal xml file %s to %s: %s"
+
+#: ../src/journalstore_xml.c:268
+#, c-format
+msgid "Error parsing journal XML file %s"
+msgstr "Error parsing journal XML file %s"
+
+#: ../src/journalstore_xml.c:751
+#, fuzzy
+msgid "No offline copy of this journal."
+msgstr "Manage offline copies of your journal."
+
+#: ../src/link.c:113
+msgid "Make Link"
+msgstr "Make Link"
+
+#: ../src/link.c:127
+msgid "Link _Text:"
+msgstr "Link _Text:"
+
+#: ../src/link.c:140
+msgid "_LiveJournal User:"
+msgstr "_LiveJournal User:"
+
+#: ../src/link.c:249
+msgid "Community"
+msgstr "Community"
+
+#: ../src/link.c:273
+msgid "Insert lj user / lj community Tag"
+msgstr "Insert lj user / lj community Tag"
+
+#: ../src/link.c:290
+msgid "_Username:"
+msgstr "_Username:"
+
+#: ../src/link.c:294
+msgid "User _Type:"
+msgstr "User _Type:"
+
+#: ../src/livejournal.c:400
+msgid ""
+"Error: Your post contains Unicode characters, but you're trying to submit "
+"them to a server that doesn't support Unicode."
+msgstr ""
+"Error: Your post contains Unicode characters, but you‘re trying to submit "
+"them to a server that doesn’t support Unicode."
+
+#: ../src/login.c:103
+msgid "Logging In"
+msgstr "Logging In"
+
+#: ../src/login.c:111
+msgid "LiveJournal Message"
+msgstr "LiveJournal Message"
+
+#: ../src/login.c:167
+msgid "Add/Edit Servers..."
+msgstr "Add/Edit Servers..."
+
+#: ../src/login.c:233
+msgid "_Server:"
+msgstr "_Server:"
+
+#: ../src/login.c:242 ../src/manager.c:127 ../src/manager.c:252
+msgid "_User Name:"
+msgstr "_User Name:"
+
+#: ../src/login.c:251 ../src/manager.c:141 ../src/manager.c:261
+#: ../src/settings.c:109
+msgid "_Password:"
+msgstr "_Password:"
+
+#: ../src/login.c:254
+msgid "R_emember user"
+msgstr "R_emember user"
+
+#: ../src/login.c:255
+msgid "Re_member password"
+msgstr "Re_member password"
+
+#: ../src/login.c:256
+msgid "Update _Information"
+msgstr "Update _Information"
+
+#: ../src/login.c:300
+#, c-format
+msgid "Account '%s' hasn't ever logged in.  Log in now?"
+msgstr "Account ‘%s’ hasn’t ever logged in.  Log in now?"
+
+#: ../src/login.c:303
+#, c-format
+msgid "Account '%s' hasn't logged in in at least %lu days.  Log in now?"
+msgstr "Account ‘%s’ hasn’t logged in in at least %lu days.  Log in now?"
+
+#: ../src/login.c:330
+msgid "Select User"
+msgstr "Select User"
+
+#: ../src/login.c:333
+msgid "Selec_t"
+msgstr "Selec_t"
+
+#: ../src/manager.c:93
+msgid "<i>none</i>"
+msgstr "<i>none</i>"
+
+#: ../src/manager.c:112 ../src/manager.c:198
+msgid "active"
+msgstr "active"
+
+#: ../src/manager.c:112 ../src/manager.c:198
+msgid "inactive"
+msgstr "inactive"
+
+#: ../src/manager.c:132
+msgid "_Full Name:"
+msgstr "_Full Name:"
+
+#: ../src/manager.c:154
+msgid "Remember user"
+msgstr "Remember user"
+
+#: ../src/manager.c:158
+msgid "Remember password"
+msgstr "Remember password"
+
+#: ../src/manager.c:168
+msgid "User picture keywords:"
+msgstr "User picture keywords:"
+
+#: ../src/manager.c:184
+#, fuzzy
+msgid "_Monitor this user's friends list for updates"
+msgstr "Efficiently check friends list for updates."
+
+#: ../src/manager.c:194
+msgid "Filter for friends list monitor:"
+msgstr "Filter for friends list monitor:"
+
+#. not the prettiest of hacks
+#: ../src/manager.c:203
+msgid "_Edit filter"
+msgstr "_Edit filter"
+
+#: ../src/manager.c:231
+msgid "Identity"
+msgstr "Identity"
+
+#: ../src/manager.c:234
+msgid "Pictures"
+msgstr "Pictures"
+
+#: ../src/manager.c:237 ../src/pollcreator.c:78 ../src/pollcreator.c:87
+#: ../src/security.c:81
+msgid "Friends"
+msgstr "Friends"
+
+#: ../src/manager.c:322
+msgid "User Properties"
+msgstr "User Properties"
+
+#: ../src/manager.c:422
+#, c-format
+msgid "Unable to rename server: %s."
+msgstr "Unable to rename server: %s."
+
+#: ../src/manager.c:445
+msgid "_Name:"
+msgstr "_Name:"
+
+#: ../src/manager.c:461
+msgid "_Server supports protocol version 1"
+msgstr "_Server supports protocol version 1"
+
+#: ../src/manager.c:479
+msgid "_RPC URL:"
+msgstr "_RPC URL:"
+
+#: ../src/manager.c:498
+msgid "Server Properties"
+msgstr "Server Properties"
+
+#: ../src/manager.c:722
+msgid "Servers"
+msgstr "Servers"
+
+#: ../src/menu.c:358
+msgid "/_LogJam"
+msgstr "/_LogJam"
+
+#: ../src/menu.c:359
+msgid "/LogJam/_About LogJam..."
+msgstr "/LogJam/_About LogJam..."
+
+#: ../src/menu.c:360
+msgid "/LogJam/_Servers and Users..."
+msgstr "/LogJam/_Servers and Users..."
+
+#: ../src/menu.c:361
+msgid "/LogJam/_Change User..."
+msgstr "/LogJam/_Change User..."
+
+#: ../src/menu.c:362
+msgid "/LogJam/_Preferences..."
+msgstr "/LogJam/_Preferences..."
+
+#: ../src/menu.c:364
+msgid "/LogJam/_Quit"
+msgstr "/LogJam/_Quit"
+
+#: ../src/menu.c:366
+msgid "/E_ntry"
+msgstr "/E_ntry"
+
+#: ../src/menu.c:367
+msgid "/Entry/_New"
+msgstr "/Entry/_New"
+
+#: ../src/menu.c:368
+msgid "/Entry/_Open"
+msgstr "/Entry/_Open"
+
+#: ../src/menu.c:369
+msgid "/Entry/Open/File..."
+msgstr "/Entry/Open/File..."
+
+#: ../src/menu.c:370
+msgid "/Entry/Open/Draft..."
+msgstr "/Entry/Open/Draft..."
+
+#: ../src/menu.c:371
+msgid "/Entry/_Save"
+msgstr "/Entry/_Save"
+
+#: ../src/menu.c:372
+msgid "/Entry/Save _As"
+msgstr "/Entry/Save _As"
+
+#: ../src/menu.c:373
+msgid "/Entry/Save As/_File..."
+msgstr "/Entry/Save As/_File..."
+
+#: ../src/menu.c:374
+msgid "/Entry/Save As/_Draft..."
+msgstr "/Entry/Save As/_Draft..."
+
+#: ../src/menu.c:377
+msgid "/Entry/_Validate XML"
+msgstr "/Entry/_Validate XML"
+
+#: ../src/menu.c:379
+msgid "/Entry/_Preview HTML..."
+msgstr "/Entry/_Preview HTML..."
+
+#: ../src/menu.c:382
+msgid "/Entry/S_ubmit as New"
+msgstr "/Entry/S_ubmit as New"
+
+#: ../src/menu.c:383
+msgid "/Entry/_Save Changes to Server"
+msgstr "/Entry/_Save Changes to Server"
+
+#: ../src/menu.c:386
+msgid "/Edit/_Undo"
+msgstr "/Edit/_Undo"
+
+#: ../src/menu.c:388
+msgid "/Edit/_Redo"
+msgstr "/Edit/_Redo"
+
+#: ../src/menu.c:391
+msgid "/Edit/Cu_t"
+msgstr "/Edit/Cu_t"
+
+#: ../src/menu.c:393
+msgid "/Edit/_Copy"
+msgstr "/Edit/_Copy"
+
+#: ../src/menu.c:395
+msgid "/Edit/_Paste"
+msgstr "/Edit/_Paste"
+
+#: ../src/menu.c:398
+msgid "/Edit/_HTML Escape"
+msgstr "/Edit/_HTML Escape"
+
+#: ../src/menu.c:399
+msgid "/Edit/_Remove Linebreaks"
+msgstr "/Edit/_Remove Linebreaks"
+
+#: ../src/menu.c:401
+msgid "/_Insert"
+msgstr "/_Insert"
+
+#: ../src/menu.c:402
+msgid "/Insert/_Poll..."
+msgstr "/Insert/_Poll..."
+
+#: ../src/menu.c:403
+msgid "/Insert/_File..."
+msgstr "/Insert/_File..."
+
+#: ../src/menu.c:404
+#, fuzzy
+msgid "/Insert/Command _Output..."
+msgstr "/Insert/lj-_cut..."
+
+#: ../src/menu.c:407
+msgid "/Insert/_Link..."
+msgstr "/Insert/_Link..."
+
+#: ../src/menu.c:408
+#, fuzzy
+msgid "/Insert/_Image..."
+msgstr "/Insert/_File..."
+
+#: ../src/menu.c:409
+msgid "/Insert/_Journal Link..."
+msgstr "/Insert/_Journal Link..."
+
+#: ../src/menu.c:410
+msgid "/Insert/lj-_cut..."
+msgstr "/Insert/lj-_cut..."
+
+#: ../src/menu.c:412
+msgid "/_View"
+msgstr "/_View"
+
+#: ../src/menu.c:413
+msgid "/View/_Security"
+msgstr "/View/_Security"
+
+#: ../src/menu.c:414
+msgid "/View/Entry _Date"
+msgstr "/View/Entry _Date"
+
+#: ../src/menu.c:415
+msgid "/View/_Mood"
+msgstr "/View/_Mood"
+
+#: ../src/menu.c:416
+msgid "/View/_Picture"
+msgstr "/View/_Picture"
+
+#: ../src/menu.c:417
+msgid "/View/_Tags"
+msgstr "/View/_Tags"
+
+#: ../src/menu.c:418
+msgid "/View/M_usic"
+msgstr "/View/M_usic"
+
+#: ../src/menu.c:419
+msgid "/View/_Preformatted"
+msgstr "/View/_Preformatted"
+
+#: ../src/menu.c:420
+msgid "/View/_Comments"
+msgstr "/View/_Comments"
+
+#: ../src/menu.c:422
+msgid "/_HTML"
+msgstr "/_HTML"
+
+#: ../src/menu.c:423
+msgid "/HTML/_Bold"
+msgstr "/HTML/_Bold"
+
+#: ../src/menu.c:424
+msgid "/HTML/_Italic"
+msgstr "/HTML/_Italic"
+
+#: ../src/menu.c:425
+msgid "/HTML/_Strikeout"
+msgstr "/HTML/_Strikeout"
+
+#: ../src/menu.c:426
+msgid "/HTML/_Monospaced"
+msgstr "/HTML/_Monospaced"
+
+#: ../src/menu.c:427
+msgid "/HTML/_Underline"
+msgstr "/HTML/_Underline"
+
+#: ../src/menu.c:429
+msgid "/_Journal"
+msgstr "/_Journal"
+
+#: ../src/menu.c:430
+msgid "/Journal/_Use Journal"
+msgstr "/Journal/_Use Journal"
+
+#: ../src/menu.c:432
+msgid "/Journal/_Friends..."
+msgstr "/Journal/_Friends..."
+
+#: ../src/menu.c:434
+msgid "/Journal/_Load Last Entry"
+msgstr "/Journal/_Load Last Entry"
+
+#: ../src/menu.c:435
+msgid "/Journal/_Load Recent Entry..."
+msgstr "/Journal/_Load Recent Entry..."
+
+#: ../src/menu.c:436
+msgid "/Journal/_Load Offline Entry..."
+msgstr "/Journal/_Load Offline Entry..."
+
+#: ../src/menu.c:437
+msgid "/Journal/_Synchronize Offline Copy..."
+msgstr "/Journal/_Synchronize Offline Copy..."
+
+#: ../src/menu.c:439
+msgid "/Journal/_LiveJournal Console..."
+msgstr "/Journal/_LiveJournal Console..."
+
+#: ../src/menu.c:440
+msgid "/Journal/_Web Links"
+msgstr "/Journal/_Web Links"
+
+#: ../src/moodpicker.c:119
+msgid "Mood"
+msgstr "Mood"
+
+#: ../src/moodpicker.c:137 ../src/preview.c:184
+msgid "Current Mood"
+msgstr "Current Mood"
+
+#: ../src/moodpicker.c:148
+msgid "Mood _Text:"
+msgstr "Mood _Text:"
+
+#: ../src/moodpicker.c:168
+msgid "Mood _Icon:"
+msgstr "Mood _Icon:"
+
+#: ../src/moodpicker.c:173
+msgid "_Match Text"
+msgstr "_Match Text"
+
+#: ../src/music.c:15
+msgid "None"
+msgstr "None"
+
+#: ../src/music.c:50
+msgid "No music command line is set."
+msgstr "No music command line is set."
+
+#: ../src/music.c:81
+msgid "Command produced no output."
+msgstr "Command produced no output."
+
+#: ../src/music.c:108 ../src/music.c:113
+msgid "Music detection is not implemented on this platform."
+msgstr "Music detection is not implemented on this platform."
+
+#: ../src/network.c:130 ../src/progress.c:46 ../src/sync.c:260
+#, c-format
+msgid "Error: %s\n"
+msgstr "Error: %s\n"
+
+#: ../src/network.c:192
+msgid "Requesting challenge..."
+msgstr "Requesting challenge..."
+
+#: ../src/network.c:216
+msgid "Running request..."
+msgstr "Running request..."
+
+#: ../src/network-curl.c:73
+msgid "Unable to intialize CURL"
+msgstr "Unable to intialize CURL"
+
+#: ../src/network-curl.c:120 ../src/network-libxml.c:30
+#, c-format
+msgid "Request: [%s]\n"
+msgstr "Request: [%s]\n"
+
+#: ../src/network-curl.c:129
+#, c-format
+msgid "cURL error: %s."
+msgstr "cURL error: %s."
+
+#: ../src/network-curl.c:135 ../src/network-libxml.c:103
+#: ../src/network-soup.c:87
+#, c-format
+msgid "Response: [%s]\n"
+msgstr "Response: [%s]\n"
+
+#: ../src/network-fork.c:144
+msgid "Cancelled."
+msgstr "Cancelled."
+
+#: ../src/network-fork.c:162
+#, c-format
+msgid "Error creating pipe (pipe(): %s)."
+msgstr "Error creating pipe (pipe(): %s)."
+
+#: ../src/network-fork.c:168
+#, c-format
+msgid "Error forking (fork(): %s)."
+msgstr "Error forking (fork(): %s)."
+
+#: ../src/network-libxml.c:37
+msgid ""
+"LogJam was built with libxml's NanoHTTP support, which does not support "
+"proxy authentication."
+msgstr ""
+"LogJam was built with libxml's NanoHTTP support, which does not support "
+"proxy authentication."
+
+#: ../src/network-libxml.c:65
+#, fuzzy
+msgid "xmlNanoHTTPMethod error."
+msgstr "xmlNanoHTTPOpen error."
+
+#: ../src/network-libxml.c:73
+#, fuzzy
+msgid "File not found."
+msgstr "entry %d not found\n"
+
+#: ../src/network-libxml.c:84
+#, fuzzy
+msgid "xmlNanoHTTPRead error."
+msgstr "xmlNanoHTTPOpen error."
+
+#: ../src/network-win32.c:97
+msgid "The connection was closed."
+msgstr "The connection was closed."
+
+#: ../src/offline.c:154
+msgid "Summary"
+msgstr "Summary"
+
+#: ../src/offline.c:354
+#, c-format
+msgid "Search found %d entries:"
+msgstr "Search found %d entries:"
+
+#: ../src/offline.c:374
+msgid "_Search:"
+msgstr "_Search:"
+
+#: ../src/offline.c:381
+msgid "_Case sensitive"
+msgstr "_Case sensitive"
+
+#: ../src/offline.c:407
+msgid ""
+"LogJam has no offline entries for this journal. You must first synchronize "
+"this journal to your local storage before you can load entries from it."
+msgstr ""
+"LogJam has no offline entries for this journal. You must first synchronize "
+"this journal to your local storage before you can load entries from it."
+
+#: ../src/offline.c:411
+msgid "_Synchronize"
+msgstr "_Synchronize"
+
+#: ../src/offline.c:458
+msgid "Select Offline Entry"
+msgstr "Select Offline Entry"
+
+#: ../src/offline.c:465
+msgid "Select by Date"
+msgstr "Select by Date"
+
+#: ../src/offline.c:467
+msgid "Select by Search"
+msgstr "Select by Search"
+
+#: ../src/offline.c:499
+msgid "Copy online entry URL to clipboard"
+msgstr ""
+
+#: ../src/offline.c:500
+msgid ""
+"Clicking here will place the URL of the entry currently being previewed in "
+"your clipboard, so you can link to it."
+msgstr ""
+
+#: ../src/pollcreator.c:69
+#, fuzzy
+msgid "Poll _name: "
+msgstr "_Full Name:"
+
+#: ../src/pollcreator.c:77 ../src/pollcreator.c:86
+msgid "All users"
+msgstr "All users"
+
+#: ../src/pollcreator.c:81
+#, fuzzy
+msgid "V_oters:"
+msgstr "  V_oters: "
+
+#: ../src/pollcreator.c:88
+msgid "Nobody"
+msgstr ""
+
+#: ../src/pollcreator.c:91
+#, fuzzy
+msgid "_Results visible to:"
+msgstr "  _Results visible to: "
+
+#: ../src/pollcreator.c:134
+msgid "Multiple Choice Question"
+msgstr ""
+
+#: ../src/pollcreator.c:139
+#, fuzzy
+msgid "Range Question"
+msgstr "Question: "
+
+#: ../src/pollcreator.c:144
+#, fuzzy
+msgid "Text Question"
+msgstr "Delete question"
+
+#: ../src/pollcreator.c:237
+#, fuzzy
+msgid "Poll _Questions:"
+msgstr "Question: "
+
+#: ../src/pollcreator.c:253
+msgid "Poll Creator"
+msgstr "Poll Creator"
+
+#: ../src/pollcreator.c:265
+msgid "_Generate"
+msgstr "_Generate"
+
+#: ../src/pollcreator.c:300 ../src/pollcreator.c:311
+msgid "<b>[Text parameters must be integer.]</b>"
+msgstr "<b>[Text parameters must be integer.]</b>"
+
+#: ../src/pollcreator.c:331
+msgid ""
+"<b>[Too many elements in scale range. Either move \"From\" and \"To\" values "
+"closer or increase \"By\".]</b>"
+msgstr ""
+"<b>[Too many elements in scale range. Either move “From” and “To” values "
+"closer or increase “By”.]</b>"
+
+#: ../src/pollcreator.c:341
+msgid "<b>[\"By\" has wrong sign.]</b>"
+msgstr "<b>[“By” has wrong sign.]</b>"
+
+#: ../src/pollcreator.c:348
+msgid "<b>[\"By\" cannot be zero.]</b>"
+msgstr "<b>[“By” cannot be zero.]</b>"
+
+#: ../src/poll-questions.c:41
+msgid "Multi Poll Option"
+msgstr ""
+
+#: ../src/poll-questions.c:50
+#, fuzzy
+msgid "O_ption:"
+msgstr "Cut c_aption:"
+
+#: ../src/poll-questions.c:144
+msgid "Multi Poll Question"
+msgstr ""
+
+#: ../src/poll-questions.c:155
+msgid "Choose best answer (_radio buttons)"
+msgstr ""
+
+#: ../src/poll-questions.c:157
+msgid "Choose best answer (_drop-down menu)"
+msgstr ""
+
+#: ../src/poll-questions.c:159
+msgid "Select _all that apply (checkboxes)"
+msgstr ""
+
+#: ../src/poll-questions.c:164
+#, fuzzy
+msgid "Choice _Type:"
+msgstr "File Type:"
+
+#: ../src/poll-questions.c:171 ../src/poll-questions.c:264
+#: ../src/poll-questions.c:371
+#, fuzzy
+msgid "_Question:"
+msgstr "Question: "
+
+#: ../src/poll-questions.c:186
+#, fuzzy
+msgid "O_ptions:"
+msgstr "Cut c_aption:"
+
+#: ../src/poll-questions.c:254
+#, fuzzy
+msgid "Text Poll Question"
+msgstr "Delete question"
+
+#: ../src/poll-questions.c:283
+#, fuzzy
+msgid "_Text field size (optional): "
+msgstr "Text field size <i>(optional)</i>: "
+
+#: ../src/poll-questions.c:287
+#, fuzzy
+msgid "_Maximum text length (optional): "
+msgstr "Maximum text length <i>(optional)</i>: "
+
+#: ../src/poll-questions.c:361
+msgid "Scale Poll Question"
+msgstr ""
+
+#: ../src/poll-questions.c:389
+#, fuzzy
+msgid "_From:"
+msgstr "From: "
+
+#: ../src/poll-questions.c:393
+#, fuzzy
+msgid "_To:"
+msgstr "  To: "
+
+#: ../src/poll-questions.c:397
+#, fuzzy
+msgid "_By:"
+msgstr "  By: "
+
+#: ../src/preview.c:186
+msgid "Current Music"
+msgstr "Current Music"
+
+#: ../src/preview.c:188
+#, fuzzy
+msgid "Tags"
+msgstr "_Tags:"
+
+#: ../src/preview.c:248
+msgid "HTML Preview"
+msgstr "HTML Preview"
+
+#: ../src/preview.c:251
+msgid "_Update"
+msgstr "_Update"
+
+#: ../src/progress.c:35 ../src/util-gtk.c:305
+msgid "Error"
+msgstr "Error"
+
+#: ../src/security.c:80
+msgid "Public"
+msgstr "Public"
+
+#: ../src/security.c:82
+msgid "Private"
+msgstr "Private"
+
+#: ../src/security.c:83
+msgid "Custom..."
+msgstr "Custom..."
+
+#: ../src/security.c:235
+msgid "Included Groups"
+msgstr "Included Groups"
+
+#: ../src/security.c:280
+msgid "Select Friend Groups"
+msgstr "Select Friend Groups"
+
+#: ../src/settings.c:69
+msgid "_Revert to primary journal after posting on a community"
+msgstr "_Revert to primary journal after posting on a community"
+
+#: ../src/settings.c:71
+msgid "Default _security on posts:"
+msgstr "Default _security on posts:"
+
+#: ../src/settings.c:73
+msgid "Automatically save _drafts (for crash recovery)"
+msgstr "Automatically save _drafts (for crash recovery)"
+
+#: ../src/settings.c:76
+msgid "Allow multiple _instances of LogJam to run simultaneously"
+msgstr "Allow multiple _instances of LogJam to run simultaneously"
+
+#: ../src/settings.c:79
+msgid "_Use spell check"
+msgstr "_Use spell check"
+
+#: ../src/settings.c:81
+msgid "Entry _language:"
+msgstr "Entry _language:"
+
+#: ../src/settings.c:84
+msgid "Automatically change _quotes to matching pairs"
+msgstr "Automatically change _quotes to matching pairs"
+
+#: ../src/settings.c:86
+msgid "Entry display font:"
+msgstr "Entry display font:"
+
+#: ../src/settings.c:89
+msgid "Add icon to system _tray (for GNOME/KDE/etc. dock)"
+msgstr "Add icon to system _tray (for GNOME/KDE/etc. dock)"
+
+#: ../src/settings.c:94
+msgid "Web browser:"
+msgstr "Web browser:"
+
+#: ../src/settings.c:97
+msgid "Detect music from:"
+msgstr "Detect music from:"
+
+#: ../src/settings.c:100
+msgid "Use _proxy server"
+msgstr "Use _proxy server"
+
+#: ../src/settings.c:102
+msgid "UR_L:"
+msgstr "UR_L:"
+
+#: ../src/settings.c:105
+msgid "Use proxy _authentication"
+msgstr "Use proxy _authentication"
+
+#: ../src/settings.c:107
+msgid "_User:"
+msgstr "_User:"
+
+#: ../src/settings.c:113
+msgid "Dump _network data on stderr"
+msgstr "Dump _network data on stderr"
+
+#: ../src/settings.c:116
+msgid "Don't _fork on network requests"
+msgstr "Don’t _fork on network requests"
+
+#: ../src/settings.c:119
+msgid "Don't run network requests in a separate _thread"
+msgstr "Don’t run network requests in a separate _thread"
+
+#: ../src/settings.c:124
+msgid "_Monitor friends list for new entries upon login"
+msgstr "_Monitor friends list for new entries upon login"
+
+#: ../src/settings.c:126
+msgid "_Limit monitoring to groups of friends"
+msgstr "_Limit monitoring to groups of friends"
+
+#: ../src/settings.c:130
+msgid "_Check friends list every "
+msgstr "_Check friends list every "
+
+#: ../src/settings.c:132
+msgid "_Notify me after "
+msgstr "_Notify me after "
+
+#: ../src/settings.c:134
+msgid "_Floating indicator"
+msgstr "_Floating indicator"
+
+#: ../src/settings.c:136
+msgid "_Raise floating indicator when new entries detected"
+msgstr "_Raise floating indicator when new entries detected"
+
+#: ../src/settings.c:138
+msgid "Show _titlebar on floating indicator"
+msgstr "Show _titlebar on floating indicator"
+
+#: ../src/settings.c:252
+msgid "Custom Command"
+msgstr "Custom Command"
+
+#: ../src/settings.c:341
+msgid "Select font"
+msgstr "Select font"
+
+#: ../src/settings.c:385
+msgid "Posting"
+msgstr "Posting"
+
+#: ../src/settings.c:433
+msgid "[gtk default]"
+msgstr "[gtk default]"
+
+#: ../src/settings.c:452
+msgid "Behavior"
+msgstr "Behavior"
+
+#: ../src/settings.c:503
+msgid "LogJam XMMS helper not found.  Did you install LogJam's XMMS support?"
+msgstr "LogJam XMMS helper not found.  Did you install LogJam’s XMMS support?"
+
+#: ../src/settings.c:511
+#, c-format
+msgid ""
+"Music detection succeeded.\n"
+"\n"
+"Current music:\n"
+"%s"
+msgstr ""
+"Music detection succeeded.\n"
+"\n"
+"Current music:\n"
+"%s"
+
+#: ../src/settings.c:512
+msgid "Music Detection"
+msgstr "Music Detection"
+
+#: ../src/settings.c:521
+msgid "Proxy"
+msgstr "Proxy"
+
+#: ../src/settings.c:553
+msgid "Programs"
+msgstr "Programs"
+
+#: ../src/settings.c:561
+msgid "_Diagnose"
+msgstr "_Diagnose"
+
+#: ../src/settings.c:564
+msgid "Diagnose problems detecting music:"
+msgstr "Diagnose problems detecting music:"
+
+#: ../src/settings.c:590
+msgid "Network"
+msgstr "Network"
+
+#: ../src/settings.c:604
+msgid "General"
+msgstr "General"
+
+#: ../src/settings.c:614
+msgid "new entries by my friends"
+msgstr "new entries by my friends"
+
+#. numeric
+#. range
+#. increments
+#. digits
+#: ../src/settings.c:623
+msgid "seconds"
+msgstr "seconds"
+
+#: ../src/settings.c:637
+msgid "Filter"
+msgstr "Filter"
+
+#: ../src/settings.c:644
+msgid "Choose filter"
+msgstr "Choose filter"
+
+#: ../src/settings.c:651
+msgid "<small>The filter chosen here only affects the current user.</small>"
+msgstr "<small>The filter chosen here only affects the current user.</small>"
+
+#: ../src/settings.c:672
+msgid "Indicators"
+msgstr "Indicators"
+
+#: ../src/settings.c:722
+msgid "Preferences"
+msgstr "Preferences"
+
+#: ../src/settings.c:731
+msgid "Interface"
+msgstr "Interface"
+
+#: ../src/settings.c:734
+msgid "System"
+msgstr "System"
+
+#: ../src/settings.c:740
+msgid "Debug"
+msgstr "Debug"
+
+#: ../src/settings.c:762
+msgid "Checkfriends Preferences"
+msgstr "Checkfriends Preferences"
+
+#: ../src/settings.c:797
+#, c-format
+msgid "Error stopping remote listener: %s."
+msgstr "Error stopping remote listener: %s."
+
+#: ../src/settings.c:805
+#, c-format
+msgid "Error starting remote listener: %s."
+msgstr "Error starting remote listener: %s."
+
+#: ../src/spawn.c:68
+#, c-format
+msgid "Error spawning URL '%s': %s\n"
+msgstr "Error spawning URL ‘%s’: %s\n"
+
+#: ../src/structuredtext.c:416 ../src/structuredtext.c:456
+#, c-format
+msgid "Unknown element: '%s'"
+msgstr "Unknown element: ‘%s’"
+
+#: ../src/sync.c:82
+msgid "Synchronizing Journal"
+msgstr "Synchronizing Journal"
+
+#. we create our own version of GtkMessageDialog
+#. * so we can add the scroll bar.
+#: ../src/sync.c:136
+msgid "Warnings"
+msgstr "Warnings"
+
+#: ../src/sync.c:218
+msgid "Up-to-date.\n"
+msgstr "Up-to-date.\n"
+
+#: ../src/sync.c:224
+#, c-format
+msgid "Downloading %d sync items: "
+msgstr "Downloading %d sync items: "
+
+#: ../src/sync.c:227
+#, c-format
+msgid "Downloading %d entries: "
+msgstr "Downloading %d entries: "
+
+#: ../src/sync.c:246
+#, c-format
+msgid "Synchronizing '%s'..."
+msgstr "Synchronizing ‘%s’..."
+
+#: ../src/sync.c:253
+msgid "Warnings:\n"
+msgstr "Warnings:\n"
+
+#. this translation is not crucial
+#: ../src/thanks.h:11
+msgid "patches"
+msgstr ""
+
+#. this translation is not crucial
+#: ../src/thanks.h:13
+#, fuzzy
+msgid "Japanese translation"
+msgstr "Spanish translation"
+
+#. this translation is not crucial
+#: ../src/thanks.h:15 ../src/thanks.h:29
+msgid "Russian translation"
+msgstr "Russian translation"
+
+#. this translation is not crucial
+#: ../src/thanks.h:17
+msgid "German translation"
+msgstr "German translation"
+
+#. this translation is not crucial
+#: ../src/thanks.h:19
+msgid "accelerator saving"
+msgstr "accelerator saving"
+
+#. this translation is not crucial
+#: ../src/thanks.h:21
+msgid "lj-cut patch"
+msgstr "lj-cut patch"
+
+#. this translation is not crucial
+#: ../src/thanks.h:23
+msgid "Ukrainian translation"
+msgstr "Ukrainian translation"
+
+#. this translation is not crucial
+#: ../src/thanks.h:25
+msgid "Spanish translation"
+msgstr "Spanish translation"
+
+#. this translation is not crucial
+#: ../src/thanks.h:27
+msgid "Gentoo packaging"
+msgstr "Gentoo packaging"
+
+#. this translation is not crucial
+#: ../src/thanks.h:31
+msgid "win32 multithread support"
+msgstr "win32 multithread support"
+
+#. this translation is not crucial
+#: ../src/thanks.h:33
+msgid "checkfriends, poll creator, i18n"
+msgstr "checkfriends, poll creator, i18n"
+
+#. this translation is not crucial
+#: ../src/thanks.h:35
+msgid "support for cyrillic translation"
+msgstr "support for cyrillic translation"
+
+#. this translation is not crucial
+#: ../src/thanks.h:37
+msgid "locale fixes"
+msgstr "locale fixes"
+
+#. this translation is not crucial
+#: ../src/thanks.h:39
+#, fuzzy
+msgid "Debian package, undo"
+msgstr "Debian package help"
+
+#. this translation is not crucial
+#: ../src/thanks.h:41
+msgid "typo in configure.in"
+msgstr "typo in configure.in"
+
+#. this translation is not crucial
+#: ../src/thanks.h:43
+msgid "locale setting"
+msgstr "locale setting"
+
+#. this translation is not crucial
+#: ../src/thanks.h:45
+msgid "OpenBSD box to test on"
+msgstr "OpenBSD box to test on"
+
+#. this translation is not crucial
+#: ../src/thanks.h:47
+msgid "window geometry save/restore"
+msgstr "window geometry save/restore"
+
+#. this translation is not crucial
+#: ../src/thanks.h:49
+msgid "simple login proxy patch"
+msgstr "simple login proxy patch"
+
+#. this translation is not crucial
+#: ../src/thanks.h:51
+msgid "variety of patches"
+msgstr "variety of patches"
+
+#. this translation is not crucial
+#: ../src/thanks.h:53
+msgid "Solaris box to test on"
+msgstr "Solaris box to test on"
+
+#. this translation is not crucial
+#: ../src/thanks.h:55
+msgid "Advanced RPM packaging"
+msgstr "Advanced RPM packaging"
+
+#. this translation is not crucial
+#: ../src/thanks.h:57
+msgid "Initial RPM packaging"
+msgstr "Initial RPM packaging"
+
+#. this translation is not crucial
+#: ../src/thanks.h:59
+msgid "Debian maintainer"
+msgstr "Debian maintainer"
+
+#. this translation is not crucial
+#: ../src/thanks.h:61
+msgid "Debian package help"
+msgstr "Debian package help"
+
+#. this translation is not crucial
+#: ../src/thanks.h:63
+msgid "FreeBSD packaging"
+msgstr "FreeBSD packaging"
+
+#. this translation is not crucial
+#: ../src/thanks.h:65
+msgid "a multitude of patches"
+msgstr "a multitude of patches"
+
+#. this translation is not crucial
+#: ../src/thanks.h:67
+msgid "initial file save patch"
+msgstr "initial file save patch"
+
+#. this translation is not crucial
+#: ../src/thanks.h:69
+msgid "parallel make tips"
+msgstr "parallel make tips"
+
+#. this translation is not crucial
+#: ../src/thanks.h:71
+msgid "much of the original client"
+msgstr "much of the original client"
+
+#. no selection; give them some help.
+#: ../src/tools.c:41
+msgid "HTML Escape Help"
+msgstr "HTML Escape Help"
+
+#: ../src/tools.c:42
+msgid ""
+"Some characters (such as '<' and '&') are reserved in HTML, and may not "
+"display correctly in your post.\n"
+"To properly escape these characters, first select a block of text and try "
+"this command again.\n"
+msgstr ""
+"Some characters (such as ‘<’ and ‘&’) are reserved in HTML, and may not "
+"display correctly in your post.\n"
+"To properly escape these characters, first select a block of text and try "
+"this command again.\n"
+
+#. no selection; give them some help.
+#: ../src/tools.c:89
+msgid "Linebreak Removal Help"
+msgstr "Linebreak Removal Help"
+
+#: ../src/tools.c:90
+msgid ""
+"When you paste text into LogJam, linebreaks from the original are preserved, "
+"and will normally show up in your post on the server. You can have LogJam "
+"remove extraneous linebreaks from your entry, but you must make a specific "
+"selection of the text you wish this to happen on first.\n"
+"\n"
+"Note that you can also use the \"don't autoformat\" option on your post."
+msgstr ""
+"When you paste text into LogJam, linebreaks from the original are preserved, "
+"and will normally show up in your post on the server. You can have LogJam "
+"remove extraneous linebreaks from your entry, but you must make a specific "
+"selection of the text you wish this to happen on first.\n"
+"\n"
+"Note that you can also use the “don’t autoformat” option on your post."
+
+#: ../src/tools.c:149
+msgid "Select File"
+msgstr "Select File"
+
+#: ../src/tools.c:156
+msgid "File _encoding:"
+msgstr "File _encoding:"
+
+#: ../src/tools.c:187
+#, c-format
+msgid "Error loading file: %s"
+msgstr "Error loading file: %s"
+
+#: ../src/tools.c:201
+msgid "Insert Command Output"
+msgstr ""
+
+#: ../src/tools.c:210
+#, fuzzy
+msgid "_Command:"
+msgstr "_Comments:"
+
+#: ../src/tools.c:225
+#, fuzzy, c-format
+msgid "Error getting command output: %s"
+msgstr "Error detecting music: %s"
+
+#: ../src/tools.c:262
+msgid "XML Parse Error"
+msgstr "XML Parse Error"
+
+#: ../src/tools.c:269
+msgid "Error parsing XML:"
+msgstr "Error parsing XML:"
+
+#: ../src/tools.c:317
+msgid "XML Validation"
+msgstr "XML Validation"
+
+#: ../src/tools.c:318
+msgid "Document is well-formed XML."
+msgstr "Document is well-formed XML."
+
+#: ../src/tools.c:332
+msgid "LJ-Cut"
+msgstr "LJ-Cut"
+
+#: ../src/tools.c:344
+msgid "Cut c_aption:"
+msgstr "Cut c_aption:"
+
+#: ../src/tools.c:349
+msgid "<small>If left empty, the LiveJournal default will be used.</small>"
+msgstr "<small>If left empty, the LiveJournal default will be used.</small>"
+
+#. this string is the separator between the server and username
+#. * next to the "submit" button.
+#: ../src/userlabel.c:86
+msgid "/"
+msgstr "/"
+
+#: ../src/userlabel.c:90
+msgid ", using "
+msgstr ", using "
+
+#. FIXME domain
+#: ../src/util.c:41
+#, c-format
+msgid "Failed to create directory '%s': %s"
+msgstr "Failed to create directory ‘%s’: %s"
+
+#: ../src/util-gtk.c:300
+msgid "Warning"
+msgstr "Warning"
+
+#: ../src/util-gtk.c:318
+msgid "Do not show again"
+msgstr "Do not show again"
+
+#~ msgid "automake fixes, testing"
+#~ msgstr "automake fixes, testing"
+
+#~ msgid "music|None"
+#~ msgstr "None"
+
+#~ msgid "Unable to save to '%s': %s."
+#~ msgstr "Unable to save to ‘%s’: %s."
+
+#~ msgid "Radio buttons"
+#~ msgstr "Radio buttons"
+
+#~ msgid "Check boxes"
+#~ msgstr "Check boxes"
+
+#~ msgid "Drop-down menu"
+#~ msgstr "Drop-down menu"
+
+#~ msgid "Text entry"
+#~ msgstr "Text entry"
+
+#~ msgid "Scale"
+#~ msgstr "Scale"
+
+#~ msgid "<undef>"
+#~ msgstr "<undef>"
+
+#~ msgid "Possible answers:"
+#~ msgstr "Possible answers:"
+
+#~ msgid "<< Less"
+#~ msgstr "<< Less"
+
+#~ msgid "More >>"
+#~ msgstr "More >>"
+
+#~ msgid "Add _question: "
+#~ msgstr "Add _question: "
+
+#~ msgid "Deletes this question from the poll."
+#~ msgstr "Deletes this question from the poll."
+
+#~ msgid "Move up"
+#~ msgstr "Move up"
+
+#~ msgid "Move this question up one place in the poll."
+#~ msgstr "Move this question up one place in the poll."
+
+#~ msgid "Move down"
+#~ msgstr "Move down"
+
+#~ msgid "Move this question down one place in the poll."
+#~ msgstr "Move this question down one place in the poll."
+
+#~ msgid "Poll _name <i>(optional)</i>: "
+#~ msgstr "Poll _name <i>(optional)</i>: "
+
+#~ msgid " Question #%d - %s "
+#~ msgstr " Question #%d - %s "
+
+#~ msgid "<b>[Fill in at least the first possible answer.]</b>"
+#~ msgstr "<b>[Fill in at least the first possible answer.]</b>"
+
+#~ msgid "<b>[Fill in some question text.]</b>"
+#~ msgstr "<b>[Fill in some question text.]</b>"
+
+#~ msgid "Unknown or missing option character"
+#~ msgstr "Unknown or missing option character"
+
+#~ msgid "Error: No file specified.\n"
+#~ msgstr "Error: No file specified.\n"
+
+#~ msgid "Error loading entry: %s.\n"
+#~ msgstr "Error loading entry: %s.\n"
+
+#~ msgid "Error:  %s\n"
+#~ msgstr "Error:  %s\n"
+
+#~ msgid "  Save Changes  "
+#~ msgstr "  Save Changes  "
+
+#~ msgid "  Submit  "
+#~ msgstr "  Submit  "
+
+#~ msgid "Is dirty"
+#~ msgstr "Is dirty"
+
+#~ msgid "If TRUE, the document has changed since it was last saved."
+#~ msgstr "If TRUE, the document has changed since it was last saved."
+
+#~ msgid "M_usic:"
+#~ msgstr "M_usic:"
+
+#~ msgid "<- _Detect"
+#~ msgstr "<- _Detect"
+
+#~ msgid "Retrieve the current music from a currently-running XMMS"
+#~ msgstr "Retrieve the current music from a currently-running XMMS"
+
+#~ msgid "(none)"
+#~ msgstr "(none)"
+
+#~ msgid "Request failed: %s."
+#~ msgstr "Request failed: %s."
+
+#~ msgid "Progress: %.2f%%\n"
+#~ msgstr "Progress: %.2f%%\n"
+
+#~ msgid "Detect music using _XMMS"
+#~ msgstr "Detect music using _XMMS"
+
+#~ msgid "Music"
+#~ msgstr "Music"
+
+#~ msgid "Diagnostic"
+#~ msgstr "Diagnostic"
+
+#~ msgid ""
+#~ "This command is evaluated by /bin/sh.\n"
+#~ "Use %s in the command line in the place of the URL.\n"
+#~ "You can use %s more than once."
+#~ msgstr ""
+#~ "This command is evaluated by /bin/sh.\n"
+#~ "Use %s in the command line in the place of the URL.\n"
+#~ "You can use %s more than once."

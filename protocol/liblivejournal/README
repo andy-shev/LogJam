@@ -1,0 +1,60 @@
+/* liblivejournal - a client library for LiveJournal.
+ * Copyright (C) 2003 Evan Martin <evan@livejournal.com>
+ */
+ 
+liblivejournal is currently only used by LogJam, so this will be brief.
+
+liblivejournal depends on glib 2 and libxml 2:
+ - http://www.gtk.org
+ - http://www.xmlsoft.org
+and the library generally follows the conventions and style used throughout
+glib:
+ - functions namespaced with lj_foo, datatypes with LJFoo.
+ - GError for errors.
+
+
+The goal of liblivejournal is to provide wrappers around two fundamental parts
+of LiveJournal:
+ 1) the data structures (LJUser, LJServer, LJFriend);
+ 2) the protocol (LJLogin, LJGetFriends).
+
+
+=== Data Structures ===
+
+The data structures are mostly structs that contain the relevant fields.
+There are also #defines and enums where appropriate.  libxml is used to
+provide a standard serialization format for LiveJournal entries.
+
+
+=== Protocol ===
+
+The protocol support in liblivejournal comes in two layers:
+ a) the generic protocol wrapper;
+ b) function-specific wrappers.
+
+The generic protocol wrapper is a medium-level interface to LJ requests:
+the user passes in hashes and receives hashes in return.  The details of
+the network (HTTP, proxies) are left to the user of the library, which
+only deals with strings provided to and returned from the network layer.  
+
+#include <livejournal/(function).h>
+The function-specific wrappers are the high-level interface to LJ
+requests; the user passes in parameters and receives liblivejournal data
+structures in return.  Conceptually, the abstract base class of a
+protocol request is an LJVerb, and then the specific request types are
+subclasses.  Network requests follow this pattern:
+ - construct a request object, via lj_foo_new();
+ - run the POST request, retrieved via lj_request_to_string(), using
+   your own platform/project-specific network code;
+ - feed the response back into the request object via
+   lj_verb_handle_response();
+ - use the request object as needed and free it with lj_foo_free().
+
+
+For examples, see the tests (which are more like examples anyway) in
+tests/.
+
+
+ - Evan Martin, 03 Aug 2003
+
+vim: tw=72

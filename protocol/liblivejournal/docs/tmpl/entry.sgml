@@ -1,0 +1,248 @@
+<!-- ##### SECTION Title ##### -->
+entry
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM LJSecurityType ##### -->
+<para>
+
+</para>
+
+@LJ_SECURITY_PUBLIC: 
+@LJ_SECURITY_FRIENDS: 
+@LJ_SECURITY_PRIVATE: 
+@LJ_SECURITY_CUSTOM: 
+
+<!-- ##### MACRO LJ_SECURITY_ALLOWMASK_FRIENDS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION lj_security_from_strings ##### -->
+<para>
+
+</para>
+
+@security: 
+@sectext: 
+@allowmask: 
+
+
+<!-- ##### FUNCTION lj_security_to_strings ##### -->
+<para>
+
+</para>
+
+@security: 
+@sectext: 
+@allowmask: 
+
+
+<!-- ##### FUNCTION lj_security_append_to_request ##### -->
+<para>
+
+</para>
+
+@security: 
+@request: 
+
+
+<!-- ##### ENUM LJCommentsType ##### -->
+<para>
+
+</para>
+
+@LJ_COMMENTS_DEFAULT: 
+@LJ_COMMENTS_NOEMAIL: 
+@LJ_COMMENTS_DISABLE: 
+
+<!-- ##### ENUM LJEntryFileType ##### -->
+<para>
+
+</para>
+
+@LJ_ENTRY_FILE_AUTODETECT: 
+@LJ_ENTRY_FILE_XML: 
+@LJ_ENTRY_FILE_RFC822: 
+@LJ_ENTRY_FILE_PLAIN: 
+
+<!-- ##### FUNCTION lj_entry_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_new_from_file ##### -->
+<para>
+
+</para>
+
+@f: 
+@type: 
+@typeret: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_new_from_filename ##### -->
+<para>
+
+</para>
+
+@filename: 
+@type: 
+@typeret: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_new_from_xml_node ##### -->
+<para>
+
+</para>
+
+@doc: 
+@node: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_new_single_from_result ##### -->
+<para>
+
+</para>
+
+@result: 
+@err: 
+@Returns: 
+<!-- # Unused Parameters # -->
+@server: 
+
+
+<!-- ##### FUNCTION lj_entry_copy ##### -->
+<para>
+
+</para>
+
+@e: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_free ##### -->
+<para>
+
+</para>
+
+@e: 
+
+
+<!-- ##### FUNCTION lj_entry_make_summary ##### -->
+<para>
+
+</para>
+
+@entry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_get_summary ##### -->
+<para>
+
+</para>
+
+@subject: 
+@event: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_set_request_fields ##### -->
+<para>
+
+</para>
+
+@entry: 
+@request: 
+
+
+<!-- ##### FUNCTION lj_entry_to_xml_node ##### -->
+<para>
+
+</para>
+
+@entry: 
+@doc: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_to_xml_file ##### -->
+<para>
+
+</para>
+
+@entry: 
+@filename: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_to_rfc822 ##### -->
+<para>
+
+</para>
+
+@entry: 
+@includeempty: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_to_rfc822_file ##### -->
+<para>
+
+</para>
+
+@entry: 
+@filename: 
+@includeempty: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entry_edit_with_usereditor ##### -->
+<para>
+
+</para>
+
+@entry: 
+@basepath: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_entries_new_from_result ##### -->
+<para>
+
+</para>
+
+@result: 
+@count: 
+@warnings: 
+@Returns: 
+<!-- # Unused Parameters # -->
+@server: 
+@plastentry: 
+
+

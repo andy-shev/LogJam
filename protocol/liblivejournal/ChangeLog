@@ -1,0 +1,111 @@
+Sun, 30 Jan 2005 12:44:16 -0800  Evan Martin  <martine@danga.com>
+
+	* entry.c, entry.h: lj_get_summary, lj_entry_make_summary take
+	  and return const.
+
+Sat, 29 Jan 2005 18:05:14 -0800  Evan Martin  <martine@danga.com>
+
+	* entry.c:  Store anum if one is returned on getevent.
+	* sync.c, sync.h:  put_entry in a loop -> put_entries takes an array.
+
+Mon, 03 Jan 2005 00:10:22 -0800  Evan Martin  <martine@danga.com>
+
+	* configure.in:  Speed up configure by using parent's output.
+
+
+Sun, 02 Jan 2005 23:09:05 -0800  Evan Martin  <martine@danga.com>
+
+	* syncitems.c, syncitems.h, sync.c:  Ignore non-entry syncitems.
+
+Wed, 22 Dec 2004 17:33:16 -0800  Evan Martin  <martine@danga.com>
+
+	* autogen.sh: Use automake --foreign.
+	* configure.in: Fixes to let liblivejournal build on its own.
+	* configure.in, entry.c, entry.h, types.c: Allow libxml to be
+	  conditionally left out.
+	* sync.c: Use glib version of qsort.
+
+Mon, 28 Jun 2004 07:36:46 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* sync.c: fix crash in sync
+	  <http://www.livejournal.com/community/logjam_dev/22144.html>
+	  (davitcus).
+
+Tue, 30 Mar 2004 18:27:48 -0800  Evan Martin  <martine@danga.com>
+
+	* getevents.h: Drop unused field.
+
+Tue, 20 Jan 2004 11:19:44 -0800  Evan Martin  <martine@danga.com>
+
+	* verb.c:  Better robustness with network failures.
+
+Fri, 09 Jan 2004 09:56:12 -0800  Evan Martin  <martine@danga.com>
+
+	* Makefile.am, checkfriends.[ch]:  New mode.
+
+Thu, 08 Jan 2004 17:13:47 -0800  Evan Martin  <martine@danga.com>
+
+	* types.c:  Colors are hex, not decimal.
+	* Makefile.am, editfriends.[ch], editfriendgroups.[ch]:  New modes.
+
+Sun, 04 Jan 2004 01:07:59 -0800  Evan Martin  <martine@danga.com>
+
+	* Makefile.am, consolecommand.[ch]:  Wrap console commands.
+
+Sat, 03 Jan 2004 22:55:45 -0800  Evan Martin  <martine@danga.com>
+
+	Challenge-response protocol.
+	* serveruser.h:  Add LJAuthScheme enum (LJ_AUTH_SCHEME_C0),
+	  LJServer.authscheme, etc.
+	* protocol.c, verb.c: _use_challenge takes a challenge string
+	  and adjusts the request accordingly.  request_new_without_auth
+	  is for getchallenge requests.
+	* Makefile.am, getchallenge.[ch]:  New verb.
+
+Tue, 30 Dec 2003 19:14:03 -0800  Evan Martin  <martine@danga.com>
+
+	* sync.c:  Don't report progress of 0/0 items twice.
+
+Mon, 29 Dec 2003 23:52:15 -0800  Evan Martin  <martine@danga.com>
+
+	* entry.c:  The fix in this ChangeLog on 04 Dec 2003 broke
+	  editing entries from $EDITOR in a subtle way.  Fresh
+	  entries have no fields set, so the editor was loaded with
+	  an empty file.  Some bad error handling was causing us to
+	  refuse to load the file, resulting in a NULL entry.
+	  Fix was to clean up the error handling and also add an
+	  extra param to let it put out the extra fields. 
+	* entry.c:  Additionally, don't load empty fields. ("" != NULL)
+
+Tue,  9 Dec 2003 13:39:23 -0800  Evan Martin  <martine@danga.com>
+
+	* liblivejournal/protocol.c:  Don't assume all lj values
+	  are at least one character.  (User with an empty username
+	  was messing up the parser.)  Why hasn't anyone noticed this
+	  bug before!?
+
+Sun, 07 Dec 2003 21:35:30 +0200  Gaal Yahas  <gaal@forum2.org>
+	  
+	* liblivejournal/livejournal/verb.c: include <string.h>
+
+Thu, 04 Dec 2003 21:49:47 -0800  Evan Martin  <martine@danga.com>
+
+	* entry.c: lj_entry_to_rfc822 only includes fields if they're set.
+	* verb.c: Include some of the response in error when we can't parse it.
+
+Wed, 08 Oct 2003 13:04:04 -0700  Evan Martin <martine@danga.com>
+
+	* login.c:  Retrieve parentid on moods.
+	* serveruser.h:  Let moods store parentid.
+
+Tue, 07 Oct 2003 20:22:58 -0700  Evan Martin <martine@danga.com>
+
+	* all over:  Win32 fixes.
+
+Thu, 18 Sep 2003 20:27:51 -0700  Evan Martin <martine@danga.com>
+	
+	* entry.c:  Bring back editing with user editor.
+	* configure.ac, types.c:  lj_timegm (timegm is the inverse of gmtime,
+	  but it's not available on some systems).
+	* sync*:  Finish sync progress API.
+

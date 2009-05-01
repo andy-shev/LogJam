@@ -1,0 +1,80 @@
+<!-- ##### SECTION Title ##### -->
+editfriendgroups
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF LJEditFriendGroups ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_editfriendgroups_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_editfriendgroups_add_delete ##### -->
+<para>
+
+</para>
+
+@ef: 
+@id: 
+
+
+<!-- ##### FUNCTION lj_editfriendgroups_add_friend ##### -->
+<para>
+
+</para>
+
+@ef: 
+@username: 
+@fg: 
+@bg: 
+
+
+<!-- ##### FUNCTION lj_editfriendgroups_add_groupmask ##### -->
+<para>
+
+</para>
+
+@ef: 
+@username: 
+@groupmask: 
+
+
+<!-- ##### FUNCTION lj_editfriendgroups_add_edit ##### -->
+<para>
+
+</para>
+
+@efg: 
+@id: 
+@name: 
+@ispublic: 
+
+
+<!-- ##### FUNCTION lj_editfriendgroups_free ##### -->
+<para>
+
+</para>
+
+@editfriendgroups: 
+
+

@@ -1,0 +1,82 @@
+<!-- ##### SECTION Title ##### -->
+verb
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT LJVerb ##### -->
+<para>
+
+</para>
+
+@request: 
+@result: 
+@no_auth: 
+@parse_result: 
+
+<!-- ##### FUNCTION lj_verb_handle_response ##### -->
+<para>
+
+</para>
+
+@verb: 
+@response: 
+@err: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_verb_dump_request ##### -->
+<para>
+
+</para>
+
+@verb: 
+
+
+<!-- ##### FUNCTION lj_verb_parse_result ##### -->
+<para>
+
+</para>
+
+@verb: 
+
+
+<!-- ##### FUNCTION lj_verb_use_challenge ##### -->
+<para>
+
+</para>
+
+@verb: 
+@challenge: 
+
+
+<!-- ##### FUNCTION lj_verb_init ##### -->
+<para>
+
+</para>
+
+@verb: 
+@user: 
+@mode: 
+@no_auth: 
+@parse_result: 
+
+
+<!-- ##### FUNCTION lj_verb_free_contents ##### -->
+<para>
+
+</para>
+
+@verb: 
+
+

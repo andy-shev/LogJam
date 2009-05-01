@@ -1,0 +1,73 @@
+The Win32 support of LogJam is unmaintained at best.  It's mostly a novelty.
+
+Some LogJam features simply don't work in Windows.  Music detection is
+an obvious one-- we don't have xmms here.
+Caveat emptor / you get what you pay for.
+
+Also be warned that if you tell LogJam to save your password, 
+this password is saved in a file readable by anyone with access to your
+computer.  This could worked around if your filesystem is NTFS, but
+in general you shouldn't expect much security out of Windows.  :P
+
+
+Check out Gtk-WIMP:  http://gtk-wimp.sf.net  to make LogJam theme itself
+to look like other Windows programs.
+
+
+Actually building LogJam is a bit tricky.
+Here are my notes I used while building LogJam:
+
+=== BUILD NOTES FOR USING MINGW/MSYS ===
+(***Slightly out of date by now.***)
+Visit http://www.mingw.org .
+You need:
+ - mingw -- the gcc toolchain
+ - msys -- enough of a unix system to run configure
+ - msysDTK -- "Developer's Tool Kit"; includes autoconf and such
+
+Visit http://www.dropline.net/gtk .
+You need:
+ - GTK+ Runtime Environment
+ - GTK+ Development Environment
+I installed to c:\gtk.
+
+Before running autogen.sh:
+ - export PATH=$PATH:/c/gtk/bin:/c/gtk/lib
+ - glib-gettextize had an error because it was pointed at /target,
+   while I installed GTK to C:\gtk (/c/gtk in MSYS lingo).  Editing
+   two lines in /c/gtk/bin/glib-gettextize fixed it.
+ - export ACLOCAL_FLAGS='-I /c/gtk/share/aclocal'
+
+Aside from GTK, you'll want:
+- libxml (http://www.xmlsoft.org)
+  I wanted to build it with this command line:
+  ./configure --prefix=/c/gtk --without-zlib --without-python
+    --without-readline --without-threads --without-thread-alloc
+    --without-ftp --without-http --without-html --without-catalog
+    --without-docbook --without-xpath --without-xptr --without-c14n
+    --without-xinclude --without-xinclude --without-iconv -without-schemas
+    --without-regexps --without-debug --without-mem-debug
+  but there was some linking problem, and I forgot how I fixed it.
+- librsvg (http://librsvg.sf.net)
+  Only needed for the SVG throbber, this one was really difficult to figure
+  out.  You can figure it out yourself if you really want to.
+
+And lo, it compiles.
+
+Dr. Mingw (http://jrfonseca.dyndns.org/projects/gnu-win32/software/drmingw/)
+is very useful for diagnosing crashes.
+
+=== BUILD NOTES FOR USING THE MICROSOFT VISUAL STUDIO ===
+Get GTK from http://www.dropline.net.  Install into c:\gtk in this order:
+runtime environment, development environment.
+Get libxml, iconv, and zlib from http://www.zlatkovic.com/libxml.en.html;
+extract the lib and include subdirectories over those in c:\gtk.
+The order of the above steps is important!
+
+Get LogJam and put it in c:\lj\logjam.  Run build.bat in the images
+subdirectory to build pixbufs.h.  (You'll need to add the GTK lib and
+bin directories to your path:  PATH=%PATH%;c:\gtk\lib;c:\gtk\bin)
+
+Now you can open it in Developer Studio by double-clicking logjam.sln,
+which is in logjam/build/win32.
+

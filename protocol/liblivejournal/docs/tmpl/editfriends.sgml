@@ -1,0 +1,59 @@
+<!-- ##### SECTION Title ##### -->
+editfriends
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF LJEditFriends ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_editfriends_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_editfriends_add_delete ##### -->
+<para>
+
+</para>
+
+@ef: 
+@username: 
+
+
+<!-- ##### FUNCTION lj_editfriends_add_friend ##### -->
+<para>
+
+</para>
+
+@ef: 
+@username: 
+@fg: 
+@bg: 
+
+
+<!-- ##### FUNCTION lj_editfriends_free ##### -->
+<para>
+
+</para>
+
+@editfriends: 
+
+

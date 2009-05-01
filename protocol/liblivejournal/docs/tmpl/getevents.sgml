@@ -1,0 +1,99 @@
+<!-- ##### SECTION Title ##### -->
+getevents
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM LJGetEventsMode ##### -->
+<para>
+
+</para>
+
+@LJ_GETEVENTS_MODE_SINGLE: 
+@LJ_GETEVENTS_MODE_RECENT: 
+
+<!-- ##### FUNCTION lj_getevents_single_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@itemid: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_getevents_single_free ##### -->
+<para>
+
+</para>
+
+@getevents: 
+@includeevent: 
+
+
+<!-- ##### FUNCTION lj_getevents_new_recent ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@summary: 
+@count: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_getevents_sync_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@lastsync: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_getevents_sync_free ##### -->
+<para>
+
+</para>
+
+@getevents: 
+@includeentries: 
+
+
+<!-- ##### FUNCTION lj_getevents_recent_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@howmany: 
+@beforedate: 
+@summary: 
+@truncate: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_getevents_recent_free ##### -->
+<para>
+
+</para>
+
+@getevents: 
+@includeentries: 
+
+

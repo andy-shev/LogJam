@@ -1,0 +1,2 @@
+SUBDIRS = livejournal tests
+# docs

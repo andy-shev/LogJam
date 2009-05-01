@@ -1,0 +1,100 @@
+<!-- ##### SECTION Title ##### -->
+types
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### MACRO NID_CONTENT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION lj_timegm ##### -->
+<para>
+
+</para>
+
+@tm: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_ljdate_to_tm ##### -->
+<para>
+
+</para>
+
+@ljtime: 
+@ptm: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_tm_to_ljdate ##### -->
+<para>
+
+</para>
+
+@ptm: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_tm_to_ljdate_noseconds ##### -->
+<para>
+
+</para>
+
+@ptm: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_color_to_int ##### -->
+<para>
+
+</para>
+
+@color: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_int_to_color ##### -->
+<para>
+
+</para>
+
+@l: 
+@color: 
+
+
+<!-- ##### TYPEDEF LJChallenge ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO lj_challenge_new ##### -->
+<para>
+
+</para>
+
+@s: 
+
+
+<!-- ##### MACRO lj_challenge_free ##### -->
+<para>
+
+</para>
+
+@x: 
+
+

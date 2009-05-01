@@ -1,0 +1,174 @@
+<!-- ##### SECTION Title ##### -->
+Servers and Users
+
+<!-- ##### SECTION Short_Description ##### -->
+Data structures representing LiveJournal servers and users.
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT LJServer ##### -->
+<para>
+A LiveJournal server.
+</para>
+
+@url: url to the LiveJournal installation on the server.
+@moods: a list of #LJMood.
+@protocolversion: protocol version to use on the server.
+@authscheme: 
+
+<!-- ##### STRUCT LJUser ##### -->
+<para>
+A LiveJournal user.  Fields other than @server, @username, and @password
+are provided by the server in the login mode.
+</para>
+
+@server: the #LJServer this user is on.
+@username: the username.
+@password: the password.
+@fullname: the full name for this user.
+@checkfriends: 
+@pickws: a list of strings comprising the picture keywords for this user.
+@friendgroups: a list of #LJFriendGroup.
+@usejournals: a list of journal usernames this user can post in.
+@webmenu: a list of #LJWebMenuItem.
+
+<!-- ##### ENUM LJAuthScheme ##### -->
+<para>
+
+</para>
+
+@LJ_AUTH_SCHEME_UNKNOWN: 
+@LJ_AUTH_SCHEME_NONE: 
+@LJ_AUTH_SCHEME_C0: 
+@LJ_AUTH_SCHEME_OTHER: 
+
+<!-- ##### FUNCTION lj_server_new ##### -->
+<para>
+Create a new #LJServer.
+</para>
+
+@url: url to the LiveJournal installation on the server.
+@Returns: a new #LJServer.
+
+
+<!-- ##### FUNCTION lj_server_get_last_cached_moodid ##### -->
+<para>
+Get the last moodid in the mood list of @server.  Used in the login mode
+to only retrieve new moodids.
+</para>
+
+@server: an #LJServer.
+@Returns: integer moodid.
+
+
+<!-- ##### MACRO lj_server_unicode ##### -->
+<para>
+
+</para>
+
+@s: 
+
+
+<!-- ##### FUNCTION lj_user_new ##### -->
+<para>
+
+</para>
+
+@server: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_user_compare ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@Returns: 
+
+
+<!-- ##### MACRO lj_mood_new ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO lj_mood_id_from_name ##### -->
+<para>
+
+</para>
+
+@server: 
+@name: 
+
+
+<!-- ##### MACRO lj_mood_name_from_id ##### -->
+<para>
+
+</para>
+
+@server: 
+@id: 
+
+
+<!-- ##### MACRO lj_mood_compare ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO lj_friendgroup_new ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO lj_friendgroup_from_id ##### -->
+<para>
+
+</para>
+
+@user: 
+@id: 
+
+
+<!-- ##### MACRO lj_friend_group_free ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### TYPEDEF LJWebMenuItem ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### MACRO lj_webmenuitem_new ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION lj_webmenu_free ##### -->
+<para>
+
+</para>
+
+@menu: 
+
+

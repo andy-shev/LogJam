@@ -1,0 +1,197 @@
+<!-- ##### SECTION Title ##### -->
+protocol
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT LJRequest ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_request_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@mode: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_request_new_without_auth ##### -->
+<para>
+
+</para>
+
+@user: 
+@mode: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_request_free ##### -->
+<para>
+
+</para>
+
+@request: 
+
+
+<!-- ##### FUNCTION lj_request_add ##### -->
+<para>
+
+</para>
+
+@request: 
+@key: 
+@val: 
+
+
+<!-- ##### FUNCTION lj_request_add_int ##### -->
+<para>
+
+</para>
+
+@request: 
+@key: 
+@val: 
+
+
+<!-- ##### FUNCTION lj_request_to_string ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_request_get_user ##### -->
+<para>
+
+</para>
+
+@request: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_request_dump ##### -->
+<para>
+
+</para>
+
+@request: 
+
+
+<!-- ##### FUNCTION lj_request_use_challenge ##### -->
+<para>
+
+</para>
+
+@request: 
+@challenge: 
+
+
+<!-- ##### STRUCT LJResult ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_result_new_from_response ##### -->
+<para>
+
+</para>
+
+@res: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_result_free ##### -->
+<para>
+
+</para>
+
+@result: 
+
+
+<!-- ##### FUNCTION lj_result_succeeded ##### -->
+<para>
+
+</para>
+
+@result: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_result_get ##### -->
+<para>
+
+</para>
+
+@result: 
+@key: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_result_get_int ##### -->
+<para>
+
+</para>
+
+@result: 
+@key: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_result_getf ##### -->
+<para>
+
+</para>
+
+@result: 
+@key: 
+@Varargs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_result_getf_int ##### -->
+<para>
+
+</para>
+
+@result: 
+@key: 
+@Varargs: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_urlencode ##### -->
+<para>
+
+</para>
+
+@string: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_urldecode ##### -->
+<para>
+
+</para>
+
+@string: 
+@Returns: 
+
+

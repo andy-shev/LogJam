@@ -1,0 +1,34 @@
+
+What is gxr?
+------------
+
+gxr autogenerates XML-RPC bindings for use from C programs that use glib and
+libxml-- that is, pretty much any GTK or GNOME program.
+
+gxr consists of:
+  gxr.c,gxr.h -- utility functions used by gxr
+  gxr-gen.rb  -- script to generate code from signature file
+
+gxr is used like this:
+  ./gxr-gen.rb --namespace foo bar baz.gxr
+This generates bar.c and bar.h with functions namespaced like "foo_..." from
+the signatures found in baz.gxr.
+
+
+Why "gxr"?
+----------
+
+gxr stands for
+"Glib XML-RPC", which stands for
+"GTK LIBrary eXtensible Markup Language Remote Procedure Call", which stands
+for
+"Gimp ToolKit LIBrary eXtensible Markup Language Remote Procedure Call", which
+stands for
+"GNU Image Manipulation Program ToolKit LIBrary eXtensible Markup Language
+Remote Procedure Call", which stands for (*deep breath*)
+"Gnu's Not Unix Image Manipulation Program ToolKit LIBrary eXtensible Markup
+Language Remote Procedure Call", recursing infinitely.
+
+However, "gxr" is much easier to type, so we use that.
+
+

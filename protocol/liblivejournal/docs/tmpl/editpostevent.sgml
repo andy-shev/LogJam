@@ -1,0 +1,36 @@
+<!-- ##### SECTION Title ##### -->
+editpostevent
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION lj_editpostevent_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@edit: 
+@entry: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_editpostevent_free ##### -->
+<para>
+
+</para>
+
+@editpostevent: 
+
+

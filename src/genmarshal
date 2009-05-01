@@ -1,0 +1,3 @@
+set -x
+glib-genmarshal --prefix=logjam_marshal --header marshalers.list > marshalers.h
+glib-genmarshal --prefix=logjam_marshal --body   marshalers.list > marshalers.c

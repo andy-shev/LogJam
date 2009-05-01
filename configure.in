@@ -1,0 +1,246 @@
+AC_PREREQ(2.52)
+AC_INIT(logjam, 4.5.3, evan@livejournal.com)
+AC_CANONICAL_SYSTEM
+AM_INIT_AUTOMAKE
+AC_CONFIG_SRCDIR(src/jam.c)
+AM_CONFIG_HEADER(config.h)
+
+dnl Checks for programs.
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LIBTOOL
+AC_PROG_INTLTOOL
+AC_CACHE_SAVE
+
+AC_CHECK_HEADERS([regex.h])
+
+dnl Check for gettext.
+GETTEXT_PACKAGE=logjam
+AC_SUBST(GETTEXT_PACKAGE)
+AC_DEFINE_UNQUOTED([GETTEXT_PACKAGE],"$GETTEXT_PACKAGE",[gettext package])
+ALL_LINGUAS="es en_GB en_US.UTF-8 de he ja ru_RU uk_UA"
+AM_GLIB_GNU_GETTEXT
+
+dnl Even though the Unix versions don't use gthread, the soup
+dnl library manages to tickle glib in a way that makes it unhappy
+dnl unless we init threads.  So just bring it in always.
+MODULES="glib-2.0 gobject-2.0 libxml-2.0 gthread-2.0"
+
+AC_MSG_CHECKING([for mingw])
+case "$host" in
+  *-*-mingw*)
+    CFLAGS="$CFLAGS -mms-bitfields"
+    with_dock="no (not supported on Windows)"
+    mingw=yes
+    ;;
+  *)
+    with_dock=yes
+    mingw=no
+    ;;
+esac
+AC_MSG_RESULT([$mingw])
+
+dnl OSX doesn't have a socklen_t?
+AC_C_SOCKLEN_T
+
+AC_CACHE_SAVE
+AC_ARG_ENABLE(pch,
+  AC_HELP_STRING([--enable-pch],
+                 [compile with GCC 3.4 precompiled headers]),
+  , [with_pch=no])
+AM_CONDITIONAL(ENABLE_PCH, test "$enable_pch" = "yes")
+
+AC_ARG_WITH(gtk,
+  AC_HELP_STRING([--without-gtk],
+                 [compile without GUI support]),
+  , [with_gtk=yes])
+
+LJ_PKG_ARG_WITH(sqlite3, [SQLITE3],
+  AC_HELP_STRING([--with-sqlite3],
+                 [use sqlite backend (default autodetect)]),
+  sqlite3)
+
+LJ_PKG_ARG_WITH(libsoup, [LIBSOUP],
+  AC_HELP_STRING([--with-libsoup],
+                 [use libsoup network backend]),
+  libsoup-2.2)
+
+AC_MSG_CHECKING(whether to use gtk)
+if test "$with_gtk" = "yes" ; then
+  AC_MSG_RESULT(yes)
+  MODULES="gtk+-2.0 >= 2.4 $MODULES"
+  LJ_PKG_ARG_WITH(gtkspell, GTKSPELL,
+    AC_HELP_STRING([--with-gtkspell],
+                   [compile with GtkSpell support (default autodetect)]),
+    gtkspell-2.0)
+
+  LJ_PKG_ARG_WITH(gtkhtml36, GTKHTML36,
+    AC_HELP_STRING([--with-gtkhtml36],
+                   [compile with GtkHtml3.6 support (default autodetect)]),
+    libgtkhtml-3.6)
+  if test "$with_gtkhtml36" = "yes"; then
+    with_gtkhtml="3.6"
+  else
+    LJ_PKG_ARG_WITH(gtkhtml30, GTKHTML30,
+      AC_HELP_STRING([--with-gtkhtml30],
+                     [compile with GtkHtml3.0 support (default autodetect)]),
+      libgtkhtml-3.0)
+    if test "$with_gtkhtml30" = "yes"; then
+      with_gtkhtml="3.0"
+    else
+      with_gtkhtml="no"
+    fi
+  fi
+  if test "$with_gtkhtml" != "no"; then
+    AC_DEFINE(HAVE_GTKHTML,1,[do we have a gtkhtml?])
+  fi
+
+  LJ_PKG_ARG_WITH(librsvg, LIBRSVG,
+    AC_HELP_STRING([--with-librsvg],
+                   [compile with librsvg support (default autodetect)]),
+    librsvg-2.0 > 2.2.3)
+
+  AC_MSG_CHECKING(whether to use dock)
+  if test "$with_dock" = "yes" ; then
+    AC_DEFINE(USE_DOCK, 1, [should we use dock?])
+    AC_MSG_RESULT(yes)
+  else
+    AC_MSG_RESULT(no)
+  fi
+
+  PKG_CHECK_MODULES(LOGJAM, $MODULES)
+  AC_SUBST(LOGJAM_CFLAGS)
+  AC_SUBST(LOGJAM_LIBS)
+  AC_DEFINE(HAVE_GTK, 1, [do we have gtk?])
+else
+  # no gtk
+  AC_MSG_RESULT(no)
+  PKG_CHECK_MODULES(LOGJAM, $MODULES)
+  AC_SUBST(LOGJAM_CFLAGS)
+  AC_SUBST(LOGJAM_LIBS)
+  with_gtkspell=no
+  with_gtkhtml=no
+  with_librsvg=no
+  with_dock=no
+fi
+AM_CONDITIONAL(WITH_DOCK, test "$with_dock" = "yes")
+AM_CONDITIONAL(WITH_GTK, test "$with_gtk" = "yes")
+
+dnl We were gonna support dashboard, but it looked like development stalled.
+dnl AC_ARG_WITH(dashboard,
+dnl   AC_HELP_STRING([--with-dashboard],
+dnl      [compile with dashboard (http://www.nat.org/dashboard) support]),
+dnl   , [with_dashboard=no])
+dnl 
+dnl AC_MSG_CHECKING(whether to use dashboard)
+dnl if test "$with_dashboard" = "yes" ; then
+dnl   AC_DEFINE(USE_DASHBOARD, 1, [should we use dashboard?])
+dnl   AC_MSG_RESULT(yes)
+dnl else
+dnl   AC_MSG_RESULT(no)
+dnl fi
+dnl AM_CONDITIONAL(USE_DASHBOARD, test "$with_dashboard" = "yes")
+
+dnl Choose networking backend.
+network_backend=
+NETWORK_CFLAGS=
+NETWORK_LIBS=
+if test "$mingw" = "yes" ; then
+  network_backend=win32
+  NETWORK_CFLAGS=
+  NETWORK_LIBS=-lwininet
+elif test "$with_libsoup" != "no" ; then
+  network_backend=libsoup
+elif test "$with_curl" != "no" ; then
+  AC_PATH_PROG(CURL_CONFIG, curl-config, no)
+  if test "$CURL_CONFIG" = "no" ; then
+    dnl only bitch at them if they explicitly requested libcurl
+    if test "$with_curl" = "yes" ; then
+      AC_MSG_ERROR(The curl-config script installed by libcurl could not be found.)
+    fi
+  else
+    network_backend=curl
+    NETWORK_CFLAGS="`curl-config --cflags` -I`curl-config --prefix`/include"
+    NETWORK_LIBS="`curl-config --libs` -L`curl-config --prefix`/lib -lcurl"
+  fi
+fi
+
+dnl if we didn't find one above, we use libxml's nanohttp.
+if test -z "$network_backend" ; then 
+  network_backend=libxml
+fi
+
+AM_CONDITIONAL(WITH_LIBSOUP, test "$network_backend" = "libsoup")
+AM_CONDITIONAL(WITH_CURL, test "$network_backend" = "curl")
+AC_SUBST(NETWORK_CFLAGS)
+AC_SUBST(NETWORK_LIBS)
+
+XMMS_LIBS=
+XMMS_CFLAGS=
+
+AC_ARG_WITH(xmms, 
+  AC_HELP_STRING([--with-xmms], [build xmms helper (default autodetect)]),
+  , [with_xmms=yes])
+
+if test "$with_xmms" = "yes"; then
+  AC_CHECK_PROG(XMMS_CONFIG, xmms-config, xmms-config, no)
+  if test "$XMMS_CONFIG" = "no"; then
+    AC_MSG_WARN([cannot find xmms-config; XMMS support disabled.])
+    with_xmms=no
+    XMMS_TYPE=0
+  else
+    XMMS_LIBS=`$XMMS_CONFIG --libs`
+    XMMS_CFLAGS=`$XMMS_CONFIG --cflags`
+    XMMS_TYPE=1
+  fi
+fi
+AC_SUBST(XMMS_LIBS)
+AC_SUBST(XMMS_CFLAGS)
+
+dnl liblivejournal dependencies.
+MODULES="glib-2.0 gobject-2.0 libxml-2.0"
+PKG_CHECK_MODULES(LIVEJOURNAL, $MODULES)
+AC_SUBST(LIVEJOURNAL_CFLAGS)
+AC_SUBST(LIVEJOURNAL_LIBS)
+dnl end liblivejournal dependencies.
+
+AM_CONDITIONAL(WITH_XMMS, test "$with_xmms" = "yes")
+AM_CONDITIONAL(WITH_HTML, test "$with_gtkhtml" != "no")
+AM_CONDITIONAL(WITH_RSVG, test "$with_librsvg" = "yes")
+AM_CONDITIONAL(WITH_SQLITE3, test "$with_sqlite3" = "yes")
+AM_CONDITIONAL(WIN32, test "$mingw" = "yes")
+
+dnl pull in liblivejournal.
+AC_CONFIG_SUBDIRS(protocol/liblivejournal)
+
+AC_CONFIG_FILES([Makefile po/Makefile.in
+doc/Makefile data/Makefile images/Makefile
+util/Makefile util/xmmsclient/Makefile
+protocol/Makefile
+src/Makefile])
+AC_OUTPUT
+dnl punted for this release:
+dnl  - protocol/blogger/Makefile
+dnl  - util/gxr/Makefile 
+
+echo ""
+echo " logjam ${VERSION} build configuration:"
+echo ""
+echo "    - GTK: ${with_gtk}"
+echo "      - GtkSpell: ${with_gtkspell}"
+echo "      - GtkHTML: ${with_gtkhtml}"
+echo "      - librsvg: ${with_librsvg}"
+echo "      - Docklet (\"tray icon\"): ${with_dock}"
+dnl echo "    - Use dashboard: ${with_dashboard}"
+echo "    - Networking: ${network_backend}"
+if test "$network_backend" = "libxml"; then
+  echo "        WARNING: libxml network backend does not support proxy auth."
+  echo "        Additionally, it provides less feedback while processing,"
+  echo "        and it fails less gracefully than Curl."
+  echo "        If you need these features, you must build with Curl."
+fi
+echo "    - XMMS helper: ${with_xmms}"
+echo "    - SQLite3: ${with_sqlite3}"
+echo ""
+
+dnl vim: set ts=2 sw=2 et :

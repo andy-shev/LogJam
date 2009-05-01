@@ -1,0 +1,122 @@
+name: logjam
+# we intentionally leave desc out empty because we have more docs inline.
+subcommands:
+ - name: checkfriends
+   needpw: 1
+   desc: Efficiently check friends list for updates.
+   longdesc: |
+      Monitors your friends page for updates. Running this is faster and more
+      efficient than loading the whole friends page itself.
+   subcommands:
+    - name: purge
+      desc: Reset checkfriends information.
+ - name: console
+   needpw: 1
+   desc: Run a command on the LiveJournal console.
+ - name: post
+   desc: Post event immediately.
+   needpw: 1
+   options:
+    - short: s
+      long: subject
+      required: 1
+      arg: SUBJECT
+      desc: Subject for the post.
+    - short: k
+      required: 1
+      arg: KEYWORD
+      long: userpic
+      desc: Keyword for the user picture to use.
+    - short: e
+      long: edit
+      desc: Use default editor to edit post.
+ - name: offline
+   desc: Manage offline copies of your journal.
+   existinguser: 1
+   subcommands:
+    - name: sync
+      needpw: 1
+      desc: Synchronize offline journal.
+    - name: cat
+      desc: Show entries from local store.
+      longdesc: |
+         Show entries in local store. Specify entries by itemid or use the
+         'latest' token to signify the latest message.
+         
+         Example: logjam sync ; logjam cat latest
+      options:
+       - short: t
+         long: desc
+         desc: Output entries in text format.
+       - short: x
+         long: xml
+         desc: Output entries in XML format.
+      qualifiers:
+       - name: latest
+       - desc: use latest message in store.
+    - name: grep
+      desc: Find entries by regexp.
+      options:
+       - short: t
+         long: text
+         desc: Output entries in text format.
+       - short: x
+         long: xml
+         desc: Output entries in XML format.
+       - short: i
+         long: ignorecase
+         desc: Ignore case in searches.
+       - short: e
+         long: extended
+         desc: Use Extended Regular Expression syntax.
+    - name: summary
+      desc: Show a summary of an offline store.
+    - name: reindex
+      desc: Rebuild the index an offline store.
+ - name: user
+   desc: Manage user list.
+   requireuser: FALSE
+   subcommands:
+    - name: add
+      desc: Add a user to the user list.
+      requireuser: FALSE
+      longdesc: |
+        Add a user to LogJam's configured list.
+        Usage: logjam user add USERNAME [PASSWORD]
+         
+      options:
+       - short: p
+         long: nopassword
+         desc: Don't save a password for this user.
+options:      
+ - short: v
+   long: version
+   desc: Show version of program.
+ - short: q
+   long: quiet
+   desc: Say less.
+ - spacer:
+ - short: u
+   long: username
+   required: 1
+   arg: USERNAME
+   desc: Username to operate as.
+ - short: p
+   long: password
+   required: 1
+   arg: PASSWORD
+   desc: Password for the current user.
+ - short: a
+   long: postas
+   required: 1
+   arg: USERNAME
+   desc: User/community to post as.
+ - spacer:
+ - short: f
+   long: file
+   required: 1
+   arg: FILE
+   desc: File to load.
+ - short: e
+   long: edit
+   desc: Use default editor to edit post.

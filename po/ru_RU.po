@@ -1,0 +1,2570 @@
+# Russian translations for LogJam package
+# Английские переводы для пакета LogJam.
+# Copyright (C) 2002 Evan Martin <evan@livejournal.com>
+# This file is distributed under the same license as the LogJam package.
+# Mikhail Chekanov <mihun@bitex.com>,
+# http://www.livejournal.com/~mihun/ , 2002.
+# Grigory Bakunov <black@asplinux.ru>,
+# http://www.livejournal.com/~bobuk/, 2003.
+# Kir Kolyshkin <kir@sacred.ru>, 2003-2004,
+# http://www.livejournal.com/~k001/
+msgid ""
+msgstr ""
+"Project-Id-Version: LogJam 4.4.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-08-24 09:12-0700\n"
+"PO-Revision-Date: 2005-01-07 02:40+0400\n"
+"Last-Translator: Kir Kolyshkin <kir@sacred.ru>\n"
+"Language-Team: Russian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../data/logjam.desktop.in.h:1 ../src/docklet.c:67 ../src/init.c:190
+msgid "LogJam"
+msgstr "LogJam"
+
+#: ../data/logjam.desktop.in.h:2
+msgid "Manage journal/weblog"
+msgstr "Управление дневником/веблогом"
+
+#: ../src/about.c:63
+#, c-format
+msgid ""
+"<b><big>LogJam %s</big></b>\n"
+"<small>Copyright (C) 2000-2004 Evan Martin</small>"
+msgstr ""
+"<b><big>LogJam %s</big></b>\n"
+"<small>Copyright (C) 2000-2004 Evan Martin</small>"
+
+#: ../src/about.c:157
+msgid "About LogJam"
+msgstr "О программе"
+
+#: ../src/about.c:172
+msgid ""
+"This program is free software; you can redistribute it and/or modify\n"
+"it under the terms of the GNU General Public License as published by\n"
+"the Free Software Foundation; either version 2 of the License, or\n"
+"(at your option) any later version."
+msgstr ""
+"Эта программа является свободным программным обеспечением; Вы можете\n"
+"распространять и/или изменять её согласно условиям Стандартной\n"
+"Общественной Лицензии GNU (GNU GPL), опубликованной Фондом свободного\n"
+"программного обеспечения (FSF); либо Лицензии версии 2, либо (на ваше\n"
+"усмотрение) любой более поздней версии."
+
+#: ../src/about.c:180
+msgid "LogJam was made with the help of many people, including:"
+msgstr "LogJam сделан благодаря помощи многих людей, включая:"
+
+#: ../src/account.c:144
+#, c-format
+msgid "host %s not found in conf"
+msgstr "хост %s не найден в конфигурации"
+
+#: ../src/account.c:146
+#, c-format
+msgid "user %s not found in server %s"
+msgstr "пользователь %s не найден в сервере %s"
+
+#: ../src/checkfriends.c:280
+msgid "Too many network errors; checking friends disabled."
+msgstr "Слишком много ошибок сети; проверка друзей выключена."
+
+#: ../src/checkfriends.c:324
+#, c-format
+msgid "Can't unlink %s: %s."
+msgstr "Не могу удалить %s: %s"
+
+#: ../src/checkfriends.c:360
+#, c-format
+msgid "Error opening %s for write: %s."
+msgstr "Ошибка при открытии %s для записи: %s"
+
+#: ../src/checkfriends.c:393
+#, c-format
+msgid ""
+"Maximum error count reached in contacting server.\n"
+"Run \"%s --checkfriends=purge\" and try again.\n"
+msgstr ""
+"Достигнуто максимальное количество ошибок при соединении с сервером.\n"
+"Выполните \"%s --checkfriends=purge\" и попробуйте снова.\n"
+
+#: ../src/checkfriends.c:400
+msgid "Request rate exceeded. Slow down.\n"
+msgstr "Превышен темп запросов. Снизьте темп.\n"
+
+#: ../src/checkfriends.c:405
+#, c-format
+msgid ""
+"Read your friends page, then run\n"
+"\"%s checkfriends purge\".\n"
+msgstr ""
+"Прочитайте новые записи и выполните\n"
+"\"%s --checkfriends=purge\"\n"
+
+#: ../src/checkfriends-gtk.c:28
+msgid ""
+"The Check Friends feature is enabled by right-clicking on this button and "
+"selecting \"Check friends view for new entries\". Once you do so, you will "
+"be notified every time one of your friends updates their journal with a new "
+"entry.\n"
+"\n"
+"Once this happens, the indicator will turn red. You can then read your "
+"friends page (as a convenience, double-clicking on the indicator will take "
+"you there). Click on the indicator once you've read the new entries to "
+"resume monitoring for newer entries.\n"
+"\n"
+msgstr ""
+"Вы можете включить автоматическую проверку новых записей в ленте друзей, "
+"выбрав \"Проверять, не пишут ли друзья\" в контекстном меню. LogJam будет "
+"извещать Вас каждый раз при появлении новой записи.\n"
+"\n"
+"Для того, чтобы прочитать новые записи, щелкните два раза мышкой по "
+"индикатору. После того, как Вы прочитаете обновления, щелкните по индикатору "
+"один раз, чтобы возобновить проверку.\n"
+
+#: ../src/checkfriends-gtk.c:52
+msgid "Check Friends disabled"
+msgstr "Проверка друзей выключена"
+
+#: ../src/checkfriends-gtk.c:57
+msgid "No new entries in your friends view"
+msgstr "Нет новых записей"
+
+#: ../src/checkfriends-gtk.c:61
+msgid "There are new entries in your friends view"
+msgstr "Появились новые записи"
+
+#: ../src/checkfriends-gtk.c:110
+msgid "_Check friends view for new entries"
+msgstr "Проверять, не пишут ли друзья"
+
+#: ../src/checkfriends-gtk.c:136
+msgid "_Open friends list in browser"
+msgstr "Открыть ленту друзей в браузере"
+
+#: ../src/cmdline.c:84
+#, c-format
+msgid ""
+"LogJam %s\n"
+"Copyright (C) 2000-2004 Evan Martin\n"
+"\n"
+msgstr ""
+"LogJam %s\n"
+"Copyright (C) 2000-2004 Evan Martin\n"
+"\n"
+
+#: ../src/cmdline.c:106
+msgid "Subcommands:\n"
+msgstr "Подкоманды:\n"
+
+#: ../src/cmdline.c:114
+#, c-format
+msgid "Use:  %s [options] [command [commandargs]]\n"
+msgstr "Использование: %s [опции] [команда [аргументы-команды]]\n"
+
+#: ../src/cmdline.c:118
+msgid ""
+"If no subcommand is provided, the default behavior is to load the GUI.\n"
+msgstr ""
+"Если подкоманда не задана, поведение по умолчанию - загрузить оболочку.\n"
+
+#: ../src/cmdline.c:128
+msgid "Also, GTK+ command line options (such as --display) can be used.\n"
+msgstr ""
+"Также можно использовать опции командной строки GTK+ (такие, как --"
+"display).\n"
+
+#
+#. unknown option character.
+#. missing option character.
+#: ../src/cmdline.c:154
+msgid "Unknown or missing option character\n"
+msgstr "Неизвестный или пропущенный символ параметра\n"
+
+#: ../src/cmdline.c:197
+msgid "Blogger accounts do not have a console interface.\n"
+msgstr "Учётные записи Blogger не имеют консольного интерфейса.\n"
+
+#: ../src/cmdline.c:203
+msgid "Must specify a console command.  Try \"help\".\n"
+msgstr "Необходимо указать консольную команду. Попробуйте \"help\".\n"
+
+#: ../src/cmdline.c:246
+msgid "Success.\n"
+msgstr "Успешно.\n"
+
+#: ../src/cmdline.c:261
+msgid "Checkfriends is only supported by LiveJournal accounts.\n"
+msgstr "Проверка друзей поддерживается только для LiveJournal.\n"
+
+#: ../src/cmdline.c:275
+#, c-format
+msgid "Checkfriends information for %s purged.\n"
+msgstr "Информация о проверке друзей для %s сброшена.\n"
+
+#: ../src/cmdline.c:279
+#, c-format
+msgid "Unknown argument %s to --checkfriends\n"
+msgstr "Неизвестный аргумент %s в параметрах --checkfriends\n"
+
+#: ../src/cmdline.c:294
+msgid "Sync is only supported by LiveJournal accounts.\n"
+msgstr "Синхронизация поддерживается только для LiveJournal.\n"
+
+#: ../src/cmdline.c:322
+#, c-format
+msgid "Specify at least one itemid or 'latest'.\n"
+msgstr "Укажите как минимум один идентификатор или 'latest'.\n"
+
+#: ../src/cmdline.c:340
+#, c-format
+msgid "expected itemid, got %s\n"
+msgstr "ожидали идентификатор, получили %s\n"
+
+#: ../src/cmdline.c:348
+#, c-format
+msgid "entry %d not found\n"
+msgstr "запись %d не найдена\n"
+
+#: ../src/cmdline.c:429
+msgid "Specify a regexp to match\n"
+msgstr "Укажите регулярное выражение\n"
+
+#: ../src/cmdline.c:439
+#, c-format
+msgid "Regexp error: %s.\n"
+msgstr "Ошибка регулярного выражения: %s.\n"
+
+#: ../src/cmdline.c:456
+msgid "Regexp error: out of memory.\n"
+msgstr "Ошибка регулярного выражения: недостаточно памяти.\n"
+
+#
+#: ../src/cmdline.c:487
+msgid "LogJam was compiled without regular expression support.\n"
+msgstr "LogJam скомпилирован без поддержки регулярных выражений.\n"
+
+#: ../src/cmdline.c:510
+#, c-format
+msgid "Offline journal for '%s':\n"
+msgstr "Локальная копия дневника для '%s':\n"
+
+#: ../src/cmdline.c:514
+#, c-format
+msgid "  Last synced: %s.\n"
+msgstr "  Последняя синхронизация: %s.\n"
+
+#: ../src/cmdline.c:517
+#, c-format
+msgid "  Entry count: %d.\n"
+msgstr "  Счётчик записей: %d.\n"
+
+#: ../src/cmdline.c:518
+#, c-format
+msgid "  Latest itemid: %d.\n"
+msgstr "  Последний идентификатор: %d.\n"
+
+#
+#: ../src/cmdline.c:530
+msgid "Rebuilding index..."
+msgstr "Перестройка индекса..."
+
+#: ../src/cmdline.c:533
+#, c-format
+msgid " ERROR: %s.\n"
+msgstr " ОШИБКА: %s.\n"
+
+#
+#: ../src/cmdline.c:537 ../src/sync.c:233
+msgid "done.\n"
+msgstr "готово.\n"
+
+#: ../src/cmdline.c:566
+msgid "Error: specify a user.\n"
+msgstr "Ошибка: укажите пользователя.\n"
+
+#: ../src/cmdline.c:628
+#, c-format
+msgid "Unknown account '%s'.\n"
+msgstr "Неизвестная учётная запись '%s'.\n"
+
+#: ../src/cmdline.c:636
+msgid "Password: "
+msgstr "Пароль: "
+
+#: ../src/cmdline.c:691
+#, c-format
+msgid "Error: Unknown action '%s'.\n"
+msgstr "Ошибка: Неизвестное действие '%s'.\n"
+
+#: ../src/cmdline.c:699
+msgid "Error:  Must specify account.\n"
+msgstr "Ошибка:  Необходимо указать учётную запись.\n"
+
+#: ../src/cmdline_data.h:18
+msgid "Efficiently check friends list for updates."
+msgstr "Эффективно проверять список друзей на предмет обновлений."
+
+#
+#: ../src/cmdline_data.h:19
+msgid "Run a command on the LiveJournal console."
+msgstr "Выполнить команду в консоли LiveJournal."
+
+#: ../src/cmdline_data.h:20
+msgid "Post event immediately."
+msgstr "Отослать событие немедленно."
+
+#: ../src/cmdline_data.h:21
+msgid "Manage offline copies of your journal."
+msgstr "Управление локальными копиями вашего дневника."
+
+#: ../src/cmdline_data.h:22
+msgid "Manage user list."
+msgstr ""
+
+#: ../src/cmdline_data.h:46
+msgid "Reset checkfriends information."
+msgstr "Сбросить информацию по проверке друзей."
+
+#: ../src/cmdline_data.h:111
+msgid "Synchronize offline journal."
+msgstr "Синхронизация локальной копии дневника..."
+
+#: ../src/cmdline_data.h:112
+msgid "Show entries from local store."
+msgstr "Показать записи из локального хранилища."
+
+#: ../src/cmdline_data.h:113
+msgid "Find entries by regexp."
+msgstr "Найти записи по регулярному выражению."
+
+#: ../src/cmdline_data.h:114
+msgid "Show a summary of an offline store."
+msgstr "Показать сводку по локальному хранилищу."
+
+#: ../src/cmdline_data.h:115
+msgid "Rebuild the index an offline store."
+msgstr "Перестроить индекс локального хранилища."
+
+#: ../src/cmdline_data.h:218
+msgid "Add a user to the user list."
+msgstr ""
+
+#: ../src/conf.c:88
+msgid "new host name is invalid"
+msgstr "новое имя хоста некорректно"
+
+#: ../src/conf.c:100
+#, c-format
+msgid "renaming '%s' to '%s': %s"
+msgstr "переименование '%s' в '%s': %s"
+
+#: ../src/conf_xml.c:79
+#, c-format
+msgid "error parsing configuration file.\n"
+msgstr "ошибка при чтении конфигурационного файла.\n"
+
+#: ../src/conf_xml.c:87
+#, c-format
+msgid "empty document.\n"
+msgstr "пустой документ.\n"
+
+#: ../src/console.c:70
+msgid "Running command: '"
+msgstr "Выполнение команды: '"
+
+#: ../src/console.c:76
+msgid "Running Command"
+msgstr "Выполнение команды"
+
+#: ../src/console.c:78
+msgid "Error running command.\n"
+msgstr "Ошибка при выполнении команды.\n"
+
+#: ../src/console.c:120
+msgid "LiveJournal Console"
+msgstr "Консоль LiveJournal"
+
+#: ../src/console.c:137
+msgid " _Submit "
+msgstr "_Отправить "
+
+#: ../src/console.c:175
+msgid "LiveJournal console ready.\n"
+msgstr "Консоль LiveJournal запущена.\n"
+
+#: ../src/datesel.c:176
+msgid "Select Date"
+msgstr "Выбрать дату"
+
+#: ../src/datesel.c:190
+msgid "_Time:"
+msgstr "_Время:"
+
+#: ../src/datesel.c:218
+msgid "Use _current date/time"
+msgstr "Использовать _текущие дату/время"
+
+#: ../src/datesel.c:222
+msgid "Entry is _backdated"
+msgstr "Датировать _задним числом"
+
+#: ../src/docklet.c:49 ../src/settings.c:738
+msgid "Check Friends"
+msgstr "Проверить друзей"
+
+#: ../src/draftstore_ui.c:55 ../src/history_recent.c:177
+msgid "Date"
+msgstr "Дата"
+
+#: ../src/draftstore_ui.c:62 ../src/history_recent.c:183
+msgid "Subject"
+msgstr "Тема"
+
+#: ../src/draftstore_ui.c:82 ../src/jam.c:345 ../src/jam.c:390
+msgid "Delete"
+msgstr "Удалить"
+
+#: ../src/draftstore_ui.c:82
+msgid "Delete entry?"
+msgstr "Удалить запись?"
+
+#: ../src/draftstore_ui.c:104 ../src/settings.c:398
+msgid "Entries"
+msgstr "Записи"
+
+#: ../src/friendedit.c:85
+msgid "Select Background Color"
+msgstr "Выберите цвет фона"
+
+#: ../src/friendedit.c:90
+msgid "Select Foreground Color"
+msgstr "Выберите цвет текста"
+
+#: ../src/friendedit.c:99
+msgid "Adding Friend"
+msgstr "Добавление друзей..."
+
+#: ../src/friendedit.c:153
+msgid "Edit Friend"
+msgstr "Редактировать"
+
+#: ../src/friendedit.c:154
+msgid "Add This Friend"
+msgstr "Добавить этого друга"
+
+#: ../src/friendedit.c:154
+msgid "Add a Friend"
+msgstr "Добавить друга"
+
+#: ../src/friendedit.c:157
+msgid "Change"
+msgstr " Изменить"
+
+#: ../src/friendedit.c:157
+msgid "Add"
+msgstr " Добавить"
+
+#: ../src/friendedit.c:176
+msgid "Friend's _username:"
+msgstr "Пользователь:"
+
+#: ../src/friendedit.c:185
+msgid "_Text color:"
+msgstr "Цвет текста:"
+
+#: ../src/friendedit.c:194
+msgid "_Background color:"
+msgstr "Цвет фона:"
+
+#: ../src/friendgroupedit.c:50
+msgid "Modifying Friend Group"
+msgstr "Модификация групп друзей"
+
+#: ../src/friendgroupedit.c:91
+msgid "Edit Friend Group"
+msgstr "Редактировать группу друзей"
+
+#: ../src/friendgroupedit.c:91
+msgid "New Friend Group"
+msgstr "Новая группа"
+
+#: ../src/friendgroupedit.c:105
+msgid "Group ID:"
+msgstr "Идентификатор группы:"
+
+#: ../src/friendgroupedit.c:109
+msgid "_Group Name:"
+msgstr "Имя группы:"
+
+#: ../src/friendgroups.c:48
+msgid "Couldn't find free friend group(?)"
+msgstr "Не могу найти свободную группу(?)"
+
+#: ../src/friendgroups.c:158
+msgid "Removing Friend Group"
+msgstr "Удаление группы"
+
+#: ../src/friendgroups.c:255 ../src/friendgroups.c:514
+msgid "Friend Groups"
+msgstr "Группы друзей"
+
+#: ../src/friendgroups.c:335
+msgid "Modifying Friends"
+msgstr "Изменения списка друзей"
+
+#: ../src/friendgroups.c:377
+msgid "Add new friend group"
+msgstr "Создать новую группу"
+
+#: ../src/friendgroups.c:378
+msgid ""
+"Use this to add a friend group. These are useful for reading only a specific "
+"protion of your friends list. You could, for example, use this to filter out "
+"high-volume communities that you like to read occasionally but not all the "
+"time. If you add a friend group here, you can later use it with custom "
+"security modes, and also check for new entries only from this group."
+msgstr ""
+"Используйте этот пункт для добавления группы друзей. Они полезны для чтения "
+"только определённой части вашей ленты друзей. Вы можете, например, "
+"использовать эту функцию для отфильтровывания очень активных сообществ, "
+"которые вы бы хотели читать время от времени, а не каждый раз. Если вы "
+"добавите группу друзей здесь, то потом вы сможете использовать её для "
+"установки избирательного доступа к своим сообщениям, а также для проверки "
+"новых записей только для указанной группы."
+
+#: ../src/friendgroups.c:388
+msgid "Edit group"
+msgstr "Редактировать"
+
+#: ../src/friendgroups.c:389
+msgid ""
+"Use this to edit a friend group. You can modify its name and whether other "
+"people can see you have this group."
+msgstr ""
+"Редактирование группы. Вы можете изменить название и разрешить (или "
+"запретить) показ этой группы вашим читателям."
+
+#: ../src/friendgroups.c:396
+msgid "Remove friend group"
+msgstr "Удалить группу"
+
+#: ../src/friendgroups.c:397
+msgid "Use this to erase this friend group from your list of friend groups."
+msgstr "Удаление этой группы друзей из вашего списка групп друзей."
+
+#: ../src/friendgroups.c:453 ../src/friendgroups.c:538
+msgid "Included"
+msgstr "Включены"
+
+#: ../src/friendgroups.c:460
+msgid "Remove friend from group"
+msgstr "Удалить друга из группы"
+
+#: ../src/friendgroups.c:461
+msgid ""
+"Click here to remove the currently selected user from the list of users "
+"included in this friend group. This does not stop this user from being "
+"listed as your friend; it only removes them from this specific group."
+msgstr ""
+"Щелкните здесь, чтобы удалить выбранного друга из группы. Этим Вы не "
+"удаляете его из ленты друзей, а лишь исключаете его из этой группы."
+
+#: ../src/friendgroups.c:481 ../src/friendgroups.c:539
+msgid "Excluded"
+msgstr "Исключены"
+
+#: ../src/friendgroups.c:487
+msgid "Add friend to group"
+msgstr "Добавить друга в группу"
+
+#: ../src/friendgroups.c:488
+msgid ""
+"Click here to include this user in the currently selected friend group. If "
+"you have old protected entries with custom security set to this group, this "
+"means among other things that they will now have access to these entries."
+msgstr ""
+"Щелкните здесь, чтобы добавить друга в выбранную группу друзей. Если Ваш "
+"дневник содержит записи, запрещенные для просмотра этой группой, после "
+"удаления члены группы будут иметь возможность доступа к ним."
+
+#: ../src/friends.c:125
+#, c-format
+msgid ""
+"Total Connections: %d\n"
+"\n"
+"Inclusive:\n"
+"Friends: %d\n"
+"Friend Of: %d\n"
+"Ratio: %d%%\n"
+"\n"
+"Exclusive:\n"
+"Friends: %d\n"
+"Friend Of: %d\n"
+"Friend Both: %d\n"
+msgstr ""
+"Количество связей: %d\n"
+"\n"
+"Включая:\n"
+"Друзья: %d\n"
+"В друзьях: %d\n"
+"Отношение: %d%%\n"
+"\n"
+"Исключая:\n"
+"Друзья: %d\n"
+"В друзьях: %d\n"
+"Одновременно: %d\n"
+
+#: ../src/friends.c:172
+msgid "Loading Friends"
+msgstr "Загружается список друзей"
+
+#: ../src/friends.c:232
+msgid "/_Friends"
+msgstr "/_Друзья"
+
+#: ../src/friends.c:233
+msgid "/Friends/_Friend Groups..."
+msgstr "/Друзья/_Группы..."
+
+#: ../src/friends.c:234
+msgid "/Friends/sep"
+msgstr "/Друзья/sep"
+
+#: ../src/friends.c:235
+msgid "/Friends/_Close"
+msgstr "/Друзья/_Закрыть"
+
+#: ../src/friends.c:238 ../src/menu.c:385
+msgid "/_Edit"
+msgstr "/_Правка"
+
+#: ../src/friends.c:239
+msgid "/Edit/_Add Friend..."
+msgstr "/Правка/_Добавить друга..."
+
+#: ../src/friends.c:241
+msgid "/Edit/_Edit Friend..."
+msgstr "/Правка/_Редактировать друга..."
+
+#: ../src/friends.c:243
+msgid "/Edit/_Remove Friend"
+msgstr "/Правка/_Удалить друга..."
+
+#: ../src/friends.c:245
+msgid "/Edit/sep"
+msgstr "/Правка/sep"
+
+#: ../src/friends.c:246
+msgid "/Edit/Open _Journal"
+msgstr "/Правка/_Открыть дневник"
+
+#: ../src/friends.c:248
+msgid "/Edit/Open _User Info"
+msgstr "/Правка/Открыть _информацию о пользователе"
+
+#: ../src/friends.c:251
+msgid "/_Tools"
+msgstr "/_Инструменты"
+
+#: ../src/friends.c:252
+msgid "/Tools/Hide _Statistics"
+msgstr "/Инструменты/Скрыть _статистику"
+
+#: ../src/friends.c:253
+msgid "/Tools/Export..."
+msgstr "/Инструменты/_Экспорт..."
+
+#: ../src/friends.c:488
+msgid "Deleting Friend"
+msgstr "Удаление друга..."
+
+#: ../src/friends.c:755
+msgid "Link"
+msgstr "Связь"
+
+#: ../src/friends.c:768 ../src/link.c:248
+msgid "User"
+msgstr "Имя"
+
+#: ../src/friends.c:787
+msgid "Full Name"
+msgstr "Полное имя"
+
+#: ../src/friends.c:821
+msgid "<b>Statistics</b>"
+msgstr "<b>Статистика</b>"
+
+#: ../src/friends.c:828
+msgid "Include Communities"
+msgstr "Учитывая сообщества"
+
+#: ../src/friends.c:911
+msgid "All Journal Types"
+msgstr "Все виды дневников"
+
+#: ../src/friends.c:914
+msgid "Users"
+msgstr "Пользователей"
+
+#: ../src/friends.c:916
+msgid "Communitites"
+msgstr "Сообщества"
+
+#: ../src/friends.c:924
+msgid "All Connections"
+msgstr "Все типы связей"
+
+#: ../src/friends.c:927
+msgid "Two-way Friends"
+msgstr "Oбоюдных друзей"
+
+#: ../src/friends.c:929
+msgid "One-way Friends"
+msgstr "Моих друзей"
+
+#: ../src/friends.c:931
+msgid "One-way Friendofs"
+msgstr "Моих читателей"
+
+#: ../src/friends.c:938
+msgid "Show:"
+msgstr "Показывать:"
+
+#: ../src/friends.c:957
+msgid "Friends Manager"
+msgstr "Менеджер друзей"
+
+#: ../src/friends.c:993
+#, c-format
+msgid "Unable to open %s: %s\n"
+msgstr "Невозможно открыть %s: %s\n"
+
+#: ../src/friends.c:1029
+msgid "Select output file"
+msgstr "Выберите файл для записи"
+
+#: ../src/friends.c:1035
+msgid "  Suggest Filename  "
+msgstr " Подсказать имя файла "
+
+#: ../src/get_cmd_out.c:99 ../src/get_cmd_out.c:115
+msgid "Command is running..."
+msgstr "Команда выполняется..."
+
+#: ../src/get_cmd_out.c:151 ../src/get_cmd_out.c:179
+#, c-format
+msgid "command failed: %s"
+msgstr "ошибка выполнения программы: %s"
+
+#. Set err->code to 127 so caller will know that command
+#. * was not found. It is probably a spelling error
+#. * in command string and in this case caller should not
+#. * close a dialog asking for command name, but rather let
+#. * the user correct it (or click "Cancel").
+#.
+#: ../src/get_cmd_out.c:191
+msgid "command not found"
+msgstr "команда не найдена"
+
+#: ../src/getopt.c:693
+#, c-format
+msgid "%s: option `%s' is ambiguous\n"
+msgstr "%s: опция `%s' неоднозначна\n"
+
+#: ../src/getopt.c:718
+#, c-format
+msgid "%s: option `--%s' doesn't allow an argument\n"
+msgstr "%s: опции `--%s' не нужен аргумент\n"
+
+#: ../src/getopt.c:723
+#, c-format
+msgid "%s: option `%c%s' doesn't allow an argument\n"
+msgstr "%s: опции `%c%s' не нужен аргумент\n"
+
+#: ../src/getopt.c:741 ../src/getopt.c:914
+#, c-format
+msgid "%s: option `%s' requires an argument\n"
+msgstr "%s: опция `%c%s' требует аргумента\n"
+
+#. --option
+#: ../src/getopt.c:770
+#, c-format
+msgid "%s: unrecognized option `--%s'\n"
+msgstr "%s: незнакомая опция `--%s'\n"
+
+#. +option or -option
+#: ../src/getopt.c:774
+#, c-format
+msgid "%s: unrecognized option `%c%s'\n"
+msgstr "%s: незнакомая опция `%c%s'\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/getopt.c:800
+#, c-format
+msgid "%s: illegal option -- %c\n"
+msgstr "%s: незаконная оция -- %c\n"
+
+#: ../src/getopt.c:803
+#, c-format
+msgid "%s: invalid option -- %c\n"
+msgstr "%s: неправильная оция -- %c\n"
+
+#. 1003.2 specifies the format of this message.
+#: ../src/getopt.c:833 ../src/getopt.c:963
+#, c-format
+msgid "%s: option requires an argument -- %c\n"
+msgstr "%s: опции требуется аргумент -- %c\n"
+
+#: ../src/getopt.c:880
+#, c-format
+msgid "%s: option `-W %s' is ambiguous\n"
+msgstr "%s: опция `-W %s' неоднозначна\n"
+
+#: ../src/getopt.c:898
+#, c-format
+msgid "%s: option `-W %s' doesn't allow an argument\n"
+msgstr "%s: опции `-W %s' не нужен аргумент\n"
+
+#: ../src/helptext.h:3
+msgid ""
+"Commands:\n"
+"  post            Post event immediately.\n"
+"  sync            Synchronize offline journal.\n"
+"  checkfriends    Efficiently check friends list for updates.\n"
+"  cat             Dump entries to stdout.\n"
+"  grep            Grep through entries.\n"
+"  reindex         Rebuild offline index.\n"
+msgstr ""
+"Команды:\n"
+"  post            Отослать событие немедленно.\n"
+"  sync            Синхронизировать локальную копию.\n"
+"  checkfriends    Эффективно проверить список друзей на предмет обновлений.\n"
+"  cat             Вывести записи на стандартный вывод.\n"
+"  grep            Поискать по записям.\n"
+"  reindex         Перестроить локальный индекс.\n"
+
+#: ../src/helptext.h:13
+msgid ""
+"Command line options:\n"
+"  -h, --help                 Show summary of options.\n"
+"  -v, --version              Show version of program.\n"
+"  -q, --quiet                Say less.\n"
+"  -c, --console              Don't load GUI.\n"
+"\n"
+"  -u, --username=USERNAME    Username to operate as.\n"
+"  -U, --save-username        Save the username.\n"
+"  -p, --password=PASSWORD    Password for the current user.\n"
+"  -P, --save-password        Save the password.\n"
+"  -n, --no-login             Use with -u to start without logging in.\n"
+"\n"
+"  -s, --subject=SUBJECT      Subject for the post.\n"
+"  -a, --postas=USERNAME      User/community to post as.\n"
+"  -k, --userpic=KEYWORD      Keyword for the user picture to use.\n"
+"  -e, --edit                 Use default editor to edit post.\n"
+msgstr ""
+"Параметры командной строки:\n"
+"  -h, --help                 Показать список параметров.\n"
+"  -v, --version              Показать версию программы.\n"
+"  -q, --quiet                Говорить мало.\n"
+"  -c, --console              Не загружать графический интерфейс.\n"
+"\n"
+"  -u, --username=USERNAME    Имя пользователя для работы.\n"
+"  -U, --save-username        Запомнить имя пользователя.\n"
+"  -p, --password=PASSWORD    Пароль текущего пользователя.\n"
+"  -n, --no-login             Используйте вместе с -u для входа\n"
+"                             без регистрации.\n"
+"\n"
+"  -s, --subject=SUBJECT      Тема сообщения.\n"
+"  -a, --postas=USERNAME      Пользователь/сообщество отправителя.\n"
+"  -k, --userpic=KEYWORD      Ключевое слово для выбора картинки.\n"
+"  -e, --edit                 Использовать редактор по умолчанию\n"
+"                             для редактирования сообщения.\n"
+
+#: ../src/history.c:744
+msgid "Loading Entry"
+msgstr "Загружается запись"
+
+#: ../src/history_recent.c:73
+#, c-format
+msgid ""
+"%d entries displayed.  %.1f%% public / %.1f%% friends-only / %.1f%% private."
+msgstr ""
+"Показано %d записей. %.1f%% публичных / %.1f%% \"для друзей\" / %.1f%% "
+"частных."
+
+#: ../src/history_recent.c:100
+msgid "Loading History"
+msgstr "Загружaется история"
+
+#: ../src/history_recent.c:171
+msgid "Security"
+msgstr "Доступ"
+
+#: ../src/history_recent.c:200
+msgid "History"
+msgstr "История"
+
+#: ../src/history_recent.c:218
+msgid "_Load More..."
+msgstr "Загрузить еще..."
+
+#: ../src/host.c:161
+msgid "Submitting Entry"
+msgstr "Отправляется запись..."
+
+#: ../src/host.c:168
+msgid "Saving Changes"
+msgstr "Сохраняются изменения"
+
+#: ../src/host.c:175
+msgid "Deleting Entry"
+msgstr "Удаляется запись"
+
+#. XXX we shouldn't need those spaces in there for this to look good. :(
+#: ../src/icons.c:19
+msgid " Submit "
+msgstr " Отправить "
+
+#: ../src/imagelink.c:48
+msgid "Retrieving Image..."
+msgstr "Загружается картинка..."
+
+#: ../src/imagelink.c:58
+#, c-format
+msgid "Error loading image: %s."
+msgstr "Ошибка загрузки картинки: %s."
+
+#: ../src/imagelink.c:70
+msgid "Insert Image"
+msgstr "Вставить картинку"
+
+#: ../src/imagelink.c:88 ../src/link.c:131 ../src/manager.c:457
+msgid "_URL:"
+msgstr "_URL:"
+
+#: ../src/imagelink.c:97
+msgid "_Width:"
+msgstr "_Ширина:"
+
+#: ../src/imagelink.c:103
+msgid "_Height:"
+msgstr "_Высота:"
+
+#: ../src/imagelink.c:109
+msgid "_Retrieve Dimensions from Network"
+msgstr "_Получить размеры из сети"
+
+#. we popped up another window, so we're done.
+#: ../src/init.c:75
+msgid "Bringing already-running LogJam instance to the foreground...\n"
+msgstr "Уже запущенный LogJam переводится на передний план...\n"
+
+#: ../src/init.c:79
+#, c-format
+msgid "Error sending remote command: %s.\n"
+msgstr "Ошибка посылки удаленной команды: %s.\n"
+
+#: ../src/init.c:221
+msgid "GTK init failed -- are you in X?\n"
+msgstr ""
+"Инициализация GTK не удалась -- вы в графической подсистеме X?\n"
+"\n"
+
+#: ../src/init.c:222 ../src/init.c:229
+#, c-format
+msgid "Run %s --help for command-line options.\n"
+msgstr "Запустите %s --help для подсказки по опциям командной строки.\n"
+
+#: ../src/init.c:228
+msgid "Error: No action given.\n"
+msgstr "Ошибка: Действие не указано.\n"
+
+#: ../src/jam.c:68
+msgid "Your entry has unsaved changes.  Save them now?"
+msgstr "Запись содержит несохраненные изменения. Сохранить сейчас?"
+
+#: ../src/jam.c:70
+msgid "Don't Save"
+msgstr "Не сохранять"
+
+#: ../src/jam.c:102 ../src/jam.c:114
+msgid "Save Entry As"
+msgstr "Сохранить запись как"
+
+#: ../src/jam.c:115
+msgid "File already exists!  Overwrite?"
+msgstr "Файл уже существует! Перезаписать?"
+
+#: ../src/jam.c:136
+msgid "New Draft Title"
+msgstr "Заголовок нового черновика"
+
+#: ../src/jam.c:148
+msgid "_Draft Title:"
+msgstr "_Заголовок черновика:"
+
+#: ../src/jam.c:176
+#, c-format
+msgid "Error saving draft: %s."
+msgstr "Ошибка записи черновика: %s."
+
+#: ../src/jam.c:193
+msgid "Saving File"
+msgstr "Запись файла"
+
+#: ../src/jam.c:194
+msgid ""
+"Current file was imported from an non-XML file.  Saving to this file will "
+"overwrite the file with XML content.  Overwrite the file?"
+msgstr ""
+"Текущий файл импортирован не из XML файла. Его сохранения приведет к "
+"перезаписи данных XML. Перезаписать файл?"
+
+#: ../src/jam.c:202
+#, c-format
+msgid "Error saving: %s."
+msgstr "Ошибка сохранения: %s."
+
+#: ../src/jam.c:257
+#, c-format
+msgid "LogJam - %s%s"
+msgstr "LogJam - %s%s"
+
+#: ../src/jam.c:345 ../src/jam.c:384
+msgid "Delete this draft from disk?"
+msgstr "Удалить этот черновик с диска?"
+
+#: ../src/jam.c:385
+msgid "Delete this entry from server?"
+msgstr "Удалить эту запись с сервера?"
+
+#: ../src/jam.c:490
+msgid "Autodetect"
+msgstr "Автоопределение"
+
+#: ../src/jam.c:491
+msgid "XML"
+msgstr "XML"
+
+#: ../src/jam.c:492
+msgid "RFC822-Style"
+msgstr "Формат RFC822"
+
+#: ../src/jam.c:493
+msgid "Plain Text"
+msgstr "Просто текст"
+
+#: ../src/jam.c:499
+msgid "Open Entry"
+msgstr "Открыть запись"
+
+#: ../src/jam.c:515
+msgid "File Type:"
+msgstr "Тип файла:"
+
+#: ../src/jam.c:572
+msgid "Error Changing Text Format"
+msgstr "Ошибка изменения формата текста"
+
+#: ../src/jam.c:586
+msgid "Normal"
+msgstr "Нормальный"
+
+#: ../src/jam.c:590
+msgid "Structured"
+msgstr "Структурированный"
+
+#: ../src/jam.c:605
+msgid "Entry Format:"
+msgstr "Формат записи:"
+
+#: ../src/jam.c:739
+#, c-format
+msgid "Error loading draft: %s."
+msgstr "Ошибка при загрузке черновика: %s."
+
+#: ../src/jam.c:843
+#, c-format
+msgid "Error initializing remote command socket: %s."
+msgstr "Ошибка инициализации сокета удаленной команды: %s."
+
+#: ../src/jam.c:857
+msgid "Autosaved Draft Found"
+msgstr "Найден автоматически записанный черновик"
+
+#: ../src/jam.c:858
+msgid ""
+"An autosaved draft was found, possibly from a previous run of LogJam that "
+"crashed.  Would you like to recover it?"
+msgstr ""
+"Найден автоматически записанный черновик, возможно, оставшийся после "
+"некорректного завершения LogJam. Восстановить его?"
+
+#: ../src/jamdoc.c:477
+#, c-format
+msgid "Draft %d"
+msgstr "Черновик %d"
+
+#: ../src/jamdoc.c:479
+#, c-format
+msgid "Entry %d"
+msgstr "Запись %d"
+
+#: ../src/jamdoc.c:481
+msgid "New Entry"
+msgstr "Новая запись"
+
+#: ../src/jamdoc.c:521
+#, c-format
+msgid "Invalid UTF-8 starting at byte %d."
+msgstr "Неправильная последовательность UTF-8, начинающаяся с байта %d."
+
+#: ../src/jamview.c:81
+msgid "_Subject:"
+msgstr "_Тема:"
+
+#. view->moodbox = gtk_hbox_new(FALSE, 12);
+#. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodbutton, FALSE, FALSE, 0);
+#. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodcombo, TRUE, TRUE, 0);
+#: ../src/jamview.c:234
+msgid "_Mood:"
+msgstr "На_строение:"
+
+#: ../src/jamview.c:286
+msgid "[default]"
+msgstr "[по умолчанию]"
+
+#: ../src/jamview.c:304
+msgid "_Picture:"
+msgstr "К_артинка:"
+
+#: ../src/jamview.c:366 ../src/settings.c:506
+#, c-format
+msgid "Error detecting music: %s"
+msgstr "Ошибка определения музыки: %s"
+
+#: ../src/jamview.c:374
+msgid "_Music:"
+msgstr "_Музыка:"
+
+#: ../src/jamview.c:414
+#, fuzzy
+msgid "_Tags:"
+msgstr "_До: "
+
+#: ../src/jamview.c:466
+msgid "_Preformatted"
+msgstr "Отменить авто_форматирование"
+
+#: ../src/jamview.c:500
+msgid "Default"
+msgstr "По умолчанию"
+
+#: ../src/jamview.c:501
+msgid "Don't Email"
+msgstr "Не посылать письма"
+
+#: ../src/jamview.c:502
+msgid "Disable"
+msgstr "Запретить"
+
+#: ../src/jamview.c:517
+msgid "_Comments:"
+msgstr "_Комментарии:"
+
+#. XXX GTK_WINDOW(view->jw),
+#: ../src/jamview.c:808 ../src/jamview.c:828
+#, c-format
+msgid "GtkSpell error: %s"
+msgstr "Ошибка GtkSpell: %s"
+
+#: ../src/journalstore.c:54
+#, c-format
+msgid "Can't open '%s': %s"
+msgstr "Невозможно открыть '%s': %s"
+
+#: ../src/journalstore_xml.c:128
+#, c-format
+msgid "Error opening index: %s"
+msgstr "Ошибка при открытии индекса: %s"
+
+#: ../src/journalstore_xml.c:135
+#, c-format
+msgid "Error writing index: %s"
+msgstr "Ошибка при записи в индекс: %s."
+
+#: ../src/journalstore_xml.c:228
+#, c-format
+msgid "Error writing journal xml file to %s: %s"
+msgstr "Ошибка при записи xml файла дневника %s: %s"
+
+#: ../src/journalstore_xml.c:234
+#, c-format
+msgid "Error renaming journal xml file %s to %s: %s"
+msgstr "Ошибка при переименовании xml файла '%s' в '%s': %s"
+
+#: ../src/journalstore_xml.c:268
+#, c-format
+msgid "Error parsing journal XML file %s"
+msgstr "Ошибка разбора XML-файла дневника: %s"
+
+#: ../src/journalstore_xml.c:751
+#, fuzzy
+msgid "No offline copy of this journal."
+msgstr "Управление локальными копиями вашего дневника."
+
+#: ../src/link.c:113
+msgid "Make Link"
+msgstr "Сделать ссылку"
+
+#: ../src/link.c:127
+msgid "Link _Text:"
+msgstr "Текст ссылки:"
+
+#: ../src/link.c:140
+msgid "_LiveJournal User:"
+msgstr "Пользователь LiveJournal:"
+
+#: ../src/link.c:249
+msgid "Community"
+msgstr "Сообществo"
+
+#: ../src/link.c:273
+msgid "Insert lj user / lj community Tag"
+msgstr "Вставить тег lj пользователя или сообщества"
+
+#: ../src/link.c:290
+msgid "_Username:"
+msgstr "Пользователь:"
+
+#: ../src/link.c:294
+msgid "User _Type:"
+msgstr "Тип пользователя:"
+
+#: ../src/livejournal.c:400
+msgid ""
+"Error: Your post contains Unicode characters, but you're trying to submit "
+"them to a server that doesn't support Unicode."
+msgstr ""
+"Ошибка: Ваше сообщение содержит символы Unicode, но сервер, на который нужно "
+"передать сообщение, не поддерживает Unicode."
+
+#: ../src/login.c:103
+msgid "Logging In"
+msgstr "Подключение"
+
+#: ../src/login.c:111
+msgid "LiveJournal Message"
+msgstr "Сообщение LiveJournal"
+
+#: ../src/login.c:167
+msgid "Add/Edit Servers..."
+msgstr "Добавить/Редактировать серверы..."
+
+#: ../src/login.c:233
+msgid "_Server:"
+msgstr "Сервер:"
+
+#: ../src/login.c:242 ../src/manager.c:127 ../src/manager.c:252
+msgid "_User Name:"
+msgstr "Пользователь:"
+
+#: ../src/login.c:251 ../src/manager.c:141 ../src/manager.c:261
+#: ../src/settings.c:109
+msgid "_Password:"
+msgstr "Пароль"
+
+#: ../src/login.c:254
+msgid "R_emember user"
+msgstr "Запомнить пользователя"
+
+#: ../src/login.c:255
+msgid "Re_member password"
+msgstr "Запомнить пароль"
+
+#: ../src/login.c:256
+msgid "Update _Information"
+msgstr "Обновить информацию"
+
+#: ../src/login.c:300
+#, c-format
+msgid "Account '%s' hasn't ever logged in.  Log in now?"
+msgstr "Пользователь '%s' ни разу не подключался. Подключиться сейчас?"
+
+#: ../src/login.c:303
+#, c-format
+msgid "Account '%s' hasn't logged in in at least %lu days.  Log in now?"
+msgstr ""
+"Пользователь '%s' не подключался в течение как минимум %lu дней. "
+"Подключиться сейчас?"
+
+#: ../src/login.c:330
+msgid "Select User"
+msgstr "Выбрать пользователя"
+
+#: ../src/login.c:333
+msgid "Selec_t"
+msgstr "Выбрать"
+
+#: ../src/manager.c:93
+msgid "<i>none</i>"
+msgstr "<i>нет</i>"
+
+#: ../src/manager.c:112 ../src/manager.c:198
+msgid "active"
+msgstr "активный"
+
+#: ../src/manager.c:112 ../src/manager.c:198
+msgid "inactive"
+msgstr "неактивный"
+
+#: ../src/manager.c:132
+msgid "_Full Name:"
+msgstr "_Полное имя:"
+
+#: ../src/manager.c:154
+msgid "Remember user"
+msgstr "Запомнить пользователя"
+
+#: ../src/manager.c:158
+msgid "Remember password"
+msgstr "Запомнить пароль"
+
+#: ../src/manager.c:168
+msgid "User picture keywords:"
+msgstr "Ключевые слова картинок пользователя:"
+
+#: ../src/manager.c:184
+msgid "_Monitor this user's friends list for updates"
+msgstr "_Проверять список друзей этого пользователя на предмет обновлений"
+
+#: ../src/manager.c:194
+msgid "Filter for friends list monitor:"
+msgstr "Фильтр для монитора списка друзей: "
+
+#. not the prettiest of hacks
+#: ../src/manager.c:203
+msgid "_Edit filter"
+msgstr "Редактировать фильтр"
+
+#: ../src/manager.c:231
+msgid "Identity"
+msgstr "Личность"
+
+#: ../src/manager.c:234
+msgid "Pictures"
+msgstr "Картинки"
+
+#: ../src/manager.c:237 ../src/pollcreator.c:78 ../src/pollcreator.c:87
+#: ../src/security.c:81
+msgid "Friends"
+msgstr "Друзья"
+
+#: ../src/manager.c:322
+msgid "User Properties"
+msgstr "Свойства пользователя"
+
+#: ../src/manager.c:422
+#, c-format
+msgid "Unable to rename server: %s."
+msgstr "Невозможно переименовать сервер : %s."
+
+#: ../src/manager.c:445
+msgid "_Name:"
+msgstr "_Имя:"
+
+#: ../src/manager.c:461
+msgid "_Server supports protocol version 1"
+msgstr "_Сервер поддерживает протокол версии 1"
+
+#: ../src/manager.c:479
+msgid "_RPC URL:"
+msgstr "_RPC URL:"
+
+#: ../src/manager.c:498
+msgid "Server Properties"
+msgstr "Свойства сервера"
+
+#: ../src/manager.c:722
+msgid "Servers"
+msgstr "Серверы"
+
+# L is at the same position as cyrillic D
+# (at least on QWERTY/YCUKEN keyboard),
+# and D accel is used for Dnevnik (Journal),
+# so we can't use L and change accel to J here.
+#: ../src/menu.c:358
+msgid "/_LogJam"
+msgstr "/Log_Jam"
+
+#: ../src/menu.c:359
+msgid "/LogJam/_About LogJam..."
+msgstr "/LogJam/_О программе..."
+
+#: ../src/menu.c:360
+msgid "/LogJam/_Servers and Users..."
+msgstr "/LogJam/_Серверы и пользователи..."
+
+#: ../src/menu.c:361
+msgid "/LogJam/_Change User..."
+msgstr "/LogJam/Сменить _пользователя..."
+
+#: ../src/menu.c:362
+msgid "/LogJam/_Preferences..."
+msgstr "/LogJam/_Настройки..."
+
+#: ../src/menu.c:364
+msgid "/LogJam/_Quit"
+msgstr "/LogJam/_Выход"
+
+#: ../src/menu.c:366
+msgid "/E_ntry"
+msgstr "/_Запись"
+
+#: ../src/menu.c:367
+msgid "/Entry/_New"
+msgstr "/Запись/_Новая"
+
+#: ../src/menu.c:368
+msgid "/Entry/_Open"
+msgstr "/Запись/_Открыть"
+
+#: ../src/menu.c:369
+msgid "/Entry/Open/File..."
+msgstr "/Запись/Открыть/_Файл..."
+
+#: ../src/menu.c:370
+msgid "/Entry/Open/Draft..."
+msgstr "/Запись/Открыть/_Черновик..."
+
+#: ../src/menu.c:371
+msgid "/Entry/_Save"
+msgstr "/Запись/_Сохранить"
+
+#: ../src/menu.c:372
+msgid "/Entry/Save _As"
+msgstr "/Запись/Сохранить _как"
+
+#: ../src/menu.c:373
+msgid "/Entry/Save As/_File..."
+msgstr "/Запись/Сохранить как/_Файл..."
+
+#: ../src/menu.c:374
+msgid "/Entry/Save As/_Draft..."
+msgstr "/Запись/Сохранить как/_Черновик..."
+
+#: ../src/menu.c:377
+msgid "/Entry/_Validate XML"
+msgstr "/Запись/Про_верить XML..."
+
+#: ../src/menu.c:379
+msgid "/Entry/_Preview HTML..."
+msgstr "/Запись/_Предпросмотр HTML..."
+
+#: ../src/menu.c:382
+msgid "/Entry/S_ubmit as New"
+msgstr "/Запись/О_тправить как новое"
+
+#: ../src/menu.c:383
+msgid "/Entry/_Save Changes to Server"
+msgstr "/Запись/Сохранить _изменения на сервере"
+
+#: ../src/menu.c:386
+msgid "/Edit/_Undo"
+msgstr "/Правка/_Отменить"
+
+#: ../src/menu.c:388
+msgid "/Edit/_Redo"
+msgstr "/Правка/_Повторить"
+
+#: ../src/menu.c:391
+msgid "/Edit/Cu_t"
+msgstr "/Правка/_Вырезать"
+
+#: ../src/menu.c:393
+msgid "/Edit/_Copy"
+msgstr "/Правка/_Копировать"
+
+#: ../src/menu.c:395
+msgid "/Edit/_Paste"
+msgstr "/Правка/Вс_тавить"
+
+#: ../src/menu.c:398
+msgid "/Edit/_HTML Escape"
+msgstr "/Правка/О_бработка HTML"
+
+#: ../src/menu.c:399
+msgid "/Edit/_Remove Linebreaks"
+msgstr "/Правка/_Удалить разбивку"
+
+#: ../src/menu.c:401
+msgid "/_Insert"
+msgstr "/_Вставить"
+
+#: ../src/menu.c:402
+msgid "/Insert/_Poll..."
+msgstr "/Вставить/_Опрос..."
+
+#: ../src/menu.c:403
+msgid "/Insert/_File..."
+msgstr "/Вставить/_Файл..."
+
+#: ../src/menu.c:404
+msgid "/Insert/Command _Output..."
+msgstr "/Вставить/_Вывод команды..."
+
+#: ../src/menu.c:407
+msgid "/Insert/_Link..."
+msgstr "/Вставить/_Ссылку..."
+
+#: ../src/menu.c:408
+msgid "/Insert/_Image..."
+msgstr "/Вставить/_Картинку..."
+
+#: ../src/menu.c:409
+msgid "/Insert/_Journal Link..."
+msgstr "/Вставить/Ссылку на _дневник..."
+
+#: ../src/menu.c:410
+msgid "/Insert/lj-_cut..."
+msgstr "/Вставить/С_крытие (lj-cut)..."
+
+#: ../src/menu.c:412
+msgid "/_View"
+msgstr "/В_ид"
+
+#: ../src/menu.c:413
+msgid "/View/_Security"
+msgstr "/Вид/_Доступ"
+
+#: ../src/menu.c:414
+msgid "/View/Entry _Date"
+msgstr "/Вид/Д_ата записи"
+
+#: ../src/menu.c:415
+msgid "/View/_Mood"
+msgstr "/Вид/_Настроение"
+
+#: ../src/menu.c:416
+msgid "/View/_Picture"
+msgstr "/Вид/_Изображение"
+
+#: ../src/menu.c:417
+#, fuzzy
+msgid "/View/_Tags"
+msgstr "/Вид/_Музыка"
+
+#: ../src/menu.c:418
+msgid "/View/M_usic"
+msgstr "/Вид/_Музыка"
+
+#: ../src/menu.c:419
+msgid "/View/_Preformatted"
+msgstr "/Вид/Авто_форматирование"
+
+#: ../src/menu.c:420
+msgid "/View/_Comments"
+msgstr "/Вид/_Комментарии"
+
+#: ../src/menu.c:422
+msgid "/_HTML"
+msgstr "/_HTML"
+
+#: ../src/menu.c:423
+msgid "/HTML/_Bold"
+msgstr "/HTML/_Жирный"
+
+#: ../src/menu.c:424
+msgid "/HTML/_Italic"
+msgstr "/HTML/_Курсив"
+
+#: ../src/menu.c:425
+msgid "/HTML/_Strikeout"
+msgstr "/HTML/Пере_черкнутый"
+
+#: ../src/menu.c:426
+msgid "/HTML/_Monospaced"
+msgstr "/HTML/_Моноширинный"
+
+#: ../src/menu.c:427
+msgid "/HTML/_Underline"
+msgstr "/HTML/_Подчеркнутый"
+
+#: ../src/menu.c:429
+msgid "/_Journal"
+msgstr "/_Дневник"
+
+#: ../src/menu.c:430
+msgid "/Journal/_Use Journal"
+msgstr "/Дневник/_Использовать дневник"
+
+#: ../src/menu.c:432
+msgid "/Journal/_Friends..."
+msgstr "/Дневник/_Друзья..."
+
+#: ../src/menu.c:434
+msgid "/Journal/_Load Last Entry"
+msgstr "/Дневник/_Последняя запись"
+
+#: ../src/menu.c:435
+msgid "/Journal/_Load Recent Entry..."
+msgstr "/Дневник/_Недавние записи..."
+
+#: ../src/menu.c:436
+msgid "/Journal/_Load Offline Entry..."
+msgstr "/Дневник/_Загрузить локальную запись..."
+
+#: ../src/menu.c:437
+msgid "/Journal/_Synchronize Offline Copy..."
+msgstr "/Дневник/_Синхронизировать локальную копию..."
+
+#: ../src/menu.c:439
+msgid "/Journal/_LiveJournal Console..."
+msgstr "/Дневник/_Консоль LiveJournal"
+
+#: ../src/menu.c:440
+msgid "/Journal/_Web Links"
+msgstr "/Дневник/Ссы_лки"
+
+#: ../src/moodpicker.c:119
+msgid "Mood"
+msgstr "Настроение"
+
+#: ../src/moodpicker.c:137 ../src/preview.c:184
+msgid "Current Mood"
+msgstr "Текущее настроение"
+
+#: ../src/moodpicker.c:148
+msgid "Mood _Text:"
+msgstr "Текст настроения:"
+
+#: ../src/moodpicker.c:168
+msgid "Mood _Icon:"
+msgstr "Картинка настроения:"
+
+#: ../src/moodpicker.c:173
+msgid "_Match Text"
+msgstr "Текст совпадения"
+
+#: ../src/music.c:15
+msgid "None"
+msgstr "Ничего"
+
+#: ../src/music.c:50
+msgid "No music command line is set."
+msgstr "Командная строка для музыки не задана."
+
+#: ../src/music.c:81
+msgid "Command produced no output."
+msgstr "Команда ничего не вывела."
+
+#: ../src/music.c:108 ../src/music.c:113
+msgid "Music detection is not implemented on this platform."
+msgstr "Определение музыки не реализовано на этой платформе."
+
+#: ../src/network.c:130 ../src/progress.c:46 ../src/sync.c:260
+#, c-format
+msgid "Error: %s\n"
+msgstr "Ошибка: %s\n"
+
+#: ../src/network.c:192
+msgid "Requesting challenge..."
+msgstr "Запрашивается соединение..."
+
+#: ../src/network.c:216
+msgid "Running request..."
+msgstr "Выполняется запрос..."
+
+#: ../src/network-curl.c:73
+msgid "Unable to intialize CURL"
+msgstr "Невозможно инициализировать CURL"
+
+#: ../src/network-curl.c:120 ../src/network-libxml.c:30
+#, c-format
+msgid "Request: [%s]\n"
+msgstr "Запрос: [%s]\n"
+
+#: ../src/network-curl.c:129
+#, c-format
+msgid "cURL error: %s."
+msgstr "Ошибка CURL: %s"
+
+#: ../src/network-curl.c:135 ../src/network-libxml.c:103
+#: ../src/network-soup.c:87
+#, c-format
+msgid "Response: [%s]\n"
+msgstr "Ответ: [%s]\n"
+
+#: ../src/network-fork.c:144
+msgid "Cancelled."
+msgstr "Отменено."
+
+#: ../src/network-fork.c:162
+#, c-format
+msgid "Error creating pipe (pipe(): %s)."
+msgstr "Ошибка создания канала (pipe(): %s)."
+
+#: ../src/network-fork.c:168
+#, c-format
+msgid "Error forking (fork(): %s)."
+msgstr "Ошибка разветвления (fork(): %s)."
+
+#: ../src/network-libxml.c:37
+msgid ""
+"LogJam was built with libxml's NanoHTTP support, which does not support "
+"proxy authentication."
+msgstr ""
+"LogJam был собран с использованием NanoHTTP из libxml, которая не "
+"поддерживает аутентификацию прокси."
+
+#: ../src/network-libxml.c:65
+msgid "xmlNanoHTTPMethod error."
+msgstr "Ошибка xmlNanoHTTPMethod."
+
+#: ../src/network-libxml.c:73
+msgid "File not found."
+msgstr "Файл не найден."
+
+#: ../src/network-libxml.c:84
+msgid "xmlNanoHTTPRead error."
+msgstr "Ошибка xmlNanoHTTPRead."
+
+#: ../src/network-win32.c:97
+msgid "The connection was closed."
+msgstr "Соединение разорвано."
+
+#: ../src/offline.c:154
+msgid "Summary"
+msgstr "Сводка"
+
+#: ../src/offline.c:354
+#, c-format
+msgid "Search found %d entries:"
+msgstr "Поиск нашёл %d записей:"
+
+#: ../src/offline.c:374
+msgid "_Search:"
+msgstr "_Поиск:"
+
+#: ../src/offline.c:381
+msgid "_Case sensitive"
+msgstr "_Чувствительность к регистру"
+
+#: ../src/offline.c:407
+msgid ""
+"LogJam has no offline entries for this journal. You must first synchronize "
+"this journal to your local storage before you can load entries from it."
+msgstr ""
+"LogJam не имеет локальных данных для этого дневника. Необходимо "
+"спервасинхронизировать дневник с локальным хранилищем, прежде чем получать "
+"записи из него."
+
+#: ../src/offline.c:411
+msgid "_Synchronize"
+msgstr "_Синхронизировать"
+
+#: ../src/offline.c:458
+msgid "Select Offline Entry"
+msgstr "Выбор локальной записи"
+
+#: ../src/offline.c:465
+msgid "Select by Date"
+msgstr "Выбрать по дате"
+
+#: ../src/offline.c:467
+msgid "Select by Search"
+msgstr "Выбрать с помощью поиска"
+
+#: ../src/offline.c:499
+msgid "Copy online entry URL to clipboard"
+msgstr "Скопировать URL записи в буфер обмена"
+
+#: ../src/offline.c:500
+msgid ""
+"Clicking here will place the URL of the entry currently being previewed in "
+"your clipboard, so you can link to it."
+msgstr ""
+"Нажав сюда, вы получите в буфере обмена URL записи, которая показывается в "
+"данный момент, так что вы сможете поставить ссылку на неё."
+
+#: ../src/pollcreator.c:69
+msgid "Poll _name: "
+msgstr "_Название:"
+
+#: ../src/pollcreator.c:77 ../src/pollcreator.c:86
+msgid "All users"
+msgstr "Все"
+
+#: ../src/pollcreator.c:81
+msgid "V_oters:"
+msgstr "_Участники:"
+
+#: ../src/pollcreator.c:88
+msgid "Nobody"
+msgstr "Никто"
+
+#: ../src/pollcreator.c:91
+msgid "_Results visible to:"
+msgstr "_Результаты видят:"
+
+#: ../src/pollcreator.c:134
+msgid "Multiple Choice Question"
+msgstr "Вопрос с вариантами ответа"
+
+#: ../src/pollcreator.c:139
+msgid "Range Question"
+msgstr "Вопрос с диапазоном чисел"
+
+#: ../src/pollcreator.c:144
+msgid "Text Question"
+msgstr "Вопрос с произвольным текстом"
+
+#: ../src/pollcreator.c:237
+msgid "Poll _Questions:"
+msgstr "_Вопросы:"
+
+#: ../src/pollcreator.c:253
+msgid "Poll Creator"
+msgstr "Конструктор Опросов"
+
+#: ../src/pollcreator.c:265
+msgid "_Generate"
+msgstr "_Создать"
+
+#: ../src/pollcreator.c:300 ../src/pollcreator.c:311
+msgid "<b>[Text parameters must be integer.]</b>"
+msgstr "<b>[Параметры текста должны быть целыми числами.]</b>"
+
+#: ../src/pollcreator.c:331
+msgid ""
+"<b>[Too many elements in scale range. Either move \"From\" and \"To\" values "
+"closer or increase \"By\".]</b>"
+msgstr ""
+"<b>[Слишком много элементов в диапазоне. Попробуйте сблизить величины \"От\" "
+"и \"До\" или увеличить \"По\".]</b>"
+
+#: ../src/pollcreator.c:341
+msgid "<b>[\"By\" has wrong sign.]</b>"
+msgstr "<b>[\"По\" имеет неверный знак.]</b>"
+
+#: ../src/pollcreator.c:348
+msgid "<b>[\"By\" cannot be zero.]</b>"
+msgstr "<b>[\"По\" не может быть нулем.]</b>"
+
+#: ../src/poll-questions.c:41
+msgid "Multi Poll Option"
+msgstr "Вариант ответа"
+
+#: ../src/poll-questions.c:50
+msgid "O_ption:"
+msgstr "_Опция:"
+
+#: ../src/poll-questions.c:144
+msgid "Multi Poll Question"
+msgstr "Вопрос с вариантами ответа"
+
+#: ../src/poll-questions.c:155
+msgid "Choose best answer (_radio buttons)"
+msgstr "Лучший ответ (_радио-кнопки)"
+
+#: ../src/poll-questions.c:157
+msgid "Choose best answer (_drop-down menu)"
+msgstr "Лучший ответ (_выпадающее меню)"
+
+#: ../src/poll-questions.c:159
+msgid "Select _all that apply (checkboxes)"
+msgstr "_Всё, что подходит (галочки)"
+
+#: ../src/poll-questions.c:164
+msgid "Choice _Type:"
+msgstr "Тип _ответов:"
+
+#: ../src/poll-questions.c:171 ../src/poll-questions.c:264
+#: ../src/poll-questions.c:371
+msgid "_Question:"
+msgstr "_Вопрос:"
+
+#: ../src/poll-questions.c:186
+msgid "O_ptions:"
+msgstr "_Опции:"
+
+# FIXME
+#: ../src/poll-questions.c:254
+msgid "Text Poll Question"
+msgstr "Вопрос с текстовым ответом"
+
+#: ../src/poll-questions.c:283
+msgid "_Text field size (optional): "
+msgstr "_Размер поля текста (не обязательно): "
+
+#: ../src/poll-questions.c:287
+msgid "_Maximum text length (optional): "
+msgstr "_Максимальная длина текста (не обязательно): "
+
+#: ../src/poll-questions.c:361
+msgid "Scale Poll Question"
+msgstr "Вопрос с диапазоном чисел"
+
+#: ../src/poll-questions.c:389
+msgid "_From:"
+msgstr "_От: "
+
+#: ../src/poll-questions.c:393
+msgid "_To:"
+msgstr "_До: "
+
+#: ../src/poll-questions.c:397
+msgid "_By:"
+msgstr "_По: "
+
+#: ../src/preview.c:186
+msgid "Current Music"
+msgstr "Текущая музыка"
+
+#: ../src/preview.c:188
+msgid "Tags"
+msgstr ""
+
+#: ../src/preview.c:248
+msgid "HTML Preview"
+msgstr "Предпросмотр HTML"
+
+#: ../src/preview.c:251
+msgid "_Update"
+msgstr "_Обновить"
+
+#: ../src/progress.c:35 ../src/util-gtk.c:305
+msgid "Error"
+msgstr "Ошибка"
+
+#: ../src/security.c:80
+msgid "Public"
+msgstr "Публичный"
+
+#: ../src/security.c:82
+msgid "Private"
+msgstr "Частный"
+
+#: ../src/security.c:83
+msgid "Custom..."
+msgstr "Другой..."
+
+#: ../src/security.c:235
+msgid "Included Groups"
+msgstr "Включенные группы"
+
+#: ../src/security.c:280
+msgid "Select Friend Groups"
+msgstr "Выбор групп друзей"
+
+#: ../src/settings.c:69
+msgid "_Revert to primary journal after posting on a community"
+msgstr "_Вернуться к своему дневнику после посылки сообщения в сообщество"
+
+#: ../src/settings.c:71
+msgid "Default _security on posts:"
+msgstr "_Доступ по умолчанию:"
+
+#: ../src/settings.c:73
+msgid "Automatically save _drafts (for crash recovery)"
+msgstr "Автоматически сохраненять _черновики (для восстановления после сбоев)"
+
+#: ../src/settings.c:76
+msgid "Allow multiple _instances of LogJam to run simultaneously"
+msgstr "Разрешить запуск _нескольких копий LogJam"
+
+#: ../src/settings.c:79
+msgid "_Use spell check"
+msgstr "_Проверять орфографию"
+
+#: ../src/settings.c:81
+msgid "Entry _language:"
+msgstr "_Язык записи:"
+
+#: ../src/settings.c:84
+msgid "Automatically change _quotes to matching pairs"
+msgstr "Автоматически заменять обычные _кавычки на парные"
+
+#: ../src/settings.c:86
+msgid "Entry display font:"
+msgstr "Шрифт сообщения:"
+
+#: ../src/settings.c:89
+msgid "Add icon to system _tray (for GNOME/KDE/etc. dock)"
+msgstr "Добавить _иконку в системный трей (для дока GNOME/KDE и т.п.)"
+
+#: ../src/settings.c:94
+msgid "Web browser:"
+msgstr "Браузер"
+
+#: ../src/settings.c:97
+msgid "Detect music from:"
+msgstr "Определение музыки:"
+
+#: ../src/settings.c:100
+msgid "Use _proxy server"
+msgstr "Использовать _прокси-сервер"
+
+#: ../src/settings.c:102
+msgid "UR_L:"
+msgstr "UR_L:"
+
+#: ../src/settings.c:105
+msgid "Use proxy _authentication"
+msgstr "Использовать _аутентификацию прокси"
+
+#: ../src/settings.c:107
+msgid "_User:"
+msgstr "_Пользователь:"
+
+#: ../src/settings.c:113
+msgid "Dump _network data on stderr"
+msgstr "Выводить _сетевые данные в stderr"
+
+#: ../src/settings.c:116
+msgid "Don't _fork on network requests"
+msgstr "Не выполнять _fork при сетевых запросах"
+
+#: ../src/settings.c:119
+msgid "Don't run network requests in a separate _thread"
+msgstr "Не выполнять сетевые запросы в отдельной _нити"
+
+#: ../src/settings.c:124
+msgid "_Monitor friends list for new entries upon login"
+msgstr "Проверять новые _записи у друзей при входе"
+
+#: ../src/settings.c:126
+msgid "_Limit monitoring to groups of friends"
+msgstr "Ограничить проверку _группами друзей"
+
+#: ../src/settings.c:130
+msgid "_Check friends list every "
+msgstr "Проверять записи друзей _каждые "
+
+#: ../src/settings.c:132
+msgid "_Notify me after "
+msgstr "_Предупреждать при появлении "
+
+#: ../src/settings.c:134
+msgid "_Floating indicator"
+msgstr "Плавающий _индикатор"
+
+#: ../src/settings.c:136
+msgid "_Raise floating indicator when new entries detected"
+msgstr "Индикатор _всплывает при появлении новых записей"
+
+#: ../src/settings.c:138
+msgid "Show _titlebar on floating indicator"
+msgstr "Показывать за_головок на индикаторе"
+
+#: ../src/settings.c:252
+msgid "Custom Command"
+msgstr "Пользовательская команда"
+
+#: ../src/settings.c:341
+msgid "Select font"
+msgstr "Выбрать шрифт"
+
+#: ../src/settings.c:385
+msgid "Posting"
+msgstr "Отправка"
+
+#: ../src/settings.c:433
+msgid "[gtk default]"
+msgstr "[по умолчанию gtk]"
+
+#: ../src/settings.c:452
+msgid "Behavior"
+msgstr "Поведение"
+
+#: ../src/settings.c:503
+msgid "LogJam XMMS helper not found.  Did you install LogJam's XMMS support?"
+msgstr ""
+"Программа-помощник XMMS для LogJam не найдена. Вы действительно "
+"проинсталлировали LogJam с поддержкой XMMS?"
+
+#: ../src/settings.c:511
+#, c-format
+msgid ""
+"Music detection succeeded.\n"
+"\n"
+"Current music:\n"
+"%s"
+msgstr ""
+"Проверка музыки выполнена.\n"
+"\n"
+"Текущая музыка:\n"
+"%s"
+
+#: ../src/settings.c:512
+msgid "Music Detection"
+msgstr "Определение музыки"
+
+#: ../src/settings.c:521
+msgid "Proxy"
+msgstr "Прокси"
+
+#: ../src/settings.c:553
+msgid "Programs"
+msgstr "Программы"
+
+#: ../src/settings.c:561
+msgid "_Diagnose"
+msgstr "_Проверить"
+
+#: ../src/settings.c:564
+msgid "Diagnose problems detecting music:"
+msgstr "Проверить возможность определения музыки:"
+
+#: ../src/settings.c:590
+msgid "Network"
+msgstr "Сеть"
+
+#: ../src/settings.c:604
+msgid "General"
+msgstr "Общие"
+
+#: ../src/settings.c:614
+msgid "new entries by my friends"
+msgstr "новыx записей моих друзей"
+
+#. numeric
+#. range
+#. increments
+#. digits
+#: ../src/settings.c:623
+msgid "seconds"
+msgstr "секунд"
+
+#: ../src/settings.c:637
+msgid "Filter"
+msgstr "Фильтр"
+
+#: ../src/settings.c:644
+msgid "Choose filter"
+msgstr "Выберите фильтр"
+
+#: ../src/settings.c:651
+msgid "<small>The filter chosen here only affects the current user.</small>"
+msgstr ""
+"<small>Фильтр, выбранный здесь, применяется только для текущего пользователя."
+"</small>"
+
+#: ../src/settings.c:672
+msgid "Indicators"
+msgstr "Индикаторы"
+
+#: ../src/settings.c:722
+msgid "Preferences"
+msgstr "Настройки"
+
+#: ../src/settings.c:731
+msgid "Interface"
+msgstr "Интерфейс"
+
+#: ../src/settings.c:734
+msgid "System"
+msgstr "Система"
+
+#: ../src/settings.c:740
+msgid "Debug"
+msgstr "Отладка"
+
+#: ../src/settings.c:762
+msgid "Checkfriends Preferences"
+msgstr "Настройки проверки друзей"
+
+#: ../src/settings.c:797
+#, c-format
+msgid "Error stopping remote listener: %s."
+msgstr "Ошибка остановки удалённого слушателя: %s."
+
+#: ../src/settings.c:805
+#, c-format
+msgid "Error starting remote listener: %s."
+msgstr "Ошибка при запуске удалённого слушателя: %s."
+
+#: ../src/spawn.c:68
+#, c-format
+msgid "Error spawning URL '%s': %s\n"
+msgstr "Ошибка открытия URL '%s': %s\n"
+
+#: ../src/structuredtext.c:416 ../src/structuredtext.c:456
+#, c-format
+msgid "Unknown element: '%s'"
+msgstr "Неизвестный элемент: '%s'"
+
+#: ../src/sync.c:82
+msgid "Synchronizing Journal"
+msgstr "Синхронизируется дневник..."
+
+#. we create our own version of GtkMessageDialog
+#. * so we can add the scroll bar.
+#: ../src/sync.c:136
+msgid "Warnings"
+msgstr "Предупреждения"
+
+#: ../src/sync.c:218
+msgid "Up-to-date.\n"
+msgstr "Обновление не требуется.\n"
+
+#: ../src/sync.c:224
+#, c-format
+msgid "Downloading %d sync items: "
+msgstr "Загрузка %d элементов для синхронизации:"
+
+#: ../src/sync.c:227
+#, c-format
+msgid "Downloading %d entries: "
+msgstr "Загрузка %d записей: "
+
+#: ../src/sync.c:246
+#, c-format
+msgid "Synchronizing '%s'..."
+msgstr "Синхронизируется '%s'..."
+
+#: ../src/sync.c:253
+msgid "Warnings:\n"
+msgstr "Предупреждения:\n"
+
+#. this translation is not crucial
+#: ../src/thanks.h:11
+msgid "patches"
+msgstr ""
+
+#. this translation is not crucial
+#: ../src/thanks.h:13
+#, fuzzy
+msgid "Japanese translation"
+msgstr "Перевод на испанский"
+
+#. this translation is not crucial
+#: ../src/thanks.h:15 ../src/thanks.h:29
+msgid "Russian translation"
+msgstr "Перевод на русский"
+
+#. this translation is not crucial
+#: ../src/thanks.h:17
+msgid "German translation"
+msgstr "Перевод на немецкий"
+
+#. this translation is not crucial
+#: ../src/thanks.h:19
+msgid "accelerator saving"
+msgstr "запись кнопок быстрого доступа"
+
+#. this translation is not crucial
+#: ../src/thanks.h:21
+msgid "lj-cut patch"
+msgstr "патч для lj-cut"
+
+#. this translation is not crucial
+#: ../src/thanks.h:23
+msgid "Ukrainian translation"
+msgstr "Перевод на украинский"
+
+#. this translation is not crucial
+#: ../src/thanks.h:25
+msgid "Spanish translation"
+msgstr "Перевод на испанский"
+
+#. this translation is not crucial
+#: ../src/thanks.h:27
+msgid "Gentoo packaging"
+msgstr "Упаковка для Gentoo"
+
+#. this translation is not crucial
+#: ../src/thanks.h:31
+msgid "win32 multithread support"
+msgstr "Поддержка многопоточности win32"
+
+#. this translation is not crucial
+#: ../src/thanks.h:33
+msgid "checkfriends, poll creator, i18n"
+msgstr "проверка друзей, голосования, интернационализация"
+
+#. this translation is not crucial
+#: ../src/thanks.h:35
+msgid "support for cyrillic translation"
+msgstr "поддержка перевода кириллицы"
+
+#. this translation is not crucial
+#: ../src/thanks.h:37
+msgid "locale fixes"
+msgstr "исправления locale"
+
+#. this translation is not crucial
+#: ../src/thanks.h:39
+#, fuzzy
+msgid "Debian package, undo"
+msgstr "Помощь с Debian-пакетом"
+
+#. this translation is not crucial
+#: ../src/thanks.h:41
+msgid "typo in configure.in"
+msgstr "ошибка в configure.in"
+
+#. this translation is not crucial
+#: ../src/thanks.h:43
+msgid "locale setting"
+msgstr "настройки locale"
+
+#. this translation is not crucial
+#: ../src/thanks.h:45
+msgid "OpenBSD box to test on"
+msgstr "Машина OpenBSD для тестирования"
+
+#. this translation is not crucial
+#: ../src/thanks.h:47
+msgid "window geometry save/restore"
+msgstr "сохранение/восстановление геометрии окна"
+
+#. this translation is not crucial
+#: ../src/thanks.h:49
+msgid "simple login proxy patch"
+msgstr "небольшой патч для входа через proxy"
+
+#. this translation is not crucial
+#: ../src/thanks.h:51
+msgid "variety of patches"
+msgstr "различные патчи"
+
+#. this translation is not crucial
+#: ../src/thanks.h:53
+msgid "Solaris box to test on"
+msgstr "Машина Solaris для тестов"
+
+#. this translation is not crucial
+#: ../src/thanks.h:55
+msgid "Advanced RPM packaging"
+msgstr "Продвинутая упаковка в RPM"
+
+#. this translation is not crucial
+#: ../src/thanks.h:57
+msgid "Initial RPM packaging"
+msgstr "Первоначальный RPM пакет"
+
+#. this translation is not crucial
+#: ../src/thanks.h:59
+msgid "Debian maintainer"
+msgstr "Debian maintainer"
+
+#. this translation is not crucial
+#: ../src/thanks.h:61
+msgid "Debian package help"
+msgstr "Помощь с Debian-пакетом"
+
+#. this translation is not crucial
+#: ../src/thanks.h:63
+msgid "FreeBSD packaging"
+msgstr "Упаковка для FreeBSD"
+
+#. this translation is not crucial
+#: ../src/thanks.h:65
+msgid "a multitude of patches"
+msgstr "множество патчей"
+
+#. this translation is not crucial
+#: ../src/thanks.h:67
+msgid "initial file save patch"
+msgstr "первоначальный патч для сохранения файла"
+
+#. this translation is not crucial
+#: ../src/thanks.h:69
+msgid "parallel make tips"
+msgstr "подсказки о параллельной сборке"
+
+#. this translation is not crucial
+#: ../src/thanks.h:71
+msgid "much of the original client"
+msgstr "большая часть оригинального клиента"
+
+#. no selection; give them some help.
+#: ../src/tools.c:41
+msgid "HTML Escape Help"
+msgstr "Помощь с обработкой HTML"
+
+#: ../src/tools.c:42
+msgid ""
+"Some characters (such as '<' and '&') are reserved in HTML, and may not "
+"display correctly in your post.\n"
+"To properly escape these characters, first select a block of text and try "
+"this command again.\n"
+msgstr ""
+"Некоторые символы (такие, как '<' и '&') зарезервированы в HTML и могут "
+"неправильно отображаться в вашем сообщении.\n"
+"Чтобы правильно обработать эти символы, сначала выделите блок текста и "
+"выполните эту команду снова.\n"
+
+#. no selection; give them some help.
+#: ../src/tools.c:89
+msgid "Linebreak Removal Help"
+msgstr "Помощь в удалении разрывов строки"
+
+#: ../src/tools.c:90
+msgid ""
+"When you paste text into LogJam, linebreaks from the original are preserved, "
+"and will normally show up in your post on the server. You can have LogJam "
+"remove extraneous linebreaks from your entry, but you must make a specific "
+"selection of the text you wish this to happen on first.\n"
+"\n"
+"Note that you can also use the \"don't autoformat\" option on your post."
+msgstr ""
+"Когда вы вставляете текст в LogJam, разрывы строк сохраняются и передаются "
+"на сервер. Вы можете удалить разрывы строк из записи, для этого вы должны "
+"выделить текст, в котором нужно удалить разрывы.\n"
+"\n"
+"Имейте в виду, что вы также можете использовать опцию \"отменить "
+"автоформатирование\"."
+
+#: ../src/tools.c:149
+msgid "Select File"
+msgstr "Выбрать файл"
+
+#: ../src/tools.c:156
+msgid "File _encoding:"
+msgstr "_Кодировка файла:"
+
+#: ../src/tools.c:187
+#, c-format
+msgid "Error loading file: %s"
+msgstr "Ошибка загрузки файла: %s."
+
+#: ../src/tools.c:201
+msgid "Insert Command Output"
+msgstr "Вставить вывод команды"
+
+#: ../src/tools.c:210
+msgid "_Command:"
+msgstr "_Команда:"
+
+#: ../src/tools.c:225
+#, c-format
+msgid "Error getting command output: %s"
+msgstr "Ошибка получения вывода команды: %s"
+
+#: ../src/tools.c:262
+msgid "XML Parse Error"
+msgstr "Ошибка разбора XML"
+
+#: ../src/tools.c:269
+msgid "Error parsing XML:"
+msgstr "Ошибка разбора XML:"
+
+#: ../src/tools.c:317
+msgid "XML Validation"
+msgstr "Проверка XML"
+
+#: ../src/tools.c:318
+msgid "Document is well-formed XML."
+msgstr "Документ правильно сформирован в XML."
+
+#: ../src/tools.c:332
+msgid "LJ-Cut"
+msgstr "Скрытие"
+
+#: ../src/tools.c:344
+msgid "Cut c_aption:"
+msgstr "Заголовок _скрытия:"
+
+#: ../src/tools.c:349
+msgid "<small>If left empty, the LiveJournal default will be used.</small>"
+msgstr ""
+"<small>Если оставить пустым, то используется умолчание LiveJournal.</small>"
+
+#. this string is the separator between the server and username
+#. * next to the "submit" button.
+#: ../src/userlabel.c:86
+msgid "/"
+msgstr "/"
+
+#: ../src/userlabel.c:90
+msgid ", using "
+msgstr ", используя "
+
+#. FIXME domain
+#: ../src/util.c:41
+#, c-format
+msgid "Failed to create directory '%s': %s"
+msgstr "Ошибка создания каталога '%s': %s"
+
+#: ../src/util-gtk.c:300
+msgid "Warning"
+msgstr "Предупреждение"
+
+#: ../src/util-gtk.c:318
+msgid "Do not show again"
+msgstr "Не показывать снова"
+
+#~ msgid "automake fixes, testing"
+#~ msgstr "исправления automake, тестирование"
+
+#~ msgid "music|None"
+#~ msgstr "Не определять"
+
+#~ msgid "users|None"
+#~ msgstr "Никто"
+
+#~ msgid "Unable to save to '%s': %s."
+#~ msgstr "Невозможно сохранить в '%s': %s."
+
+#~ msgid "Radio buttons"
+#~ msgstr "Радио-кнопки"
+
+#~ msgid "Check boxes"
+#~ msgstr "Кнопки выбора"
+
+#~ msgid "Drop-down menu"
+#~ msgstr "Выпадающее меню"
+
+#~ msgid "Text entry"
+#~ msgstr "Поле ввода"
+
+#~ msgid "Scale"
+#~ msgstr "Размер"
+
+#~ msgid "<undef>"
+#~ msgstr "<undef>"
+
+#~ msgid "Possible answers:"
+#~ msgstr "Возможные ответы:"
+
+#~ msgid "<< Less"
+#~ msgstr "<< Меньше"
+
+#~ msgid "More >>"
+#~ msgstr "Больше >>"
+
+#~ msgid "Add _question: "
+#~ msgstr "Добавить вопрос: "
+
+#~ msgid "Deletes this question from the poll."
+#~ msgstr "Удаляет этот вопрос из голосования."
+
+#~ msgid "Move up"
+#~ msgstr "Вверх"
+
+#~ msgid "Move this question up one place in the poll."
+#~ msgstr "Передвигает этот вопрос на одну позицию выше."
+
+#~ msgid "Move down"
+#~ msgstr "Вниз"
+
+#~ msgid "Move this question down one place in the poll."
+#~ msgstr "Передвигает этот вопрос на одну позицию ниже."
+
+#~ msgid "Poll _name <i>(optional)</i>: "
+#~ msgstr "Название <i>(необязательно)</i>:"
+
+#~ msgid " Question #%d - %s "
+#~ msgstr " Вопрос #%d - %s "
+
+#~ msgid "<b>[Fill in at least the first possible answer.]</b>"
+#~ msgstr "<b>[Заполните хотя бы один вариант ответа.]</b>"
+
+#~ msgid "<b>[Fill in some question text.]</b>"
+#~ msgstr "<b>[Заполните текст вопроса.]</b>"

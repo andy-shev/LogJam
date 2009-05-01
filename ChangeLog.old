@@ -1,0 +1,1892 @@
+Sat, 19 Feb 2005 14:34:55 -0800  Evan Martin  <martine@danga.com>
+
+	* configure.in, preview.c:  Allow GtkHtml 3.6.
+	* journalstore_sqlite.c:  Drop hour, minute from db (using timestamp).
+	  Make get_entry get all entry fields.
+	* offline.c: localtime->gmtime fix.
+
+Fri, 18 Feb 2005 09:13:18 -0800  Evan Martin  <martine@danga.com>
+
+	* util-gtk.c, friends.c, jam.c, tools.c, util.h:  Use GTK 2.4
+	  file selector.
+	* thanks.h:  Update.
+
+Tue, 08 Feb 2005 23:28:16 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore: Change finding interfaces to not return an
+	  unused timestamps.
+	* journalstore_sqlite:  Add time_t timestamps to schema to
+	  support sequential scanning.
+	* journalstore_xml:  Use GMT and not local time **breaks backwards
+	  compatibility on journal store***.
+
+Tue, 01 Feb 2005 16:15:03 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore_sqlite.c: Add time_t timestamp to database.
+	  Some more stabs at making date browsing work.
+
+Sun, 30 Jan 2005 14:56:54 -0800  Evan Martin  <martine@danga.com>
+
+	* configure.in, ja.po:  Japanese translation.
+	* configure.in:  Fix curl detection.
+
+Sat, 29 Jan 2005 18:05:01 -0800  Evan Martin  <martine@danga.com>
+
+	* acinclude.m4:  Fix quoting.
+	* journalstore*, sync.c: search -> scan.  {begin,end}_group ->
+	  put_group.
+	* journalstore_sqlite.c: schema stores anum and broken-down time.
+	  Some new stubs allow the GUI to build (but not work).
+	* sync.c:  put_entry in a loop -> put_entries takes an array.
+
+Mon, 03 Jan 2005 01:15:04 -0800  Evan Martin  <martine@danga.com>
+
+	* 4.4.1.
+
+Sun, 02 Jan 2005 23:09:05 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore.h, journalstore_xml.c, cmdline.c: rename
+	  journal_store_new to _open.
+	* journalstore.h, journalstore.c, sync.c: Move lastsync management
+	  to journal store.
+	* configure.in, acinclude.m4, Makefile.am, journalstore.c,
+	  journalstore_xml.c, journalstore_sqlite.c: Conditionally use sqlite3
+	  for journal storage.
+	* journalstore.h, journalstore_xml.c, journalstore_sqlite.c: Rename
+	  flush to begin_group and end_group to allow sqlite transactions.
+
+Wed, 22 Dec 2004 10:18:58 -0800  Evan Martin  <martine@danga.com>
+
+	* 4.5 development begins.
+	* acinclude.m4: Fix warnings with newer autoconfs.
+	* autogen.sh: Allow newer automake.
+	* checkfriends.c, jamdoc.c: Make --without-gtk work again.
+	* cmdline.c: regex.h portability fix.  Add a const for the compiler.
+	* cmdline.c, gen.pl, opts.yml: Add a "user add" subcommand.
+
+Thu, 22 Jul 2004 00:28:51 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* checkfriends-gtk.c: make deleting the floating indicator not crash
+	  logjam: <http://www.livejournal.com/community/logjam/91103.html>.
+
+Wed, 21 Jul 2004 23:57:53 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	Patches from Debian BTS:
+	* data/logjam.desktop.in: fix icon placement in menus (Caitrin
+	  Torres, Todd Troxell).
+	* jamview.c, settings.c: dynamic Refresh Music button (Ari).
+	* pollcreator.c: fix combo-checkbox confusion (Ari).
+	
+Mon, 28 Jun 2004 07:36:46 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* network-libxml.c: supress warning.
+	* he.po: fix misplaced newline.
+
+Sun, 27 Jun 2004 20:58:55 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* he.po: translation updates.
+
+Wed,  7 Apr 2004 11:18:33 -0700  Evan Martin  <martine@danga.com>
+
+	* link.c:  Don't xml-escape selected text on magic expansion.
+
+Thu,  1 Apr 2004 11:40:44 -0800  Evan Martin  <martine@danga.com>
+
+	* offline.c:  Desensitize buttons that don't make any sense.
+
+Thu,  1 Apr 2004 11:25:45 -0800  Evan Martin  <martine@danga.com>
+
+	* poll-questions.c: Fix text poll questions (Kir).
+
+Thu,  1 Apr 2004 11:24:08 -0800  Evan Martin  <martine@danga.com>
+
+	* pollcreator, settings, music, util:  Drop use of Q_().
+	  It's useful to know, but in this case disambiguating with 
+	  None/Nobody as Kir suggested makes more sense.
+
+Wed, 31 Mar 2004 10:26:28 -0800  Evan Martin  <martine@danga.com>
+
+	* network.c:  Update old-style network interface (still used by
+	  sync) to actually use the right URL.
+
+Wed, 31 Mar 2004 10:13:53 -0800  Evan Martin  <martine@danga.com>
+
+	* datesel.[ch]:  Add "backdated" option.
+	* jamview.c:  Forward doc backdated to datesel.
+
+Tue, 30 Mar 2004 20:19:48 -0800  Evan Martin  <martine@danga.com>
+
+	* link.c:  Warning fixes.
+
+Tue, 30 Mar 2004 19:47:24 -0800  Evan Martin  <martine@danga.com>
+
+	The visible metas when you hit "new" should only be the ones you
+	explicitly turned on; if you edit an old entry (which shows the date),
+	then hit "new", you shouldn't be stuck with the date showing.
+	This is how it was supposed to work in the first place.
+	* menu.c: Remove some hacks.
+	* jamview.h:  Add _emit_conf function to allow menu to sync with view
+	  even when view is created first.
+	* jamview.c:  Make _load_conf reset all the metas to the
+	  user-configured state, then _load_doc show all the metas that are
+	  needed to show the doc.  And some other cleanups.
+
+Tue, 30 Mar 2004 19:00:25 -0800  Evan Martin  <martine@danga.com>
+
+	* jamdoc.c:  Initialize with default security.
+	  (Debian bug #239153)
+
+Tue, 30 Mar 2004 18:27:25 -0800  Evan Martin  <martine@danga.com>
+
+	* history_recent.c:  Properly load earlier entries.
+	  (Debian bug #239152)
+
+Fri, 19 Mar 2004 11:39:41 -0800  Evan Martin  <martine@danga.com>
+
+	* music.c:  Support non-UTF-8 locales.  (Kir)
+
+Wed,  3 Mar 2004 11:41:22 -0800  Evan Martin  <martine@danga.com>
+
+	* offline.c:  Warning fixes.
+	* spawn.c:  MozillaFirebird -> firefox.  Reorder options.
+
+Tue,  2 Mar 2004 11:06:41 -0800  Evan Martin  <martine@danga.com>
+
+	* imagelink.c:  Use images from clipboard.
+	* menu.c:  Image hotkey.
+
+Tue,  2 Mar 2004 10:57:51 -0800  Evan Martin  <martine@danga.com>
+
+	* imagelink.c, network-libxml.c:  Better error handling.
+
+Mon,  1 Mar 2004 17:09:11 -0800  Evan Martin  <martine@danga.com>
+
+	* usejournal, userlabel, jam.c, menu.c:  Make the user label
+	  clickable and have the same functionality as the "use journal" menu.
+	  It's easy now that everything's signalized!
+
+Mon,  1 Mar 2004 16:17:00 -0800  Evan Martin  <martine@danga.com>
+
+	* util-gtk.c, account.h:  Warning fixes.
+
+Mon, 23 Feb 2004 16:10:06 -0800  Kir Kolyshkin <kir@sacred.ru>
+
+	* Makefile.am, POTFILES.in, get_cmd_out.[ch]: Functions to run some
+	  external program and return its output.
+	* tools.c, menu.c, jamdoc:  Insert command output tool.
+
+Sat, 21 Feb 2004 19:05:39 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	Magic links. When invoking the link creation dialog, if
+	the X clipboard and current entry selection text together
+	have enough information to create a link, inject one directly
+	without going to the GUI.
+	* src/link.c: magic link
+	* src/util-gtk.h, src/util.h: support for limited-time blocking
+	  clipboard requests.
+
+Sat, 21 Feb 2004 17:19:02 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	* src/offline.c: Copy current entry URL to clipboard
+	* docs/TODO: update
+	* src/network-gtk.c: cleanup
+
+Thu, 19 Feb 2004 16:53:35 -0800  Evan Martin  <martine@danga.com>
+
+	* login.c:  Pop up "logging in" box over "log in now?" dialog.
+	  Don't try logging in with empty accounts.
+	* jamview.c:  Update security view when adding (Debian bug
+	  #233722).
+	* util-gtk.c:  Restore window position when showing (Debian bug
+	  #233725).
+
+Tue, 17 Feb 2004 22:15:05 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	* docs/TODO: update (this is from a previous commit really).
+	* src/offline.c: add link from previewed entry to online page
+	* protocol/liblivejournal/livejournal/entry.{c,h}: add some
+	  accessors
+
+Wed, 18 Feb 2004 17:52:52 -0800  Evan Martin  <martine@danga.com>
+
+	* Makefile.am, menu.c:  Include "insert image" dialog.
+	* network-curl.c, network-libxml.c:  When post is NULL, use GET.
+	  Don't assume LJ interface URLs.
+	* network-libxml.c:  Better error reporting.
+	* network.c:  Verbs use LJ interface URLs.
+	* network.h, network-gtk.c:  GET function.
+	* imagelink.c:  New file.
+
+Sun, 15 Feb 2004 15:11:30 -0800  Evan Martin  <martine@danga.com>
+
+	* util.h, util-gtk.c:  JamReorderable is a list and the set of
+	  list-managing buttons (add, edit, remove, up, down).
+	* poll-questions.c, poll.h:  New files.  Poll structures.
+	* pollcreator.c:  Redesigned.
+
+Sun, 15 Feb 2004 17:04:09 -0800  Evan Martin  <martine@danga.com>
+
+	* 4.3.1.
+
+Tue, 10 Feb 2004 21:29:42 -0800  Evan Martin  <martine@danga.com>
+
+	* jamview.c:  Don't pop up the custom security dialog when loading
+	  a past entry with custom security.
+
+Tue, 10 Feb 2004 21:10:58 -0800  Evan Martin  <martine@danga.com>
+
+	* manager.c:  Warning fix.
+	* jam.c:  When saving, don't clobber files that already exist 
+	  (http://www.livejournal.com/community/logjam/
+	    73898.html?thread=478890)
+
+Mon,  9 Feb 2004 12:39:57 -0800  Evan Martin  <martine@danga.com>
+
+	* po/de.po:  Updated.
+
+Sat, 07 Feb 2004 11:47:24 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	Bring back checkfriends feature. Whether to check friends is
+	now a per-account setting with a master on/off switch.
+
+	TODO: move various properties to their appropriate levels (e.g. 
+	server cf interval is a per-server value, currently it's in   
+	global conf)
+
+	* checkfriends(?:-gtk)?.{c,h}, jam.c: revive checkfriends
+	* serveruser.h, manager.c,livejournal.c: per-user cf toggle
+	* network.{c,h}: silent context
+	* tie.{c,h}: allow wrapping semantics
+
+Fri,  6 Feb 2004 12:54:47 -0800  Evan Martin  <martine@danga.com>
+
+	Bring back --without-gtk.
+	* Makefile.am:  Only use network-fork on unix+gtk.
+	* checkfriends.c:  More #ifdefs.
+
+Thu,  5 Feb 2004 10:22:06 -0800  Evan Martin  <martine@danga.com>
+
+	http://www.livejournal.com/community/logjam/
+	  73089.html?thread=462721#t462721
+	* jamdoc:  Add jam_doc_set_moodid.
+	* jamview:  Include moodid on posts.  (Untested)
+
+Wed,  4 Feb 2004 22:17:44 -0800  Evan Martin  <martine@danga.com>
+
+	* manager.c:  Redo some hacks to make the friends filter
+	  work again.
+
+Wed,  4 Feb 2004 22:07:10 -0800  Evan Martin  <martine@danga.com>
+
+	* util.c, util.h:  New function that lets us disambiguate
+	  the multiple senses of words like "None" in translations.
+	* pollcreator.c, settings.c, music.c:  Use Q_().
+
+Wed,  4 Feb 2004 17:37:04 -0800  Evan Martin  <martine@danga.com>
+
+	Reported by Kir Kolyshkin:
+	* friendgroups.c:  Localize strings.
+	* about.c:  Copyright 2004.
+
+Mon,  2 Feb 2004 17:15:45 -0800  Evan Martin  <martine@danga.com>
+
+	* friendgroupedit.c:  Don't crash when making new friend groups.
+
+Mon,  2 Feb 2004 15:33:56 -0800  Evan Martin  <martine@danga.com>
+
+	* music.c:  logjam-xmms-client, not -helper.
+
+Mon, 02 Feb 2004 00:20:49 -0800  Evan Martin  <martine@danga.com>
+
+	* jamview.c:  Don't show "Refresh" button in music bar if we can't
+	  detect music.
+
+Sun, 01 Feb 2004 14:36:11 -0800  Evan Martin  <martine@danga.com>
+
+	* datesel.c:  Warning fix.
+	* jam_xml.c:  Wrong function.
+	* conf.h, music.[ch], spawn.[ch]:  New generic interface for lists of
+	  commands.
+	* music.c:  Also include "rhythmbox" command.  Doesn't quite work
+	  right yet: if rb isn't running, everything breaks.
+	* conf_xml.c:  Conf loading now much simpler.
+	* init.c:  Use new interface.
+	* settings.c:  Use new interface for music and web browser; merge
+	  the two under "Programs" on the "System" tab.
+
+Fri, 30 Jan 2004 20:00:03 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	* src/jamview.c: bring back music detection
+
+Fri, 30 Jan 2004 01:01:00 -0800  Evan Martin  <martine@danga.com>
+
+	* jam.c:  More horizontal space in the bottom bar.  Use stock button
+	  for submit / save.
+	* jam.h:  Kill a few unused fields.
+	* icons.c:  Register a stock id for the submit button.
+	  Now we need an icon.  :)
+	* userlabel.c:  "using", not "posting in": you can do stuff other than
+	  posting when you switch journals.
+	
+Fri, 30 Jan 2004 00:40:04 -0800  Evan Martin  <martine@danga.com>
+
+	* datesel.c:  Properly remove timeout when destroyed.
+	* jamdoc.c:  Emit a "usejournal changed" notification.  Make the
+	  "account changed" notification use the GTK notification system.
+	* jam.c, jamview.c, menu.c:  Use new signals instead of calling into
+	  each other.  Much cleaner!
+
+Thu, 29 Jan 2004 23:51:18 -0800  Evan Martin  <martine@danga.com>
+
+	* all around:  ifdef out all the Blogger bits.  We're putting it off
+	  for this release.
+
+Fri, 16 Jan 2004 10:47:46 -0800  Evan Martin  <martine@danga.com>
+
+	* jam.c:  When they click "save", don't run "delete".  :(
+
+Tue, 13 Jan 2004 18:50:02 -0800  Evan Martin  <martine@danga.com>
+
+	* friends.c, journalstore.c, remote.c:  Use g_strerror.
+	  (Shawn Wagner)
+
+Tue, 13 Jan 2004 18:44:01 -0800  Evan Martin  <martine@danga.com>
+
+	Allow date editing.
+	* jamdoc:  Expose document date.
+	* jamview:  Use datesel.
+	* menu.c:  Add "Entry Date" to view menu.
+
+Mon, 12 Jan 2004 11:19:40 -0800  Evan Martin  <martine@danga.com>
+
+	Allow conditional use of Curl.
+	* configure.ac:  Tricky autoconf'ing.  Be sure to bitch if they
+	  get libxml by default.
+	* network-fork.c, network-libxml.c:  Pull out forking code from
+	  curl code and generalize to work with libxml too.
+
+Sun, 11 Jan 2004 12:06:59 -0800  Evan Martin  <martine@danga.com>
+
+	Bring back checkfriends.
+	* Makefile.am, checkfriends-gtk.c:  Split GTK code into its own file.
+	* checkfriends.c:  Use signals instead of an explicit child list.
+	* checkfriends-gtk.c:  Kill generic "cfindicator" idea; the different
+	  indicators are now too dissimilar.  Kill in-window indicator. 
+	* images/, icons.c, network-throbber:  Use fancy throbber instead of
+	  cfriends icons to indicate new entries.
+	* init.c, menu.c, jam:  Use new functions.
+	* settings.c:  Allow checkfriends to pop up just the checkfriends
+	  settings.
+	* util:  Clean out some unused functions.
+
+Sat, 10 Jan 2004 15:36:22 -0800  Evan Martin  <martine@danga.com>
+
+	* cmdline.c:  Minor cmdline doc cleanups.
+	* all over:  Make --without-gtk build work again.
+
+Sat, 10 Jan 2004 14:38:15 -0800  Evan Martin  <martine@danga.com>
+
+	* remote.c:  Don't warn on startup if they don't have a a ~/.logjam.
+
+Fri, 09 Jan 2004 09:56:47 -0800  Evan Martin  <martine@danga.com>
+
+	* checkfriends.c:  Use liblivejournal.
+	* network-curl.c:  Minor cleanup.
+	* network.c:  Remove net_verb_run_cli (not used anymore).
+
+Thu, 08 Jan 2004 22:01:13 -0800  Evan Martin  <martine@danga.com>
+
+	* images/Makefile.am:  Store large images RLE-encoded.
+	* icons.c:  Undo Windows hack (RLE-encoded image data should be small
+	  enough).
+
+Thu, 08 Jan 2004 17:15:26 -0800  Evan Martin  <martine@danga.com>
+
+	* network*:  Remove NetRequest/NetResult. (!!!)
+	* network*:  Remove net_request_rub/net_verb_run. (!!!)
+	* network.[ch]:  Merge network-ctx into main file.
+	* friendedit.c, friendgroupedit.c, friendgroups.c, friends.c:
+	  Use new liblivejournal APIs.
+	* friendgroups.c:  Make sure friend group removal succeeds before
+	  updating friends list.
+	* checkfriends.c, history.c: Comment out and XXX out code that doesn't
+	  run anyway.
+
+Thu,  8 Jan 2004 10:38:41 -0800  Evan Martin  <martine@danga.com>
+
+	* Makefile.am, network.h, network-ctx.[ch]: Network "contexts".
+	* account.h, host.c, blogger.c, livejournal.c:  Use NetContexts
+	  instead of GtkWindows.
+	* cmdline.c:  Use commadline-provided password.  Use NetContexts.
+	* jam.c, friends.c, login.c:  Run NetContexts instead of LJVerbs.
+	* network-curl.c, jamview.c:  Small warning fix.
+	* network-gtk.c:  Implement NetContextGtk, add titles to windows,
+	  hide progress bar until it's useful.
+	* sync.c:  Use window titles.
+
+Mon, 05 Jan 2004 21:09:06 -0800  Evan Martin  <martine@danga.com>
+
+	* cmdline.[ch], init.c:  Load cmdline into a doc directly
+	  and move Cmdline structures into cmdline.c, cutting out a huge pile
+	  of code.
+	* cmdline.c:  Resurrect the "post immediately" command.
+	* jamdoc.h: Minor cleanups.
+	* jamdoc.c, init.c, jam.[ch]:  Make doc start without an account,
+	  and make others use doc's account.
+	* cmdline.c, opts.yml:  Add --file option back in.
+	* remote.[ch]:  Add const.
+
+Sun, 04 Jan 2004 11:38:23 -0800  Evan Martin  <martine@danga.com>
+
+	* console.c, cmdline.c:  Fix off-by-one errors in console
+	  code.
+	* cmdline.c:  Fix print.
+
+Sun, 04 Jan 2004 11:14:34 -0800  Evan Martin  <martine@danga.com>
+
+	* console.c, console.h:  Undo hack to use console gui code
+	  to run commandline console commands.
+	* menu.c: Use newly-fixed up console.h.
+	* cmdline.c:  Use liblivejournal's LJConsoleCommand to run
+	  commandline-based console commands.  (Effect: we no longer
+	  pop up windows when commandline-based console commands fail.)
+
+Sun, 04 Jan 2004 10:59:17 -0800  Evan Martin  <martine@danga.com>
+
+	* network, network-internal.h, network-curl.c:  Put errors
+	  into a NET_ERROR domain, and add a new NET_ERROR_PROTOCOL
+	  level of errors.  This way, we can detect whether our
+	  challenge request failed totally (network down?) or just
+	  at the protocol level (server doesn't support challenges)
+	  and adjust accordingly (a subsequent request in the first
+	  case will fail in the same way...).
+
+Sun, 04 Jan 2004 01:08:33 -0800  Evan Martin  <martine@danga.com>
+
+	* console.c:  Use liblivejournal's "consolecommand" verb.
+
+Sun, 04 Jan 2004 00:21:35 -0800  Evan Martin  <martine@danga.com>
+
+	* menu.c:  Properly reset usejournal when we revert to the
+	  main account.
+
+Sat, 03 Jan 2004 23:58:25 -0800  Evan Martin  <martine@danga.com>
+
+	* network.c:  If the server supports the c0 auth type (or
+	  we don't know what it supports), try challenge-response
+	  login.  Yay no more replayable passwords!  (But we're not fully
+	  there yet: need to eliminate all calls to net_request_new()).
+
+Sat, 03 Jan 2004 14:21:34 -0800  Evan Martin  <martine@danga.com>
+
+	* cmdline.c, gen.pl:  Add --list-subcommands switch to all
+	  commands with subcommands, in the hopes that it will
+	  simplify tab completion.  (Also, merging the subcommand
+	  strings in separately makes it easier to translate.)
+	  
+Thu, 01 Jan 2004 15:20:28 -0800  Evan Martin  <martine@danga.com>
+
+	* init.c, cmdline.[ch], gen.pl:  Move cmdline.h to cmdline_data.h,
+	  move commandline parsing out of init.c and into cmdline.[ch].
+
+Thu, 01 Jan 2004 13:40:26 -0800  Evan Martin  <martine@danga.com>
+
+	* init.c, configure.ac:  Grep cleanups, autoconf support for
+	  conditionally using regex.h.
+
+Tue, 30 Dec 2003 17:04:59 -0800  Evan Martin  <martine@danga.com>
+	
+	Win32 fixes.
+	* build/win32/*:  lotsa changes to paths.
+	* icons.c:  Gross hack because the blogger image overwhelms
+	  the compiler.
+	* init.c:  Conditionally use regex.h.
+	* journalstore.c:  Pull in winsock for htonl.  Signedness fixes.
+	* livejournal.c, blogger.c:  Function taking no arguments is
+	  (void), not ().
+	* network-win32.c:  Update to new internal API.  FIXME: doesn't
+	  pass along headers yet.
+
+Tue, 30 Dec 2003 19:03:43 -0800  Evan Martin  <martine@danga.com>
+
+	* init.c:  Rearrange to make logjam -h fit within 25 lines.
+	* init.c:  Nuke "save user"/"save password" options.  They were
+	  never implemented and were confusing anyway.
+	* init.c:  Console arg-parsing bugfix.
+	* gen/opts.yml, init.c:  Make all offline commands a subcommand of
+	  "offline".
+
+Tue, 30 Dec 2003 00:07:52 -0800  Evan Martin  <martine@danga.com>
+
+	* init.c:  Minor changes to use new liblivejournal API.
+
+Mon, 29 Dec 2003 23:13:33 -0800  Evan Martin  <martine@danga.com>
+
+	* util/xmmsclient/Makefile.am:  Remove redundant CFLAGS.
+
+Mon, 29 Dec 2003 23:05:34 -0800  Evan Martin  <martine@danga.com>
+
+	* preview.c:  Show protected/private icons in preview.
+
+Fri, 26 Dec 2003 15:55:21 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore.c:  Split version information into index and
+	  xml version information.
+
+Fri, 26 Dec 2003 15:50:35 -0800  Evan Martin  <martine@danga.com>
+
+	* init.c, opts.yml, gen.pl:  Allow -h/--help for all commands.
+	  Pull shared getopt-style parsing into a hairy macro.
+	  Clean up help.
+
+Wed, 24 Dec 2003 12:28:34 -0800  Evan Martin  <martine@danga.com>
+
+	* friends.c:  If you add yourself, it's a two-way connection.
+	  If you remove yourself, the two-way connection is gone.
+
+Wed, 24 Dec 2003 12:07:19 -0800  Evan Martin  <martine@danga.com>
+
+	* security, jamview.c:  Bring back custom security.
+
+Wed, 24 Dec 2003 11:45:49 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore.c:  Make get_count return the actual entry count,
+	  which is what some code was assuming and other code wasn't.
+	* index.c:  Use right function.
+
+Tue, 23 Dec 2003 20:56:46 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore.c:  Store index in network byte order.
+	  Swap endianness around if we find an old index with the wrong order.
+
+Sun, 21 Dec 2003 12:19:30 -0800  Evan Martin  <martine@danga.com>
+
+	* journalstore.c:  Break out of search if we have more than
+	  a thousand matches.  (Really, we need to search in a separate
+	  process and report results.  This is a quick fix to prevent
+	  the UI from blocking too long.)
+
+Sun, 21 Dec 2003 11:36:58 -0800  Evan Martin  <martine@danga.com>
+
+	(Forgot to update the changelog for the last few commits.)
+	* userlabel, jam.c:  Show "current user" label and include host. 
+
+Wed, 10 Dec 2003 22:23:54 -0800  Evan Martin  <martine@danga.com>
+
+	* everything:  Massive reorganization of structure.  Yay.
+	* jamview.c:  Don't store empty subject (cascaded effect:
+	  HTML preview doesn't show horizontal line when no subject).
+
+Tue,  9 Dec 2003 14:15:21 -0800  Evan Martin  <martine@danga.com>
+
+	* menu.c:  C99 fix.
+	* link.c, login.c:  Handle Blogger properly.
+	* account, host.c, blogger.c, livejournal.c:  Allow
+	  deleting entries (LJ only so far).
+
+Tue, 09 Dec 2003 21:45:43 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	* gen/opts.yml, console.c, init.c: CLI console
+	* console.h: added file.
+
+Mon, 08 Dec 2003 22:47:14 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	* init.c: cleanup
+	* jam.c, jamview.c settings.c: fix spellcheck
+
+Sun, 07 Dec 2003 21:35:30 +0200  Gaal Yahas  <gaal@forum2.org>
+
+	New command line autogeneration system: we now use YAML
+	<http://yaml.org/> to hold all information about command line
+	arguments (including help); the code can nest arbitrarily deep
+	subcommands.
+
+	* gen/gen.pl, gen/cmdline.h.tmpl, gen/opts.yml: new files
+	* gen/gen.pl, gen/cmdlineopts.h.tmpl, gen/helptext.h.tmpl, 
+	  gen/opts.dat: removed files
+	* gen/regen.sh, gen/logjam.tmpl-doc.pl, src/init.c: changed to
+	  new system
+
+Sun, 07 Dec 2003 11:03:26 -0800  Evan Martin  <martine@danga.com>
+
+	* po:  Include logjam.desktop in translations.
+	* jamview.c, jamdoc:  Make comments and preformatted options work.
+	* jamview.c:  Hiding a meta widget resets its value.
+	* init.c:  Make "cat -m" output work as a real mbox mailbox.
+	* manager.c, blogger:  Allow users to add blogger hosts.
+	* menu.c:  Disable View and Journal menus when using a Blogger account.
+	* all over:  Tracking down doc signals to prevent multiple emissions.
+	  Associated rearrangement of code (migrate jam.c stuff to jamview.c).
+	  Still not there yet.  (Eliminated title_changed signal on docs.)
+	* configure.ac, Makefile.am:  Cleanups.  Don't include debug flags as
+	  defaults (use "./configure CFLAGS='-Wall -g'" when debugging).
+	* offline.c:  Show a lame text preview when we don't have HTML widgets.
+
+Thu, 04 Dec 2003 21:37:17 -0800  Evan Martin  <martine@danga.com>
+
+	* blogger/Makefile.am: pull gxr into build.
+	* gen/opts.dat: Add reindex, grep, and cat to command-line help.
+	* init.c: Clean up cat.
+	* offline.c: Autosize subject-column width in entry browser.
+	* init.c, sync.[ch]:  "summary" command summarizes export status.
+	* checkfriends.c:  Make cli-based checkfriends work again.
+	* configure.ac, logjam.desktop.in:  Make desktop entry (show up
+	  in GNOME/KDE/etc menu).  We now depend on intltool.
+	* conf.h, settings.c, checkfriends.c:  Make dock icon independent
+	  of checkfriends, and make it show/hide the main window.
+	* history_recent.c: Include date column (when did that break?!).
+	* jamview.c:  Load metas when we load a document.
+	* jamview.c, jam.c:  Rearrange undo handling; much simpler now.
+	* jamview.c:  Be sure to load security in case widget is showing,
+	  even if the doc is public.
+	* friends.c:  You should still be able to bring up friends window even
+	  when you have no friends (why did nobody report this?).
+	* offline.c:  Summarize number of matches when searching offline.
+
+Thu, 04 Dec 2003 12:00:00 -0800  Evan Martin  <martine@danga.com>
+
+	* Today sometime around noon I committed my devel branch.
+	  So much changed, and I didn't document any of it.  :\
+
+Wed, 08 Oct 2003 18:14:59 -0700  Evan Martin  <martine@danga.com>
+
+	* build/:  More win32 changes (put dll and executable in
+	  toplevel directory).
+	* src/:  More win32 fixes (better casts, and disable threaded
+	  network requests until I can figure out glib bug).
+
+Tue, 07 Oct 2003 20:24:45 -0700  Evan Martin  <martine@danga.com>
+	
+	* build/*:  Add Visual Studio projects to the build.
+	  I'm considering moving the autogen/autoconf/etc. files 
+	  into that subdir, but I suspect that would break stuff.
+	* all over:  Win32 fixes.
+
+Thu, 18 Sep 2003 21:29:02 -0700  Evan Martin  <martine@danga.com>
+
+	HTML tags.  (<lj user="k001">, <lj user="bacek">.)
+	* Makefile.am, html_markup.[ch]: Code to insert/wrap selection
+	  in HTML tags.
+	* menu.c:  Menu items.
+	In the future, I'd like hitting the hotkey a second time to cancel
+	out the tag.  But putting this in now will make me get there faster.
+
+Thu, 18 Sep 2003 20:41:36 -0700  Evan Martin  <martine@danga.com>
+
+	* init.c:  Bring back remote commands (running LogJam twice should
+	  pop up one window: 
+	  http://www.livejournal.com/community/logjam_dev/8397.html).
+
+Thu, 18 Sep 2003 20:30:05 -0700  Evan Martin  <martine@danga.com>
+
+	* userlabel.[ch], jam.c:  Look like lj user tags to indicate current
+	  user.  I'm not sure if I like it.
+	* init.c:  Bring back user editor.
+	* network.h, sync.c:  Finish sync progress, including GTK.  It seems
+	  to work?  LiveJournal.com is too slow for me to be able to test on a
+	  "real" dataset.
+
+Sun, 14 Sep 2003 16:50:50 -0700  Evan Martin  <martine@danga.com>
+
+	Over the summer, LogJam development was primarily hosted in a
+	Subversion repository.  Development moved rapidly and I didn't
+	record any ChangeLogs.  We're now moving back to CVS, so I will
+	again try to keep up the ChangeLog.
+
+	Major differences from the released version:
+	 - new "liblivejournal" forces API cleanliness;
+	 - CVS-style command line interface;
+	 - sync code rewritten and is much faster (that was a bug) and
+	   cleaner (that part isn't complete yet).
+
+Fri, 22 Aug 2003 13:45:06 +0300  Gaal Yahas  <gaal@forum2.org>
+	
+	* src/init.c: CLI 'grep' command; 'latest' argument for cat
+	* src/journalstore.[ch]: 'latest' support
+
+Thu, 21 Aug 2003 22:51:53 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	More on CLI: 'cat'.
+	* src/init.c: CLI 'cat' command
+	* liblivejournal/entry.[ch]: lj_entry_to_rfc822 [string]
+	* gen/gen/cmdlineopts.h.tmpl: prepend '+' to short getopt
+
+	TODO:
+	- gen(.pl)eralize command options, arbitrarily deep.
+	- xml cat	
+
+Wed, 20 Aug 2003 09:10:33 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* checkfriends.c: fix checkfriends with mask
+
+Fri, 18 Jul 2003 07:13:14 -0700  Gaal Yahas  <gaal@forum2.org>
+
+	* logjam.dsp, Makefile.msc, init.c:  Leftover Windows fixes.
+
+Tue, 15 Jul 2003 14:25:36 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	Generalizations in code to prepare for multiple logins and
+	multiple documents. Weaken couplings of nearly everything
+	to conf_cur_user() and conf_cur_server().
+	* account.[ch]: JamAccount type
+	* jamview.[ch]: JamView type
+	* `grep 'JamAccount\|JamView' *[ch]`: refactor to use new types
+	This patch temporarily breaks usejournal ("post as"). This will
+	be fixed soon.
+
+	Most files: facilitate precompiling headers for when gcc uses them
+
+	All files: Great Renaming. The application now uses the Jam prefix
+	for its types and functions.
+
+	* logjam.dsp: MSDEV project file on Win32 (ijon)
+	* init.c: getpass for win32 (gaal, following note from ijon)
+
+
+Mon, 14 Jul 2003 07:58:40 -0700  Evan Martin  <martine@danga.com>
+
+	Primarily:  usejournal logic is now in menu.  Hopefully, this
+	will make Gaal's job (multiple logins) easier.
+	* conf_xml.c:  Better error reporting.
+	* livejournal-entry.c:  Simpler (pseudo-)RFC822 parser.
+	* lj.[ch], usejournal.[ch], menu.[ch]:  Usability test
+	  (watching Whitaker use LogJam) shows that usejournal should
+	  be in the menu.
+	* manager.c:  Default size wider.
+	* util.c:  More efficient recursive mkdir.
+
+Wed, 09 Jul 2003 18:44:58 -0700  Evan Martin  <martine@danga.com>
+
+	* manager.c:  Make string more amenable to translations.
+	* preview.c:  Set a default size.
+	* TODO:  Updates!
+	* po/POTFILES.in:  Update for new files.
+
+Wed, 09 Jul 2003 19:59:01 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* spawn.c: use single quotes on urls; add browser to list
+
+Wed, 09 Jul 2003 17:41:14 -0700  Evan Martin  <martine@danga.com>
+
+	* logjam-xmms-client.c:  Properly default to XMMS session 0.
+
+Wed, 09 Jul 2003 17:33:33 -0700  Evan Martin  <martine@danga.com>
+
+	* livejournal-types.c:  Wrong function.
+	* login.c:  Rearrangement to improve look and code style.
+
+Mon, 07 Jul 2003 19:43:43 -0700  Evan Martin  <martine@danga.com>
+
+	* many files:  Require the user to choose a user to run as, and only
+	  login when they pick "update information".
+	* login.c, livejournal.h, livejournal-types.c, menu.c:
+	  Web menus now load into an intermediate structure.
+	* login.[ch], lj.c:  Because of above, login no longer needs to
+	  interact with LJWins directly.
+	* conf_xml.c:  Load/save webmenus.
+	* lj.c:  Spelling fixes; when submitting a draft, offer to delete the
+	  local copy.
+
+Sat, 05 Jul 2003 20:34:09 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* init.c, livejournal-entry.c: bring back -e (edit entry with
+	  user editor)
+
+Mon, 30 Jun 2003 22:16:42 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* livejournal-entry.c:  Properly load comments type from XML.
+
+Fri, 27 Jun 2003 15:23:51 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* network-throbber.c:  Properly init SVG throbber (less flicker).
+	* network-gtk.c:  After reverting a previous reversion and changing
+	  it a bit beyond that, the window is now a proper dialog, but it
+	  still behaves like an OS X sheet on nice window managers while not
+	  killing weird ones like ion.
+
+Thu, 26 Jun 2003 14:02:04 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* checkfriends.c:  Wrong function.  (Gaal)
+	* journalstore.c:  Set version when creating index, otherwise
+	  index will never load! (John Patterson <john@ninecats.org>).
+	* conf_xml.c, livejournal.h, login.c, manager.c, network-curl.c:
+	  Remove "fast server" option, as it's no longer supported.
+
+Thu, 26 Jun 2003 01:14:06 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* conf_xml.c:  Remove extra g_print.
+	* preview.c:  Don't show date when entry hasn't been dated yet;
+	  don't add line at the top unless the entry has a date or subject.
+	* init.c:  We have to let GTK look at the command line before we
+	  look at it, so we don't error out on GTK command-line options.
+	  Also, better control flow.
+
+Wed, 25 Jun 2003 22:20:41 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* images/inline-images.rb:  Generate C header of raw image data.
+	* images/inline.h:  Generated file.
+	* images/Makefile.am:  Don't install lj user icons; include inline.h.
+	* src/preview.c:  Use inlined images instead of external files.
+
+Wed, 25 Jun 2003 19:05:44 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* history_recent.c:  Fix crash.
+	* preview.c:  Show more information in preview.
+	* util.c:  Remove unnecessary cast.
+
+Wed, 25 Jun 2003 18:57:33 -0700  Evan Martin  <martine@cs.washington.edu>
+	
+	* src/Makefile.am:  Truly ugly hack to make things work with 
+	  automake 1.5.
+
+Wed, 25 Jun 2003 16:17:37 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Lots of console work.  Stripped executable is now 60k!
+	* Makefile.am:  Don't build images on a console-only build.
+	* configure.ac, getopt*:  Instead of autoconf'ing around the lack
+	  of getopt_long, include glibc's version.  (This is pretty standard.)
+	* gen/*:  Add some new command-line options, allow grouping options,
+	  and combine the getopt code into one file.
+	* configure.ac:  Remove _OBJ cruft left over from before we
+	  switched automake.
+	* src/Makefile.am:  Draft store and doc are now GTK-only.
+	* conf.h, lj.c:  Remove no-longer-used options.
+	* livejournal-entry.[ch]:  Combine some functions.
+	* draftstore.c, logjam-doc.c:  Use those new functions.
+	* init.c:  Better handling of options and of console mode.  Shorter
+	  functions make code easier to read.  (Majority of changes are here.)
+	* network-curl.c, network-gtk.c:  Fix dangling pointer.
+	* sync.c:  Return success when there's nothing to sync.
+
+Tue, 24 Jun 2003 16:19:00 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	We now support building --without-gtk.  From the command line you
+	should be able to post, checkfriends, and sync the offline journal.
+	This also forces better model-view separation.
+	* a whole pile of files:  Add WITH_GTK conditionals.
+	* util-gtk.c, network-gtk.c:  New files with the GTK-specific code.
+
+Tue, 24 Jun 2003 14:50:16 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	We no longer build with XMMS, instead building a helper executable
+	that links with XMMS.  This makes the logjam binary simpler.
+	This will also allow binary packagers to make a "logjam-xmms" package.
+	* configure.ac, src/Makefile.am:  Depend on automake >= 1.5,
+	  allowing the Makefile to be much cleaner.  Optionally build
+	  logjam-xmms-client when using XMMS.
+	* init.c, meta.c:  Music-related simplifications.
+	* music.c:  Use logjam-xmms-client instead of linking hackery.
+	* music.h, settings.c:  Different error reporting for new system.
+
+Sat, 21 Jun 2003 15:29:58 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* livejournal.h, livejournal-entry.c, util.[ch]:
+	  Let UTF-8 errors be reported back up to the user.
+	* sync.c:  Show all warnings at the end of the sync.
+	* history.c:  Use error-reporting function.
+	* menu.c, protocol.c:  Warning fixes.
+	* network.c:  Revert window trickery back to a simple dialog.
+	  It was broken in too many ways.
+
+Sat, 21 Jun 2003 09:51:54 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* livejournal-entry.c:  Properly save custom allowmask.
+	* journalstore.c:  Bump version number again.
+
+Thu, 19 Jun 2003 18:47:26 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* gen/opts.dat:  New command-line option to sync journal from
+	  command line.  Useful on machines without X or from cronjobs.
+	* init.c:  Parse new option.
+	* sync.h:  Let sync operation return a boolean, so our exit
+	  code in CLI mode can indicate whether the sync succeeded.
+	* sync.c:  Vary feedback depending on whether we're in CLI mode.
+
+Sun, 15 Jun 2003 14:29:19 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* LogJam 4.2.1.
+
+Sun, 15 Jun 2003 10:34:48 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* network.h, protocol.[ch]:  Rearrangements.  Network results
+	  now allocate a single string, instead of one string for each key
+	  and value, so it's important for everyone else to use the proper
+	  API for freeing requests and results as they now behave differently.
+	* friendedit.c, friends.c, history.c:  Use proper network API.
+	* network.c:  Renamed function.
+	* journalstore.c:  Preallocate at least one spot in index for version.
+	* util.[ch]:  Remove a few unneeded functions.
+
+Sun, 15 Jun 2003 00:01:58 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* journalstore.[ch], sync.c:  If we change the journal store format (as
+	  we just did), detect it and invalidate the synced copy.
+	* offline.c:  Cleaner code avoids as many weird hacks.
+
+Fri, 13 Jun 2003 17:38:17 -0700  Gaal Yahas  <gaal@forum2.org>
+
+	* he.po:  Hebrew updates.
+
+Fri, 13 Jun 2003 11:18:09 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* network.c:  Make progress window a popup (fixes fighting with the
+	  window manager with WMs like ion).  (Please send me reports if this
+	  works with/breaks on your WM.)
+
+Sun, 08 Jun 2003 18:51:12 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* he.po:  Update from Gaal.
+
+Sun, 08 Jun 2003 18:29:03 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* spawn.c:  phoenix is now "MozillaFirebird".
+
+Sun, 08 Jun 2003 12:39:10 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.c:  Add undo/redo to right-click context menu (Ari).
+	* livejournal-entry.c:  Load/save all entry fields when
+	  loading/saving; this means we properly remember preformat but
+	  you need to rexport your journal.
+	* remote.c:  Remove unneeded header (fixes FreeBSD 4.8 build).
+
+Fri, 06 Jun 2003 15:02:03 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* logjam-doc.[ch], tools.c:  Let user specify encoding when inserting
+	  files.  Better error reporting, too.
+
+Wed, 04 Jun 2003 19:50:42 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* 4.2.0 release.
+
+Wed, 04 Jun 2003 19:46:03 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* de.po: German update (Frank Hofmann).
+	* ru_RU.po:  Russian update (Grigory Bakunov).
+	* journalstore.c:  If removing an entry empties a day, remove the day.
+	* livejournal-entry.c:  Silence invalid moodid warning.
+	* offline.c:  Left-align "search" label and make enter run the search.
+	* sync.c:  Fix progress math and stop console output.
+	* util.c:  Set DST flag in time conversions.  (I found a mysterious
+	  off-by-one-hour bug in my export; I hope this fixes it, because I
+	  can't reproduce it... timezone bugs would put me off by more than
+	  an hour.)
+
+Sun, 01 Jun 2003 20:42:16 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* smartquotes.c:  Avoid changing the entry whenever possible, so
+	  loading an old entry doesn't immediately get flagged as modified.
+
+Sun, 01 Jun 2003 20:14:26 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* Makefile.am, smartquotes.[ch], tools.[ch], menu.c:
+	  Smartquotes now operates as you type.
+	* conf.h, conf_xml.c, settings.c:  Let user turn it on/off.
+	* logjam-doc.[ch], lj.c:  Let doc know when the user changes, so
+	  they don't accidentally save a post from the wrong journal over
+	  a post in their current one.
+
+Wed, 28 May 2003 13:07:14 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.h, menu.c:  Menu updates as suggested by Gaal.
+
+Wed, 28 May 2003 09:22:10 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* de.po:  Update from Frank Hofmann.
+
+Wed, 28 May 2003 09:14:40 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* conf_xml.c:  Compilation without GtkSpell was broken by the
+	  spell language patch.  (George Mason)
+
+Tue, 27 May 2003 10:26:39 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* ru_RU.po:  Update from Grigory Bakunov <black@asplinux.ru>.
+
+Mon, 26 May 2003 12:05:31 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* journalstore.h:  Cleanup, ::get_count().
+	* journalstore.c:  Better error reporting, off-by-one fix.
+	* menu.c:  Use sync.h instead of declaring function directly.
+	* network.[ch]:  Expose error-reporting functions.
+	* offline.c:  Default to case-insensitive, inform user when loading
+	  entries from empty journal, add title, show entries in the
+	  selected day when we first pop up.
+	* sync.c:  Cleanups; progress bar tweak so we can actually get to 100%.
+
+Mon, 26 May 2003 04:12:18 -0700  Gaal Yahas  <gaal@forum2.org>
+
+	* journalstore.[ch], offline.c: make "back" and "forward" buttons
+	  work even when there is no current selection.
+
+Mon, 26 May 2003 04:06:46 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* conf.h, conf_xml.c, lj.c, settings.c:  Runtime selection of
+	  spell-checking language.  (Kir Kolyshkin, lj user=bobuk)
+
+Sat, 24 May 2003 12:58:25 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c, journalstore.c, livejournal-entry.c, lj_xml.c, offline.c
+	  util.h:  Warning fixes.
+
+Fri, 23 May 2003 22:44:42 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* journalstore.c, offline.c:  Tiny memory leaks.  memprof reports
+	  a bunch in GtkHTML, but that library appears to be in a lot of flux.
+
+Fri, 23 May 2003 20:25:57 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	"...The problem is that security_cb makes a new Security struct on the
+	stack, which is then uninitialized, but feeds sec.allowmask to
+	custom_security_dlg_run. So instead of a blank mask or the existing
+	one from the entry, you get whatever GCC's uninitialized-int garbage
+	looks like when interpreted as a usemask by build_model..."
+	Patch from Decklin Foster.
+	* logjam-doc.[ch]:  get_security().
+	* menu.c:  get before setting to new value.
+
+Fri, 23 May 2003 16:29:23 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Journal search.  The equality test is done via a callback, so
+	if someone wanted to implement regular expressions it wouldn't
+	be hard to pass the compiled RE object around.  (More difficult is
+	figuring out the UI for it...)
+	* journalstore.[ch]:  journal_store_search().
+	* offline.c:  GUI for journal_store_search().
+
+Fri, 23 May 2003 15:22:55 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	A pile of patches from George Mason, and one from Gaal.
+	* journalstore.c:  Fix scope for older compilers. 
+	* link.c:  glib 2.2 function.
+	* livejournal-entry.c:  Crash on startup when loading entries.
+	* network.c:  GTK 2.2 functions.
+	* pollcreator.c:  #ifdef guards.
+	* preview.h:  #ifdef out unless we have GtkHTML.
+
+Thu, 22 May 2003 22:35:39 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* journalstore.[ch], offline.c:  Show security icons in entry list.
+
+Thu, 22 May 2003 19:38:00 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Minor fixups.
+	* offline.c:  Remove day titles from calendar to make it smaller.
+	* preview.c:  Make clicking links actually show them in a browser.
+	* tools.c:  Better smartquotes/XML attributes handling.  This still
+	  won't work if a greater-than is included in an XML attribute, but
+	  you should be using the entity reference in those cases anyway.
+
+Wed, 21 May 2003 20:34:12 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* Makefile.am, lj_xml.[ch]:  XML utility functions.
+	* conf_xml.c, livejournal-types.c:  Use those functions.
+	* util.c, util.h:  LiveJournal doesn't store seconds on posted
+	  entries, but seconds do matter when syncing.  So we use full
+	  times internally, but when we're showing entry dates we leave
+	  off the redundant :00 at the end of every time.
+	  XXX need to figure out how to sort entries that have the same
+	  time; probably by itemid?  It doesn't matter so much as long
+	  as we're internally consisten.
+	* datesel.c, draftstore_ui.c:  Use noseconds version.
+	* livejournal.h:  Entry from XML node.
+	* offline.c:  Add simple warning.
+	* journalstore.c:  The big change that all of the above was for:
+	  We now store offline entries in a structure that includes the
+	  month and year, as well as grouping entries within a day into
+	  their own subnode.  This makes our code a lot easier, and makes
+	  XSLT transformations a lot simpler.
+
+Tue, 20 May 2003 01:55:24 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* util.c:  Summary function (used in the list views) should never
+	  return more than one line of text.
+
+Tue, 20 May 2003 00:51:57 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* journalstore.c:  Strip unneeded whitespace from journalstore XML
+	  when loading it, so libxml can properly reformat it on output.
+	* logjam-doc.c:  Extra print.
+
+Sun, 18 May 2003 18:41:18 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* tools.c:  Fix quotes balancing mistake introduced by a recent change.
+
+Sat, 17 May 2003 22:45:23 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Based on an idea from Gaal, we always keep the index in memory.
+	This lets us move around based on date.
+	* journalstore.c:  Use one file per month, GArray for index.
+	  Date-relative searching ("next", "previous").
+	* journalstore.h:  Provide time in subject summary, so entries
+	  within a day can sort right.
+	* network.c:  Minor cosmetic changes.
+	* offline.c:  Date-relative movement ("next", "previous").
+	* sync.c:  Reorganization to make the functions clearer.
+	  More error messages (but still XXX, as all should be reported to
+	  user via GUI, not console).
+	* util.[ch], livejournal-entry.c:  Verify LJ server is giving us
+	  UTF-8, because sometimes it doesn't.  This really needs to be fixed
+	  server-side, but this works for now and it's sort of a good idea
+	  to be safe anyway.
+
+Sat, 17 May 2003 17:47:24 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Update from Gaal.
+	* Makefile.am, menu.c:  Factor out HTML preview.
+	* conf.h, conf_xml.c:  Save offline journal window size.
+	* journalstore.c:  Use subjects.
+	* offlineui.c:  Better layout, HTML preview.
+	* preview.c:  Show metadata in preview.
+
+Thu, 15 May 2003 17:10:59 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* configure.ac:  Depend on a newer librsvg.
+	* logo-svg.h, network-throbber.c:  Use an array for static data
+	  so we don't need to strlen().
+
+Thu, 15 May 2003 00:22:12 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Normally I don't commit halfway code, but this is getting too big.
+	It pretty much works, but it needs a lot of polish and error checking.
+	entrycache is gone because there wasn't enough shared functionality
+	between drafts and (offline) journals.
+	* Makefile.am:  remove entrycache*, add journalstore*, draftstore*,
+	  offline.c, sync.c.
+	* conf.[ch]:  slightly different method for getting conf path.
+	* init.c:  silence compiler warning.
+	* livejournal-entry.c, livejournal.h:  functions for retrieving
+	  groups of entries from a network request and for serializing
+	  a single entry to and from a DOM tree.
+	* history.c:  reflect entry modifications.
+	* draftstore*:  store for drafts.
+	* lj.c, logjam-doc.c:  use draft store.
+	* menu.c:  sync and offline menu items.
+	* network*:  abstract network dialogs so sync can use an extended
+	  dialog.
+	* util.c:  modify time functions to include seconds.  (XXX?)
+
+Wed, 14 May 2003 23:34:22 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.[ch], menu.c, undo-manager.[ch]:  Undo.  (Ari Pollak)
+
+Wed, 14 May 2003 21:11:42 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* tools.c:  An ugly hack lets HTML quotes go through, but only in
+	  special cases (which happen to be 80% of the time).
+
+Wed, 14 May 2003 16:42:21 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* Makefile.am:  Rearrange so objects are together.
+	* network.c:  Use a popup window, and keep over the main window.
+	* util.c:  Set gravity (could this be what causes windows to
+	  slowly creep when restoring geometry?).
+
+Tue, 13 May 2003 18:27:29 -0700  Evan Martin  <martine@cs.washington.edu>
+	
+	Win32 fixes, mostly related to pulling out the dock code.
+
+Sun, 11 May 2003 19:27:35 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Throbber now conditionally supports SVG and rotation.
+	* acinclude.m4:  Quote helpstring so it formats right.
+	* configure.ac:  Show status of finding librsvg.
+	* network.c, network-throbber.[ch]:  Split throbber out into its own
+	  file, and add SVG code.
+	* logo-svg.h:  Inline SVG logo.
+	* src/Makefile.am:  Add new files.
+
+Sun, 11 May 2003 18:59:37 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* configure.ac, acinclude.m4: Simplify autoconf logic by pulling
+	  module checks into their own function.
+	* Makefile.am: PREVIEW->HTML, because other things will use the HTML
+	  widget.
+
+Sun, 11 May 2003 16:12:31 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* tools.[ch]:  Use LogJamDoc instead of LJWin; "Smart Quotes".
+	* menu.c:  Use new tools functions.
+	* lj.[ch]:  lj_insert_file() no longer needed.
+	Inspired by http://www.livejournal.com/users/evan/597928.html,
+	but these smart quotes properly balance themselves when nested.
+
+Sun, 11 May 2003 09:56:20 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* link.c:  Guess if the selection is a URL. Prompted by a suggestion
+	  made here: http://www.livejournal.com/community/logjam/57230.html
+
+Sun, 11 May 2003 10:58:33 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* network.c:  Remove extra -1 in post code.  Print request out
+	  if debugging is on.
+	* protocol.c:  Properly remove trailing character.
+
+Thu,  8 May 2003 18:57:35 -0700  Evan Martin  <martine@cs.washington.edu>
+	
+	* livejournal-types.c:  Oops, we should return something.  (Gaal)
+	* preview.c:  Oops, we should declare variables at the top.
+
+Wed, 07 May 2003 22:42:04 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	You can now run "logjam -u foo" while LogJam is running to switch
+	users in the running window.  (Requested by Brad.)
+	* remote.[ch]:  Object/signal-ify remote control.  Support switching
+	  users.
+	* marshalers.*:  Add signal marshaler for remote command.
+	* Makefile.am:  Add marshalers.*.
+	* conf.h, settings.c, init.c, lj.c:  Use new remote API.
+
+Tue, 06 May 2003 00:46:05 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.c:  Work around GtkSpell bug to keep spell checking even
+	  when the document switches.  (Thanks:  George Mason, again.)
+
+Sun, 04 May 2003 23:13:37 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.c:  When submitting/saving to a non-Unicode server,
+	  refuse to submit non-ASCII.
+
+Sun, 04 May 2003 22:54:20 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Kill the "edit servers" dialog and use the manager throughout.
+	* Makefile.am: remove login_server.c, add tie.[ch].
+	* setting.c:  use "tie" API to simplify code.
+	* conf.c, conf_xml.c, livejournal-types.c, livejournal.h, network.c,
+	  protocol.[ch]:
+	  Add protocolversion and default to protocol version 1.
+	* manager.c: deleting, adding servers, and protocol version.
+	TODO: delete should remove server from disk (and warn better),
+	and delete should work on users (should we put a pointer to the server
+	in the user structure?).
+
+Fri, 02 May 2003 17:06:34 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* friends.c:  It's legal to edit a friend that isn't in the
+	  current view (if the user has filtered the view) and we shouldn't
+	  die if that happens.  (Thanks to George Mason for finding this.)
+
+Wed, 30 Apr 2003 17:43:59 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* menu.c:  Don't assume pointers and ints are the same (thanks,
+	  Debian Alpha buildd!).
+	* history_recent.c:  Don't assume an entry is selected when the
+	  user hits "ok".  (Shoan Motwani <shoan@net4india.com>)
+
+Tue, 29 Apr 2003 12:21:47 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* 4.1.2 release.
+
+Fri, 25 Apr 2003 15:04:30 +0300  Gaal Yahas  <gaal@forum2.org>
+
+	* console.c: Fix error tag.
+	
+	Draft fixes
+	* entrycache_ui.c: ask for confirmation on delete.
+	* lj.c, logjam-doc.[ch]: delete draft from disk.
+	
+	TODO: if while editing a draft the user deletes the current draft
+	from the cache (via entrycache_ui), reset the current entry's itemid. 
+
+Fri, 25 Apr 2003 01:57:24 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* autogenerated files:  Add a "-n / --no-login" command line option.
+	* lj.c, login.c:  Use "logjam -u test" to autologin as "test", and
+	  "-u test --no-login" to get to test's journal directly.
+	  Hacky, but the existing code was hacky, too.
+
+Fri, 25 Apr 2003 01:24:58 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* menu.c:  Change keyboad accelerators to avoid conflicts.
+	  (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=190595)
+
+Sun, 20 Apr 2003 12:33:20 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* util.[ch]:  Clean up geometry to allow saving paned window position;
+	  function to summarize an entry in a UTF-8 safe way (useful for
+	  the friends browser, too).
+	* livejournal-entry.c:  Use summary function.
+	* conf.h, conf_xml.c:  Support paned geometry.
+	* friendgroups.c:  Use paned geometry.
+	  
+Sun, 20 Apr 2003 11:57:11 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* logjam-doc.[ch]:  API for setting metadata.
+	* menu.c, lj.c:  Use API to make metadata work right again.
+	* network-curl.c:  Tag cURL errors so you can see it's not my
+	  lame error messages.  ("socket error 111" when you connect to a
+	  host that isn't up...)
+
+Sun, 20 Apr 2003 11:31:09 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* README, completion.pl, thanks.h, de.po:  German translation.
+	  (Frank Hofmann <frankhofmann@gmx.ch>)
+
+Sat, 19 Apr 2003 12:20:00 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* about.c:  Link to homepage (requested by a user).
+
+Fri, 18 Apr 2003 19:42:39 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* TODO:  Link to poll in the LogJam community.
+	* en_US.UTF-8.po:  English+Unicode translation (quotes, copyright).
+	* configure.ac:  Make --without-gtkspell, etc. work.  Add translation.
+	* gen/helptext.h.tmpl:  Let help message be translated (the way I had
+	  it working before was before I really understood how gettext worked).
+	* init.c:  Use new strings.
+
+Fri, 18 Apr 2003 13:16:25 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Document-based backend.  Doesn't fully work yet.
+	* Makefile.am:  Add logjam-doc.[ch].
+	* init.c:  Load documents from the command line.  (Still broken.)
+	* link.c, preview.c:  Show how most functionality can interact
+	  with the document and not the window.
+	* livejournal.[ch]:  entry_new_from_stdin().
+	* lj.c, menu.c:  Major restructuring, but a lot more clear.
+	  Metadata (subjects, security, etc.) doesn't work yet.
+
+Mon, 14 Apr 2003 21:01:21 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c, network-curl.c:  Use waitpid() to properly cleanup
+	  child processes.
+	* README:  Link to my page on X input for information about
+	  typing em-dashes.
+
+Sat, 12 Apr 2003 16:01:56 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* 4.1.1 release.
+
+Sat, 12 Apr 2003 15:59:55 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* checkfriends.[ch]:  Cleanup API.  (Gaal)
+	* preview.c:  Mark lj user tag non-UTF8 safe.
+	* settings.c:  Make checkfriends-float option act immediately;
+	  remove now-obselete code that takes place on dialog close.
+
+Fri, 11 Apr 2003 14:22:12 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* util.c:  Logic fix was all wrong (make mnemonics work again).
+
+Thu, 10 Apr 2003 13:20:38 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Checkfriends dock support. (Patch from Ari Pollak.)
+	* Makefile.am:  Add EggTrayIcon.
+	* checkfriends.[ch]:  Add dock.
+	* conf.h, conf_xml.c:  Add dock; rename "auto" options.
+	  (I kept backward compat for reading the 4.1.0 config file.)
+	* settings.[ch]:  Add dock; keep checkfriends indicators in sync
+	  with settings in prefs dialog; make checkfriends prefs menu
+	  option zoom to checkfriends page (just reordered some lines, Gaal).
+
+Thu, 10 Apr 2003 11:56:07 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Make settings changes happen immediately.  Not all the way there yet.
+	It's not only a good idea, it's in the HIG, and hopefully this will
+	help make the checkfriends float/dock behavior make more sense to me.
+	* settings.c:  Kill the entire saving procedure on close, and make
+	  each widget affect its setting immediately.  This means:
+	    - changing the font affects the LJ win font immediately
+	    - changing the music setting and then picking "Diagnose"
+	      diagnoses the new music setting (this one has been bothering
+	      me for a while)
+	  Also, preview the font in the setting window.
+	* security.c:  Change the dialog from Cancel/OK to Close, in line
+	  with the above goal.
+	* util.c:  Minor logic fix.
+
+Wed, 09 Apr 2003 22:59:56 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	Support lj user tag in HTML preview.  (Hacky!)
+	* images/Makefile.am:  Install userinfo and community pngs into
+	  system pixmap dir.  (And the LogJam goat and pencil, for fun.)
+	* images/:  Rename logjam_userinfo->logjam_ljuser and
+	  logjam_community->logjam_ljcomm.
+	* src/Makefile.am:  Define pixmapdir so we can find it.
+	* preview.c:  Parse lj user/lj comm tags and use system images.
+	  Don't set the "utility" hint because it kills resizing on some
+	  window managers.
+	* friends.c, icons.c, link.c, manager.c, security.c:  We changed
+	  the name of an image.
+
+Wed, 09 Apr 2003 12:40:35 -0700  Evan Martin  <martine@cs.washington.edu>
+	
+	Win32 build works again.
+	* README.win32:  Update docs-- no more cURL, gtk-wimp.
+	* init.c, remote.c, settings.c, spawn.c:  Minor tweaks.
+
+Tue, 08 Apr 2003 11:48:04 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	A big pile of small bugs.
+	* friendedit.c:  Bring dialog up to LogJam standard (enter submits,
+	  etc.)
+	* friendgroupedit.c:  Spurious destroy caused warnings.
+	* friends.c:  I don't understand how the old code ever worked.
+	  Also, reenable the friend coloring because it seems the GTK bug
+	  fixed itself.
+	* history_recent.c:  Disable the "load more" button when you're at
+	  the beginning of history.
+	* init.c:  Fix segfault when loading file from the command line.
+	  File loading is all messed up (because of the draft and save
+	  changes) and needs to be fixed ASAP.
+	* livejournal-entry.c:  Support init.c changes.
+	* livejournal-types.c:  Compile warning.
+	* manager.c:  Word-wrap labels so the dialog isn't huge.  Make the
+	  dialog a bit taller by default.
+	* meta.c:  Better reporting XMMS errors.
+	
+Mon, 07 Apr 2003 15:02:30 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	4.1.0 released.
+
+Mon, 07 Apr 2003 14:47:14 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	http://www.livejournal.com/community/logjam/54182.html?thread=322214
+	* history_recent.c:  Properly handle reaching the beginning
+	  of history and empty history.
+	* livejournal.h, livejournal-types.c:  Security saving API.
+	* livejournal-entry.c, conf_xml.c:  Use security API.
+
+Mon, 07 Apr 2003 13:30:54 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* spawn.c:  Fix broken spawning by actually running the command
+	  through /bin/sh, as promised in the settings dialog.  Also, use
+	  a different spawning function to reduce quoting issues.
+
+Sun, 06 Apr 2003 13:02:01 -0700  Evan Martin  <martine@cs.washington.edu>
+
+	* menu.c:  Make cut/copy/paste paste to the focused widget, not
+	  just the entry.  (Evolution has the same bug: put the cursor
+	  in the "To" field on a new message, hit Ctl+V, and the text
+	  appears in your message body.)
+
+Mon, 31 Mar 2003 15:03:22 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* po/completion.pl:  Update from Gaal to generate better HTML;
+	  used to generate http://logjam.livejournal.com/translations .
+	* po/es.po:  Update from Ricardo Mones.
+	* src/settings.c, po/*.po:  Cut'n'paste typeo means I need to
+	  regen pofiles again (but this doesn't break any strings).
+
+Thu, 27 Mar 2003 22:48:10 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Pretty near release, I think.
+	* util.[ch]:  Change around the labelled_box_* functions.
+	* login.c:  Use those functions (now has better resize behavior).
+	* many files:  Use those changed functions.
+	* menu.c:  Now that I understand how gettext works, I see that
+	  we can leave many menu items untranslated and things will still
+	  work.
+	* thanks.pl:  Mark the list of people to thank as "not crucial"
+	  for translation.
+	* po/:  po update.
+
+Thu, 27 Mar 2003 15:37:55 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c:  Save user accels across LogJam runs.  (From George
+	  Mason <georgemason@mindspring.com>)
+	* README:  Document how to make the accels work, even in GNOME. (me)
+
+Thu, 27 Mar 2003 13:30:35 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Manager work: servers.
+	* conf.[ch]:  Rename server function that renames the directories
+	  and reports errors.
+	* login_server.c:  Use rename function when changing name.
+	  (Note that this file will die when the manager has add/remove.)
+	* manager.c:  Use rename function when changing name, and also
+	  let user edit URL.
+	* security.c:  Bump up size of custom security dialog (unrelated).
+
+Thu, 27 Mar 2003 11:52:52 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Make file saving work as you'd expect.  ("Save" saves the current
+	entry to a draft/file, depending on whether it was loaded from a
+	draft/file.)
+	A huge pile of terrible hacks that make me feel dirty.  This will
+	all be fixed by splitting into document-view, but that must wait
+	until after the release.
+	* livejournal-entry.c:  New API so we can tell what type we
+	  autodetected a loaded file as.  Needed so we don't clobber
+	  non-XML files when the user picks "Save".
+	* entrycache.c:  Use new API.
+	* lj.h:  Track the current filename and whether it was XML-based.
+	* lj.c:  Track the current filename and keep the titlebar updated.
+	  Make save work.
+	* menu.c:  Update filename when loading entries.
+
+Wed, 26 Mar 2003 15:25:37 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Drafts improvements.  It's actually pretty usable now.
+	* util.[ch]:  Buttonbox button from stock. (Delete button below.)
+	* entrycache.c:  For header views, if a post has no date, use 
+	  the mtime on the file.
+	* entrycache_ui.c:  Improve draft loader (no crashes, better display).
+	* lj.c:  Prompt for draft name when saving (defaulting to subject).
+
+Tue, 25 Mar 2003 13:45:23 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Code and UI cleanup.
+	* pretty much every file:  Moved from using lj_dialog to gtk_dialog;
+	  rearranged arguments to net_request_run(), tried to be more
+	  HIG-compliant in spacing; made dialogs properly use the default
+	  and allow escape to cancel.
+	  There may be some bugs with the buttons controlling dialogs...
+
+Tue, 25 Mar 2003 02:43:18 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* README, link.c, menu.c, thanks.h, tools.[ch]:  lj-cut command.
+	  (Based on patch from Dave Spadea <dave@spadea.net>.)
+	* util.[ch]:  Infrastructure to simplify dialogs with sizegroups.
+	* meta.c:  Use above.
+	* link.c:  lj user/comm command, clean up lj link command.  Use
+	  GtkDialog properly to make enter->ok and esc->cancel work as you'd
+	  expect (I need to fix this up across the rest of the program).
+	* tools.c:  Bring back "insert file".
+	* preview.c:  Add note about lj-specific tags.
+	* menu.c:  Rearrangements of menu items.
+
+Mon, 24 Mar 2003 18:18:44 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Remote command protocol allows us to have only one window open at a
+	time.
+	* remote.c, remote.h:  Remote commands via unix socket.  One command
+	  currently implemented: "bring running instance to foreground".
+	* src/Makefile.am:  Add new files to build.  (***This probably breaks
+	  Win32***)
+	* conf.h, conf_xml.c:  Add "allow multiple instances" option.
+	* init.c, lj.c:  Use "allow multiple instances" option.
+	* settings.c:  Let user change "allow multiple instances" option.
+
+Mon, 24 Mar 2003 01:44:54 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	Minor cleanups abound!
+	* console.c:  Bigger window by default.
+	* menu.c:  Add "Edit" menu, with Cut/Copy/Paste.  Rearrangements.
+	  Kill the accelerators on many menu items, as they only clutter
+	  the menu and advanced users can set them themselves.
+	* settings.c:  Spelling fix.
+	* tools.c:  Use normal message dialogs-- there's no reason to
+	  never show a dialog again when it only pops up when you've done
+	  something wrong.  Remove "insert file" because it doesn't make sense
+	  to have it.
+
+Sun, 23 Mar 2003 23:50:07 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	HTML preview.
+	* configure.ac, src/Makefile.am:  Conditionally compile in HTML
+	  preview.
+	* conf.h, conf_xml.c:  Save preview window geometry.
+	* lj.h:  Track preview so only one is visible at a time; expose
+	  read_entry API for preview to retrieve from.
+	* menu.c:  Conditionally show "Preview HTML" in Tools menu.
+	* preview.c:  The preview code.
+
+Wed, 19 Mar 2003 18:34:40 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* Makefile.am, lj.c:  Killed structuredtext (put off until it actually
+	  works right).
+	* friendgroups.c, security.c:  Killed warnings about friend groups.
+	* manager.c:  Restructuring to make layout better.  Make checkboxes
+	  actually change the settings they reflect.
+	* settings.c:  Music gets its own tab.
+
+Tue, 18 Mar 2003 17:59:15 +0200  Gaal Yahas  <gaal@forum2.org>
+	
+	Resurrected manger; per-user checkfriends mask.
+	* src/manager.c, src/Makefile.am, src/menu.c: make manager
+	  available.
+	* src/checkfriends.[ch], src/security.[ch], src/settings.[ch],
+	  src/lj.c, src/conf.h, src/conf_xml.c, src/init.c, src/util.[ch],
+	  src/xml_macros.h, src/livejournal.h: per-user checkfriends mask.
+	* src/groupedbox.[ch], src/foldbox.[ch]: folding grouped box widget.
+
+	i18n stuff.
+	* po/logjam.pot, po/he.po: Hebrew translation updates.
+	
+Mon, 10 Mar 2003 17:51:13 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	New network code.  Works on Win32 and is much cleaner than before.
+	* configure.ac:  Pull in gthread on win32 and leave out Curl; set
+	  a flag for which network subsystem we're using.
+	* src/Makefile.am:  Use above flag to build proper network code.
+	* init.c:  Initialize threads on win32.  Don't crash when
+	  checkfriends'ing from the command line and they didn't provide a
+	  user.
+	* network.[ch], network-win32.c, network-curl.c, network-internal.h:
+	  New network code.  Much better than before (hopefully).
+
+	With this new network code, we no longer need a "System" settings
+	tab on Win32; all of that information is provided by the OS.
+	(Music may have to come back in the future.)
+	* conf.h, conf_xml.c, music.[ch], settings.c:  Add new music detection
+	  type "none" for Windows platforms; only use music and proxy settings
+	  on non-Windows builds.
+
+	Misc fixes while building on Win32:
+	* livejournal-entry.c:  Macro pasting fix (Thanks, Decklin).
+	* usejournal.c:  const fix.
+	* util.c:  const fix; possibly ancient bug fix(?).
+	* util.h:  Get string.h here, so we don't need it everywhere.  And
+	  we don't use GtkClist anymore.
+	* checkfriends.c, entrycache.c, lj.c:  Fix warning for unlink().
+	* friends.c:  Old bug that would cause crashes when cancelling friends
+	  loads.
+
+Fri, 07 Mar 2003 02:17:10 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* conf.h, conf_xml.c, lj.c, lj.h, login.c, login.h, menu.c,
+	  settings.c:  Remove crufty settings that aren't useful.  (I
+	  think the "keep metadata" one didn't even work?  And nobody
+	  noticed?  That's how useless it was.)
+
+Fri, 28 Feb 2003 18:37:14 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c, lj.c, meta.[ch]:  Revert previous change (music autodetect).
+	* meta.c:  Move labels to be more HIG-like.
+	* structuredtext.c:  Minor changes to make multilevel lists work.
+
+Sun, 23 Feb 2003 02:00:44 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c, lj.c, meta.[ch]:  Autodetect music by default.
+
+Sun, 23 Feb 2003 01:21:22 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* music.[ch]:  Allow user to specify a music-detection command.
+	* conf.h, conf_xml.c:  Save and restore preference.
+	* settings.c:  GUI to set preference, which means the detection mode
+	  can change at runtime, which means we need...
+	* meta.[ch]:  New code to let the Detect button show and hide,
+	  depending on the music settings.
+	* init.c:  If they didn't compile with XMMS support, default
+	  the music source to the command (even if one wasn't specified).
+
+Sat, 22 Feb 2003 23:07:50 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c:  Use of SIG_IGN with SIGCHLD has special meaning and
+	  undefined semantics by POSIX which can lead to unexpected getting an
+	  unexpected ECHILD when later waiting on a child process.  This
+	  becomes more apparent in a recent 2.5.x kernel with more
+	  standards-compliant signal handling and NPTL. [Jeremy Katz]
+
+Sat, 22 Feb 2003 18:58:48 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* groupedbox.[ch]:  GNOME HIG-specified grouping widget 
+	  (prompted by Gaal).
+	* settings.c:  Use GroupedBox and other HIG guidelines.  I haven't
+	  touched Check Friends, as Gaal has Plans for that.  Fold "Web
+	  Browser" and "Proxy" into "System" tab (the whole tab should
+	  be unnecessary on Win32).
+	* TODO:  Accelerator problem is simplified due to HIG.
+
+Sat, 22 Feb 2003 13:19:21 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* login.c, conf_xml.c: Work around LiveJournal mood bug.
+
+Sat, 15 Feb 2003 13:36:23 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* configure.ac:  Detect mingw when building and set -mms-bitfields so
+	  we link ok on Windows.  Also remove old cruft.
+	* network.c:  Old cruft.
+	* src/Makefile.am:  Set AM_CFLAGS to avoid a warning.
+
+Sat, 15 Feb 2003 12:58:18 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* init.c:  Use bind_textdomain_codeset() to force UTF-8 in
+	  non-UTF-8 locales.
+	* README.win32:  Notes on building with mingw.
+
+Thu, 13 Feb 2003 18:24:08 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* login.c:  Sometimes LJ is sending us malformed mood lists, but we
+	  they're not malformed enough to be beyond working around.
+	* menu.c:  Typeo was making picture keywords not work.
+	* meta.c:  We're using NULL to indicate no text, not "".
+
+Wed, 12 Feb 2003 21:35:37 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* datesel.c:  In Right-to-Left languages, we still want the hour selector
+	  to the left of the minute selector.
+	  Also, minutes should always be displayed in double digits.  (I had to
+	  read the GTK source to figure that one out...)
+
+Wed, 12 Feb 2003 20:15:23 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* login.c:  Allow user to bypass login by shift-clicking Login button.
+	  This is documented, but not obvious, in hopes that anyone who takes the
+	  effort to find it will read enough to understand why logging
+	  in usually isn't necessary.
+	* README:  Documentation.
+	* conf_xml.c:  Cache usejournals, so you still have your list of
+	  communities when you bypass logging in.
+	* meta.c:  Attach error window to the window when detecting music.
+	  (*grumbles something about UTF-8 locale and ISO-8859-1 ID3 tags*)
+
+Wed, 12 Feb 2003 19:36:19 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* po/he.po:  Hebrew updates (Gaal).
+	* src/lj.c, src/login.c, src/network.c, po/logjam.pot:  Some
+	  more translatable strings.
+
+Tue, 11 Feb 2003 19:02:19 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* po/: Ukranian translation (Dmitry Dyomin).
+	  Update pofiles.  Hebrew update (Gaal Yahas).
+	* po/valmenu.pl:  Tool to validate po files (Gaal).
+	* src/: Clean up translation strings, and use translated menu items.
+
+Sun, 09 Feb 2003 15:54:15 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* many files:  Merged entrycache work, which involved a restructuring
+	  of the configuration files and many other changes.  Still in progress.
+	  The configuration file format has changed in a non-backwards-compatible
+	  manner.
+
+Sun, 09 Feb 2003 15:34:40 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* configure.ac, po/es.po, README: Spanish translation.  (Thanks Ricardo
+	  Mones Lastra.) 
+	* src/settings.c:  Mark translatable strings.
+	* po/*:  Update pofiles for translators.
+
+Fri,  7 Feb 2003 21:53:45 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* conf.h, conf_xml.c, entrycache.c, init.c, settings.c, spawn.c,
+	  util.c, MAkefile.msc:  Windows fixes and we now use the
+	  Windows-configured browser instead of configuring it ourselves.
+
+Sat, 25 Jan 2003 16:59:35 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.c:  Don't autologin if the current user doesn't have a password.
+	  (Reported by HJ.)
+
+Sat, 18 Jan 2003 16:24:15 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* checkfriends.c:  Set window name and class on the floating
+	  indicator.
+	* configure.ac, music.c:  Use gmodule instead of dlopen for
+	  portability  (Gaal).  (Strangely needs gthread, too, to not lock?)
+	* settings.c, music.c:  Let user be told why music detection is
+	  failing.
+
+Tue, 31 Dec 2002 00:11:55 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* README:  Jon Nall packaged LogJam for Gentoo.
+	* ljtypes.c:  Don't crash when entries don't have an itemid.
+	* spawn.c:  Better quoting when spawning browsers. (Ari)
+
+Mon, 23 Dec 2002 12:15:09 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* many files:  Rearrange metadata into menus, and usejournal into
+	  main window.
+
+Sun, 22 Dec 2002 23:50:40 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* music.c:  Convert text returned from music detection to UTF-8.
+
+Fri, 13 Dec 2002 00:57:19 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.[ch], structuredtext.c, README.structuredtext, Makefiles:
+	  Beginnings of structured text.  Needs work, of course.
+	* util.[ch]:  Allow "ERROR" message windows.
+
+Sat, 07 Dec 2002 17:48:27 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* tools.[ch], menu.c:  XML validation tool.
+
+Wed, 04 Dec 2002 10:31:20 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* Makefile.vc6, Makefile.msc: Updated for new files, renamed to .msc.
+
+Tue,  3 Dec 2002 20:58:53 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* Released 4.0.1.
+
+Tue,  3 Dec 2002 20:44:09 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.c:  Actually delete entries when the user requests it.
+
+Wed, 27 Nov 2002 22:11:40 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* datesel.c: Fix inverted logic.
+	* link.c: Select radio buttons when entering text boxes.
+
+Wed, 27 Nov 2002 18:18:09 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* datesel.c:  Time picker.  (Could be improved, but this is ok.)
+	* datesel.h, ljtypes.[ch], meta.c:  Revert date management changes
+	  from the 26th because they were overkill.
+
+Tue, 26 Nov 2002 12:06:29 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* datesel.[ch], meta.c:  Better date picker.  (Still need to add a
+	  time picker to it.)
+	* ljtypes.[ch]: Better internal date management.
+
+Tue, 26 Nov 2002 01:37:53 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* conf.[ch], init.c, login*:  Graphical server manager.  Better
+	  selection of servers at login time.
+
+Mon, 25 Nov 2002 21:35:15 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* menu.[ch], tools.[ch]:  Pull "tools" into their own file.
+	* meta.c, ljtypes.c:  When saving an entry, save the time along
+	  with it (unless the "Now" option is checked).
+
+Mon, 25 Nov 2002 21:01:16 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* meta.c, music.[ch]: Pull music detection code into its own file
+	  and reorganize.
+
+Fri, 22 Nov 2002 13:39:50 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* meta.c, network.c: Fix warning and remove debugging printf. (Ari)
+
+Mon, 11 Nov 2002 12:54:29 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* lj.c: When deleting, don't clear entry text until the request
+	  to delete has gone through on the server.
+
+Mon, 11 Nov 2002 12:24:41 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* debian/*: Add Debian packaging information to CVS.
+
+Sun, 10 Nov 2002 00:26:00 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* spawn.c: Add phoenix to the predefined list of web browsers.
+	  Correctly show an error message if the browser doesn't load.
+	* spawn.h, friends.c, menu.c, checkfriends.c: Showing error message
+	  atop main window requires passing main window to URL spawner.
+
+Mon, 04 Nov 2002 21:09:29 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* menu.c:  Don't immediately relogin when you log out.
+	
+Sat, 02 Nov 2002 20:08:14 -0800  Gaal Yahas  <gaal@forum2.org>
+	
+	* pollcreator.c: Fix segfault.
+
+Sat, 02 Nov 2002 20:04:39 -0800  Gaal Yahas  <gaal@forum2.org>
+	
+	* logjam.tmpl-doc.pl: Bump doc version to 4.0.0;
+	  update docs on autosave.
+
+Fri, 01 Nov 2002 01:57:00 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* login.c, settings.c, util.c: Use G_OS_WIN32 to see if we're Windows.
+
+Fri, 01 Nov 2002 01:42:51 -0800  Evan Martin  <martine@cs.washington.edu>
+
+	* menu.c: De-linebreak tool.
+	* Makefile.am: Add "ctags" target.
+	* TODO: Remove linebreak wishlist, add info about undo.
+
+Tue, 29 Oct 2002 13:51:31 -0800  Evan Martin  <martine@cs.washington.edu>
+	
+	* Fix misspelling of Tom's name in README.
+
+2002-10-29  Evan Martin  <martine@cs.washington.edu>
+	
+	* 4.0.0 release.
+
+vim: set ts=8 sw=8 noexpandtab :

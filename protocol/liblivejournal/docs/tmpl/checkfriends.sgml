@@ -1,0 +1,49 @@
+<!-- ##### SECTION Title ##### -->
+checkfriends
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF LJCheckFriends ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_checkfriends_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@lastupdate: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_checkfriends_set_mask ##### -->
+<para>
+
+</para>
+
+@cf: 
+@mask: 
+
+
+<!-- ##### FUNCTION lj_checkfriends_free ##### -->
+<para>
+
+</para>
+
+@checkfriends: 
+
+

@@ -1,0 +1,40 @@
+<!-- ##### SECTION Title ##### -->
+getfriends
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF LJGetFriends ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_getfriends_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_getfriends_free ##### -->
+<para>
+
+</para>
+
+@getfriends: 
+@includefriends: 
+
+

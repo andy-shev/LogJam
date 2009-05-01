@@ -1,0 +1,169 @@
+/* logjam, a GTK LiveJournal client.
+ * Copyright (C) 2000-2003 Evan Martin <martine@cs.washington.edu>
+ */
+
+Introduction
+------------
+"LiveJournal.com... because you like to think other people care."
+LogJam is a client for LiveJournal.  It lets you post, edit old
+entries, manage your friends, and whatever other useful
+LiveJournal-related features we can think of.
+
+Visit http://logjam.danga.com for the latest version and up-to-date
+information about LogJam development.
+
+
+Requirements
+------------
+LogJam requires GTK+ 2.0 or greater.  
+Get GTK+ at http://www.gtk.org.
+
+LogJam also requires libcurl, an HTTP library.
+
+Debian users need libgtk2.0-dev, libxml2-dev, libcurl-dev, and their
+dependencies.
+
+RPMs of libcurl are linked from the LogJam page.
+
+
+Enhancements
+------------
+None of these enhancements are required to build LogJam.
+LogJam should detect whether you have them at configure-time and
+conditionally enable them.
+
+ - Spell checking support requires GtkSpell 2.0.2 or later.
+   For more information about GtkSpell, visit http://gtkspell.sf.net.
+
+ - Current music autodetection requires XMMS 1.2 or later.
+   Visit http://www.xmms.org.
+
+ - HTML preview requires libGtkHTML 3.  This is the HTML widget used by
+   Ximian's evolution, so it shouldn't be hard to find.
+
+Debian users can apt-get libgtkspell-dev, xmms-dev, libgtkhtml3-dev, and
+their dependencies.
+
+
+Getting Started
+---------------
+You need a LiveJournal account to use LogJam.
+LogJam cannot create this.  Visit http://www.livejournal.com to get
+an account.
+
+(LogJam can also be used with alternative LiveJournal sites, though
+you'll have to find them yourself.)
+
+LogJam has a pretty standard setup.
+Running:
+	$ ./configure 
+	$ make
+	$ su
+	# make install
+should be all you need to install it.
+
+The installed executable is called "logjam".
+
+
+Using LogJam
+------------
+Most of LogJam should be self-explanatory.  That's why you're using a
+GUI, right?
+
+GTK Accelerators:
+You can remap the accelerators for any menu item.  To do it, first
+enable the accelerator-changing functionality in GTK by appending this
+line to ~/.gtkrc-2.0:
+  gtk-can-change-accels = 1
+or, on a GNOME system, with this command:
+  gconftool-2 -s /desktop/gnome/interface/can_change_accels -t bool true
+Then open up a menu in LogJam, move the mouse over a menu item, and type
+a keystroke to bind that menu item to that keystroke.  (To clear an
+accelerator, hit backspace.)
+
+Unicode characters:
+LiveJournal, LogJam, and GTK2 all support unicode, so LogJam is capable of
+posting in almost any language you can find.  Additionally, many
+characters that are not part of the ASCII standard (such as an em-dash)
+are available.  Please visit my page on X input:
+  http://neugierig.org/content/input/
+for details on configuring this.
+
+
+Also:
+If there is anything you don't like about LogJam, don't just complain
+about it in your LiveJournal, tell me!  I can't fix it if I don't know
+about it.
+
+
+
+Authors
+-------
+Evan Martin (LiveJournal user "evan") -- http://neugierig.org
+wrote most of this.
+
+Gaal Yahas (LiveJournal user "gaal") -- http://www.forum2.org/gaal/
+has made some significant contributions.
+
+
+Thanks
+------
+In more or less unsorted order, but the more recent contributions
+are at the top:
+
+Aleksander Adamowski <aleksander.adamowski@gmail.com> - patches
+Satoru SATOH <ss@gnome.gr.jp> - Japanese translation
+Grigory Bakunov <black@asplinux.ru> - Russian translation
+The GEdit Authors - Undo code
+Frank Hofmann <frankhofmann@gmx.ch> - German translation
+George Mason <georgemason@mindspring.com> - accelerator saving
+Dave Spadea <dave@spadea.net> - lj-cut patch
+Dmitry "old_one" Dyomin <old@old.com.ua> - Ukrainian translation
+Ricardo "mones" Mones Lastra <ricardo.mones@hispalinux.es> - Spanish translation
+Jon Nall <nall@gentoo.org> - Gentoo packaging
+Mikhail Chekanov <mihun@bitex.com> - Russian translation
+Asaf "ijon" Bartov <ijon@forum2.org> - win32 multithread support
+Gaal "gaal" Yahas <gaal@forum2.org> - checkfriends, poll creator, i18n
+Sergei "sgt" Barbarash <sgt@fep.ru> - support for cyrillic translation
+Michael Bravo <mbravo@tag-ltd.spb.ru> - locale fixes
+Ari Pollak <ari@debian.org> - Debian package, undo
+Steve Bernacki, Jr. <steve@copacetic.net> - typo in configure.in
+Artem Baguinski <artm@v2.nl> - locale setting
+nulld <nulld@encryptedemail.net> - OpenBSD box to test on
+Decklin "decklin" Foster <decklin@red-bean.com> - window geometry save/restore
+Matthew Vernon <matthew@pick.ucam.org> - simple login proxy patch
+Bill Crawford <bill@eb0ne.net> - variety of patches
+Gabriel "diamondc" Martinez <gabrielfm@yahoo.com> - Solaris box to test on
+Tom "spot" Callaway <spot@redhat.com> - Advanced RPM packaging
+Alexander Gräfe <nachtfalke@retrogra.de> - Initial RPM packaging
+Christian "christian" Surchi <csurchi@debian.org> - Debian maintainer
+Joe "piman" Wreschnig <piman@sacredchao.net> - Debian package help
+Ryan Younce <ryan@manunkind.org> - FreeBSD packaging
+Raja Mukerji <mukerji@pobox.com> - a multitude of patches
+Adam Bidema <hijinx@klone.nwraves.net> - initial file save patch
+Matt Roper <mdroper@ucdavis.edu> - parallel make tips
+Brad Fitzpatrick <brad@danga.com> - much of the original client
+
+And these people helped so long ago, I can't remember why they're
+even listed here:
+Simon Huet <detourds@bellsouth.net>
+Scott Hammack <shammack@goldinc.com>
+Damian Bickhoff <q9405096@brampton.cqu.edu.au>
+
+License
+-------
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+vim:tw=72

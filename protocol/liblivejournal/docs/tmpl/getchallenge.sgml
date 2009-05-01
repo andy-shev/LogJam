@@ -1,0 +1,41 @@
+<!-- ##### SECTION Title ##### -->
+getchallenge
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM LJGetChallengeMode ##### -->
+<para>
+
+</para>
+
+@LJ_GETCHALLENGE_MODE_SINGLE: 
+@LJ_GETCHALLENGE_MODE_RECENT: 
+
+<!-- ##### FUNCTION lj_getchallenge_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_getchallenge_free ##### -->
+<para>
+
+</para>
+
+@getchallenge: 
+
+

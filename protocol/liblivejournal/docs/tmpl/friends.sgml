@@ -1,0 +1,102 @@
+<!-- ##### SECTION Title ##### -->
+friends
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### MACRO LJ_FRIEND_GROUP_ALLFRIENDS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### ENUM LJFriendType ##### -->
+<para>
+
+</para>
+
+@LJ_FRIEND_TYPE_USER: 
+@LJ_FRIEND_TYPE_COMMUNITY: 
+
+<!-- ##### MACRO LJ_FRIEND_CONN_MY ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LJ_FRIEND_CONN_OF ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO LJ_FRIEND_CONN_BOTH ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### FUNCTION lj_friend_new ##### -->
+<para>
+
+</para>
+
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_friend_new_with ##### -->
+<para>
+
+</para>
+
+@username: 
+@name: 
+@fg: 
+@bg: 
+@conn: 
+@mask: 
+@type: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_friend_free ##### -->
+<para>
+
+</para>
+
+@f: 
+
+
+<!-- ##### FUNCTION lj_friend_compare_username ##### -->
+<para>
+
+</para>
+
+@a: 
+@b: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_friend_type_from_str ##### -->
+<para>
+
+</para>
+
+@str: 
+@Returns: 
+
+

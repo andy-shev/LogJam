@@ -1,0 +1,67 @@
+<!-- ##### SECTION Title ##### -->
+md5
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### TYPEDEF lj_uint32 ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION lj_md5_init ##### -->
+<para>
+
+</para>
+
+@context: 
+
+
+<!-- ##### FUNCTION lj_md5_update ##### -->
+<para>
+
+</para>
+
+@context: 
+@buf: 
+@Param3: 
+
+
+<!-- ##### FUNCTION lj_md5_final ##### -->
+<para>
+
+</para>
+
+@digest: 
+@context: 
+
+
+<!-- ##### FUNCTION lj_md5_transform ##### -->
+<para>
+
+</para>
+
+@buf: 
+@in: 
+
+
+<!-- ##### FUNCTION lj_md5_hash ##### -->
+<para>
+
+</para>
+
+@src: 
+@dest: 
+
+

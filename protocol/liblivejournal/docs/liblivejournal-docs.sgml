@@ -1,0 +1,50 @@
+<!doctype book PUBLIC "-//Davenport//DTD DocBook V3.0//EN" [
+<!ENTITY liblivejournal-checkfriends SYSTEM "sgml/checkfriends.sgml">
+<!ENTITY liblivejournal-consolecommand SYSTEM "sgml/consolecommand.sgml">
+<!ENTITY liblivejournal-editfriendgroups SYSTEM "sgml/editfriendgroups.sgml">
+<!ENTITY liblivejournal-editfriends SYSTEM "sgml/editfriends.sgml">
+<!ENTITY liblivejournal-editpostevent SYSTEM "sgml/editpostevent.sgml">
+<!ENTITY liblivejournal-entry SYSTEM "sgml/entry.sgml">
+<!ENTITY liblivejournal-friends SYSTEM "sgml/friends.sgml">
+<!ENTITY liblivejournal-getchallenge SYSTEM "sgml/getchallenge.sgml">
+<!ENTITY liblivejournal-getevents SYSTEM "sgml/getevents.sgml">
+<!ENTITY liblivejournal-getfriends SYSTEM "sgml/getfriends.sgml">
+<!ENTITY liblivejournal-login SYSTEM "sgml/login.sgml">
+<!ENTITY liblivejournal-md5 SYSTEM "sgml/md5.sgml">
+<!ENTITY liblivejournal-protocol SYSTEM "sgml/protocol.sgml">
+<!ENTITY liblivejournal-serveruser SYSTEM "sgml/serveruser.sgml">
+<!ENTITY liblivejournal-sync SYSTEM "sgml/sync.sgml">
+<!ENTITY liblivejournal-syncitems SYSTEM "sgml/syncitems.sgml">
+<!ENTITY liblivejournal-types SYSTEM "sgml/types.sgml">
+<!ENTITY liblivejournal-verb SYSTEM "sgml/verb.sgml">
+]>
+<book id="index">
+  <bookinfo>
+    <title>liblivejournal Reference Manual</title>
+  </bookinfo>
+
+  <chapter>
+    <title>liblivejournal Data Structures Reference</title>
+    &liblivejournal-md5;
+    &liblivejournal-friends;
+    &liblivejournal-entry;
+    &liblivejournal-serveruser;
+    &liblivejournal-types;
+    &liblivejournal-protocol;
+  </chapter>
+  <chapter>
+    <title>liblivejournal Protocol Modes Reference</title>
+    &liblivejournal-checkfriends;
+    &liblivejournal-consolecommand;
+    &liblivejournal-editfriendgroups;
+    &liblivejournal-editfriends;
+    &liblivejournal-editpostevent;
+    &liblivejournal-getchallenge;
+    &liblivejournal-getevents;
+    &liblivejournal-getfriends;
+    &liblivejournal-login;
+    &liblivejournal-sync;
+    &liblivejournal-syncitems;
+    &liblivejournal-verb;
+  </chapter>
+</book>

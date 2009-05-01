@@ -1,0 +1,44 @@
+<!-- ##### SECTION Title ##### -->
+syncitems
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### ENUM LJSyncItemType ##### -->
+<para>
+
+</para>
+
+@LJ_SYNCITEM_TYPE_ENTRY: 
+@LJ_SYNCITEM_TYPE_OTHER: 
+
+<!-- ##### FUNCTION lj_syncitems_new ##### -->
+<para>
+
+</para>
+
+@user: 
+@usejournal: 
+@lastsync: 
+@Returns: 
+
+
+<!-- ##### FUNCTION lj_syncitems_free ##### -->
+<para>
+
+</para>
+
+@syncitems: 
+@free_items: 
+
+

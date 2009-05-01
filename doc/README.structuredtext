@@ -1,0 +1,54 @@
+Introduction
+------------
+
+LogJam's "Structured" mode for editing text is roughly based on the
+Structured Text found in zope (which I've never actually used):
+    http://www.zope.org/Members/millejoh/structuredText
+as well as TeX's representations of text.
+
+The goal is to be able to type expressively.  HTML is trivial to learn,
+but littering a post with tags and entities detracts from the goal at
+hand:  writing.  With that in mind, I've tried to choose elements to use
+in LogJam with an eye towards consistency with other systems.
+
+Summary
+-------
+
+Paragraphs are delimited by one or more blank lines, like TeX.  Within
+a paragraph, text may be *emphasized*, **more strongly emphasized**, 
+and _underlined_.
+
+To work around the limitations of most people's keyboards, you can
+type some special characters (which defined as part of the Unicode standard
+and are not Windows-specific) in the same way you would as in TeX,
+using backticks and apostrophes for quoting and collections of hyphens
+for dashes:
+    ``Quoted text.''  `Single-quoted text with a hyphen.'
+    En dashes are used to express ranges, such as pages 12--14.
+    Em dashes are used for paranthetical clauses---like this---or just
+    to separate parts of a sentence.
+To learn more about the difference between the different sorts of
+dashes, this looks like a good resource:
+    http://www.getitwriteonline.com/archive/091502.htm
+
+Finally, the HTML/XML characters <, >, and & are escaped properly.
+
+Reference
+---------
+
+       using         produces
+    ------------+--------------------------------------------
+    *asterisks* | <em> tags, which often render as italics.
+    **doubled** | <strong> tags, which often render as bold.
+    _underline_ | <u> tags.
+                |               
+    `` and ''   | U+201C and U+201D double quotes
+    `  and '    | U+2018 and U+2019 single quotes and apostrophe
+                |
+    --          | U+2013 en dash
+    ---         | U+2014 em dash
+                |
+    <, >, and & | HTML entities &lt;, &gt;, and &amp;.
+
+
+vim: tw=72 ts=4 sw=4 et

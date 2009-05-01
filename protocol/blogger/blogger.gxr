@@ -1,0 +1,20 @@
+
+string blogger.newPost(string appkey, string journal, string user, string password, string content, boolean publish);
+boolean blogger.deletePost(string appkey, string postId, string user, string password, boolean publish);
+int blogger.editPost(string appkey, string postId, string user, string password, string content, boolean publish);
+
+# struct RecentPost {
+# 	string appkey,
+# 	string blogid,
+# 	string username,
+# 	string password,
+# 	int numberOfPosts
+# };
+#
+# RecentPost blogger.getUserInfo(string appkey, string user, string password);
+
+# XXX need to support lists
+# list:string blogger.getUsersBlogs(string appkey, string user, string password)
+# list:string blogger.getRecentPosts(string appkey, string journal, string user, string password, int numposts)
+
+# struct blogger.getPost(string appkey, string postId, string user, string password)

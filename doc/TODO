@@ -1,0 +1,81 @@
+Most importantly, here's a list of what the users want:
+http://www.livejournal.com/community/logjam/49865.html
+
+But for those looking for smaller projects, we have this file.
+
+
+Small projects
+--------------
+
+Make sure the accelerators work and are consistent throughout the entire
+application.
+
+egrep 'XXX|FIXME' *.[ch]
+Either fix the problems, or verify they aren't really problems and
+remove the XXX/FIXME from the file.
+
+
+Medium projects
+---------------
+
+Make sure everything is GNOME HIG compliant:
+http://developer.gnome.org/projects/gup/hig/1.0/
+This mostly means verifying we got the spacing right on dialogs
+everywhere, but it can include behavioral modifications.
+(The poll creator especially could use some love here.)
+
+Use a model to filter the friends view instead of rebuilding the list
+when we filter.
+http://mail.gnome.org/archives/gtk-app-devel-list/2002-July/msg00401.html
+(Evan is currently working on an alternate list model.)
+
+Friends tracking. (Evan is working on this.)
+
+Clean up checkfriends.  (Gaal)
+
+Poll Creator revamp.  (Evan)
+
+Improve the usability design of the “Servers and Users” dialog (what
+used to be called the User Manager; manager.c). I think a better design
+would be to make it paned so that the prefs section is always visible.
+Or was it like that already?  (Gaal)
+
+Testing!
+
+Insert output of an external command. An initial patch for this exists
+but it blocks the GUI. (lj users={k001, paracloud} to work on this).
+
+Large projects
+--------------
+
+Multiple windows/tabs (most of the structure is already in place, but
+there are some weird subtleties about settings-- should a settings
+change affect all windows, or just the window that the settings dialog
+was pulled up on?).  (Gaal is working on this.)
+
+Gaal: Backup of other journals. I think we should be able to do this, if not
+in batch mode for whole journals, then at least incrementally for
+current entries. See "Friends" below.
+
+Allow embedding VIM as the editing widget.
+It might require GNOME:
+http://www.opensky.ca/gnome-vim/
+
+Gaal: Comments manager. This will need server/protocol support but I'm
+counting on your influence on Brad and mine on Anatoly.
+
+Gaal: Make your friends view accessible to LogJam. I like LogJam's feel
+more than I like my browser's. Especially that of talkread.bml. :) Also,
+GtkTextView does almost all the important stuff needed for basic
+rendering: <i>, <b>, <u>, and so on. It can embed pictures, for elk's
+sake! And, of course, LogJam can work offline. A GtkTreeView can
+represent a post and its comments, and there will be great rejoice.
+(Evan is currently working on this.)
+
+Poll Editor: the idea is to allow changing a poll while it's not yet
+been submitted to the server. This will require (a) parsing the poll
+markup and (b) interfacing with the poll creator to populate it. We
+might punt on the parser and use bison, which with some care will only
+be necessary in maitainer mode. (Gaal; bluesky)
+
+vim: tw=72
