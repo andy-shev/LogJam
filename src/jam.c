@@ -363,6 +363,10 @@ action_cb(GtkWidget *w, JamWin *jw) {
 	} else {
 		g_warning("action callback, but no default action?\n");
 	}
+#ifdef USE_DOCK
+	if (conf.options.close_when_send && app.docklet)
+		gtk_widget_hide(GTK_WIDGET(jw));
+#endif
 }
 
 static void
@@ -395,6 +399,10 @@ delete_cb(GtkWidget *w, JamWin *jw) {
 	} else {
 		delete_server_entry(jw);
 	}
+#ifdef USE_DOCK
+	if (conf.options.close_when_send && app.docklet)
+		gtk_widget_hide(GTK_WIDGET(jw));
+#endif
 }
 
 static void

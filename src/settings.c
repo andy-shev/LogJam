@@ -85,6 +85,8 @@ static SettingsWidget settingswidgets[] = {
 	{ "ui_font", &conf.uifont,
 		SW_CUSTOM, N_("Entry display font:") },
 #ifndef G_OS_WIN32
+	{ "ui_close_when_send", &conf.options.close_when_send,
+		SW_TOGGLE, N_("Close main window after sending") },
 	{ "ui_docklet", &conf.options.docklet,
 		SW_TOGGLE, N_("Add icon to system _tray (for GNOME/KDE/etc. dock)") },
 	{ "ui_start_in_dock", &conf.options.start_in_dock,
@@ -396,6 +398,10 @@ uisettings(JamWin *jw) {
 	g_signal_connect(G_OBJECT(sw->widget), "changed",
 			G_CALLBACK(sec_changed_cb), sw);
 	groupedbox_pack(GROUPEDBOX(post), sw_make("ui_defaultsecurity"), FALSE);
+
+#ifdef USE_DOCK
+	groupedbox_pack(GROUPEDBOX(post), sw_make("ui_close_when_send"), FALSE);
+#endif /* USE_DOCK */
 
 	entry = groupedbox_new_with_text(_("Entries"));
 	gtk_box_pack_start(GTK_BOX(vbox), entry, FALSE, FALSE, 0);

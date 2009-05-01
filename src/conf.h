@@ -51,6 +51,7 @@ typedef struct {
 	gboolean autosave;
 	gboolean cfautostart;
 	gboolean cfusemask;
+	gboolean close_when_send;
 	gboolean docklet;
 	gboolean cffloat;
 	gboolean cffloatraise;

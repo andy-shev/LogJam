@@ -183,6 +183,7 @@ parseoptions(Configuration *c, xmlDocPtr doc, xmlNodePtr node) {
 		READOPTION(autosave)
 		READOPTION(cfautostart)
 		READOPTION(cfusemask)
+		READOPTION(close_when_send)
 		READOPTION(docklet)
 		READOPTION(start_in_dock)
 		READOPTION(cffloat)
@@ -326,6 +327,7 @@ writeoptions(Options *options, xmlNodePtr node) {
 	WRITEOPTION(autosave);
 	WRITEOPTION(cfautostart);
 	WRITEOPTION(cfusemask);
+	WRITEOPTION(close_when_send);
 	WRITEOPTION(docklet);
 	WRITEOPTION(start_in_dock);
 	WRITEOPTION(cffloatraise);
