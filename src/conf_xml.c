@@ -266,7 +266,7 @@ parseconf(xmlDocPtr doc, xmlNodePtr node, void *data) {
 #ifdef HAVE_GTKSPELL
 	if (!c->spell_language || strlen(c->spell_language) < 2) {
 		g_free(c->spell_language);
-		c->spell_language = g_strdup("en");
+		c->spell_language = g_strdup("en_US");
 	}
 #endif /* HAVE_GTKSPELL */
 	hostspath = g_build_filename(app.conf_dir, "servers", NULL);
