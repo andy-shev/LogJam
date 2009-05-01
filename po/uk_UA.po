@@ -662,7 +662,7 @@ msgstr "/С_ервіс"
 
 #: ../src/friends.c:252
 msgid "/Tools/Hide _Statistics"
-msgstr "/Сервіс/Показати _статистику"
+msgstr "/Сервіс/Сховати _статистику"
 
 #: ../src/friends.c:253
 msgid "/Tools/Export..."
