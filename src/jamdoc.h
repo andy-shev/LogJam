@@ -63,6 +63,9 @@ void           jam_doc_set_moodid(JamDoc *doc, int moodid);
 const char *   jam_doc_get_music(JamDoc *doc);
 void           jam_doc_set_music(JamDoc *doc, const char *music);
 
+const char *   jam_doc_get_location(JamDoc *doc);
+void           jam_doc_set_location(JamDoc *doc, const char *location);
+
 const char *   jam_doc_get_taglist(JamDoc *doc);
 void           jam_doc_set_taglist(JamDoc *doc, const char *taglist);
 

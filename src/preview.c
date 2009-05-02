@@ -179,11 +179,13 @@ entry_prepare_preview(LJEntry *entry) {
 		g_string_append(str, "</tr></table><hr/><br/>");
 	}
 
-	if (entry->mood || entry->music || entry->taglist) {
+	if (entry->mood || entry->music || entry->location || entry->taglist) {
 		if (entry->mood)
 			g_string_append_printf(str, "<i>%s</i>: %s<br/>", _("Current Mood"), entry->mood);
 		if (entry->music)
 			g_string_append_printf(str, "<i>%s</i>: %s<br/>", _("Current Music"), entry->music);
+		if (entry->location)
+			g_string_append_printf(str, "<i>%s</i>: %s<br/>", _("Current Location"), entry->location);
 		if (entry->taglist)
 			g_string_append_printf(str, "<i>%s</i>: %s<br/>", _("Tags"), entry->taglist);
 		g_string_append(str, "<br/>");

@@ -43,6 +43,9 @@ struct _JamView {
 	GtkWidget *musicbar;
 	GtkWidget *musicbutton, *music;
 
+	GtkWidget *locationbar;
+	GtkWidget *location;
+
 	GtkWidget *tagsbar;
 	GtkWidget *tags;
 
@@ -428,6 +431,39 @@ tags_select_cb(JamView *view) {
 }
 
 static void
+location_add(JamView *view) {
+	view->location = gtk_entry_new();
+	view->locationbar = labelled_box_new_sg(_("_Location:"), view->location, view->sizegroup);
+	gtk_box_pack_start(GTK_BOX(view), view->locationbar, FALSE, FALSE, 0);
+	gtk_box_reorder_child(GTK_BOX(view), view->locationbar, view->moodpicbar ? 2 : 1);
+	gtk_widget_show_all(view->locationbar);
+}
+static void
+location_remove(JamView *view) {
+	jam_doc_set_location(view->doc, NULL);
+	gtk_widget_destroy(view->locationbar);
+	view->locationbar = view->location = NULL;
+}
+static gboolean
+location_visible(JamView *view) {
+	return view->locationbar != NULL;
+}
+static void
+location_load(JamView *view) {
+	const char *location = jam_doc_get_location(view->doc);
+	if (location)
+		show_meta(view, JAM_VIEW_LOCATION);
+	if (location_visible(view))
+		gtk_entry_set_text(GTK_ENTRY(view->location), location ? location : "");
+}
+static void
+location_store(JamView *view) {
+	const char *location = gtk_entry_get_text(GTK_ENTRY(view->location));
+	if (location[0] == 0) location = NULL;
+	jam_doc_set_location(view->doc, location);
+}
+
+static void
 tags_add(JamView *view) {
 	GtkWidget *tagbutton;
 	view->tags = gtk_entry_new();
@@ -590,6 +626,7 @@ static struct {
 	{ "mood",         TRUE, STD(mood),         mood_account_changed     },
 	{ "picture",      TRUE, STD(picture),      picture_account_changed  },
 	{ "music",        TRUE, STD(music),        NULL },
+	{ "location",     TRUE, STD(location),     NULL },
 	{ "tags",         TRUE, STD(tags),         NULL },
 	{ "preformatted", TRUE, STD(preformatted), NULL },
 	{ "datesel",      TRUE, STD(datesel),      NULL },

@@ -52,7 +52,7 @@ typedef struct _LJEntry {
 	char *event;
 
 	int moodid;  /* a moodid is only meaningful in the context of a particular LJServer. */
-	char *mood, *music, *taglist, *pickeyword;
+	char *mood, *music, *location, *taglist, *pickeyword;
 	gboolean preformatted;
 	gboolean backdated;
 	LJCommentsType comments;

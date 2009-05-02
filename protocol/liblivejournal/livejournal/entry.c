@@ -49,6 +49,8 @@ lj_entry_copy(LJEntry *e) {
 		newe->mood = g_strdup(e->mood);
 	if (e->music)
 		newe->music = g_strdup(e->music);
+	if (e->location)
+		newe->location = g_strdup(e->location);
 	if (e->taglist)
 		newe->taglist = g_strdup(e->taglist);
 	if (e->pickeyword)
@@ -61,6 +63,7 @@ lj_entry_free(LJEntry *e) {
 	g_free(e->event);
 	g_free(e->mood);
 	g_free(e->music);
+	g_free(e->location);
 	g_free(e->taglist);
 	g_free(e->pickeyword);
 	g_free(e);
@@ -136,6 +139,8 @@ lj_entry_set_request_fields(LJEntry *entry, LJRequest *request) {
 		lj_request_add_int(request, "prop_current_moodid", entry->moodid);
 	else
 		lj_request_add(request, "prop_current_moodid", "");
+	lj_request_add(request,
+			"prop_current_location", entry->location ? entry->location : "");
 	lj_request_add(request, 
 			"prop_current_music", entry->music ? entry->music : "");
 	lj_request_add(request, 
@@ -189,6 +194,12 @@ lj_entry_load_metadata(LJEntry *entry,
 		entry->music = g_strdup(value);
 		if (!verify_utf8(&entry->music)) {
 			g_set_error(err, 0, 0, "Bad UTF-8 in current_music");
+			return FALSE;
+		}
+	} else if (strcmp(key, "current_location") == 0) {
+		entry->location = g_strdup(value);
+		if (!verify_utf8(&entry->location)) {
+			g_set_error(err, 0, 0, "Bad UTF-8 in current_location");
 			return FALSE;
 		}
 	} else if (strcmp(key, "taglist") == 0) {
@@ -255,6 +266,7 @@ lj_entry_to_xml_node(LJEntry *entry, void* doc) {
 		}
 	}
 	XML_ENTRY_META_SET(music);
+	XML_ENTRY_META_SET(location);
 	XML_ENTRY_META_SET(taglist);
 	XML_ENTRY_META_SET(pickeyword);
 	if (entry->preformatted)
@@ -479,6 +491,7 @@ lj_entry_load_from_xml_node(LJEntry *entry, xmlDocPtr doc, xmlNodePtr node) {
 			}
 		}
 		else XML_ENTRY_META_GET(music)
+		else XML_ENTRY_META_GET(location)
 		else XML_ENTRY_META_GET(taglist)
 		else XML_ENTRY_META_GET(pickeyword)
 		else if (xmlStrcmp(cur->name, BAD_CAST "preformatted") == 0) {
@@ -605,6 +618,7 @@ rfc822_load_entry(const char *key, const char *val, LJEntry *entry) {
 	RFC822_GET(subject)
 	else RFC822_GET(mood) /* XXX id */
 	else RFC822_GET(music)
+	else RFC822_GET(location)
 	else RFC822_GET(taglist)
 	else RFC822_GET(pickeyword)
 	else if (g_ascii_strcasecmp(key, "time") == 0) {
@@ -748,6 +762,7 @@ lj_entry_to_rfc822(LJEntry *entry, gboolean includeempty) {
 	append_field(str, "Subject", entry->subject, includeempty);
 	append_field(str, "Mood", entry->mood, includeempty);
 	append_field(str, "Music", entry->music, includeempty);
+	append_field(str, "Location", entry->location, includeempty);
 	append_field(str, "TagList", entry->taglist, includeempty);
 	append_field(str, "PicKeyword", entry->pickeyword, includeempty);
 	g_string_append(str, "\n");

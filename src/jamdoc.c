@@ -240,6 +240,14 @@ jam_doc_set_music(JamDoc *doc, const char *music) {
 	string_replace(&doc->entry->music, music ? g_strdup(music) : NULL);
 }
 const char *
+jam_doc_get_location(JamDoc *doc) {
+	return doc->entry->location;
+}
+void
+jam_doc_set_location(JamDoc *doc, const char *location) {
+	string_replace(&doc->entry->location, location ? g_strdup(location) : NULL);
+}
+const char *
 jam_doc_get_taglist(JamDoc *doc) {
 	return doc->entry->taglist;
 }

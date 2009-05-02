@@ -56,6 +56,7 @@ enum {
 	ACTION_VIEW_MOOD,
 	ACTION_VIEW_PICTURE,
 	ACTION_VIEW_MUSIC,
+	ACTION_VIEW_LOCATION,
 	ACTION_VIEW_TAGS,
 	ACTION_VIEW_PREFORMATTED,
 	ACTION_VIEW_DATESEL,
@@ -430,6 +431,7 @@ static GtkItemFactoryEntry menu_items[] = {
 { N_("/View/_Picture"),           NULL, menu_view_cb, ACTION_VIEW_PICTURE,      "<CheckItem>" },
 { N_("/View/_Tags"),              NULL, menu_view_cb, ACTION_VIEW_TAGS,         "<CheckItem>" },
 { N_("/View/M_usic"),             NULL, menu_view_cb, ACTION_VIEW_MUSIC,        "<CheckItem>" },
+{ N_("/View/_Location"),          NULL, menu_view_cb, ACTION_VIEW_LOCATION,     "<CheckItem>" },
 { N_("/View/_Preformatted"),      NULL, menu_view_cb, ACTION_VIEW_PREFORMATTED, "<CheckItem>" },
 { N_("/View/_Comments"),          NULL, menu_view_cb, ACTION_VIEW_COMMENTS,     "<CheckItem>" },
 
