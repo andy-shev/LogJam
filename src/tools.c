@@ -322,6 +322,63 @@ tools_validate_xml(GtkWindow *win, JamDoc *doc) {
 	g_free(str);
 }
 
+/* FIXME: These two functions are practically identical. Abstract them to minimize code duplication. */
+
+void
+tools_embedded_media(GtkWindow *win, JamDoc *doc) {
+	GtkTextBuffer *buffer, *new_buffer;
+	GtkWidget *dlg, *vbox, *hbox, *label, *entry;
+	gchar *text;
+	GtkTextIter start;
+	GtkTextIter end;
+
+	dlg = gtk_dialog_new_with_buttons(_("Embedded Media"), win,
+			GTK_DIALOG_MODAL,
+			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+			GTK_STOCK_OK,     GTK_RESPONSE_OK,
+			NULL);
+	gtk_dialog_set_default_response(GTK_DIALOG(dlg), GTK_RESPONSE_OK);
+	gtk_window_set_default_size (GTK_WINDOW (dlg), 450, 140);
+
+	vbox = gtk_vbox_new(FALSE, 2);
+	gtk_container_set_border_width(GTK_CONTAINER(vbox), 10);
+
+	entry = gtk_text_view_new();
+	gtk_text_view_set_wrap_mode(GTK_TEXT_VIEW(entry), TRUE);
+	hbox = labelled_box_new(_("E_mbedded code:"), entry);
+	gtk_box_pack_start(GTK_BOX(vbox), hbox, TRUE, TRUE, 0);
+
+	label = gtk_label_new(NULL);
+	gtk_label_set_markup(GTK_LABEL(label),
+			_("<small>This is where you paste the embedded code, e.g. for a YouTube video.</small>"));
+	gtk_box_pack_start(GTK_BOX(vbox), label, FALSE, FALSE, 0);
+
+	jam_dialog_set_contents(GTK_DIALOG(dlg), vbox);
+
+	if (gtk_dialog_run(GTK_DIALOG(dlg)) != GTK_RESPONSE_OK) {
+		gtk_widget_destroy(dlg);
+		return;
+	}
+	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(entry));
+	gtk_text_buffer_get_start_iter (buffer, &start);
+	gtk_text_buffer_get_end_iter (buffer, &end);
+	text = gtk_text_buffer_get_text(buffer, &start, &end, FALSE);
+	gtk_widget_destroy(dlg);
+	if (text[0] == 0) {
+		g_free(text);
+		text = NULL;
+	}
+	new_buffer = jam_doc_get_text_buffer(doc);
+
+	gtk_text_buffer_begin_user_action(new_buffer); /* start undo action */
+	gtk_text_buffer_insert_at_cursor(new_buffer, "<lj-embed>", -1);
+	gtk_text_buffer_insert_at_cursor(new_buffer, text, -1);
+	gtk_text_buffer_insert_at_cursor(new_buffer, "</lj-embed>", -1);
+	g_free(text);
+
+	gtk_text_buffer_end_user_action(new_buffer);
+}
+
 void
 tools_ljcut(GtkWindow *win, JamDoc *doc) {
 	GtkTextBuffer *buffer;
