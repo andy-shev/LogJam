@@ -181,6 +181,7 @@ parseoptions(Configuration *c, xmlDocPtr doc, xmlNodePtr node) {
 #endif
 		READOPTION(revertusejournal)
 		READOPTION(autosave)
+		READOPTION(keepsaveddrafts)
 		READOPTION(cfautostart)
 		READOPTION(cfusemask)
 		READOPTION(close_when_send)
@@ -326,6 +327,7 @@ writeoptions(Options *options, xmlNodePtr node) {
 #endif
 	WRITEOPTION(revertusejournal);
 	WRITEOPTION(autosave);
+	WRITEOPTION(keepsaveddrafts);
 	WRITEOPTION(cfautostart);
 	WRITEOPTION(cfusemask);
 	WRITEOPTION(close_when_send);

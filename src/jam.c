@@ -340,7 +340,7 @@ jam_submit_entry(JamWin *jw) {
 	ctx = net_ctx_gtk_new(GTK_WINDOW(jw), NULL);
 	if (jam_host_do_post(jam_account_get_host(acc), ctx, jw->doc, NULL)) {
 		gint type = jam_doc_get_entry_type(jw->doc);
-		if (type == ENTRY_DRAFT) {
+		if (type == ENTRY_DRAFT && !conf.options.keepsaveddrafts) {
 			if (jam_confirm(GTK_WINDOW(jw),
 					_("Delete"), _("Delete this draft from disk?")))
 				delete_draft(jw);

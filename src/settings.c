@@ -74,6 +74,10 @@ static SettingsWidget settingswidgets[] = {
 
 	{ "ui_allowmultipleinstances", &conf.options.allowmultipleinstances,
 		SW_TOGGLE, N_("Allow multiple _instances of LogJam to run simultaneously") },
+
+	{ "ui_keepsaveddrafts", &conf.options.keepsaveddrafts,
+		SW_TOGGLE, N_("_Keep saved drafts after posting") },
+
 #ifdef HAVE_GTKSPELL
 	{ "ui_spellcheck", &conf.options.usespellcheck, 
 		SW_TOGGLE, N_("_Use spell check") },
@@ -409,6 +413,8 @@ uisettings(JamWin *jw) {
 	gtk_box_pack_start(GTK_BOX(vbox), entry, FALSE, FALSE, 0);
 
 	groupedbox_pack(GROUPEDBOX(entry), sw_make("ui_autosave"), FALSE);
+
+	groupedbox_pack(GROUPEDBOX(entry), sw_make("ui_keepsaveddrafts"), FALSE);
 
 #ifdef HAVE_GTKSPELL
 	{

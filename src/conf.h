@@ -62,6 +62,7 @@ typedef struct {
 	gboolean showloginhistory;
 	gboolean showmeta[JAM_VIEW_META_COUNT];
 	gboolean start_in_dock;
+	gboolean keepsaveddrafts;
 #endif /* HAVE_GTK */
 } Options;
 
