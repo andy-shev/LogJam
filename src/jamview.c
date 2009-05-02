@@ -804,7 +804,9 @@ jam_view_set_doc(JamView *view, JamDoc *doc) {
 		GError *err = NULL;
 		if (gtkspell_new_attach(GTK_TEXT_VIEW(view->entry),
 					conf.spell_language, &err) == NULL) {
-			jam_warning(NULL, // XXX GTK_WINDOW(view->jw),
+			GtkWindow *toplevel;
+			toplevel = GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view)));
+			jam_warning(toplevel,
 					_("GtkSpell error: %s"), err->message);
 			g_error_free(err);
 		}
@@ -821,16 +823,18 @@ jam_view_settings_changed(JamView *view) {
 	GError *err = NULL;
 	spell = gtkspell_get_from_text_view(GTK_TEXT_VIEW(view->entry));
 	if (conf.options.usespellcheck) {
+		GtkWindow *toplevel;
+		toplevel = GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(view)));
 		if (spell) {
 			if (!gtkspell_set_language(spell, conf.spell_language, &err)) {
-				jam_warning(NULL, // XXX GTK_WINDOW(view->jw),
+				jam_warning(toplevel,
 						_("GtkSpell error: %s"), err->message);
 				g_error_free(err);
 			}
 		} else {
 			GError *err = NULL;
 			if (gtkspell_new_attach(GTK_TEXT_VIEW(view->entry), conf.spell_language , &err) == NULL) {
-				jam_warning(NULL,
+				jam_warning(toplevel,
 						_("GtkSpell error: %s"), err->message);
 				conf.options.usespellcheck = FALSE;
 				g_error_free(err);
