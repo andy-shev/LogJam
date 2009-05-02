@@ -302,7 +302,7 @@ sw_make_sg(char *name, GtkSizeGroup *sg) {
 				gdouble default_value = *(gint*)sw->conf;
 				GtkObject *adj = gtk_adjustment_new(default_value,
 						/* client code should override these */
-						G_MINDOUBLE, G_MAXDOUBLE, 1.0, 1.0, 1.0);
+						G_MINDOUBLE, G_MAXDOUBLE, 1.0, 1.0, 0);
 				sw->widget = gtk_spin_button_new(GTK_ADJUSTMENT(adj), 1, 1);
 			}
 			spin_integer_tie(sw);
