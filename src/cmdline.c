@@ -38,8 +38,6 @@
 #include "cmdline.h"
 #include "cmdline_data.h"
 
-gboolean net_run_verb_ctx(LJVerb *verb, NetContext *ctx, GError **err);
-
 
 typedef struct _Command Command;
 

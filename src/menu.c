@@ -11,6 +11,7 @@
 #include <stdio.h>
 #include <string.h>
 
+#include "about.h"
 #include "conf.h"
 #include "network.h"
 #include "menu.h"
@@ -69,7 +70,6 @@ enum {
 	ACTION_TOOLS_CONSOLE
 };
 
-void about_dlg(GtkWidget *mainwin);
 static void menu_account_changed(JamWin *jw);
 
 static void
