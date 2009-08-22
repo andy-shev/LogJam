@@ -25,6 +25,7 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 	gboolean success = FALSE;
 	int len;
 	NetStatusProgress progress;
+	gchar *user_agent;
 
 	if (conf.options.netdump && post) 
 		fprintf(stderr, _("Request: [%s]\n"), post->str);
@@ -44,16 +45,22 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 		xmlNanoHTTPScanProxy(NULL);
 	}
 
+	user_agent = g_strdup_printf("User-Agent: %s\r\n", LOGJAM_USER_AGENT);
 	if (headers) {
 		GString *hs = g_string_new(NULL);
 		GSList *l;
+		g_string_append(hs, user_agent);
 		for (l = headers; l; l = l->next) {
 			g_string_append(hs, l->data);
 			g_string_append(hs, "\r\n");
 		}
 		headerstr = hs->str;
 		g_string_free(hs, FALSE);
+		g_free(user_agent);
+	} else {
+		headerstr = user_agent;
 	}
+
 	if (post)
 		ctx = xmlNanoHTTPMethod(url, "POST",
 				post->str, NULL, headerstr, post->len);

@@ -126,7 +126,7 @@ net_post_blocking(const char *surl, GSList *headers, GString *post,
 	host = urlc.lpszHostName;
 	host[urlc.dwHostNameLength] = 0;
 
-	if ((hInternet = InternetOpen("LogJam-Win32",
+	if ((hInternet = InternetOpen(LOGJAM_USER_AGENT,
 			INTERNET_OPEN_TYPE_PRECONFIG,
 			NULL, NULL, 0)) != NULL) {
 

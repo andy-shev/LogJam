@@ -9,6 +9,11 @@
 
 #include "network.h"
 
+/* constants to apply User-Agent header */
+#define LOGJAM_HOME_URL		"http://logjam.danga.com"
+#define LOGJAM_AUTHOR_EMAIL	"martine@danga.com"
+#define LOGJAM_USER_AGENT	LOGJAM_HOME_URL "; " LOGJAM_AUTHOR_EMAIL
+
 /* network-internal -- interface to http, used by network.
  * provides a blocking and nonblocking interface.
  * implemented by

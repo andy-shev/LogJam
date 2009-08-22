@@ -96,6 +96,8 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 		}
 	}
 
+	curl_easy_setopt(curl, CURLOPT_USERAGENT, LOGJAM_USER_AGENT);
+
 	if (headers) {
 		GSList *l;
 		for (l = headers; l; l = l->next)
