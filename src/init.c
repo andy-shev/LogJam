@@ -201,17 +201,17 @@ main(int argc, char* argv[]) {
 
 	setup_glibgdk();
 
-	init_app(&argc, argv); /* should be called before conf_read */
-	conf_read(&conf, app.conf_dir);
-	set_defaults();
-	jam_account_logjam_init();
-
 #ifdef HAVE_GTK
 #ifdef G_OS_WIN32
 	gtk_rc_add_default_file("gtkrc");
 #endif
 	has_gtk = gtk_init_check(&argc, &argv);
 #endif
+
+	init_app(&argc, argv); /* should be called before conf_read */
+	conf_read(&conf, app.conf_dir);
+	set_defaults();
+	jam_account_logjam_init();
 
 	doc = jam_doc_new();
 	cmdline_parse(doc, argc, argv); /* may terminate. */
