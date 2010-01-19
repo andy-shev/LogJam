@@ -8,19 +8,75 @@
 
 #include "gtk-all.h"
 
+#include "jam.h"		/* jam_quit() */
 #include "conf.h"
 #include "eggtrayicon.h"
+#include "about.h"		/* about_dlg() */
+#include "menu.h"		/* menu_friends_manager() */
+#include "settings.h"	/* settings_run() */
 
 static void
 docklet_destroy_cb(GtkWidget *widget) {
 	app.docklet = NULL;
 }
 
+static void
+docklet_menu(GtkWidget *win) {
+	static GtkWidget *menu = NULL;
+	GtkWidget *entry;
+	GtkWidget *menuitem;
+	GtkWidget *image;
+
+	if (menu) {
+		gtk_widget_destroy(menu);
+	}
+
+	menu = gtk_menu_new();
+
+	/* About... */
+	menuitem = gtk_image_menu_item_new_with_mnemonic(_("About LogJam..."));
+	image = gtk_image_new_from_stock("logjam-goat", GTK_ICON_SIZE_MENU);
+	gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(menuitem), image);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
+	g_signal_connect_swapped(G_OBJECT(menuitem), "activate", G_CALLBACK(about_dlg), win);
+	gtk_widget_show_all(menuitem);
+
+	/* Friends... */
+	menuitem = gtk_menu_item_new_with_mnemonic(_("Friends..."));
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
+	g_signal_connect_swapped(G_OBJECT(menuitem), "activate", G_CALLBACK(menu_friends_manager), win);
+	gtk_widget_show_all(menuitem);
+
+	/* Preferences... */
+	menuitem = gtk_image_menu_item_new_with_mnemonic(_("Preferences..."));
+	image = gtk_image_new_from_stock(GTK_STOCK_PREFERENCES, GTK_ICON_SIZE_MENU);
+	gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(menuitem), image);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
+	g_signal_connect_swapped(G_OBJECT(menuitem), "activate", G_CALLBACK(settings_run), win);
+	gtk_widget_show_all(menuitem);
+
+	/* -------------- */
+	menuitem = gtk_separator_menu_item_new();
+	gtk_widget_show(menuitem);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
+
+	/* Quit */
+	menuitem = gtk_image_menu_item_new_with_mnemonic(_("Quit"));
+	image = gtk_image_new_from_stock(GTK_STOCK_QUIT, GTK_ICON_SIZE_MENU);
+	gtk_image_menu_item_set_image(GTK_IMAGE_MENU_ITEM(menuitem), image);
+	gtk_menu_shell_append(GTK_MENU_SHELL(menu), menuitem);
+	g_signal_connect_swapped(G_OBJECT(menuitem), "activate", G_CALLBACK(jam_quit), win);
+	gtk_widget_show_all(menuitem);
+
+	gtk_widget_show_all(menu);
+	gtk_menu_popup(GTK_MENU(menu), NULL, NULL, NULL, NULL, 0, gtk_get_current_event_time());
+}
+
 static gboolean
 click_cb(GtkWidget* w, GdkEventButton *ev, GtkWidget *win) {
 	/* right-clicks start context menu (note: this case is terminal) */
 	if (ev->button == 3) {
-		//cf_context_menu(cfi, ev);
+		docklet_menu(win);
 		return TRUE;
 	}
 

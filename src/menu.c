@@ -295,7 +295,7 @@ menu_console(JamWin *jw) {
 	console_dialog_run(GTK_WINDOW(jw), JAM_ACCOUNT_LJ(jw->account));
 }
 
-static void
+void
 menu_friends_manager(JamWin *jw) {
 	g_assert(JAM_ACCOUNT_IS_LJ(jw->account));
 	friends_manager_show(GTK_WINDOW(jw), JAM_ACCOUNT_LJ(jw->account));

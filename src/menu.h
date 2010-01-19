@@ -9,6 +9,7 @@
 
 #include "jam.h"
 
+void menu_friends_manager(JamWin *jw);
 GtkWidget* menu_make_bar(JamWin *jw);
 
 void menu_new_doc(JamWin *jw);
