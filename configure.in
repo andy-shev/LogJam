@@ -14,6 +14,8 @@ AC_CACHE_SAVE
 
 AC_CHECK_HEADERS([regex.h])
 
+AC_CHECK_LIB(X11, XFlush)
+
 dnl Check for gettext.
 GETTEXT_PACKAGE=logjam
 AC_SUBST(GETTEXT_PACKAGE)
