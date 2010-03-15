@@ -1,0 +1,34 @@
+#!/bin/sh
+
+#
+# Detect music via banshee command line tool
+#
+# Author: Andy Shevchenko <andy.shevchenko@gmail.com>
+#
+
+# Run banshee-1 with given query parameter and substitute empty string to
+# Unknown. Now we are using following queries:
+#	current-state, artist, album, title
+function banshee_query()
+{
+	data=$(banshee-1 --query-$1 | cut -f2- -d' ')
+	if [ -z "$data" ]; then
+		data="Unknown"
+	fi
+	echo "$data"
+}
+
+# Check if banshee is running (it runs itself when found no running copy!)
+state="not running"
+if pidof banshee-1 > /dev/null; then
+	state=$(banshee_query current-state)
+fi
+
+# If current state is 'playing', print out song details
+if [ "$state" = "playing" ]; then
+	echo "$(banshee_query artist) - $(banshee_query album) - $(banshee_query title)"
+	exit 0
+fi
+
+echo "Banshee isn't active now, state: $state" >&2
+exit 1

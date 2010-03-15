@@ -76,5 +76,6 @@ src/cmdline_data.h
 src/logjam
 stamp-h1
 util/Makefile.in
+util/bansheeclient/Makefile.in
 util/xmmsclient/.deps/*
 util/xmmsclient/Makefile.in

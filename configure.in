@@ -209,6 +209,12 @@ fi
 AC_SUBST(XMMS_LIBS)
 AC_SUBST(XMMS_CFLAGS)
 
+AC_ARG_WITH(banshee,
+  AC_HELP_STRING([--with-banshee], [build banshee helper (default yes)]),
+  , [with_banshee=yes])
+
+AM_CONDITIONAL(WITH_BANSHEE, test "$with_banshee" = "yes")
+
 dnl liblivejournal dependencies.
 MODULES="glib-2.0 gobject-2.0 libxml-2.0"
 PKG_CHECK_MODULES(LIVEJOURNAL, $MODULES)
@@ -228,6 +234,7 @@ AC_CONFIG_SUBDIRS(protocol/liblivejournal)
 AC_CONFIG_FILES([Makefile po/Makefile.in
 doc/Makefile data/Makefile images/Makefile
 util/Makefile util/xmmsclient/Makefile
+util/bansheeclient/Makefile
 protocol/Makefile
 src/Makefile])
 AC_OUTPUT
@@ -252,6 +259,7 @@ if test "$network_backend" = "libxml"; then
   echo "        If you need these features, you must build with Curl."
 fi
 echo "    - XMMS helper: ${with_xmms}"
+echo "    - Banshee helper: ${with_banshee}"
 echo "    - SQLite3: ${with_sqlite3}"
 echo ""
 

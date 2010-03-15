@@ -13,6 +13,7 @@
 
 const CommandList music_commands[] = {
 	{ N_("None"), NULL },
+	{ "Banshee", "logjam-banshee-client" },
 	{ "Music Player Daemon", "sh -c \"mpc | grep -v '^volume: .* repeat: .* random: .*'\"" },
 	{ "Rhythmbox", "rhythmbox-client --print-playing" },
 	{ "XMMS / Beep", "logjam-xmms-client" },
