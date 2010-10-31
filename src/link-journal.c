@@ -45,10 +45,12 @@ void
 link_journal_dialog_run(GtkWindow *win, JamDoc *doc) {
 	GtkWidget *dlg;
 	GtkWidget *vbox, *hbox, *entry, *omenu;
+	GtkWidget *entry_name;
 	GtkSizeGroup *sizegroup;
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	char *username = NULL;
+	char *usernick = NULL;
 	int usertype;
 	gboolean selection = FALSE;
 
@@ -78,6 +80,11 @@ link_journal_dialog_run(GtkWindow *win, JamDoc *doc) {
 	hbox = labelled_box_new_sg(_("_Username:"), entry, sizegroup);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
 
+	entry_name = gtk_entry_new();
+	gtk_entry_set_activates_default(GTK_ENTRY(entry_name), TRUE);
+	hbox = labelled_box_new_sg(_("_Nickname:"), entry_name, sizegroup);
+	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
+
 	omenu = make_usertype_omenu();
 	hbox = labelled_box_new_sg(_("User _Type:"), omenu, sizegroup);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
@@ -89,10 +96,12 @@ link_journal_dialog_run(GtkWindow *win, JamDoc *doc) {
 		return;
 	}
 	username = gtk_editable_get_chars(GTK_EDITABLE(entry), 0, -1);
+	usernick = gtk_editable_get_chars(GTK_EDITABLE(entry_name), 0, -1);
 	usertype = gtk_option_menu_get_history(GTK_OPTION_MENU(omenu));
 	gtk_widget_destroy(dlg);
 	if (username[0] == 0) {
 		g_free(username);
+		g_free(usernick);
 		return;
 	}
 
@@ -101,6 +110,34 @@ link_journal_dialog_run(GtkWindow *win, JamDoc *doc) {
 	else
 		gtk_text_buffer_get_iter_at_mark(buffer, &start,
 				gtk_text_buffer_get_insert(buffer));
+
+	if (usernick && *usernick) {
+		gchar *link;
+		JamAccount *acc = jam_doc_get_account(doc);
+		gchar *url = jam_account_lj_get_server(JAM_ACCOUNT_LJ(acc))->url;
+
+		xml_escape(&username);
+		xml_escape(&usernick);
+
+		link = g_strdup_printf(
+			"<a href='%s/userinfo.bml?user=%s'>"
+				"<img src='%s/img/%s' alt='[info]' align='absmiddle' width='17' height='17' border='0' />"
+			"</a>"
+			"<a style='FONT-WEIGHT: 800' href='%s/users/%s'>%s</a>",
+			url, username,
+				url, usertype == 0 ? "userinfo.gif" : "community.gif",
+			url, username, usernick);
+
+		gtk_text_buffer_insert(buffer, &start, link, -1);
+
+		g_free(link);
+		g_free(username);
+		g_free(usernick);
+		return;
+	}
+
+	/* In case of empty string the buffer is allocated. We need to free it. */
+	g_free(usernick);
 
 	gtk_text_buffer_insert(buffer, &start, "<lj ", -1);
 	if (usertype == 0)
