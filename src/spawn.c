@@ -32,10 +32,16 @@ spawn_url(GtkWindow *parent, const char *url) {
  * when sending remote commands,
  * mozilla returns 0 on success and nonzero on failure. */
 const CommandList spawn_commands[] = {
+	{ "Freedesktop URL opener",
+	  "xdg-open '%s'" },
 	{ "GNOME Browser",
 	  "gnome-open '%s'" },
 	{ "Mozilla Firefox",
 	  "firefox '%s'" },
+	{ "Google Chrome",
+	  "google-chrome '%s'" },
+	{ "Chromium",
+	  "chromium-browser '%s'" },
 	{ "Debian (sensible-browser)",
 	  "sensible-browser '%s'" },
 	{ "Galeon",
