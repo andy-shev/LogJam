@@ -80,6 +80,8 @@ static SettingsWidget settingswidgets[] = {
 	{ "ui_spell_language", &conf.spell_language,
 		SW_TEXT, N_("Entry _language:") },
 #endif
+	{ "ui_showloginhistory", &conf.options.showloginhistory,
+		SW_TOGGLE, N_("Show login history (number of days since last login)") },
 	{ "ui_smartquotes", &conf.options.smartquotes,
 		SW_TOGGLE, N_("Automatically change _quotes to matching pairs") },
 	{ "ui_font", &conf.uifont,
@@ -430,6 +432,7 @@ uisettings(JamWin *jw) {
 	}
 #endif
 
+	groupedbox_pack(GROUPEDBOX(entry), sw_make("ui_showloginhistory"), TRUE);
 	groupedbox_pack(GROUPEDBOX(entry),
 			sw_make("ui_smartquotes"), FALSE);
 	

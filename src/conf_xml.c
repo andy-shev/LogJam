@@ -191,6 +191,7 @@ parseoptions(Configuration *c, xmlDocPtr doc, xmlNodePtr node) {
 		READOPTION(friends_hidestats)
 		READOPTION(allowmultipleinstances)
 		READOPTION(smartquotes)
+		READOPTION(showloginhistory)
 
 		XML_GET_IF("showmeta", parseshowmeta(options, doc, node);)
 
@@ -335,6 +336,7 @@ writeoptions(Options *options, xmlNodePtr node) {
 	WRITEOPTION(friends_hidestats);
 	WRITEOPTION(allowmultipleinstances);
 	WRITEOPTION(smartquotes);
+	WRITEOPTION(showloginhistory);
 
 	writeshowmeta(options, node);
 #endif /* HAVE_GTK */

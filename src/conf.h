@@ -59,6 +59,7 @@ typedef struct {
 	gboolean friends_hidestats;
 	gboolean allowmultipleinstances;
 	gboolean smartquotes;
+	gboolean showloginhistory;
 	gboolean showmeta[JAM_VIEW_META_COUNT];
 	gboolean start_in_dock;
 #endif /* HAVE_GTK */
