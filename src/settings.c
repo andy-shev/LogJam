@@ -24,6 +24,7 @@
 #include "tie.h"
 #include "account.h"
 #include "jamview.h"
+#include "lj_dbus.h"
 
 /* what's this?  all of these funny structures in the settings box?
  * well, instead of creating and tearing down all of these widgets, i
@@ -105,6 +106,8 @@ static SettingsWidget settingswidgets[] = {
 
 	{ "music_command", &conf.music_command,
 		SW_COMMAND, N_("Detect music from:"), (gpointer)music_commands },
+	{ "music_mpris", &conf.music_mpris,
+		SW_TOGGLE, N_("Detect music via MPRIS") },
 
 	{ "net_useproxy", &conf.options.useproxy, 
 		SW_TOGGLE, N_("Use _proxy server") },
@@ -170,6 +173,19 @@ toggle_tie_enable(GtkWidget *toggle, GtkWidget *target) {
 			gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(toggle)));
 	g_signal_connect(G_OBJECT(toggle), "toggled",
 			G_CALLBACK(toggle_enable_cb), target);
+}
+
+static void
+toggle_disable_cb(GtkWidget *toggle, GtkWidget *target) {
+	gtk_widget_set_sensitive(target,
+			!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(toggle)));
+}
+static void
+toggle_tie_disable(GtkWidget *toggle, GtkWidget *target) {
+	gtk_widget_set_sensitive(target,
+			!gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(toggle)));
+	g_signal_connect(G_OBJECT(toggle), "toggled",
+			G_CALLBACK(toggle_disable_cb), target);
 }
 
 static void
@@ -506,15 +522,20 @@ music_diagnose(GtkWidget *button) {
 	GtkWindow *dlg = GTK_WINDOW(gtk_widget_get_toplevel(button));
 	GError *err = NULL;
 	char *music, *result;
-	MusicSource source = music_current_source();
+	MusicSource source = MUSIC_SOURCE_NONE;
 
-	if (!music_can_detect(&err)) {
-		jam_warning(dlg, "%s", err->message);
-		g_error_free(err);
-		return;
+	if (conf.music_mpris) {
+		music = lj_dbus_mpris_current_music(jdbus, &err);
+	} else {
+		source = music_current_source();
+		if (!music_can_detect(&err)) {
+			jam_warning(dlg, "%s", err->message);
+			g_error_free(err);
+			return;
+		}
+		music = music_detect(&err);
 	}
 
-	music = music_detect(&err);
 	if (!music) {
 		if (source == MUSIC_SOURCE_XMMS &&
 				err->domain == G_SPAWN_ERROR && err->code == G_SPAWN_ERROR_NOENT) {
@@ -561,19 +582,38 @@ proxysettings(void) {
 	return group;
 }
 
+static void
+mpris_update_cb(GtkToggleButton *button, JamDBus *jd) {
+	GError *error = NULL;
+	if (!lj_dbus_mpris_update_list(jdbus, &error)) {
+		GtkWindow *dlg = GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(button)));
+		jam_warning(dlg, _("Error detecting music: %s"), error->message);
+		g_error_free(error);
+	}
+}
+
 static GtkWidget*
 programsettings(JamWin *jw) {
 	GtkWidget *group;
-	GtkWidget *button, *hbox;
+	GtkWidget *button, *vbox, *hbox;
 	SettingsWidget *sw;
 	JamView *jv = jam_win_get_cur_view(jw);
 	
 	group = groupedbox_new_with_text(_("Programs"));
 	groupedbox_pack(GROUPEDBOX(group), sw_make("web_spawn"), FALSE);
 
-	groupedbox_pack(GROUPEDBOX(group), sw_make("music_command"), FALSE);
+	vbox = sw_make("music_command");
+	groupedbox_pack(GROUPEDBOX(group), vbox, FALSE);
 	sw = sw_lookup("music_command");
 	g_signal_connect_swapped(G_OBJECT(sw->widget), "changed",
+			G_CALLBACK(jam_view_settings_changed), jv);
+
+	button = sw_make("music_mpris");
+	groupedbox_pack(GROUPEDBOX(group), button, FALSE);
+	g_signal_connect(G_OBJECT(button), "toggled",
+			G_CALLBACK(mpris_update_cb), jdbus);
+	toggle_tie_disable(button, vbox);
+	g_signal_connect_swapped(G_OBJECT(button), "toggled",
 			G_CALLBACK(jam_view_settings_changed), jv);
 
 	button = gtk_button_new_with_mnemonic(_("_Diagnose"));

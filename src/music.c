@@ -9,7 +9,10 @@
 #include "gtk-all.h"
 
 #include "conf.h"
+#include "lj_dbus.h"
 #include "music.h"
+
+JamDBus *jdbus = NULL;
 
 const CommandList music_commands[] = {
 	{ N_("None"), NULL },

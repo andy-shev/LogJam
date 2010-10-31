@@ -3,7 +3,7 @@ bin_PROGRAMS = logjam
 localedir=$(datadir)/locale
 
 # AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I$(top_srcdir)/protocol/liblivejournal -I$(top_srcdir)/protocol/blogger -I$(top_srcdir)/util/gxr @LOGJAM_CFLAGS@ @NETWORK_CFLAGS@
-AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I$(top_srcdir)/protocol/liblivejournal -I$(top_srcdir)/util/gxr @LOGJAM_CFLAGS@ @NETWORK_CFLAGS@
+AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I$(top_srcdir)/protocol/liblivejournal -I$(top_srcdir)/util/gxr @LOGJAM_CFLAGS@ @NETWORK_CFLAGS@ @DBUSAPI_CFLAGS@
 
 ACCOUNT = account.h account.c host.c livejournal.c
 # blogger.c
@@ -50,6 +50,7 @@ src_gtk = gtk-all.h util-gtk.c util-gtk.h \
           settings.c settings.h $(GROUPEDBOX) tie.c tie.h \
           $(HISTORY) $(OFFLINE) \
           jam.c jam.h $(USEJOURNAL) \
+          lj_dbus.c lj_dbus.h \
           security.c security.h about.c thanks.h \
           menu.c menu.h $(TOOLS) smartquotes.c smartquotes.h \
           $(LOGIN) manager.c \
@@ -116,7 +117,7 @@ logjam_SOURCES += journalstore-xml.c
 endif
 
 # logjam_LDADD=$(top_builddir)/protocol/liblivejournal/livejournal/liblivejournal.la $(top_builddir)/protocol/blogger/libblogger.la @LOGJAM_LIBS@ @NETWORK_LIBS@
-logjam_LDADD=$(top_builddir)/protocol/liblivejournal/livejournal/liblivejournal.la @LOGJAM_LIBS@ @NETWORK_LIBS@
+logjam_LDADD=$(top_builddir)/protocol/liblivejournal/livejournal/liblivejournal.la @LOGJAM_LIBS@ @NETWORK_LIBS@ @DBUSAPI_LIBS@
 
 ctags:
 	@version=`ctags --version | head -1`; \

@@ -20,6 +20,7 @@
 #include "marshalers.h"
 #include "datesel.h"
 #include "tags.h"
+#include "lj_dbus.h"
 
 #define KEY_PICTUREKEYWORD "logjam-picturekeyword"
 
@@ -359,7 +360,12 @@ picture_store(JamView *view) {
 static void
 music_refresh_cb(JamView *view) {
 	GError *err = NULL;
-	gchar *music = music_detect(&err);
+	gchar *music;
+
+	if (conf.music_mpris)
+		music = lj_dbus_mpris_current_music(jdbus, &err);
+	else
+		music = music_detect(&err);
 
 	if (music) {
 		gtk_entry_set_text(GTK_ENTRY(view->music), music);
@@ -376,7 +382,7 @@ static void
 music_add(JamView *view) {
 	view->music = gtk_entry_new();
 	view->musicbar = labelled_box_new_sg(_("_Music:"), view->music, view->sizegroup);
-	if (music_can_detect(NULL)) {
+	if (conf.music_mpris || music_can_detect(NULL)) {
 		GtkWidget *refresh = gtk_button_new_from_stock(GTK_STOCK_REFRESH);
 		g_signal_connect_swapped(G_OBJECT(refresh), "clicked",
 				G_CALLBACK(music_refresh_cb), view);

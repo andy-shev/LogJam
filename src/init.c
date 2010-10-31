@@ -29,6 +29,7 @@
 #include "conf_xml.h"
 #include "jamdoc.h"
 #include "cmdline.h"
+#include "lj_dbus.h"
 
 #ifdef HAVE_GTK
 #include "login.h"
@@ -120,6 +121,9 @@ init_app(int *argc, gchar *argv[]) {
 }
 
 #ifdef HAVE_GTK
+
+extern JamDBus *jdbus;
+
 static void
 run_gtk(JamDoc *doc) {
 	gchar *accelpath;
@@ -148,7 +152,19 @@ run_gtk(JamDoc *doc) {
 		jam_doc_set_account(doc, acc);
 	}
 
+	jdbus = lj_dbus_new();
+	if (conf.music_mpris) {
+		GError *error = NULL;
+		if (!lj_dbus_mpris_update_list(jdbus, &error)) {
+			g_printerr("Error: %s\n", error->message);
+			g_error_free(error);
+		}
+	}
+
 	jam_run(doc);
+
+	lj_dbus_close(jdbus);
+	jdbus = NULL;
 
 	g_object_unref(G_OBJECT(app.remote));
 

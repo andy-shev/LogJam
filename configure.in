@@ -222,6 +222,13 @@ AC_SUBST(LIVEJOURNAL_CFLAGS)
 AC_SUBST(LIVEJOURNAL_LIBS)
 dnl end liblivejournal dependencies.
 
+dnl D-Bus API
+MODULES="dbus-1 dbus-glib-1"
+PKG_CHECK_MODULES(DBUSAPI, $MODULES)
+AC_SUBST(DBUSAPI_CFLAGS)
+AC_SUBST(DBUSAPI_LIBS)
+dnl D-Bus API
+
 AM_CONDITIONAL(WITH_XMMS, test "$with_xmms" = "yes")
 AM_CONDITIONAL(WITH_HTML, test "$with_gtkhtml" != "no")
 AM_CONDITIONAL(WITH_RSVG, test "$with_librsvg" = "yes")

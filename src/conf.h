@@ -93,6 +93,7 @@ typedef struct {
 	char *spawn_command;
 
 	char *music_command;
+	gboolean music_mpris;
 
 	char *proxy;
 	char *proxyuser, *proxypass;

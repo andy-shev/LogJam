@@ -258,6 +258,7 @@ parseconf(xmlDocPtr doc, xmlNodePtr node, void *data) {
 		XML_GET_CONF("proxyauth", parseproxyauth)
 		XML_GET_STR("spawncommand", c->spawn_command)
 		XML_GET_STR("musiccommand", c->music_command)
+		XML_GET_BOOL("musicmpris", c->music_mpris)
 #endif /* G_OS_WIN32 */
 		XML_GET_INT("cfuserinterval", c->cfuserinterval)
 		XML_GET_INT("cfthreshold", c->cfthreshold)
@@ -398,6 +399,8 @@ conf_write(Configuration *c, char *base) {
 
 	if (c->music_command)
 		xmlAddTN(root, "musiccommand", c->music_command);
+	if (c->music_mpris)
+		xmlNewChild(root, NULL, BAD_CAST "musicmpris", NULL);
 #endif
 
 	if (c->cfuserinterval) {
