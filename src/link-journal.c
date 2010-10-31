@@ -35,6 +35,7 @@ make_usertype_omenu() {
 	menu = gtk_menu_new();
 	add_menu_item(GTK_MENU_SHELL(menu), "logjam-ljuser", _("User"));
 	add_menu_item(GTK_MENU_SHELL(menu), "logjam-ljcomm", _("Community"));
+	add_menu_item(GTK_MENU_SHELL(menu), "logjam-twuser", _("Twitter user"));
 
 	omenu = gtk_option_menu_new();
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(omenu), menu);
@@ -97,6 +98,11 @@ link_journal_dialog_run(GtkWindow *win, JamDoc *doc) {
 	}
 	username = gtk_editable_get_chars(GTK_EDITABLE(entry), 0, -1);
 	usernick = gtk_editable_get_chars(GTK_EDITABLE(entry_name), 0, -1);
+	/* Get user type:
+	 *	0 - LJ user
+	 *	1 - LJ community
+	 *	2 - Twitter user
+	 */
 	usertype = gtk_option_menu_get_history(GTK_OPTION_MENU(omenu));
 	gtk_widget_destroy(dlg);
 	if (username[0] == 0) {
@@ -110,6 +116,27 @@ link_journal_dialog_run(GtkWindow *win, JamDoc *doc) {
 	else
 		gtk_text_buffer_get_iter_at_mark(buffer, &start,
 				gtk_text_buffer_get_insert(buffer));
+
+	if (usertype == 2 /* twitter user */) {
+		gchar *link;
+
+		xml_escape(&username);
+		xml_escape(&usernick);
+
+		if (usernick && *usernick)
+			link = g_strdup_printf("@<a href='http://twitter.com/%s'>%s</a>",
+				username, usernick);
+		else
+			link = g_strdup_printf("@<a href='http://twitter.com/%s'>%s</a>",
+				username, username);
+
+		gtk_text_buffer_insert(buffer, &start, link, -1);
+
+		g_free(link);
+		g_free(username);
+		g_free(usernick);
+		return;
+	}
 
 	if (usernick && *usernick) {
 		gchar *link;

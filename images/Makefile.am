@@ -4,6 +4,7 @@ pixmap_DATA = logjam_goat.png logjam_pencil.png
 IMAGES = \
 	logjam_ljuser.png     \
 	logjam_ljcomm.png     \
+	logjam_twuser.png     \
 	logjam_private.png    \
 	logjam_protected.png  \
 	logjam_pencil.png     \
@@ -24,6 +25,7 @@ IMAGES = \
 LIST = \
 	logjam_ljuser        $(srcdir)/logjam_ljuser.png       \
 	logjam_ljcomm        $(srcdir)/logjam_ljcomm.png       \
+	logjam_twuser        $(srcdir)/logjam_twuser.png       \
 	logjam_private       $(srcdir)/logjam_private.png      \
 	logjam_protected     $(srcdir)/logjam_protected.png    \
 	logjam_rarrow        $(srcdir)/logjam_rarrow.png       \

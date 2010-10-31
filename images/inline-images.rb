@@ -31,7 +31,7 @@ def process(filename)
 	puts
 end
 
-%w(logjam_ljuser.png logjam_ljcomm.png logjam_protected.png logjam_private.png).each { |img|
+%w(logjam_ljuser.png logjam_ljcomm.png logjam_twuser.png logjam_protected.png logjam_private.png).each { |img|
 	process(img)
 }
 
