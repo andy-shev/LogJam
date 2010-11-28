@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(logjam, 4.5.3, evan@livejournal.com)
+AC_INIT(logjam, 4.6.0, evan@livejournal.com)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR(src/jam.c)
