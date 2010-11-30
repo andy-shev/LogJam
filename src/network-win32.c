@@ -33,8 +33,8 @@ net_getlasterror(GError **err) {
 		hModule = LoadLibraryEx("wininet.dll", NULL,
 				LOAD_LIBRARY_AS_DATAFILE);
 
-	if (!FormatMessage( 
-			FORMAT_MESSAGE_ALLOCATE_BUFFER | 
+	if (!FormatMessage(
+			FORMAT_MESSAGE_ALLOCATE_BUFFER |
 			FORMAT_MESSAGE_IGNORE_INSERTS |
 			(hModule ?
 				FORMAT_MESSAGE_FROM_HMODULE :
@@ -57,13 +57,13 @@ static void CALLBACK
 net_internetstatus_cb(HINTERNET hInternet, DWORD_PTR dwContext,
 		DWORD dwInternetStatus, LPVOID lpStatusInformation,
 		DWORD dwStatusLength) {
-	
+
 	g_print("status %ld\n", dwInternetStatus);
 }
 #endif /* USE_INTERNET_STATUS_CALLBACK */
 
 static GString *
-readresponse(HINTERNET hRequest, 
+readresponse(HINTERNET hRequest,
              NetStatusCallback cb, gpointer data,
              GError **err) {
 	char buf[READ_BLOCK_SIZE];
@@ -110,7 +110,7 @@ net_post_blocking(const char *surl, GSList *headers, GString *post,
 	GString *response = NULL;
 	char *url, *host;
 	URL_COMPONENTS urlc = {0};
-	
+
 	url = g_strdup(surl);
 	urlc.dwStructSize = sizeof(URL_COMPONENTS);
 	urlc.lpszHostName = NULL;

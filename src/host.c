@@ -128,7 +128,7 @@ jam_host_write(JamHost *host, GError **err) {
 out:
 	if (path) g_free(path);
 	if (doc) xmlFreeDoc(doc);
-	
+
 	return ret;
 }
 

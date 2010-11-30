@@ -57,10 +57,10 @@ add_menu_item(GtkMenuShell *ms, const gchar *id, const gchar *text) {
 	GtkWidget *item;
 
 	hbox = gtk_hbox_new(FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(hbox), 
-			gtk_image_new_from_stock(id, GTK_ICON_SIZE_MENU), 
+	gtk_box_pack_start(GTK_BOX(hbox),
+			gtk_image_new_from_stock(id, GTK_ICON_SIZE_MENU),
 			FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(hbox), 
+	gtk_box_pack_start(GTK_BOX(hbox),
 			gtk_label_new(text), FALSE, FALSE, 0);
 
 	item = gtk_menu_item_new();
@@ -159,16 +159,16 @@ void
 security_changed(SecMgr *sm) {
 	sm->security.type = gtk_option_menu_get_history(GTK_OPTION_MENU(sm));
 	if (sm->security.type == LJ_SECURITY_CUSTOM) {
-		sm->security.allowmask = 
+		sm->security.allowmask =
 			custom_security_dlg_run(
-					GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(sm))), 
+					GTK_WINDOW(gtk_widget_get_toplevel(GTK_WIDGET(sm))),
 					sm->security.allowmask,
 					sm->account);
 	} else {
 		sm->security.allowmask = 0; /* reset it. */
 	}
 
-	if (sm->security.type == LJ_SECURITY_CUSTOM 
+	if (sm->security.type == LJ_SECURITY_CUSTOM
 			&& sm->security.allowmask == 0) {
 		secmgr_security_set(sm, &security_private);
 	}
@@ -208,7 +208,7 @@ build_model(guint32 mask, LJUser *user) {
 	LJFriendGroup *fg;
 	GtkTreeIter iter;
 
-	store = gtk_list_store_new(3, 
+	store = gtk_list_store_new(3,
 			G_TYPE_BOOLEAN, /* included?   */
 			G_TYPE_STRING,  /* name        */
 			G_TYPE_POINTER  /* friendgroup */);

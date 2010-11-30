@@ -28,7 +28,7 @@ popcalendar_set_marks(GtkCalendar *cal, guint32 marks) {
 	gtk_calendar_thaw(cal);
 }
 
-static void 
+static void
 day_selected(GtkWidget *cal, calendar_data *cdata) {
 	/* don't close it when the day change was caused by a month change! */
 	if (!cdata->closehack) {
@@ -39,7 +39,7 @@ day_selected(GtkWidget *cal, calendar_data *cdata) {
 	}
 	cdata->closehack = FALSE;
 }
-static void 
+static void
 month_changed(GtkWidget *cal, calendar_data *cdata) {
 	guint year, mon, day;
 
@@ -47,12 +47,12 @@ month_changed(GtkWidget *cal, calendar_data *cdata) {
 	gtk_calendar_get_date(GTK_CALENDAR(cal), &year, &mon, &day);
 	if (year < cdata->markfirstyear)
 		popcalendar_set_marks(GTK_CALENDAR(cal), 0);
-	else 
-		popcalendar_set_marks(GTK_CALENDAR(cal), 
+	else
+		popcalendar_set_marks(GTK_CALENDAR(cal),
 				cdata->marks[(year-cdata->markfirstyear)*12 + mon]);
 }
 
-void 
+void
 popcalendar_run(GtkWidget *parent, guint date[], int markfirstyear, guint32 marks[]) {
 	GtkWidget *win;
 	GtkWidget *frame, *box;
@@ -94,10 +94,10 @@ popcalendar_run(GtkWidget *parent, guint date[], int markfirstyear, guint32 mark
 			G_CALLBACK(day_selected), cdata);
 	g_signal_connect(G_OBJECT(cal), "month-changed",
 			G_CALLBACK(month_changed), cdata);
-	gtk_calendar_display_options(GTK_CALENDAR(cal), 
+	gtk_calendar_display_options(GTK_CALENDAR(cal),
 			GTK_CALENDAR_SHOW_HEADING |
 			GTK_CALENDAR_SHOW_DAY_NAMES);
-	popcalendar_set_marks(GTK_CALENDAR(cal), 
+	popcalendar_set_marks(GTK_CALENDAR(cal),
 			marks[(date[0]-markfirstyear)*12 + date[1]-1]);
 
 	gtk_box_pack_start(GTK_BOX(box), cal, TRUE, TRUE, 0);

@@ -25,14 +25,14 @@ groupedbox_init(GroupedBox *gb) {
 	gb->vbox = gtk_vbox_new(FALSE, 6);
 
 	margin = gtk_label_new("    ");
-	
+
 	gtk_box_pack_start(GTK_BOX(hbox), margin, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(hbox), gb->vbox, TRUE, TRUE, 0);
 	gtk_box_pack_end(GTK_BOX(gb), hbox, TRUE, TRUE, 0);
 
 	gb->body = hbox;
 }
-	
+
 GtkWidget*
 groupedbox_new() {
 	GroupedBox *gb = GROUPEDBOX(g_object_new(groupedbox_get_type(), NULL));
@@ -50,10 +50,10 @@ void
 groupedbox_set_header_widget(GroupedBox *b, GtkWidget *w) {
 	if (b->header)
 		gtk_container_remove(GTK_CONTAINER(b), b->header);
-	
+
 	if (w)
 		gtk_box_pack_start(GTK_BOX(b), w, FALSE, FALSE, 0);
-	
+
 	b->header = w;
 }
 

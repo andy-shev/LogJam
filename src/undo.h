@@ -1,11 +1,11 @@
 /* logjam - a GTK client for LiveJournal.
  * Copyright (C) 2000-2003 Evan Martin <evan@livejournal.com>
  * Ported to LogJam by Ari Pollak <ari@debian.org>
- * 
+ *
  * This file is based on gedit-undo-manager.h from gEdit 2.2.1.
  * Original authors:
  * Copyright (C) 1998, 1999 Alex Roberts, Evan Lawrence
- * Copyright (C) 2000, 2001 Chema Celorio, Paolo Maggi 
+ * Copyright (C) 2000, 2001 Chema Celorio, Paolo Maggi
  */
 
 #ifndef __UNDOMGR_H__
@@ -21,10 +21,10 @@
 
 typedef struct _UndoMgrPrivate		UndoMgrPrivate;
 
-typedef struct 
+typedef struct
 {
 	GObject base;
-	
+
 	UndoMgrPrivate *priv;
 } UndoMgr;
 

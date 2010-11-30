@@ -19,11 +19,11 @@ typedef struct {
 	GtkItemFactory *factory;
 
 	/* menu items. */
-	GtkWidget *mweb, *msubmitsep, *msubmit, *msaveserver; 
+	GtkWidget *mweb, *msubmitsep, *msubmit, *msaveserver;
 	GtkWidget *mundo, *mredo;
 
 	GtkWidget *userlabel;
-	GtkWidget *baction; /* "action" button: 
+	GtkWidget *baction; /* "action" button:
 	                       submit / save changes */
 	GtkWidget *bdelete; /* "delete" button */
 

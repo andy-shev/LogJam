@@ -76,7 +76,7 @@ make_dialog(ImageDlg *idlg, GtkWindow *win) {
 			GTK_RESPONSE_OK);
 	g_signal_connect_swapped(G_OBJECT(idlg->dlg), "show",
 			G_CALLBACK(url_changed_cb), idlg);
-	
+
 	sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
 
 	vbox = gtk_vbox_new(FALSE, 12);
@@ -120,7 +120,7 @@ make_dialog(ImageDlg *idlg, GtkWindow *win) {
 	gtk_box_pack_start(GTK_BOX(dimbox), idlg->get, TRUE, FALSE, 0);
 
 	gtk_box_pack_end(GTK_BOX(hbox), dimbox, FALSE, FALSE, 0);
-	
+
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
 
 	jam_dialog_set_contents(GTK_DIALOG(idlg->dlg), vbox);

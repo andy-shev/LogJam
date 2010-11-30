@@ -30,7 +30,7 @@ typedef struct _JamHost JamHost;
 
 struct _JamAccount {
 	GObject obj;
-	
+
 	JamHost *host;
 
 	gboolean remember_user;

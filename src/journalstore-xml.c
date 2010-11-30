@@ -103,7 +103,7 @@ index_load(JournalStore *js, GError **err) {
 		}
 		ver = index_get(js->index, 0);
 	}
-		
+
 	if (ver < JOURNAL_STORE_INDEX_VERSION) {
 		/* file format somehow changed.  clear the index. */
 		g_array_set_size(js->index, 1);
@@ -211,7 +211,7 @@ switch_xml_file(JournalStore *js, int year, int mon, GError **err) {
 		return TRUE;
 	}
 
-	/* otherwise, switch to this file. 
+	/* otherwise, switch to this file.
 	 * XXX protective locking would be good. */
 	/* first write out the old file, if we have one. */
 	if (js->xml_year && js->xml_dirty) {
@@ -287,7 +287,7 @@ switch_xml_file_from_time(JournalStore *js, time_t *entrytime, GError **err) {
 	time_to_docidx(entrytime, &year, &mon, &day);
 	return switch_xml_file(js, year, mon, err);
 }
- 
+
 time_t
 journal_store_lookup_entry_time(JournalStore *js, int itemid) {
 	if (itemid >= (int)js->index->len)
@@ -487,7 +487,7 @@ journal_store_get_month_entries(JournalStore *js, int year, int mon) {
 }
 
 static void
-call_summarycb(JournalStore *js, xmlNodePtr nentry, 
+call_summarycb(JournalStore *js, xmlNodePtr nentry,
 		JournalStoreSummaryCallback cb_func, gpointer cb_data) {
 	xmlNodePtr nchild;
 	xmlChar *sitemid;
@@ -536,7 +536,7 @@ gboolean
 journal_store_get_day_entries(JournalStore *js, int year, int mon, int day,
 		JournalStoreSummaryCallback cb_func, gpointer cb_data) {
 	xmlNodePtr nday, nentry;
-	
+
 	switch_xml_file(js, year, mon, NULL);
 	nday = find_day(js->xml_doc, day, FALSE);
 
@@ -677,7 +677,7 @@ journal_store_find_relative_by_time(JournalStore *js, time_t when,
 			}
 		}
 	}
-	
+
 	if (fitemid) {
 		*ritemid = fitemid;
 		return TRUE;

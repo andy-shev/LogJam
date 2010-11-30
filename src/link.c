@@ -57,7 +57,7 @@ radio_option(GSList *g, GtkWidget **radio, GtkWidget **entry,
 
 	if (label) {
 		GtkWidget *hbox = gtk_hbox_new(FALSE, 0);
-		gtk_box_pack_start(GTK_BOX(hbox), 
+		gtk_box_pack_start(GTK_BOX(hbox),
 				gtk_label_new(label),
 				FALSE, FALSE, 0);
 		gtk_box_pack_start(GTK_BOX(hbox), *entry, TRUE, TRUE, 0);
@@ -82,7 +82,7 @@ link_magic(LinkRequest *lr) {
 	gchar *a, *b;
 	if (! ((lr->clip_type | lr->sel_type) & JAM_SELECTION_HAS_URL))
 		return NULL;
-	
+
 	xml_escape(&lr->clip_input);
 
 	/* boo for no list primitives in c */
@@ -119,15 +119,15 @@ make_link_dialog(LinkDialog *ld, GtkWindow *win, gboolean livejournal) {
 	hhr = labelled_box_new(_("Link Title:"), ld->titl);
 	gtk_box_pack_start(GTK_BOX(vbox), hhr, FALSE, FALSE, 0);
 
-	gtk_box_pack_start(GTK_BOX(vbox), 
+	gtk_box_pack_start(GTK_BOX(vbox),
 			radio_option(NULL, &ld->rurl, &ld->eurl, _("_URL:"), NULL, ""),
 			FALSE, FALSE, 0);
 
 	rgroup = gtk_radio_button_get_group(GTK_RADIO_BUTTON(ld->rurl));
 
 	if (livejournal) {
-		gtk_box_pack_start(GTK_BOX(vbox), 
-				radio_option(rgroup, &ld->ruser, &ld->euser, 
+		gtk_box_pack_start(GTK_BOX(vbox),
+				radio_option(rgroup, &ld->ruser, &ld->euser,
 					_("_LiveJournal User:"), ".../users/", ""),
 				FALSE, FALSE, 0);
 	}
@@ -150,7 +150,7 @@ has_url(char *buf) {
 
 static void
 prepopulate_fields(LinkDialog *ld, char *bufsel) {
-	GtkClipboard *clipboard; 
+	GtkClipboard *clipboard;
 	char *clipsel, *url = NULL;
 
 	clipboard = gtk_clipboard_get(GDK_SELECTION_CLIPBOARD);
@@ -161,7 +161,7 @@ prepopulate_fields(LinkDialog *ld, char *bufsel) {
 	} else if (clipsel && has_url(clipsel)) {
 		url = clipsel;
 	}
-	
+
 	if (bufsel)
 		gtk_entry_set_text(GTK_ENTRY(ld->etext), bufsel);
 	if (url) {
@@ -209,12 +209,12 @@ get_link(LinkDialog *ld, JamAccount *acc) {
 		xml_escape(&url);
 		link = g_strdup_printf("<a href=\"%s/users/%s\">%s</a>",
 				url, user, text);
-	} 
+	}
 	g_free(url);
 	g_free(user);
 	g_free(text);
 	g_free(title);
-	
+
 	return link;
 }
 

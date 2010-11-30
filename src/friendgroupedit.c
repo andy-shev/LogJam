@@ -29,12 +29,12 @@ typedef struct {
 	int freegroup; /* index of first free group number. */
 } friend_group_edit_dlg;
 
-static gboolean 
+static gboolean
 editgroup_run(friend_group_edit_dlg *fged) {
 	NetContext *ctx;
 	LJEditFriendGroups *efg;
 	int groupid;
-	
+
 	if (fged->editgroup) {
 		groupid = fged->editgroup->id;
 	} else {
@@ -42,7 +42,7 @@ editgroup_run(friend_group_edit_dlg *fged) {
 	}
 
 	efg = lj_editfriendgroups_new(jam_account_lj_get_user(fged->account));
-	lj_editfriendgroups_add_edit(efg, groupid, 
+	lj_editfriendgroups_add_edit(efg, groupid,
 			gtk_entry_get_text(GTK_ENTRY(fged->egroupname)),
 			gtk_toggle_button_get_active(
 					GTK_TOGGLE_BUTTON(fged->cpublic)));
@@ -59,9 +59,9 @@ editgroup_run(friend_group_edit_dlg *fged) {
 		fged->editgroup = lj_friendgroup_new();
 		fged->editgroup->id = fged->freegroup;
 	}
-	string_replace(&fged->editgroup->name, 
+	string_replace(&fged->editgroup->name,
 			g_strdup(gtk_entry_get_text(GTK_ENTRY(fged->egroupname))));
-	fged->editgroup->ispublic = 
+	fged->editgroup->ispublic =
 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(fged->cpublic));
 
 	lj_editfriendgroups_free(efg);
@@ -71,7 +71,7 @@ editgroup_run(friend_group_edit_dlg *fged) {
 
 static void
 entry_changed(GtkEntry *entry, GtkWidget* button) {
-	gtk_widget_set_sensitive(button, 
+	gtk_widget_set_sensitive(button,
 			(strlen(gtk_entry_get_text(entry)) > 0));
 }
 
@@ -133,7 +133,7 @@ friend_group_edit_dlg_run(GtkWindow *parent, JamAccountLJ *acc, LJFriendGroup *f
 			gtk_widget_destroy(fged->win);
 			return fged->editgroup;
 		}
-	} 
+	}
 	gtk_widget_destroy(fged->win);
 	return NULL;
 }

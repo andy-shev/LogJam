@@ -103,7 +103,7 @@ run_smartquotes(GtkTextBuffer *buffer) {
 
 		closing = (curnesting >= 0 && balance[curnesting] == quotes);
 		if (quotes == 1 &&
-				g_unichar_isalnum(lastc) && 
+				g_unichar_isalnum(lastc) &&
 				(!closing || g_unichar_isalnum(nextc))) {
 			/* an apostrophe.  fix it up, but don't change nesting. */
 			/*g_print("n %d apos %c\n", curnesting, (char)c);*/
@@ -112,19 +112,19 @@ run_smartquotes(GtkTextBuffer *buffer) {
 		} else if (closing) {
 			/*g_print("n %d right %c\n", curnesting, (char)c);*/
 			buffer_change_quote(buffer, &pos, &nextpos, c,
-					quotes == 1 ? 
+					quotes == 1 ?
 						UNICODE_RIGHTSINGLEQUOTE :
 						UNICODE_RIGHTDOUBLEQUOTE);
 			curnesting--;
 		} else {
 			/*g_print("n %d left %c\n", curnesting, (char)c);*/
 			buffer_change_quote(buffer, &pos, &nextpos, c,
-					quotes == 1 ? 
+					quotes == 1 ?
 						UNICODE_LEFTSINGLEQUOTE :
 						UNICODE_LEFTDOUBLEQUOTE);
 			curnesting++;
 			balance[curnesting] = quotes;
-		} 
+		}
 		if (curnesting >= 9) {
 			g_warning("too many nested quotes.");
 		}

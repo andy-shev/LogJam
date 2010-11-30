@@ -22,7 +22,7 @@ struct _ProgressWindow {
 	gpointer cancel_cb_data;
 };
 
-void 
+void
 progress_window_show_error(ProgressWindow *pw, const char *fmt, ...) {
 	char buf[1024];
 	va_list ap;
@@ -47,7 +47,7 @@ progress_window_show_error(ProgressWindow *pw, const char *fmt, ...) {
 	}
 }
 
-static void 
+static void
 cancel_cb(ProgressWindow *pw) {
 	if (pw->showing_error)
 		gtk_main_quit();
@@ -90,18 +90,18 @@ reposition(ProgressWindow *pw, gint w, gint h) {
 }
 
 static gboolean
-parent_configure_cb(GtkWidget *w, GdkEvent *e, ProgressWindow *pw) {	 
+parent_configure_cb(GtkWidget *w, GdkEvent *e, ProgressWindow *pw) {
 	reposition(pw, -1, -1);
-	return FALSE;	 
+	return FALSE;
 }
 
 static gboolean
-configure_cb(GtkWidget *w, GdkEventConfigure *e, ProgressWindow *pw) {	 
+configure_cb(GtkWidget *w, GdkEventConfigure *e, ProgressWindow *pw) {
 	if (GTK_WIDGET(pw)->allocation.width != e->width ||
 		GTK_WIDGET(pw)->allocation.height != e->height)
 		reposition(pw, e->width, e->height);
-	return FALSE;	 
-}	 
+	return FALSE;
+}
 
 
 static void
@@ -112,7 +112,7 @@ progress_window_set_parent(ProgressWindow *pw, GtkWindow *parent) {
 			G_CALLBACK(parent_configure_cb), pw);
 }
 
-static void 
+static void
 progress_window_init(ProgressWindow *pw) {
 	GtkWidget *frame;
 	GtkWidget *vbox;
@@ -129,10 +129,10 @@ progress_window_init(ProgressWindow *pw) {
 	g_signal_connect(G_OBJECT(pw), "configure-event",
 			G_CALLBACK(configure_cb), pw);
 
-	vbox = gtk_vbox_new(FALSE, 6); 
+	vbox = gtk_vbox_new(FALSE, 6);
 	gtk_container_set_border_width(GTK_CONTAINER(vbox), 6);
 
-	hbox = gtk_hbox_new(FALSE, 6); 
+	hbox = gtk_hbox_new(FALSE, 6);
 
 	pw->throbber = throbber_new();
 	align = gtk_alignment_new(0.5, 0, 0, 0);
@@ -163,10 +163,10 @@ progress_window_init(ProgressWindow *pw) {
 	gtk_box_pack_end(GTK_BOX(bbox), button, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(vbox), bbox, FALSE, FALSE, 0);
 
-	frame = gtk_frame_new(NULL);	 
-	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_OUT);	 
-	gtk_container_add(GTK_CONTAINER(frame), vbox);	 
-	gtk_widget_show_all(frame);	 
+	frame = gtk_frame_new(NULL);
+	gtk_frame_set_shadow_type(GTK_FRAME(frame), GTK_SHADOW_OUT);
+	gtk_container_add(GTK_CONTAINER(frame), vbox);
+	gtk_widget_show_all(frame);
 	gtk_widget_hide(pw->progress);
 	gtk_container_add(GTK_CONTAINER(pw), frame);
 
@@ -203,7 +203,7 @@ void
 progress_window_set_progress(ProgressWindow *pw, float frac) {
 	if (frac >= 0)
 		gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(pw->progress), frac);
-	
+
 	if (frac > 0) {
 		gtk_widget_show(pw->progress);
 	}/* else {
@@ -217,7 +217,7 @@ void progress_window_set_cancel_cb(ProgressWindow *pw,
 	pw->cancel_cb_data = data;
 }
 
-GtkWidget* 
+GtkWidget*
 progress_window_new(GtkWindow *parent, const char *title) {
 	ProgressWindow *pw = PROGRESS_WINDOW(g_object_new(progress_window_get_type(), NULL));
 	if (parent)

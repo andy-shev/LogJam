@@ -100,7 +100,7 @@ static void
 run_cfmask_manager_dlg(GtkWidget *b, ManagerUI *mui) {
 	JamAccountLJ *acc = mui->selection;
 	guint newmask, oldmask;
-	
+
 	oldmask = jam_account_lj_get_cfmask(acc);
 	newmask = custom_security_dlg_run(GTK_WINDOW(mui->win), oldmask, acc);
 	g_assert(mui->filterlabel);
@@ -119,7 +119,7 @@ lj_user_make_ui_identity(ManagerUI *mui, LJUser *user) {
 	GtkWidget *vbox, *epassword;
 
 	sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-	
+
 	vbox = gtk_vbox_new(FALSE, 6);
 	gtk_container_set_border_width(GTK_CONTAINER(vbox), 12);
 
@@ -133,14 +133,14 @@ lj_user_make_ui_identity(ManagerUI *mui, LJUser *user) {
 				jam_form_label_new(user->fullname), sg),
 			FALSE, FALSE, 0);
 
-	epassword = gtk_entry_new(); 
+	epassword = gtk_entry_new();
 	gtk_entry_set_visibility(GTK_ENTRY(epassword), FALSE);
 	gtk_entry_set_text(GTK_ENTRY(epassword), user->password);
 	gtk_widget_set_usize(epassword, 100, -1);
 	gtk_box_pack_start(GTK_BOX(vbox),
 			labelled_box_new_sg(_("_Password:"), epassword, sg),
 			FALSE, FALSE, 0);
-	
+
 	return vbox;
 }
 
@@ -188,7 +188,7 @@ account_lj_make_ui_friends(ManagerUI *mui, JamAccountLJ *acc) {
 	gtk_box_pack_start(GTK_BOX(vbox),
 			label_list(user->friendgroups, TRUE),
 			FALSE, FALSE, 0);
-	
+
 	box = groupedbox_new();
 	groupedbox_set_header(GROUPEDBOX(box),
 			_("Filter for friends list monitor:"), FALSE);
@@ -208,7 +208,7 @@ account_lj_make_ui_friends(ManagerUI *mui, JamAccountLJ *acc) {
 	groupedbox_pack(GROUPEDBOX(box), hbcff, FALSE);
 
 	gtk_box_pack_start(GTK_BOX(vbox), box, FALSE, FALSE, 0);
-	
+
 	g_signal_connect(G_OBJECT(bcff), "clicked",
 			G_CALLBACK(run_cfmask_manager_dlg), mui);
 
@@ -219,7 +219,7 @@ static GtkWidget*
 account_lj_make_ui(ManagerUI *mui, JamAccount *acc) {
 	LJUser *user;
 	GtkWidget *nb, *box;
-	
+
 	nb = gtk_notebook_new();
 
 	user = jam_account_lj_get_user(JAM_ACCOUNT_LJ(acc));
@@ -245,7 +245,7 @@ account_blogger_make_ui(ManagerUI *mui, JamAccount *acc) {
 	GtkWidget *vbox, *epassword;
 
 	sg = gtk_size_group_new(GTK_SIZE_GROUP_HORIZONTAL);
-	
+
 	vbox = gtk_vbox_new(FALSE, 6);
 
 	gtk_box_pack_start(GTK_BOX(vbox),
@@ -253,7 +253,7 @@ account_blogger_make_ui(ManagerUI *mui, JamAccount *acc) {
 				jam_form_label_new(jam_account_get_username(acc)), sg),
 			FALSE, FALSE, 0);
 
-	epassword = gtk_entry_new(); 
+	epassword = gtk_entry_new();
 	gtk_entry_set_visibility(GTK_ENTRY(epassword), FALSE);
 	gtk_widget_set_usize(epassword, 100, -1);
 	gtk_entry_set_text(GTK_ENTRY(epassword), jam_account_get_password(acc));
@@ -262,7 +262,7 @@ account_blogger_make_ui(ManagerUI *mui, JamAccount *acc) {
 			FALSE, FALSE, 0);
 
 	account_add_ui_loginoptions(mui, GTK_BOX(vbox), acc);
-		
+
 	return vbox;
 }
 #endif /* blogger_punted_for_this_release */
@@ -436,7 +436,7 @@ host_make_ui(ManagerUI *mui, JamHost *host) {
 
 	vbox = gtk_vbox_new(FALSE, 6);
 
-	name = gtk_entry_new(); 
+	name = gtk_entry_new();
 	gtk_entry_set_text(GTK_ENTRY(name), host->name);
 	g_signal_connect_after(G_OBJECT(name), "focus-out-event",
 			G_CALLBACK(host_rename_cb), host);
@@ -450,7 +450,7 @@ host_make_ui(ManagerUI *mui, JamHost *host) {
 		LJServer *server = jam_host_lj_get_server(hostlj);
 		GtkWidget *eurl, *cprotocol;
 
-		eurl = gtk_entry_new(); 
+		eurl = gtk_entry_new();
 		entry_tie(GTK_ENTRY(eurl), &server->url);
 		gtk_widget_set_usize(eurl, 200, -1);
 		gtk_box_pack_start(GTK_BOX(vbox),
@@ -467,7 +467,7 @@ host_make_ui(ManagerUI *mui, JamHost *host) {
 		GtkWidget *eurl;
 		char *url;
 
-		eurl = gtk_entry_new(); 
+		eurl = gtk_entry_new();
 		url = jam_host_blogger_get_rpcurl(hostb);
 		if (url)
 			gtk_entry_set_text(GTK_ENTRY(eurl), url);
@@ -557,7 +557,7 @@ populate_store(ManagerUI *mui) {
 
 static GtkTreeStore*
 make_model(ManagerUI *mui) {
-	mui->store = gtk_tree_store_new(COL_COUNT, 
+	mui->store = gtk_tree_store_new(COL_COUNT,
 			/* icon */ GDK_TYPE_PIXBUF,
 			/* name */ G_TYPE_STRING,
 			/* ishost */ G_TYPE_BOOLEAN,
@@ -665,7 +665,7 @@ del_cb(GtkWidget *b, ManagerUI *mui) {
 
 	/* XXX evan this logic is weird; we don't want to delete the "current"
 	 * stuff, but there is no real "current" anymore.  maybe we should
-	 * just unref it? 
+	 * just unref it?
 	if (mui->selection == c_cur_server()
 			|| mui->selection == c_cur_user()) {
 		return;

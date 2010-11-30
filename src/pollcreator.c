@@ -17,7 +17,7 @@ typedef struct _PollDlg PollDlg;
 
 struct _PollDlg {
 	GtkDialog dlg;                 /* Parent widget */
-	
+
 	GtkWidget *pollname, *viewers, *voters;
 	JamReorderable questions;
 };
@@ -61,7 +61,7 @@ MAKETYPE(polldlg_get_type, PollDlg, NULL, polldlg_init,
 static GtkWidget*
 make_pollmeta(PollDlg *pdlg) {
 	GtkWidget *hbox, *vbox, *menu;
-	
+
 	vbox = gtk_vbox_new(FALSE, 6);
 
 	pdlg->pollname = gtk_entry_new();
@@ -256,7 +256,7 @@ polldlg_init(GtkWidget *w) {
 
 	gtk_box_pack_start(GTK_BOX(vbox), make_pollmeta(pdlg),
 			FALSE, FALSE, 0);
-	
+
 	gtk_box_pack_start(GTK_BOX(vbox), make_content(pdlg),
 			TRUE, TRUE, 0);
 
@@ -401,13 +401,13 @@ poll_to_text(Poll *poll) {
 	GSList *l;
 
 	static char* psec_to_string[] = {
-		"all",    
+		"all",
 		"friends",
 		"none"
 	};
 
 	ptext = g_string_sized_new(2048);
-	
+
 	/* poll open tag */
 	g_string_append(ptext, "<lj-poll ");
 	if (poll->name)
@@ -418,7 +418,7 @@ poll_to_text(Poll *poll) {
 			psec_to_string[poll->viewers]);
 	g_string_append_printf(ptext, "whovote=\"%s\">\n\n",
 			psec_to_string[poll->voters]);
-	
+
 	/* poll questions */
 	for (l = poll->questions; l; l = l->next) {
 		PollQuestion *pq = l->data;
@@ -467,7 +467,7 @@ poll_read(PollDlg *pdlg) {
 			poll->questions = g_slist_append(poll->questions, pq);
 		} while (gtk_tree_model_iter_next(model, &iter));
 	}
-	
+
 	return poll;
 }
 
@@ -500,7 +500,7 @@ run_poll_creator_dlg(JamWin *jw) {
 	GString       *polltext = NULL;
 	PollDlg       *pdlg     = POLLDLG(polldlg_new(GTK_WIDGET(jw)));
 	GtkTextBuffer *buffer   = jam_doc_get_text_buffer(jw->doc);
-	
+
 	if (gtk_dialog_run(GTK_DIALOG(pdlg)) == GTK_RESPONSE_OK) {
 		polltext = polltext_generate(pdlg);
 		gtk_text_buffer_delete_selection(buffer, FALSE, FALSE);

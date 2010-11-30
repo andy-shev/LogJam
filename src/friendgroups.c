@@ -35,7 +35,7 @@ enum {
 	FRIEND_COL_FRIEND
 };
 
-static int 
+static int
 findfreegroup(FriendGroupsUI *fgui) {
 	int freegroup;
 
@@ -113,7 +113,7 @@ static void
 edit_cb(GtkWidget *w, FriendGroupsUI *fgui) {
 	LJFriendGroup *fg;
 	GtkTreeIter iter;
-	
+
 	fg = get_selected_fg(fgui, &iter);
 	if (fg == NULL)
 		return;
@@ -135,12 +135,12 @@ remove_cb(GtkWidget *w, FriendGroupsUI *fgui) {
 	GSList *l;
 	guint32 gmask;
 	GtkTreeIter iter;
-	
+
 	fg = get_selected_fg(fgui, &iter);
 	if (fg == NULL)
 		return;
 	gmask = 1L << fg->id;
-	
+
 	efg = lj_editfriendgroups_new(u);
 	lj_editfriendgroups_add_delete(efg, fg->id);
 
@@ -305,7 +305,7 @@ friend_addrem_post_cb(GtkTreeModel *source, GtkTreePath *path, GtkTreeIter *iter
 }
 
 static void
-addrem_cb(FriendGroupsUI *fgui, 
+addrem_cb(FriendGroupsUI *fgui,
 		GtkTreeView *source, GtkTreeView *dest, gboolean add) {
 	NetContext *ctx;
 	LJEditFriendGroups *efg;
@@ -313,7 +313,7 @@ addrem_cb(FriendGroupsUI *fgui,
 	guint32 gmask;
 	FGAddRem rreq;
 	GtkTreeSelection *sel;
-	
+
 	fg = get_selected_fg(fgui, NULL);
 	if (!fg) return;
 
@@ -359,7 +359,7 @@ rem_cb(GtkWidget *w, FriendGroupsUI *fgui) {
 
 static void
 rowsel_sensitive_cb(GtkTreeSelection *sel, GtkWidget *w) {
-	gtk_widget_set_sensitive(w, 
+	gtk_widget_set_sensitive(w,
 		gtk_tree_selection_get_selected(sel, NULL, NULL));
 }
 static void
@@ -451,7 +451,7 @@ make_include_side(FriendGroupsUI *fgui) {
 	GtkWidget *button;
 
 	fg_make_friendlist(&fgui->inc, &fgui->linc, _("Included"));
-	
+
 	button = gtk_button_new();
 	gtk_container_add(GTK_CONTAINER(button),
 			gtk_image_new_from_stock(
@@ -526,12 +526,12 @@ friendgroups_dialog_new(GtkWindow *parent, JamAccountLJ *acc, GSList *friends) {
 
 	vbox = gtk_vbox_new(FALSE, 5);
 	gtk_container_set_border_width(GTK_CONTAINER(vbox), 10);
-	gtk_box_pack_start(GTK_BOX(vbox), 
+	gtk_box_pack_start(GTK_BOX(vbox),
 			fg_list_create(fgui), TRUE, TRUE, 0);
 	hbox = gtk_hbox_new(FALSE, 0);
-	gtk_box_pack_end(GTK_BOX(hbox), 
+	gtk_box_pack_end(GTK_BOX(hbox),
 			fg_list_buttonbox(fgui), FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(vbox), 
+	gtk_box_pack_start(GTK_BOX(vbox),
 			hbox, FALSE, FALSE, 0);
 	gtk_paned_pack1(GTK_PANED(paned), vbox, TRUE, TRUE);
 
@@ -541,9 +541,9 @@ friendgroups_dialog_new(GtkWindow *parent, JamAccountLJ *acc, GSList *friends) {
 	hbox = gtk_hbox_new(FALSE, 5);
 	gtk_container_set_border_width(GTK_CONTAINER(hbox), 10);
 
-	gtk_box_pack_start(GTK_BOX(hbox), 
+	gtk_box_pack_start(GTK_BOX(hbox),
 			make_include_side(fgui), TRUE, TRUE, 0);
-	gtk_box_pack_start(GTK_BOX(hbox), 
+	gtk_box_pack_start(GTK_BOX(hbox),
 			make_exclude_side(fgui), TRUE, TRUE, 0);
 
 	gtk_paned_pack2(GTK_PANED(paned), hbox, TRUE, TRUE);

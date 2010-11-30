@@ -226,7 +226,7 @@ journal_store_get_entry(JournalStore *js, int get_itemid) {
 
 	SQLCHECK(sqlite3_prepare(js->db,
 		"SELECT anum, subject, event, moodid, mood, " /* 0-4 */
-		"music, pickeyword, preformatted, backdated, " /* 5-9 */ 
+		"music, pickeyword, preformatted, backdated, " /* 5-9 */
 		"comments, timestamp, security, taglist " /* 10-13 */
 		"FROM entry WHERE itemid=?1",
 		-1, &stmt, NULL));

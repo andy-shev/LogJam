@@ -383,7 +383,7 @@ void st_start_element(GMarkupParseContext *context,
 	else if (g_ascii_strcasecmp(element_name, "u") == 0)
 		g_string_append_c(parser->dst, '_');
 	else if (g_ascii_strcasecmp(element_name, "p") == 0) {
-		for (; parser->cindent < parser->indent; parser->cindent++) 
+		for (; parser->cindent < parser->indent; parser->cindent++)
 			g_string_append_c(parser->dst, '\t');
 	}
 	else if (g_ascii_strcasecmp(element_name, "blockquote") == 0)
@@ -395,7 +395,7 @@ void st_start_element(GMarkupParseContext *context,
 			g_string_append_c(parser->dst, '\n');
 			parser->cindent = 0;
 		}
-		for (; parser->cindent < parser->indent; parser->cindent++) 
+		for (; parser->cindent < parser->indent; parser->cindent++)
 			g_string_append_c(parser->dst, '\t');
 		g_string_append(parser->dst, "* ");
 	}

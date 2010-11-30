@@ -97,7 +97,7 @@ conf_parsedirxml(const char *dirname, void* (*fn)(xmlDocPtr, xmlNodePtr, void*),
 
 
 /* we use a bunch of macro magic to make this simpler.
- * (see xml_macros.h) 
+ * (see xml_macros.h)
  */
 
 /* this should match the enum in conf.h */
@@ -242,7 +242,7 @@ parseconf(xmlDocPtr doc, xmlNodePtr node, void *data) {
 	char *hostspath;
 	Configuration *c = data;
 
-#define XML_GET_CONF(key, func) XML_GET_IF(key, func(c, doc, node);) 
+#define XML_GET_CONF(key, func) XML_GET_IF(key, func(c, doc, node);)
 	node = node->xmlChildrenNode;
 	for (; node != NULL; node = node->next) {
 		XML_GET_STR("currentserver", hostname)

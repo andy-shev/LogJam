@@ -1,5 +1,5 @@
 /* logjam - a GTK client for LiveJournal.
- * 
+ *
  * Functions to run some external program and return its output.
  * Copyright (C) 2004, Kir Kolyshkin <kir@sacred.ru>
  *
@@ -171,7 +171,7 @@ GString * get_command_output(const char *command, GError **err,
 		return NULL;
 	}
 	/* Positive 'ret' values are command exit code, while negative one
-	 * means execution error or termination. 
+	 * means execution error or termination.
 	 * Let's ignore all non-zero exit codes but 127, since 127
 	 * means "command not found" from sh. Ugly hack?
 	 */

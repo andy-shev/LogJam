@@ -451,7 +451,7 @@ jam_doc_save_as_file(JamDoc *doc, const char *filename, GError **err) {
 gboolean
 jam_doc_save_as_draft(JamDoc *doc, const char *title, JamAccount *acc, GError **err) {
 	LJEntry *entry;
-	
+
 	entry = jam_doc_get_entry(doc);
 	string_replace(&entry->subject, g_strdup(title));
 	entry->itemid = 0;
@@ -694,7 +694,7 @@ jam_doc_change_textstyle(JamDoc *doc, TextStyle newstyle, GError **err) {
 			g_free(html);
 		return FALSE;
 	}
-	
+
 	doc->textstyle = newstyle;
 	gtk_text_buffer_set_text(buffer, result, -1);
 

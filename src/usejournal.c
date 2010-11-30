@@ -60,14 +60,14 @@ usejournal_build_menu(const char *defaultjournal, const char *currentjournal,
 	char *curmenuprefix = NULL;
 	char prefix[30];
 
-	curmenu = menu = gtk_menu_new(); 
+	curmenu = menu = gtk_menu_new();
 
 	item = gtk_radio_menu_item_new_with_label(group, defaultjournal);
 	group = gtk_radio_menu_item_get_group(GTK_RADIO_MENU_ITEM(item));
 	g_signal_connect(G_OBJECT(item), "activate",
 			G_CALLBACK(activate_cb), doc);
 
-	if (currentjournal == NULL) 
+	if (currentjournal == NULL)
 		gtk_check_menu_item_set_active(GTK_CHECK_MENU_ITEM(item), TRUE);
 
 	gtk_widget_show(item);
@@ -84,7 +84,7 @@ usejournal_build_menu(const char *defaultjournal, const char *currentjournal,
 				curmenu = menu;
 				curmenuprefix = NULL;
 			}
-		} 
+		}
 		if (!curmenuprefix && l->next) {
 			/* try to see if this begins a new prefix. */
 			char *nextjournal = (char*)l->next->data;

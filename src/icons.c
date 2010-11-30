@@ -35,7 +35,7 @@ inline_to_listpixbuf(const guint8 *data) {
 
 	spb = gdk_pixbuf_scale_simple(pb, width, height, GDK_INTERP_BILINEAR);
 	g_object_unref(pb);
-	
+
 	return spb;
 }
 GdkPixbuf*

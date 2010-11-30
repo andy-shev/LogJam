@@ -4,7 +4,7 @@
  * vim: tabstop=4 shiftwidth=4 noexpandtab :
  */
 
-#include "config.h" 
+#include "config.h"
 
 #include "glib-all.h"
 #include <stdio.h>

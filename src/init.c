@@ -87,7 +87,7 @@ try_remote_command(JamAccount *acc) {
 static void
 init_app(int *argc, gchar *argv[]) {
 	gint i, shift = 0;
-	
+
 	memset(&app, 0, sizeof(Application));
 	app.programname      = argv[0]; /* not the same as PROGRAMNAME */
 
@@ -129,7 +129,7 @@ run_gtk(JamDoc *doc) {
 	gchar *accelpath;
 
 	app.remote = logjam_remote_new();
-	
+
 	accelpath = g_build_filename(app.conf_dir, "accels", NULL);
 	gtk_accel_map_load(accelpath);
 

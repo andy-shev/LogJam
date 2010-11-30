@@ -87,7 +87,7 @@ load_recent(HistoryUI *hui, GtkWindow *parent) {
 	GtkTreeIter iter;
 	GdkPixbuf *pb;
 	NetContext *ctx;
-	
+
 	if (!JAM_ACCOUNT_IS_LJ(hui->account)) {
 		g_warning("XXX blogger: history for blogger\n");
 		return -1;
@@ -159,8 +159,8 @@ static GtkWidget*
 make_recentview(HistoryUI *hui) {
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
-	
-	hui->recentview = 
+
+	hui->recentview =
 		gtk_tree_view_new_with_model(GTK_TREE_MODEL(hui->recentstore));
 	gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(hui->recentview), TRUE);
 	g_object_unref(G_OBJECT(hui->recentstore));
@@ -252,9 +252,9 @@ history_recent_dialog_run(GtkWindow *parent, JamAccount *acc, const char *usejou
 
 	make_dialog(hui, parent);
 
-	hui->pb_friends = gtk_widget_render_icon(hui->win, 
+	hui->pb_friends = gtk_widget_render_icon(hui->win,
 			"logjam-protected", GTK_ICON_SIZE_MENU, NULL);
-	hui->pb_private = gtk_widget_render_icon(hui->win, 
+	hui->pb_private = gtk_widget_render_icon(hui->win,
 			"logjam-private", GTK_ICON_SIZE_MENU, NULL);
 
 	if (load_recent(hui, parent) <= 0)
@@ -265,7 +265,7 @@ history_recent_dialog_run(GtkWindow *parent, JamAccount *acc, const char *usejou
 		if (entry)
 			break;
 	}
-	
+
 	gtk_widget_destroy(hui->win);
 	return entry;
 }

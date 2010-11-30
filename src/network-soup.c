@@ -89,7 +89,7 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 
 	response = g_string_new_len(req->response_body->data, req->response_body->length);
 
-	if (conf.options.netdump) 
+	if (conf.options.netdump)
 		fprintf(stderr, _("Response: [%s]\n"), response->str);
 
 out:

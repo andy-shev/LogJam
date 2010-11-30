@@ -263,7 +263,7 @@ move_relative(OfflineUI *oui, int dir) {
 		when_tm.tm_year = year-1900;
 		when_tm.tm_mon  = month;
 		when_tm.tm_mday = day;
-		
+
 		found = journal_store_find_relative_by_time(oui->journalstore,
 				lj_timegm(&when_tm), &itemid, dir, NULL);
 	}
@@ -291,7 +291,7 @@ make_cal(OfflineUI *oui) {
 	oui->cal = gtk_calendar_new();
 	gtk_calendar_display_options(GTK_CALENDAR(oui->cal),
 			GTK_CALENDAR_SHOW_HEADING);
-	
+
 	g_signal_connect(G_OBJECT(oui->cal), "month_changed",
 			G_CALLBACK(month_changed_cb), oui);
 	g_signal_connect(G_OBJECT(oui->cal), "day_selected",
@@ -390,7 +390,7 @@ make_search(OfflineUI *oui) {
 			G_CALLBACK(find_cb), oui);
 	gtk_box_pack_start(GTK_BOX(bbox), button, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(box), bbox, FALSE, FALSE, 0);
-	
+
 	return box;
 }
 
@@ -445,9 +445,9 @@ offlineui_init(GTypeInstance *instance, gpointer g_class) {
 	GtkWidget *hbox, *vbox, *nb, *copy;
 	GtkTreeSelection *sel;
 
-	oui->pb_friends = gtk_widget_render_icon(GTK_WIDGET(oui), 
+	oui->pb_friends = gtk_widget_render_icon(GTK_WIDGET(oui),
 			"logjam-protected", GTK_ICON_SIZE_MENU, NULL);
-	oui->pb_private = gtk_widget_render_icon(GTK_WIDGET(oui), 
+	oui->pb_private = gtk_widget_render_icon(GTK_WIDGET(oui),
 			"logjam-private", GTK_ICON_SIZE_MENU, NULL);
 
 	gtk_window_set_default_size(GTK_WINDOW(oui), 400, 500);
@@ -587,7 +587,7 @@ offline_current_entry_link(OfflineUI *oui) {
 				time.tm_mon + 1,
 				time.tm_mday);
 	}
-	
+
 	return url;
 }
 
@@ -643,7 +643,7 @@ offline_dlg_run(GtkWindow *parent, JamAccount *acc) {
 				run = FALSE;
 		}
 	}
-	
+
 	gtk_widget_destroy(oui);
 
 	return entry;

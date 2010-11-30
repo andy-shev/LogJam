@@ -232,7 +232,7 @@ mood_add(JamView *view) {
 	view->moodcombo = gtk_combo_new();
 	gtk_widget_set_usize(GTK_COMBO(view->moodcombo)->entry, 100, -1);
 	mood_populate(view);
-	
+
 	/*view->moodbox = gtk_hbox_new(FALSE, 12);
 	gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodbutton, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodcombo, TRUE, TRUE, 0);*/
@@ -733,7 +733,7 @@ populate_entry_popup(GtkTextView *text, GtkMenu *menu, JamView *view) {
 			G_CALLBACK(redo_cb), view);
 	gtk_menu_shell_prepend(GTK_MENU_SHELL(menu), menu_item);
 	gtk_widget_show(menu_item);
-	
+
 	menu_item = gtk_image_menu_item_new_from_stock(GTK_STOCK_UNDO, NULL);
 	gtk_widget_set_sensitive(menu_item,
 			undomgr_can_undo(view->undomgr));

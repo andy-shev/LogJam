@@ -58,7 +58,7 @@ make_title_box(AboutUI *aui) {
 	char *text;
 
 	image = gtk_image_new_from_stock("logjam-goat", GTK_ICON_SIZE_DIALOG);
-	
+
 	label = gtk_label_new(NULL);
 	text = g_strdup_printf(_("<b><big>LogJam %s</big></b>\n"
 			"<small>Copyright (C) 2000-2004 Evan Martin</small>"),
@@ -73,7 +73,7 @@ make_title_box(AboutUI *aui) {
 	aui->cursor = gdk_cursor_new(GDK_HAND2);
 	gtk_container_add(GTK_CONTAINER(aui->linkwin), label);
 
-	hbox = gtk_hbox_new(FALSE, 10); 
+	hbox = gtk_hbox_new(FALSE, 10);
 	gtk_container_set_border_width(GTK_CONTAINER(hbox), 5);
 	gtk_box_pack_start(GTK_BOX(hbox), image, FALSE, FALSE, 0);
 	gtk_box_pack_start(GTK_BOX(hbox), aui->linkwin, TRUE, FALSE, 0);
@@ -92,7 +92,7 @@ showthanks_cb(AboutUI *aui) {
 			gtk_tooltips_set_tip(app.tooltips, aui->scrollerbox,
 					_(contribs[aui->curcontrib].contribution), NULL);
 		}
-	
+
 		aui->layout = gtk_widget_create_pango_layout(aui->scroller, contribs[aui->curcontrib].name);
 		pango_layout_get_pixel_size(aui->layout, &w, &h);
 		gtk_widget_set_size_request(aui->scroller, w, h);
@@ -167,7 +167,7 @@ void about_dlg(GtkWindow *mainwin) {
 	mainbox = gtk_vbox_new(FALSE, 5);
 
 	gtk_box_pack_start(GTK_BOX(mainbox), make_title_box(aui), FALSE, FALSE, 0);
-	
+
 	fh = gtk_label_new(_(
 	"This program is free software; you can redistribute it and/or modify\n"
 	"it under the terms of the GNU General Public License as published by\n"
@@ -176,7 +176,7 @@ void about_dlg(GtkWindow *mainwin) {
 
 	gtk_box_pack_start(GTK_BOX(mainbox), fh, TRUE, TRUE, 0);
 
-	gtk_box_pack_start(GTK_BOX(mainbox), 
+	gtk_box_pack_start(GTK_BOX(mainbox),
 			gtk_label_new(_("LogJam was made with the help of many people, including:")),
 			FALSE, FALSE, 0);
 

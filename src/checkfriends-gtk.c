@@ -44,7 +44,7 @@ static void cf_float_destroyed_cb(GtkWidget *widget, CFFloat *cff);
 static void
 cf_float_update(CFFloat *cff, CFState state) {
 	const gchar *tip_text = NULL;
-	
+
 	switch (state) {
 		case CF_DISABLED:
 			throbber_stop(THROBBER(cff->throbber));
@@ -85,7 +85,7 @@ static void
 open_friends_list(CFMgr *cfm) {
 	char *url;
 	JamAccountLJ *acc;
-	
+
 	acc = cfmgr_get_account(cfm);
 	if (!acc) return;
 
@@ -169,10 +169,10 @@ clicked_cb(GtkWidget* w, GdkEventButton *ev, CFFloat *cff) {
 	/* and double-clicks open up the browser, too */
 	if (ev->type==GDK_2BUTTON_PRESS) {
 		// XXX open_friends_list(GTK_WINDOW(cff->parent));
-	
+
 		return TRUE;
 	}
-	
+
 	/* this help box will only be called once in a double-click,
 	 * thankfully, because the above is terminal on double-clicks. */
 	/*if (state == CF_DISABLED) {

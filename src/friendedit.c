@@ -40,9 +40,9 @@ update_preview(FriendEditUI *feui) {
 	gtk_widget_modify_base(feui->eusername, GTK_STATE_NORMAL, &bg);
 }
 
-static void 
+static void
 color_entry_changed(GtkEntry *e, FriendEditUI *feui) {
-	if (strlen(gtk_entry_get_text(e)) == 7) 
+	if (strlen(gtk_entry_get_text(e)) == 7)
 		update_preview(feui);
 }
 
@@ -61,11 +61,11 @@ change_entry_color_dlg(FriendEditUI *feui, GtkWidget *toedit, const char *title)
 	csel = GTK_COLOR_SELECTION(GTK_COLOR_SELECTION_DIALOG(dlg)->colorsel);
 
 	curcolor = gtk_entry_get_text(GTK_ENTRY(toedit));
-	
+
 	/* convert existing hex color to the color selection's color */
 	if (strlen(curcolor) == 7 && curcolor[0] == '#') {
 		gdk_color_parse(curcolor, &color);
-		gtk_color_selection_set_current_color(csel, &color); 
+		gtk_color_selection_set_current_color(csel, &color);
 	}
 
 	if (gtk_dialog_run(GTK_DIALOG(dlg)) == GTK_RESPONSE_OK) {
@@ -80,17 +80,17 @@ change_entry_color_dlg(FriendEditUI *feui, GtkWidget *toedit, const char *title)
 	return 0;
 }
 
-static void 
+static void
 change_col_bg(GtkWidget *w, FriendEditUI *feui) {
 	change_entry_color_dlg(feui, feui->ebgcolor, _("Select Background Color"));
 }
 
-static void 
+static void
 change_col_fg(GtkWidget *w, FriendEditUI *feui) {
 	change_entry_color_dlg(feui, feui->efgcolor, _("Select Foreground Color"));
 }
 
-static gboolean 
+static gboolean
 add_the_friend(FriendEditUI *feui) {
 	NetContext *ctx;
 	LJEditFriends *ef;
@@ -103,7 +103,7 @@ add_the_friend(FriendEditUI *feui) {
 			gtk_entry_get_text(GTK_ENTRY(feui->eusername)),
 			gtk_entry_get_text(GTK_ENTRY(feui->efgcolor)),
 			gtk_entry_get_text(GTK_ENTRY(feui->ebgcolor)));
-			
+
 	if (!net_run_verb_ctx((LJVerb*)ef, ctx, NULL) || ef->addcount != 1) {
 		lj_editfriends_free(ef);
 		net_ctx_gtk_free(ctx);
@@ -113,7 +113,7 @@ add_the_friend(FriendEditUI *feui) {
 	name = ef->added[0].fullname;
 	username = ef->added[0].username;
 
-	if (feui->editfriend == NULL || 
+	if (feui->editfriend == NULL ||
 			strcmp(feui->editfriend->username, username) != 0) {
 		/* we must create a new friend */
 		feui->editfriend = lj_friend_new();
@@ -135,7 +135,7 @@ add_the_friend(FriendEditUI *feui) {
 static void
 entry_changed(GtkEntry *entry, FriendEditUI* feui) {
 	gtk_dialog_set_response_sensitive(GTK_DIALOG(feui->win),
-			GTK_RESPONSE_OK, 
+			GTK_RESPONSE_OK,
 			(strlen(gtk_entry_get_text(entry)) > 0));
 }
 
@@ -159,7 +159,7 @@ friend_edit_dlg_run(GtkWindow *parent, JamAccountLJ *acc, gboolean edit, LJFrien
 	gtk_dialog_set_default_response(GTK_DIALOG(feui->win), GTK_RESPONSE_OK);
 
 	table = jam_table_new(3, 3);
-	   
+
 	/* make the labels/entries */
 	feui->eusername = gtk_entry_new();
 	gtk_entry_set_activates_default(GTK_ENTRY(feui->eusername), TRUE);
@@ -172,7 +172,7 @@ friend_edit_dlg_run(GtkWindow *parent, JamAccountLJ *acc, gboolean edit, LJFrien
 			G_CALLBACK(entry_changed), feui);
 
 	gtk_widget_set_size_request(feui->eusername, 100, -1);
-	jam_table_label_content(GTK_TABLE(table), 0, 
+	jam_table_label_content(GTK_TABLE(table), 0,
 			_("Friend's _username:"), feui->eusername);
 
 	feui->efgcolor = gtk_entry_new();
@@ -181,7 +181,7 @@ friend_edit_dlg_run(GtkWindow *parent, JamAccountLJ *acc, gboolean edit, LJFrien
 	g_signal_connect(G_OBJECT(feui->efgcolor), "changed",
 			G_CALLBACK(color_entry_changed), feui);
 	gtk_widget_set_size_request(feui->efgcolor, 100, -1);
-	jam_table_label_content(GTK_TABLE(table), 1, 
+	jam_table_label_content(GTK_TABLE(table), 1,
 			_("_Text color:"), feui->efgcolor);
 
 	feui->ebgcolor = gtk_entry_new();
@@ -199,10 +199,10 @@ friend_edit_dlg_run(GtkWindow *parent, JamAccountLJ *acc, gboolean edit, LJFrien
 	g_signal_connect(G_OBJECT(button), "clicked",
 			G_CALLBACK(change_col_fg), feui);
 	button = gtk_button_new_with_label(" ... ");
-	gtk_table_attach(GTK_TABLE(table), button, 2, 3, 2, 3, GTK_FILL, 0, 2, 2);	  
+	gtk_table_attach(GTK_TABLE(table), button, 2, 3, 2, 3, GTK_FILL, 0, 2, 2);
 	g_signal_connect(G_OBJECT(button), "clicked",
 			G_CALLBACK(change_col_bg), feui);
-		
+
 	jam_dialog_set_contents(GTK_DIALOG(feui->win), table);
 
 	/* fill in default values. */

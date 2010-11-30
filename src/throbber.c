@@ -68,7 +68,7 @@ update_svg(Throbber *t) {
 
 	handle = rsvg_handle_new();
 	rsvg_handle_set_size_callback(handle, size_cb, NULL, NULL);
-	
+
 	if (!rsvg_handle_write(handle,
 				(unsigned char*)logo_svg_data_1, sizeof(logo_svg_data_1)-1,
 				&err)) {

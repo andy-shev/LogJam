@@ -22,7 +22,7 @@
 #include "login.h"
 
 #define RESPONSE_UPDATE 1
- 
+
 typedef struct {
 	GtkWidget *win;
 	GtkWidget *mhost, *eusername, *epassword;
@@ -36,7 +36,7 @@ typedef struct {
 static void populate_host_list(login_dlg *ldlg);
 static void populate_user_list(login_dlg *ldlg);
 
-static void 
+static void
 load_account(login_dlg *ldlg, JamAccount *acc) {
 	if (acc) {
 		const char *password = jam_account_get_password(acc);
@@ -53,7 +53,7 @@ load_account(login_dlg *ldlg, JamAccount *acc) {
 	}
 }
 
-static void 
+static void
 username_changed(GtkWidget *w, login_dlg *ldlg) {
 	JamAccount *acc;
 	acc = jam_host_get_account_by_username(ldlg->curhost,
@@ -88,7 +88,7 @@ get_selected_account(login_dlg *ldlg) {
 	return acc;
 }
 
-gboolean 
+gboolean
 login_run(GtkWindow *parent, JamAccountLJ *acc) {
 	LJUser *u = jam_account_lj_get_user(acc);
 	LJLogin *login;
@@ -121,7 +121,7 @@ login_run(GtkWindow *parent, JamAccountLJ *acc) {
 static void
 host_changed_cb(GtkOptionMenu *menu, login_dlg *ldlg) {
 	GSList *l;
-	
+
 	l = g_slist_nth(conf.hosts, gtk_option_menu_get_history(menu));
 	if (!l || !l->data) return;
 	ldlg->curhost = l->data;
@@ -168,7 +168,7 @@ populate_host_list(login_dlg *ldlg) {
 	g_signal_connect(G_OBJECT(item), "activate",
 			G_CALLBACK(addedit_host_cb), ldlg);
 	gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
-	
+
 	gtk_widget_show_all(menu);
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(ldlg->mhost), menu);
 	if (history >= 0)
@@ -236,14 +236,14 @@ make_login_table(login_dlg *ldlg) {
 	ldlg->cusername = gtk_combo_new();
 	gtk_widget_set_size_request(ldlg->cusername, 50, -1);
 	ldlg->eusername = GTK_COMBO(ldlg->cusername)->entry;
-	gtk_combo_disable_activate(GTK_COMBO(ldlg->cusername)); 
+	gtk_combo_disable_activate(GTK_COMBO(ldlg->cusername));
 	gtk_entry_set_activates_default(GTK_ENTRY(ldlg->eusername), TRUE);
 	gtk_box_pack_start(GTK_BOX(vbox),
 			labelled_box_new_all(_("_User Name:"), ldlg->cusername, TRUE,
 				sg, ldlg->eusername),
 			FALSE, FALSE, 0);
 
-	ldlg->epassword = gtk_entry_new(); 
+	ldlg->epassword = gtk_entry_new();
 	gtk_entry_set_activates_default(GTK_ENTRY(ldlg->epassword), TRUE);
 	gtk_widget_set_size_request(ldlg->epassword, 100, -1);
 	gtk_entry_set_visibility(GTK_ENTRY(ldlg->epassword), FALSE);
@@ -301,7 +301,7 @@ login_check_lastupdate(GtkWindow *parent, JamAccountLJ *acclj) {
 
 	if (acclj->lastupdate == 0) {
 		msg = g_strdup_printf(_("Account '%s' hasn't ever logged in.  "
-								"Log in now?"), jam_account_get_username(acc)); 
+								"Log in now?"), jam_account_get_username(acc));
 	} else {
 		msg = g_strdup_printf(_("Account '%s' hasn't logged in "
 								"in at least %lu days.  Log in now?"),
@@ -346,7 +346,7 @@ login_dlg_run(GtkWindow *parent, JamHost *host, JamAccount *acc) {
 
 	gtk_widget_realize(ldlg->win);
 
-	vbox = gtk_vbox_new(FALSE, 5); 
+	vbox = gtk_vbox_new(FALSE, 5);
 
 	gtk_box_pack_start(GTK_BOX(vbox), make_login_table(ldlg), TRUE, TRUE, 0);
 	align = gtk_alignment_new(.5, .5, 1, 0);

@@ -16,10 +16,10 @@ add_menu_item(GtkMenuShell *ms, const gchar *id, const gchar *text) {
 	GtkWidget *item;
 
 	hbox = gtk_hbox_new(FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(hbox), 
-			gtk_image_new_from_stock(id, GTK_ICON_SIZE_MENU), 
+	gtk_box_pack_start(GTK_BOX(hbox),
+			gtk_image_new_from_stock(id, GTK_ICON_SIZE_MENU),
 			FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(hbox), 
+	gtk_box_pack_start(GTK_BOX(hbox),
 			gtk_label_new(text), FALSE, FALSE, 0);
 
 	item = gtk_menu_item_new();

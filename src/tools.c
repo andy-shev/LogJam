@@ -46,7 +46,7 @@ tools_html_escape(GtkWindow *win, JamDoc *doc) {
 
 	gtk_text_buffer_begin_user_action(buffer); /* atomic, in terms of undo */
 
-	for (pos = start; 
+	for (pos = start;
 			gtk_text_iter_in_range(&pos, &start, &end);
 			gtk_text_iter_forward_char(&pos)) {
 		c = gtk_text_iter_get_char(&pos);
@@ -64,7 +64,7 @@ tools_html_escape(GtkWindow *win, JamDoc *doc) {
 
 		/* to counteract the pos++ in the for loop */
 		gtk_text_iter_backward_char(&pos);
-		
+
 		/* changing the buffer invalidates this iterator */
 		gtk_text_buffer_get_selection_bounds(buffer, &start, &end);
 	}
@@ -90,13 +90,13 @@ tools_remove_linebreaks(GtkWindow *win, JamDoc *doc) {
 				_("When you paste text into LogJam, linebreaks from the original are preserved, and will normally show up in your post on the server. You can have LogJam remove extraneous linebreaks from your entry, but you must make a specific selection of the text you wish this to happen on first.\n\nNote that you can also use the \"don't autoformat\" option on your post."));
 		return;
 	}
- 
+
 	gtk_text_buffer_begin_user_action(buffer); /* atomic, in terms of undo */
 
-	for (pos = start; 
+	for (pos = start;
 			gtk_text_iter_in_range(&pos, &start, &end);
 			gtk_text_iter_forward_char(&pos)) {
-		
+
 		/* we remove linebreaks as we see them; but later we will
 		 * make up for our deletions by inserting spaces or \n\ns
 		 * as appropriate. */
@@ -113,9 +113,9 @@ tools_remove_linebreaks(GtkWindow *win, JamDoc *doc) {
 
 			continue;
 		}
-		
+
 		leading = FALSE;
-		
+
 		/* make up for what we removed, according to how long a run
 		 * it was. */
 		if (nlrun == 1) { /* line separators turn into a space */
@@ -125,7 +125,7 @@ tools_remove_linebreaks(GtkWindow *win, JamDoc *doc) {
 		} else if (nlrun > 1) { /* paragraph breaks are normalized */
 			nlrun = 0;
 			gtk_text_buffer_insert(buffer, &pos, "\n\n", 2);
-			
+
 			/* this is safe, since we've just added two characters. */
 			gtk_text_iter_forward_chars(&pos, 2);
 
@@ -135,7 +135,7 @@ tools_remove_linebreaks(GtkWindow *win, JamDoc *doc) {
 
 	gtk_text_buffer_move_mark_by_name(buffer, "insert", &end);
 	gtk_text_buffer_move_mark_by_name(buffer, "selection_bound", &end);
-	
+
 	gtk_text_buffer_end_user_action(buffer);
 }
 
@@ -206,7 +206,7 @@ tools_insert_command_output(GtkWindow *win, JamDoc *doc) {
 	gtk_window_set_transient_for(GTK_WINDOW(cmd_dlg), win);
 
 	entry = gtk_entry_new();
-	
+
 	box = labelled_box_new(_("_Command:"), entry);
 	jam_dialog_set_contents(GTK_DIALOG(cmd_dlg), box);
 	gtk_widget_grab_focus(entry);
@@ -243,7 +243,7 @@ tools_insert_command_output(GtkWindow *win, JamDoc *doc) {
  *
  * the ideal solution would be for libxml to use GError to report
  * errors and then I wouldn't need any of this.
- */ 
+ */
 static GString *xml_error_context_hack;
 void
 xmlErrFunc(void *ctx, const char *msg, ...) {
@@ -283,7 +283,7 @@ xml_error_dialog(GtkWindow *parent, GString *errstr) {
 static gboolean
 validate_xml(GtkWindow *parent, char *text) {
 	xmlParserCtxtPtr ctxt = xmlCreateDocParserCtxt(BAD_CAST text);
-	
+
 	xml_error_context_hack = g_string_new(NULL);
 	xmlSetGenericErrorFunc(ctxt, xmlErrFunc);
 	if (xmlParseDocument(ctxt) < 0) {
@@ -420,7 +420,7 @@ tools_ljcut(GtkWindow *win, JamDoc *doc) {
 		text = NULL;
 	}
 	xml_escape(&text);
-	
+
 	buffer = jam_doc_get_text_buffer(doc);
 
 	gtk_text_buffer_begin_user_action(buffer); /* start undo action */

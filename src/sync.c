@@ -40,7 +40,7 @@ typedef struct {
 	GtkWidget *label, *progress;
 	StatusStage stage;
 #endif
-	
+
 	JamAccountLJ *account;
 	JournalStore *js;
 	char *lastsync;
@@ -119,7 +119,7 @@ sync_progress_gtk(gpointer data, LJSyncProgress progress, int cur, int max, cons
 		status->stage = stage;
 		show_status_stage(status);
 	}
-	
+
 	if (max > 0) fraction = cur/(double)max;
 	gtk_progress_bar_set_fraction(GTK_PROGRESS_BAR(status->progress),
 			fraction);
@@ -154,7 +154,7 @@ sync_show_warnings_gtk(SyncStatus *status, GSList *warnings) {
 	gtk_label_set_selectable(GTK_LABEL(label), TRUE);
 
 	scroll = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll), 
+	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
 			GTK_POLICY_NEVER, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll),
 			GTK_SHADOW_NONE);
@@ -293,7 +293,7 @@ sync_run_internal(SyncStatus *status,
 	GError *tmperr = NULL;
 	gboolean success = FALSE;
 	char *lastsync = NULL;
-	
+
 	status->js = journal_store_open(JAM_ACCOUNT(status->account), TRUE, &tmperr);
 	if (!status->js) goto err;
 

@@ -29,7 +29,7 @@ jam_account_finalize(GObject *object) {
 
 	/* unregister it */
 	g_hash_table_remove(jam_account_cache, acc);
-	
+
 	/* must chain up */
 	(* jam_account_parent_class->finalize) (object);
 }
@@ -138,7 +138,7 @@ jam_account_get_from_names(const gchar *username, const gchar *hostname) {
 		g_free(id);
 		return acc;
 	}
-	
+
 	// FIXME: create a new server / user if they're missing
 	if (!(host = conf_host_by_name(&conf, hostname)))
 		g_error(_("host %s not found in conf"), hostname);
@@ -147,7 +147,7 @@ jam_account_get_from_names(const gchar *username, const gchar *hostname) {
 
 #if 0
 	u = lj_user_new(
-	acc = 
+	acc =
 	acc = JAM_ACCOUNT(g_object_new(jam_account_get_type(), NULL));
 	acc->user = u;
 	acc->host = h;
@@ -331,7 +331,7 @@ jam_account_blogger_get_type(void) {
 JamAccount*
 jam_account_blogger_new(const char *username) {
 	JamAccountBlogger *acc;
-	
+
 	acc = JAM_ACCOUNT_BLOGGER(g_object_new(jam_account_blogger_get_type(), NULL));
 	if (username)
 		acc->username = g_strdup(username);

@@ -21,7 +21,7 @@ void     jam_xmlSetIntProp(xmlNodePtr node, const char *name, int value);
 gboolean jam_xmlGetIntProp(xmlNodePtr node, const char *name, int *value);
 
 /* from conf_xml.c
- * 
+ *
  * basically, these XML_* functions run a series of ifs on the node name.
  * be sure to end with XML_GET_END, which prints error information if a node
  * wasn't handled.

@@ -74,7 +74,7 @@ static void
 add_option_cb(PollMultiDlg *pmdlg) {
 	char *newtext;
 	GtkTreeIter iter;
-	
+
 	newtext = pollmultidlg_option(GTK_WINDOW(pmdlg->dlg), NULL);
 	if (!newtext) return;
 	gtk_list_store_append(pmdlg->answers.store, &iter);
@@ -140,7 +140,7 @@ static void
 pollmultidlg_init(PollMultiDlg *pmdlg, GtkWindow *parent) {
 	GtkWidget *mainbox, *vbox, *paned;
 	GtkWidget *menu, *label;
-	
+
 	pmdlg->dlg = gtk_dialog_new_with_buttons(_("Multi Poll Question"),
 			parent, GTK_DIALOG_MODAL,
 			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -163,7 +163,7 @@ pollmultidlg_init(PollMultiDlg *pmdlg, GtkWindow *parent) {
 	gtk_box_pack_start(GTK_BOX(mainbox),
 			labelled_box_new_expand(_("Choice _Type:"), pmdlg->typemenu, TRUE),
 			FALSE, FALSE, 0);
-	
+
 	paned = gtk_hpaned_new();
 	gtk_box_pack_start(GTK_BOX(mainbox), paned, TRUE, TRUE, 0);
 
@@ -357,7 +357,7 @@ pollscaledlg_init(PollScaleDlg *psdlg, GtkWindow *parent) {
 			10.0, -32000.0, 32000.0, 1.0, 5.0, 5.0);
 	GtkAdjustment *adj3 = (GtkAdjustment*)gtk_adjustment_new(
 			1.0,  -32000.0, 32000.0, 1.0, 5.0, 5.0);
-	
+
 	psdlg->dlg = gtk_dialog_new_with_buttons(_("Scale Poll Question"),
 			parent, GTK_DIALOG_MODAL,
 			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
@@ -398,7 +398,7 @@ pollscaledlg_init(PollScaleDlg *psdlg, GtkWindow *parent) {
 			FALSE, FALSE, 0);
 
 	gtk_box_pack_start(GTK_BOX(mainbox), vbox, FALSE, FALSE, 0);
-	
+
 	jam_dialog_set_contents(GTK_DIALOG(psdlg->dlg), mainbox);
 }
 

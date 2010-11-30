@@ -23,7 +23,7 @@ struct _JamHostLJ {
 JamAccount*
 jam_account_lj_new(LJServer *server, const char *username) {
 	JamAccountLJ *acc;
-	
+
 	acc = JAM_ACCOUNT_LJ(g_object_new(jam_account_lj_get_type(), NULL));
 	acc->user = lj_user_new(server);
 	if (username)
@@ -65,7 +65,7 @@ parsefriendgroups(xmlDocPtr doc, xmlNodePtr node) {
 		if (xmlStrcmp(node->name, BAD_CAST "friendgroup") == 0) {
 			if (jam_xmlGetIntProp(node, "id", &id)) {
 				fg = lj_friendgroup_new();
-				
+
 				fg->id = id;
 				fg->name = jam_xmlGetString(doc, node);
 				jam_xmlGetIntProp(node, "ispublic", &fg->ispublic);
@@ -349,7 +349,7 @@ jam_host_lj_save_xml(JamHost *host, xmlNodePtr servernode) {
 		char buf[10];
 		xmlNodePtr moodnode = xmlNewTextChild(node, NULL, BAD_CAST "mood",
 		                                      BAD_CAST mood->name);
-		
+
 		g_snprintf(buf, 10, "%d", mood->id);
 		xmlSetProp(moodnode, BAD_CAST "id", BAD_CAST buf);
 		if (mood->parentid) {

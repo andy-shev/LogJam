@@ -65,7 +65,7 @@ dashboard_connect_with_timeout (int  *fd,
 				perror ("Dashboard: connect");
 				return 0;
 			}
-				
+
 		} else
 			return 1;
 
@@ -88,7 +88,7 @@ dashboard_connect_with_timeout (int  *fd,
 			fprintf (stderr, "Dashboard: Connection timed out.\n");
 			return 0;
 		}
-		
+
 	}
 
 	return 1;
@@ -255,7 +255,7 @@ lame_xml_quote (const char *str)
 			*q ++ = 't';
 			*q ++ = ';';
 			break;
-			
+
 		case '&':
 			*q ++ = '&';
 			*q ++ = 'a';

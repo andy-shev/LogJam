@@ -4,7 +4,7 @@
  * vim: tabstop=4 shiftwidth=4 noexpandtab :
  */
 
-#include "config.h" 
+#include "config.h"
 
 #include "gtk-all.h"
 
@@ -26,12 +26,12 @@ GtkWidget* jam_table_new(int rows, int cols) {
 GtkWidget* jam_table_label(GtkTable *table, int row, const char *text) {
 	GtkWidget *label = gtk_label_new_with_mnemonic(text);
 	gtk_misc_set_alignment(GTK_MISC(label), 0.0f, 0.5f);
-	gtk_table_attach(table, GTK_WIDGET(label), 
+	gtk_table_attach(table, GTK_WIDGET(label),
 			0, 1, row, row+1, GTK_FILL, GTK_FILL, 6, 6);
 	return label;
 }
 void jam_table_content(GtkTable *table, int row, GtkWidget *content) {
-	gtk_table_attach(table, GTK_WIDGET(content), 
+	gtk_table_attach(table, GTK_WIDGET(content),
 			1, 2, row, row+1, GTK_EXPAND|GTK_FILL, 0, 0, 0);
 }
 void jam_table_label_content_mne(GtkTable *table, int row, const char *text, GtkWidget *content, GtkWidget *mne) {
@@ -44,7 +44,7 @@ void jam_table_label_content(GtkTable *table, int row, const char *text, GtkWidg
 	jam_table_label_content_mne(table, row, text, content, content);
 }
 void jam_table_fillrow(GtkTable *table, int row, GtkWidget *content) {
-	gtk_table_attach(table, GTK_WIDGET(content), 
+	gtk_table_attach(table, GTK_WIDGET(content),
 			0, 2, row, row+1, GTK_EXPAND|GTK_FILL, 0, 2, 2);
 }
 
@@ -171,7 +171,7 @@ scroll_wrap(GtkWidget *w) {
 	GtkWidget *scroll;
 
 	scroll = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll), 
+	gtk_scrolled_window_set_policy(GTK_SCROLLED_WINDOW(scroll),
 			GTK_POLICY_AUTOMATIC, GTK_POLICY_AUTOMATIC);
 	gtk_scrolled_window_set_shadow_type(GTK_SCROLLED_WINDOW(scroll),
 			GTK_SHADOW_IN);
@@ -266,16 +266,16 @@ jam_message_va(GtkWindow *parent, MessageType type, gboolean forgettable,
 	const gchar *mtitle = NULL;
 	gint res;
 	gboolean forget_state;
-	
+
 	gchar ourhash[120];
-	
+
 	char fullmsg[1024];
 
 	if (app.cli)
 		return;
 
 	g_vsnprintf(fullmsg, 1024, message, ap);
-	
+
 	{ /* compute hash of this message */
 		GString *id;
 		id = g_string_new(title);
@@ -283,11 +283,11 @@ jam_message_va(GtkWindow *parent, MessageType type, gboolean forgettable,
 		lj_md5_hash(id->str, ourhash);
 		g_string_free(id, TRUE);
 	}
-	
+
 	/* do nothing if the user has asked not to view this message again */
 	if (g_slist_find_custom(app.quiet_dlgs, ourhash, _str_equal))
 		return;
-	
+
 	switch (type) {
 		case JAM_MSG_INFO:
 			msgtype = GTK_MESSAGE_INFO;
@@ -305,14 +305,14 @@ jam_message_va(GtkWindow *parent, MessageType type, gboolean forgettable,
 			mtitle = title ? (gchar*)title : _("Error");
 			break;
 	}
-	
+
 	/* TODO: switch to jam_dialogs, which are prettier */
 	dlg = gtk_message_dialog_new(parent, 0, msgtype,
 			buttontype,
 			fullmsg);
 	gtk_window_set_title(GTK_WINDOW(dlg), title);
 	gtk_window_set_transient_for(GTK_WINDOW(dlg), GTK_WINDOW(parent));
-	
+
 	if (forgettable) {
 		forget_state = FALSE;
 		forget_check = gtk_check_button_new_with_label(_("Do not show again"));
@@ -320,20 +320,20 @@ jam_message_va(GtkWindow *parent, MessageType type, gboolean forgettable,
 				G_CALLBACK(forget_cb), &forget_state);
 		gtk_box_set_homogeneous(GTK_BOX(GTK_DIALOG(dlg)->action_area),
 				FALSE); /* XXX: this doesn't work :( */
-		
+
 		/* aggressively make this dialog less ugly */
 		gtk_button_box_set_layout(GTK_BUTTON_BOX(GTK_DIALOG(dlg)->action_area),
 				GTK_BUTTONBOX_EDGE);
 		gtk_box_set_child_packing(GTK_BOX(GTK_DIALOG(dlg)->action_area),
 				((GtkBoxChild*)GTK_BOX(GTK_DIALOG(dlg)->action_area)->
 				 	children->data)->widget, FALSE, FALSE, 0, GTK_PACK_END);
-				
+
 		/* force our checkbox to *really* be first */
 		gtk_container_add(GTK_CONTAINER((GTK_DIALOG(dlg)->action_area)),
 				forget_check);
 		gtk_box_reorder_child(GTK_BOX((GTK_DIALOG(dlg)->action_area)),
 				forget_check, 0);
-	
+
 		gtk_widget_show_all(GTK_DIALOG(dlg)->action_area);
 	}
 
@@ -393,7 +393,7 @@ jam_widget_set_visible(GtkWidget *w, gboolean visible) {
 void
 jam_widget_set_font(GtkWidget *w, const gchar *font_name) {
 	PangoFontDescription *font_desc;
-	
+
 	font_desc = pango_font_description_from_string(font_name);
 	gtk_widget_modify_font(w, font_desc);
 	pango_font_description_free(font_desc);
@@ -461,7 +461,7 @@ jr_down_cb(JamReorderable *jr) {
 	if (!gtk_tree_selection_get_selected(sel, NULL, &iter))
 		return;
 	i2 = iter;
-	if (gtk_tree_model_iter_next(GTK_TREE_MODEL(jr->store), &i2)) 
+	if (gtk_tree_model_iter_next(GTK_TREE_MODEL(jr->store), &i2))
 		gtk_list_store_swap(jr->store, &iter, &i2);
 }
 
@@ -536,7 +536,7 @@ clipboard_received_func (GtkClipboard     *clipboard,
   g_main_loop_quit (results->loop);
 }*/
 
-static void 
+static void
 clipboard_text_received_func (GtkClipboard *clipboard,
                   const gchar  *text,
                   gpointer      data)

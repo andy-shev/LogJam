@@ -144,7 +144,7 @@ remote_connect(GError **err) {
 	struct sockaddr_un saddr;
 
 	if ((fd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0) {
-		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 				"socket: %s", g_strerror(errno));
 		return -1;
 	}
@@ -154,13 +154,13 @@ remote_connect(GError **err) {
 	if (connect(fd, (struct sockaddr*)&saddr, sizeof(saddr)) < 0) {
 		close(fd);
 		if (errno != ENOENT && errno != ECONNREFUSED) {
-			g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+			g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 					"connect: %s", g_strerror(errno));
 		}
 		/* ENOENT is not a real error; there was just nobody there. */
 		return -1;
 	}
-	
+
 	return fd;
 }
 
@@ -174,14 +174,14 @@ remote_send(char command, gpointer data, int datalen, GError **err) {
 
 	len = write(fd, &command, 1);
 	if (len < 0) {
-		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 				"write: %s", g_strerror(errno));
 		return FALSE;
 	}
 	if (datalen > 0) {
 		len = write(fd, data, datalen);
 		if (len < 0) {
-			g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+			g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 					"write: %s", g_strerror(errno));
 			return FALSE;
 		}
@@ -189,7 +189,7 @@ remote_send(char command, gpointer data, int datalen, GError **err) {
 
 	len = read(fd, &response, 1);
 	if (len < 0) {
-		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 				"read: %s", g_strerror(errno));
 		return FALSE;
 	}
@@ -234,7 +234,7 @@ remote_recieve_change_user(LogJamRemote *remote, int fd) {
 		close(fd);
 		return FALSE;
 	}
-	
+
 	g_signal_emit_by_name(remote, "change_user",
 			user.username, &err, &signalret);
 	return TRUE;
@@ -299,7 +299,7 @@ logjam_remote_listen(LogJamRemote *remote, GError **err) {
 		return TRUE;
 
 	if ((remote->fd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0) {
-		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 				"socket: %s", g_strerror(errno));
 		return FALSE;
 	}
@@ -311,7 +311,7 @@ logjam_remote_listen(LogJamRemote *remote, GError **err) {
 	if (bind(remote->fd, (struct sockaddr*)&saddr, sizeof(saddr)) < 0) {
 		close(remote->fd);
 		remote->fd = -1;
-		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 				"bind: %s", g_strerror(errno));
 		return FALSE;
 	}
@@ -319,11 +319,11 @@ logjam_remote_listen(LogJamRemote *remote, GError **err) {
 	if (listen(remote->fd, 1) < 0) {
 		close(remote->fd);
 		remote->fd = -1;
-		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM, 
+		g_set_error(err, REMOTE_ERROR, REMOTE_ERROR_SYSTEM,
 				"listen: %s", g_strerror(errno));
 		return FALSE;
 	}
-	
+
 	channel = g_io_channel_unix_new(remote->fd);
 	g_io_channel_set_encoding(channel, NULL, NULL);
 	g_io_channel_set_buffered(channel, FALSE);

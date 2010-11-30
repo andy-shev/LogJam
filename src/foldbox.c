@@ -67,10 +67,10 @@ foldbox_new_with_text(
 	FoldBox *fb = FOLDBOX(g_object_new(FOLDBOX_TYPE, NULL));
 	fb->unfolded = unfolded;
 	fb->arrow_location = arrow_location;
-	
+
 	foldbox_set_heading_text(fb, text);
 	foldbox_refresh_arrow(fb);
-	
+
 	return GTK_WIDGET(fb);
 }
 
@@ -81,7 +81,7 @@ foldbox_set_heading_text(FoldBox *fb, const char *text) {
 
 	g_string_printf(labels, "<b>%s</b>", text ? text : "");
 	gtk_label_set_markup(GTK_LABEL(label), labels->str);
-	
+
 	if (fb->heading)
 		g_object_unref(G_OBJECT(fb->heading));
 
@@ -89,7 +89,7 @@ foldbox_set_heading_text(FoldBox *fb, const char *text) {
 	gtk_misc_set_alignment(GTK_MISC(label), 0.0, 0.5);
 	fb->heading = label;
 	g_string_free(labels, TRUE);
-}	
+}
 
 void
 foldbox_toggle_cb(GtkWidget* w, GdkEventButton *ev, FoldBox *fb) {
@@ -106,10 +106,10 @@ foldbox_refresh(FoldBox *fb) {
 void
 foldbox_refresh_arrow(FoldBox *fb) {
 	GtkWidget *a;
-	
+
 	if (! fb->arrow_location)
 		return;
-	
+
 	a = fb->arrow;
 	if (a) {
 		gtk_arrow_set(GTK_ARROW(a),

@@ -220,7 +220,7 @@ do_console(Cmdline *cmdline, JamAccount *acc, gint argc, gchar *argv[]) {
 	for (i = 0; i < cc->linecount; i++) {
 		g_print("%s\n", cc->lines[i].text);
 	}
-	
+
 	lj_consolecommand_free(cc);
 
 	exit(EXIT_SUCCESS);
@@ -251,7 +251,7 @@ do_checkfriends(Cmdline *cmdline, JamAccount *acc, gint argc, gchar *argv[]) {
 	char *subcommand = argc > 1 ? argv[1] : NULL;
 
 	app.cli = TRUE;
-	
+
 	GETOPT_LOOP(CHECKFRIENDS)
 	GETOPT_LOOP_END
 
@@ -283,7 +283,7 @@ static void
 do_offline_sync(Cmdline *cmdline, JamAccount *acc, gint argc, gchar *argv[]) {
 	GETOPT_LOOP(OFFLINE_SYNC)
 	GETOPT_LOOP_END
-	
+
 	app.cli = TRUE;
 	if (JAM_ACCOUNT_IS_LJ(acc)) {
 		if (sync_run(JAM_ACCOUNT_LJ(acc), NULL))
@@ -330,7 +330,7 @@ do_offline_cat(Cmdline *cmdline, JamAccount *acc, gint argc, gchar *argv[]) {
 		gchar snum[16];
 		gint  num = atoi(argv[optind]);
 		LJEntry *entry;
-		
+
 		g_snprintf(snum, 16, "%d", num);
 		if (strncmp(snum, argv[optind], 16)) {
 			if (strncmp(argv[optind], "latest", 7)) {
@@ -437,12 +437,12 @@ do_offline_grep(Cmdline *cmdline, JamAccount *acc, gint argc, gchar *argv[]) {
 		g_printerr(_("Regexp error: %s.\n"), re_error);
 		g_free(re_error);
 		exit(EXIT_FAILURE);
-	}		
+	}
 
 	latest = journal_store_get_latest_id(js);
 	for (itemid = 1; itemid <= latest; itemid++) {
 		LJEntry *entry;
-		
+
 		if (!(entry = journal_store_get_entry(js, itemid)))
 			continue; /* deleted item */
 
@@ -456,7 +456,7 @@ do_offline_grep(Cmdline *cmdline, JamAccount *acc, gint argc, gchar *argv[]) {
 			default:
 				; /* proceed */
 		}
-		
+
 		switch (output_type) {
 			case LJ_ENTRY_FILE_RFC822:
 				if (counter++)
@@ -636,7 +636,7 @@ cmdline_load_account(Cmdline *cmdline, gboolean existinguser, gboolean needpw) {
 	}
 
 	// XXX usejournal
-	// if (cmdline->postas) 
+	// if (cmdline->postas)
 	//	string_replace(&conf.usejournal, g_strdup(cmdline->postas));
 
 	/* if they're running a console command, we exit before we
@@ -735,7 +735,7 @@ cmdline_parse(JamDoc *doc, int argc, char *argv[]) {
 			cmdline_load_file(doc, optarg, NULL); /* XXX error */
 			break;
 	GETOPT_LOOP_SUBCOMMANDS_END(LOGJAM)
-	
+
 	/* if we get here, there wasn't a command to run. */
 	if (cmdline->username) {
 		JamAccount *acc;

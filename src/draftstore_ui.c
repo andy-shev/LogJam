@@ -37,8 +37,8 @@ static GtkWidget*
 make_view(DraftStoreUI *dsui) {
 	GtkCellRenderer *renderer;
 	GtkTreeViewColumn *column;
-	
-	dsui->view = 
+
+	dsui->view =
 		gtk_tree_view_new_with_model(GTK_TREE_MODEL(dsui->store));
 	gtk_tree_view_set_rules_hint(GTK_TREE_VIEW(dsui->view), TRUE);
 	g_object_unref(G_OBJECT(dsui->store));
@@ -190,9 +190,9 @@ draft_store_ui_select(DraftStore *ds, GtkWindow *parent) {
 
 	make_dialog(dsui, parent);
 
-	/*dsui->pb_friends = gtk_widget_render_icon(dsui->win, 
+	/*dsui->pb_friends = gtk_widget_render_icon(dsui->win,
 			"logjam-protected", GTK_ICON_SIZE_MENU, NULL);
-	dsui->pb_private = gtk_widget_render_icon(dsui->win, 
+	dsui->pb_private = gtk_widget_render_icon(dsui->win,
 			"logjam-private", GTK_ICON_SIZE_MENU, NULL);*/
 
 	if (!load_items(dsui))

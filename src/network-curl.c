@@ -27,14 +27,14 @@ typedef struct {
 	gpointer user_data;
 } RequestData;
 
-static size_t 
+static size_t
 curlwrite_cb(void *ptr, size_t size, size_t nmemb, void *data) {
 	RequestData *requestdata = data;
 	double contentlength;
-	
+
 	g_string_append_len(requestdata->response, ptr, size*nmemb);
 
-	curl_easy_getinfo(requestdata->curl, 
+	curl_easy_getinfo(requestdata->curl,
 			CURLINFO_CONTENT_LENGTH_DOWNLOAD, &contentlength);
 
 	if (requestdata->user_cb) {
@@ -84,13 +84,13 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 	 * curl_easy_setopt(curl, CURLOPT_PROGRESSFUNCTION, curl_progress_cb);
 	 * curl_easy_setopt(curl, CURLOPT_PROGRESSDATA, nr);
 	 */
-	
+
 	curl_easy_setopt(curl, CURLOPT_URL, url);
 
 	if (conf.options.useproxy) {
 		curl_easy_setopt(curl, CURLOPT_PROXY, conf.proxy);
 		if (conf.options.useproxyauth) {
-			g_snprintf(proxyuserpass, sizeof(proxyuserpass), "%s:%s", 
+			g_snprintf(proxyuserpass, sizeof(proxyuserpass), "%s:%s",
 					conf.proxyuser, conf.proxypass);
 			curl_easy_setopt(curl, CURLOPT_PROXYUSERPWD, proxyuserpass);
 		}
@@ -117,8 +117,8 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 	requestdata.user_cb = cb;
 	requestdata.user_data = data;
 	curl_easy_setopt(curl, CURLOPT_FILE, &requestdata);
-	
-	if (conf.options.netdump && post) 
+
+	if (conf.options.netdump && post)
 		fprintf(stderr, _("Request: [%s]\n"), post->str);
 
 	curlres = curl_easy_perform(curl);
@@ -133,7 +133,7 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 		return NULL;
 	}
 
-	if (conf.options.netdump) 
+	if (conf.options.netdump)
 		fprintf(stderr, _("Response: [%s]\n"), requestdata.response->str);
 
 	return requestdata.response;

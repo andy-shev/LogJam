@@ -110,7 +110,7 @@ recalculate_stats(JamFriendsUI *fui) {
 
 		if (!includecomm && f->type == LJ_FRIEND_TYPE_COMMUNITY)
 			continue;
-		
+
 		switch (f->conn) {
 			case LJ_FRIEND_CONN_MY:
 				fmcount++; break;
@@ -168,10 +168,10 @@ static gboolean
 load_friends(GtkWindow *parent, JamAccountLJ *acc, GSList **l) {
 	LJGetFriends *getfriends;
 	NetContext *ctx;
-	
+
 	ctx = net_ctx_gtk_new(parent, _("Loading Friends"));
 	getfriends = lj_getfriends_new(jam_account_lj_get_user(acc));
-	if (!net_run_verb_ctx((LJVerb*)getfriends, ctx, NULL)) { 
+	if (!net_run_verb_ctx((LJVerb*)getfriends, ctx, NULL)) {
 		lj_getfriends_free(getfriends, TRUE);
 		net_ctx_gtk_free(ctx);
 		return FALSE;
@@ -191,10 +191,10 @@ populate_model(JamFriendsUI *fui) {
 	GSList *l;
 	LJFriend *f;
 	GtkTreeIter iter;
-	
+
 	liststore = GTK_LIST_STORE(gtk_tree_view_get_model(GTK_TREE_VIEW(fui->friendview)));
 	gtk_list_store_clear(liststore);
-	
+
 	for (l = fui->friends; l; l = l->next) {
 		f = l->data;
 
@@ -283,7 +283,7 @@ update_edit_menu(JamFriendsUI *fui, GtkTreeSelection *sel) {
 
 	issel = gtk_tree_selection_get_selected(sel, &model, &iter);
 
-	if (issel) 
+	if (issel)
 		gtk_tree_model_get(model, &iter,
 				0, &f,
 				-1);
@@ -307,7 +307,7 @@ update_edit_menu(JamFriendsUI *fui, GtkTreeSelection *sel) {
 			issel);
 }
 
-static void 
+static void
 friend_add_cb(JamFriendsUI *fui) {
 	GtkTreeSelection *sel;
 	GtkTreeModel *model = NULL;
@@ -385,7 +385,7 @@ friend_add_cb(JamFriendsUI *fui) {
 	recalculate_stats(fui);
 }
 
-static void 
+static void
 friend_edit_cb(JamFriendsUI *fui) {
 	GtkTreeSelection *sel;
 	GtkTreeModel *model;
@@ -416,7 +416,7 @@ friend_edit_cb(JamFriendsUI *fui) {
 	recalculate_stats(fui);
 }
 
-static void 
+static void
 friend_remove_cb(JamFriendsUI *fui) {
 	GtkTreeSelection *sel;
 	GtkTreeModel *model;
@@ -437,7 +437,7 @@ friend_remove_cb(JamFriendsUI *fui) {
 		return;
 
 	f->conn &= ~LJ_FRIEND_CONN_MY;
-	
+
 	/* if the user removes themself, the connection is completely gone. */
 	if (g_ascii_strcasecmp(f->username,
 				jam_account_get_username(JAM_ACCOUNT(fui->account))) == 0)
@@ -472,7 +472,7 @@ stats_cb(JamFriendsUI *fui, gint action, GtkCheckMenuItem *item) {
 	jam_widget_set_visible(fui->statspanel, !conf.options.friends_hidestats);
 }
 
-static void 
+static void
 row_selected(GtkTreeSelection *sel, JamFriendsUI *fui) {
 	update_edit_menu(fui, sel);
 }
@@ -494,15 +494,15 @@ request_remove_friend(JamFriendsUI *fui, const char *username) {
 }
 
 static void
-link_data_func(GtkTreeViewColumn *tree_column, 
-               GtkCellRenderer   *cell, 
-               GtkTreeModel      *model, 
-               GtkTreeIter       *iter, 
+link_data_func(GtkTreeViewColumn *tree_column,
+               GtkCellRenderer   *cell,
+               GtkTreeModel      *model,
+               GtkTreeIter       *iter,
                gpointer           data)
 {
 	JamFriendsUI *fui = data;
 	LJFriend *friend;
-	gtk_tree_model_get(model, iter, 
+	gtk_tree_model_get(model, iter,
 			0, &friend,
 			-1);
 	switch (friend->conn) {
@@ -531,10 +531,10 @@ link_sort_func(GtkTreeModel *model,
                gpointer      data)
 {
 	LJFriend *fa, *fb;
-	gtk_tree_model_get(model, a, 
+	gtk_tree_model_get(model, a,
 			0, &fa,
 			-1);
-	gtk_tree_model_get(model, b, 
+	gtk_tree_model_get(model, b,
 			0, &fb,
 			-1);
 	if (fa->conn < fb->conn)
@@ -545,15 +545,15 @@ link_sort_func(GtkTreeModel *model,
 }
 
 static void
-user_pixbuf_data_func(GtkTreeViewColumn *tree_column, 
-                      GtkCellRenderer   *cell, 
-                      GtkTreeModel      *model, 
-                      GtkTreeIter       *iter, 
+user_pixbuf_data_func(GtkTreeViewColumn *tree_column,
+                      GtkCellRenderer   *cell,
+                      GtkTreeModel      *model,
+                      GtkTreeIter       *iter,
                       gpointer           data)
 {
 	JamFriendsUI *fui = data;
 	LJFriend *friend;
-	gtk_tree_model_get(model, iter, 
+	gtk_tree_model_get(model, iter,
 			0, &friend,
 			-1);
 	switch (friend->type) {
@@ -578,16 +578,16 @@ rgb_to_gdkcolor(guint32 color, GdkColor *gdkcolor) {
 }
 
 static void
-username_data_func(GtkTreeViewColumn *tree_column, 
-                    GtkCellRenderer   *cell, 
-                    GtkTreeModel      *model, 
-                    GtkTreeIter       *iter, 
+username_data_func(GtkTreeViewColumn *tree_column,
+                    GtkCellRenderer   *cell,
+                    GtkTreeModel      *model,
+                    GtkTreeIter       *iter,
                     gpointer           data)
 {
 	LJFriend *friend;
 	GdkColor fg = {0}, bg = {0};
 
-	gtk_tree_model_get(model, iter, 
+	gtk_tree_model_get(model, iter,
 			0, &friend,
 			-1);
 
@@ -608,24 +608,24 @@ username_sort_func(GtkTreeModel *model,
                    gpointer      data)
 {
 	LJFriend *fa, *fb;
-	gtk_tree_model_get(model, a, 
+	gtk_tree_model_get(model, a,
 			0, &fa,
 			-1);
-	gtk_tree_model_get(model, b, 
+	gtk_tree_model_get(model, b,
 			0, &fb,
 			-1);
 	return g_ascii_strcasecmp(fa->username, fb->username);
 }
 
 static void
-fullname_data_func(GtkTreeViewColumn *tree_column, 
-                   GtkCellRenderer   *cell, 
-                   GtkTreeModel      *model, 
-                   GtkTreeIter       *iter, 
+fullname_data_func(GtkTreeViewColumn *tree_column,
+                   GtkCellRenderer   *cell,
+                   GtkTreeModel      *model,
+                   GtkTreeIter       *iter,
                    gpointer           data)
 {
 	LJFriend *friend;
-	gtk_tree_model_get(model, iter, 
+	gtk_tree_model_get(model, iter,
 			0, &friend,
 			-1);
 	g_object_set(cell,
@@ -641,10 +641,10 @@ fullname_sort_func(GtkTreeModel *model,
                gpointer      data)
 {
 	LJFriend *fa, *fb;
-	gtk_tree_model_get(model, a, 
+	gtk_tree_model_get(model, a,
 			0, &fa,
 			-1);
-	gtk_tree_model_get(model, b, 
+	gtk_tree_model_get(model, b,
 			0, &fb,
 			-1);
 	return g_ascii_strcasecmp(fa->fullname, fb->fullname);
@@ -664,8 +664,8 @@ selected_username_get(JamFriendsUI *fui) {
 	if (!gtk_tree_selection_get_selected(sel, &model, &iter))
 		return NULL;
 
-	gtk_tree_model_get(model, &iter, 0, &f, -1); 
-	
+	gtk_tree_model_get(model, &iter, 0, &f, -1);
+
 	return f ?f->username : NULL;
 }
 
@@ -695,7 +695,7 @@ button_press_cb(GtkTreeView *view, GdkEventButton *e, JamFriendsUI *fui) {
 
 	if (e->button != 3)
 		return FALSE;
-	
+
 	frmenu = gtk_item_factory_get_widget_by_action(fui->itemfactory, ACTION_EDIT_MENU);
 	gtk_menu_popup(GTK_MENU(frmenu), NULL, NULL, NULL, NULL,
 			3, e->time);
@@ -743,9 +743,9 @@ friends_list_create(JamFriendsUI *fui) {
 	g_signal_connect(G_OBJECT(sel), "changed",
 			G_CALLBACK(row_selected), fui);
 
-	fui->pb_user = gtk_widget_render_icon(view, 
+	fui->pb_user = gtk_widget_render_icon(view,
 			"logjam-ljuser", GTK_ICON_SIZE_MENU, NULL);
-	fui->pb_comm = gtk_widget_render_icon(view, 
+	fui->pb_comm = gtk_widget_render_icon(view,
 			"logjam-ljcomm", GTK_ICON_SIZE_MENU, NULL);
 	fui->pb_larrow = icons_larrow_pixbuf();
 	fui->pb_rarrow = icons_rarrow_pixbuf();
@@ -806,7 +806,7 @@ friends_list_create(JamFriendsUI *fui) {
 			search_equal_cb, NULL, NULL);
 	gtk_tree_view_set_search_column(GTK_TREE_VIEW(view), FRIEND_COL_USERNAME);
 	gtk_tree_view_set_enable_search(GTK_TREE_VIEW(view), TRUE);
-	
+
 	return scroll_wrap(view);
 }
 
@@ -854,10 +854,10 @@ make_menu_item(GdkPixbuf *pb, const char *label) {
 	GtkWidget *hbox, *item;
 
 	hbox = gtk_hbox_new(FALSE, 3);
-	gtk_box_pack_start(GTK_BOX(hbox), 
-			gtk_image_new_from_pixbuf(pb), 
+	gtk_box_pack_start(GTK_BOX(hbox),
+			gtk_image_new_from_pixbuf(pb),
 			FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(hbox), 
+	gtk_box_pack_start(GTK_BOX(hbox),
 			gtk_label_new(label), FALSE, FALSE, 0);
 
 	item = gtk_menu_item_new();
@@ -872,10 +872,10 @@ filter_type_cb(GtkOptionMenu *om, JamFriendsUI *fui) {
 		case 0: /* reset */
 			fui->filter_type = 0;
 			break;
-		case 2: 
+		case 2:
 			fui->filter_type = LJ_FRIEND_TYPE_USER;
 			break;
-		case 3: 
+		case 3:
 			fui->filter_type = LJ_FRIEND_TYPE_COMMUNITY;
 			break;
 	}
@@ -889,13 +889,13 @@ filter_conn_cb(GtkOptionMenu *om, JamFriendsUI *fui) {
 		case 0: /* reset */
 			fui->filter_conn = 0;
 			break;
-		case 2: 
+		case 2:
 			fui->filter_conn = LJ_FRIEND_CONN_BOTH;
 			break;
-		case 3: 
+		case 3:
 			fui->filter_conn = LJ_FRIEND_CONN_MY;
 			break;
-		case 4: 
+		case 4:
 			fui->filter_conn = LJ_FRIEND_CONN_OF;
 			break;
 	}
@@ -918,7 +918,7 @@ make_filter_box(JamFriendsUI *fui) {
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(fui->omtype), menu);
 	g_signal_connect(G_OBJECT(fui->omtype), "changed",
 			G_CALLBACK(filter_type_cb), fui);
-	
+
 	fui->omconn = gtk_option_menu_new();
 	menu = gtk_menu_new();
 	item = make_menu_item(NULL, _("All Connections"));
@@ -942,7 +942,7 @@ make_filter_box(JamFriendsUI *fui) {
 	return box;
 }
 
-void 
+void
 friends_manager_show(GtkWindow *mainwin, JamAccountLJ *acc) {
 	JamFriendsUI *fui;
 	GtkWidget *mainbox, *hbox;
@@ -990,14 +990,14 @@ export_do(JamFriendsUI *fui, GtkFileChooser *fsel) {
 	GSList *l;
 
 	if ((fout = fopen(filename, "w")) == NULL) {
-		jam_warning(GTK_WINDOW(fui), _("Unable to open %s: %s\n"), 
+		jam_warning(GTK_WINDOW(fui), _("Unable to open %s: %s\n"),
 				filename, g_strerror(errno));
 		return;
 	}
 	for (l = fui->friends; l != NULL; l = l->next) {
 		f = l->data;
 
-		fprintf(fout, "%c-%c %s\n", 
+		fprintf(fout, "%c-%c %s\n",
 				(f->conn & LJ_FRIEND_CONN_OF ? '<' : ' '),
 				(f->conn & LJ_FRIEND_CONN_MY ? '>' : ' '),
 				f->username);
@@ -1011,11 +1011,11 @@ suggest_cb(GtkWidget *w, GtkFileChooser *fsel) {
 	char buf[50];
 	time_t curtime;
 	struct tm *date;
-	
+
 	time(&curtime);
 	date = localtime(&curtime);
 
-	sprintf(buf, "friends.%04d-%02d-%02d", 
+	sprintf(buf, "friends.%04d-%02d-%02d",
 			date->tm_year+1900, date->tm_mon+1, date->tm_mday);
 
 	gtk_file_chooser_set_filename(fsel, buf);
@@ -1037,7 +1037,7 @@ export_cb(JamFriendsUI *fui) {
 	gtk_widget_show(bstamp);
 	gtk_file_chooser_set_extra_widget(GTK_FILE_CHOOSER(fsel), bstamp);
 	g_signal_connect(G_OBJECT(bstamp), "clicked",
-			G_CALLBACK(suggest_cb), 
+			G_CALLBACK(suggest_cb),
 			GTK_FILE_CHOOSER(fsel));
 
 	if (gtk_dialog_run(GTK_DIALOG(fsel)) == GTK_RESPONSE_ACCEPT)

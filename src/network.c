@@ -25,11 +25,11 @@ net_error_quark(void) {
 }
 
 static GString*
-real_run_request(const char *url, GString *post,  
+real_run_request(const char *url, GString *post,
                  NetStatusCallback cb, gpointer data,
                  GError **err) {
 	/* XXX forking disabled on win32 until they fix a GTK bug--
-	 * see network-win32.c for details. */ 
+	 * see network-win32.c for details. */
 #if defined(HAVE_GTK) && !defined(G_OS_WIN32)
 	if (conf.options.nofork || app.cli) {
 		return net_post_blocking(url, NULL, post, cb, data, err);
@@ -87,7 +87,7 @@ net_verb_run_internal(LJVerb *verb,
 				lj_verb_use_challenge(verb, getchal->challenge);
 		}
 		lj_getchallenge_free(getchal);
-		
+
 		if (chalerr) {
 			/* if there was a total failure when we tried to send the
 			 * challenge, stop here.  we don't even need to attempt
@@ -199,7 +199,7 @@ net_run_verb_ctx(LJVerb *verb, NetContext *ctx, GError **reterr) {
 				lj_verb_use_challenge(verb, getchal->challenge);
 		}
 		lj_getchallenge_free(getchal);
-		
+
 		if (err) {
 			/* if there was a total failure when we tried to send the
 			 * challenge, stop here.  we don't even need to attempt

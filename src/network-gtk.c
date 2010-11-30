@@ -64,7 +64,7 @@ ctx_gtk_progress_str(NetContext *ctx, const char *str) {
 	progress_window_set_text(pw, str);
 }
 
-static void 
+static void
 ctx_gtk_error(NetContext *ctx, GError *err) {
 	ProgressWindow *pw = PROGRESS_WINDOW(((NetContextGtk*)ctx)->pw);
 	if (!g_error_matches(err, NET_ERROR, NET_ERROR_CANCELLED))

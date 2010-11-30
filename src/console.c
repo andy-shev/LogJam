@@ -89,7 +89,7 @@ run_console_command(ConsoleUI *cui, const char *command) {
 
 	lj_consolecommand_free(cc);
 	net_ctx_gtk_free(ctx);
-	
+
 	return TRUE;
 }
 
@@ -146,12 +146,12 @@ console_dialog_run(GtkWindow *parent, JamAccountLJ *acc) {
 	g_signal_connect(G_OBJECT(button), "clicked",
 			G_CALLBACK(console_help), cui);
 	gtk_box_pack_start(GTK_BOX(hbox), button, FALSE, FALSE, 0);
-	
+
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
 
 	cui->display = gtk_text_view_new();
 	gtk_text_view_set_editable(GTK_TEXT_VIEW(cui->display), FALSE);
-	gtk_box_pack_start(GTK_BOX(vbox), scroll_wrap(cui->display), 
+	gtk_box_pack_start(GTK_BOX(vbox), scroll_wrap(cui->display),
 			TRUE, TRUE, 0);
 
 	buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(cui->display));

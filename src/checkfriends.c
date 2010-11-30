@@ -273,7 +273,7 @@ do_checkfriends(CFMgr *cfm, NetContext *ctx) {
 		cfm->errors++;
 		if (cfm->errors > CF_MAXERRORS) {
 #if 0
-			/* the transient parent window of this notification is NULL, but 
+			/* the transient parent window of this notification is NULL, but
 			 * it's worth thinking about a better general user notification
 			 * strategy, that finds the current screen, etc. */
 			jam_message(NULL, JAM_MSG_WARNING, TRUE, NULL,
@@ -281,10 +281,10 @@ do_checkfriends(CFMgr *cfm, NetContext *ctx) {
 #endif
 			cfmgr_set_state(cfm, CF_DISABLED);
 			return -1;
-		}		
+		}
 		return 0;
 	}
-	
+
 	/* we succeeded.  reset the error count. */
 	cfm->errors = 0;
 

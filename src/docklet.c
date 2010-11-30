@@ -94,10 +94,10 @@ click_cb(GtkWidget* w, GdkEventButton *ev, GtkWidget *win) {
 	/* and double-clicks open up the browser, too */
 	if (ev->type==GDK_2BUTTON_PRESS) {
 		open_friends_list(GTK_WINDOW(cfi->parent));
-	
+
 		return TRUE;
 	}
-	
+
 	/* this help box will only be called once in a double-click,
 	 * thankfully, because the above is terminal on double-clicks. */
 	if (cfm->state == CF_DISABLED) {
@@ -114,7 +114,7 @@ docklet_setup(GtkWidget *win) {
 	EggTrayIcon *docklet;
 
 	GtkWidget *box, *image;
-	
+
 	image = gtk_image_new();
 	gtk_image_set_from_stock(GTK_IMAGE(image), "logjam-goat",
 		GTK_ICON_SIZE_MENU);
@@ -125,7 +125,7 @@ docklet_setup(GtkWidget *win) {
 	gtk_container_add(GTK_CONTAINER(box), image);
 
 	docklet = egg_tray_icon_new("LogJam");
-	
+
 	/* This could be used to tell the calling app that the docklet has been
 	 * successfully embedded into a dock :
 	 * g_signal_connect(G_OBJECT(docklet), "embedded", G_CALLBACK(cf_docklet_embedded), NULL); */

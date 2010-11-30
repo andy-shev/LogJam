@@ -86,7 +86,7 @@ static void
 timeout_enable(DateSel *ds, gboolean usenow) {
 	if (usenow && !ds->timeout_id) {
 		timeout_cb(ds);
-		ds->timeout_id = g_timeout_add(10*1000, /* every 10 sec. */ 
+		ds->timeout_id = g_timeout_add(10*1000, /* every 10 sec. */
 				(GSourceFunc)timeout_cb, ds);
 	} else if (!usenow && ds->timeout_id) {
 		g_source_remove(ds->timeout_id);
@@ -217,12 +217,12 @@ datesel_dialog_run(DateSel *ds) {
 
 	check = gtk_check_button_new_with_mnemonic(_("Use _current date/time"));
 	g_signal_connect(G_OBJECT(check), "toggled",
-			G_CALLBACK(usenow_cb), datebox); 
+			G_CALLBACK(usenow_cb), datebox);
 
 	backdated = gtk_check_button_new_with_mnemonic(_("Entry is _backdated"));
 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(backdated), ds->backdated);
 	g_signal_connect(G_OBJECT(backdated), "toggled",
-			G_CALLBACK(backdated_cb), ds); 
+			G_CALLBACK(backdated_cb), ds);
 
 	vbox = gtk_vbox_new(FALSE, 10);
 	gtk_box_pack_start(GTK_BOX(vbox), check, FALSE, FALSE, 0);

@@ -25,14 +25,14 @@ typedef enum {
 	UNDO_ACTION_DELETE
 } UndoActionType;
 
-/* 
+/*
  * We use offsets instead of GtkTextIters because the last ones
  * require to much memory in this context without giving us any advantage.
- */ 
+ */
 
 struct _UndoInsertAction
 {
-	gint   pos; 
+	gint   pos;
 	gchar *text;
 	gint   length;
 	gint   chars;
@@ -48,7 +48,7 @@ struct _UndoDeleteAction
 struct _UndoAction
 {
 	UndoActionType action_type;
-	
+
 	union {
 		UndoInsertAction	insert;
 		UndoDeleteAction	delete;
@@ -64,12 +64,12 @@ struct _UndoAction
 struct _UndoMgrPrivate
 {
 	GList*		widgets; /* queue of all widgets which are attached */
-	
+
 	GList*		actions;
-	gint 		next_redo;	
+	gint 		next_redo;
 
 	gint 		actions_in_current_group;
-	
+
 	gboolean 	can_undo;
 	gboolean	can_redo;
 
@@ -89,7 +89,7 @@ static void undomgr_init				(UndoMgr 	*um);
 static void undomgr_finalize			(GObject 		*object);
 
 static void undomgr_textbuffer_insert_text_handler	(GtkTextBuffer *buffer, GtkTextIter *pos,
-												const gchar *text, gint length, 
+												const gchar *text, gint length,
 												UndoMgr *um);
 static void undomgr_textbuffer_delete_range_handler 	(GtkTextBuffer *buffer, GtkTextIter *start,
                         		      		 GtkTextIter *end, UndoMgr *um);
@@ -101,11 +101,11 @@ static void undomgr_free_action_list		(UndoMgr *um);
 static void undomgr_free_widget			(UndoMgr *um, GtkWidget *w);
 static void undomgr_free_widget_list		(UndoMgr *um);
 
-static void undomgr_add_textbuffer_action	(UndoMgr *um, 
+static void undomgr_add_textbuffer_action	(UndoMgr *um,
 												UndoAction undo_action,
 												GtkTextBuffer *buffer);
 
-static gboolean undomgr_merge_textbuffer_action		(UndoMgr *um, 
+static gboolean undomgr_merge_textbuffer_action		(UndoMgr *um,
 												UndoAction *undo_action,
 												GtkTextBuffer *buffer);
 
@@ -157,7 +157,7 @@ undomgr_class_init (UndoMgrClass *klass)
 
 	klass->can_undo 	= NULL;
 	klass->can_redo 	= NULL;
-	
+
 	undomgr_signals[CAN_UNDO] =
    		g_signal_new ("can_undo",
 			      G_OBJECT_CLASS_TYPE (object_class),
@@ -206,7 +206,7 @@ undomgr_finalize (GObject *object)
 
 	g_return_if_fail (object != NULL);
 	g_return_if_fail (IS_UNDOMGR (object));
-	
+
    	um = UNDOMGR (object);
 
 	g_return_if_fail (um->priv != NULL);
@@ -240,40 +240,40 @@ undomgr_attach (UndoMgr *um, GtkWidget *widget) {
 	/* Return if the widget is already in the list */
 	if(g_list_find(um->priv->widgets, widget) != NULL)
 		return;
-	
+
 	/* FIXME for all widget types! */
 
 	if(GTK_IS_TEXT_VIEW(widget)) {
 		GtkTextBuffer *buffer = gtk_text_view_get_buffer(GTK_TEXT_VIEW(widget));
 
 		g_signal_connect (G_OBJECT (buffer), "insert_text",
-			  G_CALLBACK (undomgr_textbuffer_insert_text_handler), 
+			  G_CALLBACK (undomgr_textbuffer_insert_text_handler),
 			  um);
 
 		g_signal_connect (G_OBJECT (buffer), "delete_range",
-			  G_CALLBACK (undomgr_textbuffer_delete_range_handler), 
+			  G_CALLBACK (undomgr_textbuffer_delete_range_handler),
 			  um);
 
 		g_signal_connect (G_OBJECT (buffer), "begin_user_action",
-			  G_CALLBACK (undomgr_textbuffer_begin_user_action_handler), 
+			  G_CALLBACK (undomgr_textbuffer_begin_user_action_handler),
 			  um);
 
 		g_signal_connect (G_OBJECT (buffer), "end_user_action",
-			  G_CALLBACK (undomgr_textbuffer_end_user_action_handler), 
+			  G_CALLBACK (undomgr_textbuffer_end_user_action_handler),
 			  um);
-	
+
 		um->priv->widgets = g_list_append(um->priv->widgets, widget);
 		/*g_print("Added widget textbuffer\n");*/
 	} else {
 		g_printerr("Unable to handle widget type in undomgr_attach.\n Widget: %s\n", G_OBJECT_TYPE_NAME(G_OBJECT(widget)));
-	}	
+	}
 }
 
 void undomgr_detach(UndoMgr *um, GtkWidget *widget) {
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 	g_return_if_fail (um->priv->widgets != NULL);
-	
+
 	g_return_if_fail (widget != NULL);
 	g_return_if_fail (g_list_find(um->priv->widgets, widget));
 
@@ -282,7 +282,7 @@ void undomgr_detach(UndoMgr *um, GtkWidget *widget) {
 	um->priv->widgets = g_list_remove(um->priv->widgets, widget);
 }
 
-void 
+void
 undomgr_begin_not_undoable_action (UndoMgr *um)
 {
 	g_return_if_fail (IS_UNDOMGR (um));
@@ -291,18 +291,18 @@ undomgr_begin_not_undoable_action (UndoMgr *um)
 	++um->priv->running_not_undoable_actions;
 }
 
-static void 
+static void
 undomgr_end_not_undoable_action_internal (UndoMgr *um)
 {
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 
 	g_return_if_fail (um->priv->running_not_undoable_actions > 0);
-	
+
 	--um->priv->running_not_undoable_actions;
 }
 
-void 
+void
 undomgr_end_not_undoable_action (UndoMgr *um)
 {
 	g_return_if_fail (IS_UNDOMGR (um));
@@ -311,10 +311,10 @@ undomgr_end_not_undoable_action (UndoMgr *um)
 	undomgr_end_not_undoable_action_internal (um);
 
 	if (um->priv->running_not_undoable_actions == 0)
-	{	
+	{
 		undomgr_free_action_list (um);
-	
-		um->priv->next_redo = -1;	
+
+		um->priv->next_redo = -1;
 
 		if (um->priv->can_undo)
 		{
@@ -340,7 +340,7 @@ undomgr_can_undo (const UndoMgr *um)
 	return um->priv->can_undo;
 }
 
-gboolean 
+gboolean
 undomgr_can_redo (const UndoMgr *um)
 {
 	g_return_val_if_fail (IS_UNDOMGR (um), FALSE);
@@ -349,7 +349,7 @@ undomgr_can_redo (const UndoMgr *um)
 	return um->priv->can_redo;
 }
 
-void 
+void
 undomgr_undo (UndoMgr *um)
 {
 	UndoAction *undo_action;
@@ -357,13 +357,13 @@ undomgr_undo (UndoMgr *um)
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 	g_return_if_fail (um->priv->can_undo);
-	
+
 	undomgr_begin_not_undoable_action (um);
 
 	do
 	{
 		++um->priv->next_redo;
-		
+
 		undo_action = g_list_nth_data (um->priv->actions, um->priv->next_redo);
 		g_return_if_fail (undo_action != NULL);
 
@@ -379,7 +379,7 @@ undomgr_undo (UndoMgr *um)
 										buffer,
 										&start,
 										undo_action->action.delete.start);
-					
+
 					gtk_text_buffer_place_cursor(buffer, &start);
 
 					gtk_text_buffer_insert(
@@ -387,7 +387,7 @@ undomgr_undo (UndoMgr *um)
 						&start,
 						undo_action->action.delete.text,
 						(int)strlen(undo_action->action.delete.text));
-					
+
 					break;
 
 				case UNDO_ACTION_INSERT:
@@ -417,7 +417,7 @@ undomgr_undo (UndoMgr *um)
 	} while (undo_action->order_in_group > 1);
 
 	undomgr_end_not_undoable_action_internal (um);
-	
+
 	if (!um->priv->can_redo)
 	{
 		um->priv->can_redo = TRUE;
@@ -431,7 +431,7 @@ undomgr_undo (UndoMgr *um)
 	}
 }
 
-void 
+void
 undomgr_redo (UndoMgr *um)
 {
 	UndoAction *undo_action;
@@ -439,7 +439,7 @@ undomgr_redo (UndoMgr *um)
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 	g_return_if_fail (um->priv->can_redo);
-	
+
 	undo_action = g_list_nth_data (um->priv->actions, um->priv->next_redo);
 	g_return_if_fail (undo_action != NULL);
 
@@ -469,20 +469,20 @@ undomgr_redo (UndoMgr *um)
 					gtk_text_buffer_place_cursor(buffer, &start);
 
 					break;
-				
+
 				case UNDO_ACTION_INSERT:
 					gtk_text_buffer_get_iter_at_offset(
 											buffer,
 											&start,
 											undo_action->action.insert.pos);
-					
+
 					gtk_text_buffer_place_cursor(buffer, &start);
-					
+
 					gtk_text_buffer_insert(buffer,
 											&start,
 											undo_action->action.insert.text,
 											undo_action->action.insert.length);
-					
+
 					break;
 
 				default:
@@ -498,7 +498,7 @@ undomgr_redo (UndoMgr *um)
 			undo_action = NULL;
 		else
 			undo_action = g_list_nth_data (um->priv->actions, um->priv->next_redo);
-		
+
 	} while ((undo_action != NULL) && (undo_action->order_in_group > 1));
 
 	undomgr_end_not_undoable_action_internal (um);
@@ -517,11 +517,11 @@ undomgr_redo (UndoMgr *um)
 
 }
 
-static void 
+static void
 undomgr_free_action_list (UndoMgr *um)
 {
 	gint n, len;
-	
+
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 
@@ -530,13 +530,13 @@ undomgr_free_action_list (UndoMgr *um)
 		return;
 	}
 	len = g_list_length (um->priv->actions);
-	
+
 	for (n = 0; n < len; n++)
 	{
-		UndoAction *undo_action = 
+		UndoAction *undo_action =
 			(UndoAction *)(g_list_nth_data (um->priv->actions, n));
 
-		/* gedit_debug (DEBUG_UNDO, "Free action (type %s) %d/%d", 
+		/* gedit_debug (DEBUG_UNDO, "Free action (type %s) %d/%d",
 				(undo_action->action_type == GEDIT_UNDO_ACTION_INSERT) ? "insert":
 				"delete", n, len); */
 
@@ -554,7 +554,7 @@ undomgr_free_action_list (UndoMgr *um)
 	}
 
 	g_list_free (um->priv->actions);
-	um->priv->actions = NULL;	
+	um->priv->actions = NULL;
 }
 
 static void
@@ -566,60 +566,60 @@ undomgr_free_widget(UndoMgr *um, GtkWidget *w)
 
 		g_signal_handlers_disconnect_by_func (
 		  G_OBJECT (buffer),
-		  G_CALLBACK (undomgr_textbuffer_delete_range_handler), 
+		  G_CALLBACK (undomgr_textbuffer_delete_range_handler),
 		  um);
 
 		g_signal_handlers_disconnect_by_func (
 		  G_OBJECT (buffer),
-		  G_CALLBACK (undomgr_textbuffer_insert_text_handler), 
+		  G_CALLBACK (undomgr_textbuffer_insert_text_handler),
 		  um);
 
 		g_signal_handlers_disconnect_by_func (
 		  G_OBJECT (buffer),
-		  G_CALLBACK (undomgr_textbuffer_begin_user_action_handler), 
+		  G_CALLBACK (undomgr_textbuffer_begin_user_action_handler),
 		  um);
 
 		g_signal_handlers_disconnect_by_func (
 		  G_OBJECT (buffer),
-		  G_CALLBACK (undomgr_textbuffer_end_user_action_handler), 
+		  G_CALLBACK (undomgr_textbuffer_end_user_action_handler),
 		  um);
 	} else {
 		g_printerr("Unable to handle widget type in undomgr_free_widget_list.\n Widget: %s\n", G_OBJECT_TYPE_NAME(G_OBJECT(w)));
 	}
 }
 
-static void 
+static void
 undomgr_free_widget_list (UndoMgr *um)
 {
 	gint n, len;
-	
+
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 	g_return_if_fail (um->priv->widgets != NULL);
-	
+
 	len = g_list_length (um->priv->actions);
 	for(n = 0; n < len; n++) {
 		GtkWidget *w = (GtkWidget *)(g_list_nth_data (um->priv->actions, n));
 
 		undomgr_free_widget(um, w);
-	}	
-		
+	}
+
 	g_list_free (um->priv->actions);
 	um->priv->actions = NULL;
 }
 
-static void 
+static void
 undomgr_textbuffer_insert_text_handler (GtkTextBuffer *buffer,
 					GtkTextIter *pos,
 					const gchar *text, gint length, UndoMgr *um)
 {
 	UndoAction undo_action;
-	
+
 	if (um->priv->running_not_undoable_actions > 0)
 		return;
 
 	g_return_if_fail (strlen (text) == (guint)length);
-	
+
 	undo_action.action_type = UNDO_ACTION_INSERT;
 
 	undo_action.action.insert.pos    = gtk_text_iter_get_offset (pos);
@@ -636,7 +636,7 @@ undomgr_textbuffer_insert_text_handler (GtkTextBuffer *buffer,
 	undomgr_add_textbuffer_action (um, undo_action, buffer);
 }
 
-static void 
+static void
 undomgr_textbuffer_delete_range_handler (GtkTextBuffer *buffer,
 									GtkTextIter *start,
 									GtkTextIter *end, UndoMgr *um)
@@ -674,7 +674,7 @@ undomgr_textbuffer_delete_range_handler (GtkTextBuffer *buffer,
 	g_free (undo_action.action.delete.text);
 }
 
-static void 
+static void
 undomgr_textbuffer_begin_user_action_handler (GtkTextBuffer *buffer,
 													UndoMgr *um)
 {
@@ -703,7 +703,7 @@ undomgr_add_textbuffer_action (UndoMgr *um, UndoAction undo_action,
 							GtkTextBuffer *buffer)
 {
 	UndoAction* action;
-	
+
 	g_return_if_fail(GTK_IS_TEXT_BUFFER(buffer));
 
 	if (um->priv->next_redo >= 0)
@@ -723,22 +723,22 @@ undomgr_add_textbuffer_action (UndoMgr *um, UndoAction undo_action,
 		if (action->action_type == UNDO_ACTION_INSERT)
 			action->action.insert.text = g_strdup (undo_action.action.insert.text);
 		else if (action->action_type == UNDO_ACTION_DELETE)
-			action->action.delete.text = g_strdup (undo_action.action.delete.text); 
+			action->action.delete.text = g_strdup (undo_action.action.delete.text);
 		else
 		{
 			g_free (action);
 			g_return_if_fail (FALSE);
 		}
-		
+
 		++um->priv->actions_in_current_group;
 		action->order_in_group = um->priv->actions_in_current_group;
 
 		if (action->order_in_group == 1)
 			++um->priv->num_of_groups;
-	
+
 		um->priv->actions = g_list_prepend (um->priv->actions, action);
 	}
-	
+
 	undomgr_check_list_size (um);
 
 	if (!um->priv->can_undo)
@@ -754,22 +754,22 @@ undomgr_add_textbuffer_action (UndoMgr *um, UndoAction undo_action,
 	}
 }
 
-static void 
+static void
 undomgr_free_first_n_actions (UndoMgr *um, gint n)
 {
 	gint i;
-	
+
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
 
 	if (um->priv->actions == NULL)
 		return;
-	
+
 	for (i = 0; i < n; i++)
 	{
-		UndoAction *undo_action = 
+		UndoAction *undo_action =
 			(UndoAction *)(g_list_first (um->priv->actions)->data);
-	
+
 		if (undo_action->action_type == UNDO_ACTION_INSERT)
 			g_free (undo_action->action.insert.text);
 		else if (undo_action->action_type == UNDO_ACTION_DELETE)
@@ -784,22 +784,22 @@ undomgr_free_first_n_actions (UndoMgr *um, gint n)
 
 		um->priv->actions = g_list_delete_link (um->priv->actions, um->priv->actions);
 
-		if (um->priv->actions == NULL) 
+		if (um->priv->actions == NULL)
 			return;
 	}
 }
 
-static void 
+static void
 undomgr_check_list_size (UndoMgr *um)
 {
 	gint undo_levels;
-	
+
 	g_return_if_fail (IS_UNDOMGR (um));
 	g_return_if_fail (um->priv != NULL);
-	
+
 	/* FIXME: should this be a preference? */
 	undo_levels = 25;
-	
+
 	if (undo_levels < 1)
 		return;
 
@@ -807,10 +807,10 @@ undomgr_check_list_size (UndoMgr *um)
 	{
 		UndoAction *undo_action;
 		GList* last;
-		
+
 		last = g_list_last (um->priv->actions);
 		undo_action = (UndoAction*) last->data;
-			
+
 		do
 		{
 			if (undo_action->action_type == UNDO_ACTION_INSERT)
@@ -826,29 +826,29 @@ undomgr_check_list_size (UndoMgr *um)
 			g_free (undo_action);
 
 			um->priv->actions = g_list_delete_link (um->priv->actions, last);
-			g_return_if_fail (um->priv->actions != NULL); 
+			g_return_if_fail (um->priv->actions != NULL);
 
 			last = g_list_last (um->priv->actions);
 			undo_action = (UndoAction*) last->data;
 
-		} while ((undo_action->order_in_group > 1) || 
+		} while ((undo_action->order_in_group > 1) ||
 			 (um->priv->num_of_groups > undo_levels));
-	}	
+	}
 }
 
 /**
  * undomgr_merge_textbuffer_action:
- * @um: an #UndoMgr 
+ * @um: an #UndoMgr
  * @undo_action:
  * @buffer:
- * 
+ *
  * This function tries to merge the undo action at the top of
  * the stack with a new undo action. So when we undo for example
  * typing, we can undo the whole word and not each letter by itself
- * 
+ *
  * Return Value: TRUE is merge was sucessful, FALSE otherwise
  **/
-static gboolean 
+static gboolean
 undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 							GtkTextBuffer *buffer)
 {
@@ -857,7 +857,7 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 	g_return_val_if_fail (GTK_IS_TEXT_BUFFER(buffer), FALSE);
 	g_return_val_if_fail (IS_UNDOMGR (um), FALSE);
 	g_return_val_if_fail (um->priv != NULL, FALSE);
-	
+
 	if (um->priv->actions == NULL)
 		return FALSE;
 
@@ -874,21 +874,21 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 	}
 
 	if (undo_action->action_type == UNDO_ACTION_DELETE)
-	{				
+	{
 		if ((last_action->action.delete.start != undo_action->action.delete.start) &&
 			(last_action->action.delete.start != undo_action->action.delete.end))
 		{
 			last_action->mergeable = FALSE;
 			return FALSE;
 		}
-	
+
 		if (last_action->action.delete.start == undo_action->action.delete.start)
 		{
 			gchar *str;
-			
+
 #define L  (last_action->action.delete.end - last_action->action.delete.start - 1)
 #define g_utf8_get_char_at(p,i) g_utf8_get_char(g_utf8_offset_to_pointer((p),(i)))
-		
+
 			/* Deleted with the delete key */
 			if ((g_utf8_get_char (undo_action->action.delete.text) != ' ') &&
 				(g_utf8_get_char (undo_action->action.delete.text) != '\t') &&
@@ -898,21 +898,21 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 				last_action->mergeable = FALSE;
 				return FALSE;
 			}
-		
+
 			str = g_strdup_printf ("%s%s",
-					last_action->action.delete.text, 
+					last_action->action.delete.text,
 					undo_action->action.delete.text);
-			
+
 			g_free (last_action->action.delete.text);
-			last_action->action.delete.end += 
-				(undo_action->action.delete.end - 
+			last_action->action.delete.end +=
+				(undo_action->action.delete.end -
 				 undo_action->action.delete.start);
 			last_action->action.delete.text = str;
 		}
 		else
 		{
 			gchar *str;
-		
+
 			/* Deleted with the backspace key */
 			if ((g_utf8_get_char (undo_action->action.delete.text) != ' ') &&
 				(g_utf8_get_char (undo_action->action.delete.text) != '\t') &&
@@ -924,9 +924,9 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 			}
 
 			str = g_strdup_printf ("%s%s",
-					undo_action->action.delete.text, 
+					undo_action->action.delete.text,
 					last_action->action.delete.text);
-		
+
 			g_free (last_action->action.delete.text);
 			last_action->action.delete.start = undo_action->action.delete.start;
 			last_action->action.delete.text = str;
@@ -937,10 +937,10 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 	else if (undo_action->action_type == UNDO_ACTION_INSERT)
 	{
 		gchar* str;
-	
+
 #define I (last_action->action.insert.chars - 1)
-		
-		if ((undo_action->action.insert.pos != 
+
+		if ((undo_action->action.insert.pos !=
 	     	(last_action->action.insert.pos + last_action->action.insert.chars)) ||
 			((g_utf8_get_char (undo_action->action.insert.text) != ' ') &&
 			(g_utf8_get_char (undo_action->action.insert.text) != '\t') &&
@@ -952,9 +952,9 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 			return FALSE;
 		}
 
-		str = g_strdup_printf ("%s%s", last_action->action.insert.text, 
+		str = g_strdup_printf ("%s%s", last_action->action.insert.text,
 				undo_action->action.insert.text);
-		
+
 		g_free (last_action->action.insert.text);
 		last_action->action.insert.length += undo_action->action.insert.length;
 		last_action->action.insert.text = str;
@@ -970,11 +970,11 @@ undomgr_merge_textbuffer_action (UndoMgr *um, UndoAction *undo_action,
 void
 undomgr_reset (UndoMgr *um) {
 	undomgr_free_action_list(um);
-	
+
 	um->priv->can_undo = FALSE;
 	g_signal_emit(G_OBJECT(um), undomgr_signals[CAN_UNDO], 0, FALSE);
-	
+
 	um->priv->can_redo = FALSE;
 	g_signal_emit(G_OBJECT(um), undomgr_signals[CAN_REDO], 0, FALSE);
-	
+
 }

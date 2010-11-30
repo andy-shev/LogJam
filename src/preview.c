@@ -118,7 +118,7 @@ parse_ljtag(char *src, GString *dst) {
 	while (*p == ' ') p++; /* skip spaces. */
 	if (*p == '\'' || *p == '"') /* optional quote. */
 		p++;
-	
+
 	start = p;
 	while (*p != '\'' && *p != '"' && *p != '>' && *p != ' ' && *p != '/') {
 		if (*p == 0) return src;
@@ -148,7 +148,7 @@ entry_prepare_preview(LJEntry *entry) {
 	GString *str = g_string_new(NULL);
 	gchar *event;
 	gboolean has_time, has_security;
-	
+
 	if (!entry)
 		return str;
 
