@@ -1,5 +1,5 @@
 AC_PREREQ(2.52)
-AC_INIT(logjam, 4.6.1, evan@livejournal.com)
+AC_INIT(logjam, 4.6.2, evan@livejournal.com)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
 AC_CONFIG_MACRO_DIR([m4])
