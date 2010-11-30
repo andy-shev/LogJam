@@ -40,6 +40,16 @@ typedef enum {
 	LJ_COMMENTS_DISABLE
 } LJCommentsType;
 
+/* --- screening --- */
+
+typedef enum {
+	LJ_SCREENING_DEFAULT,
+	LJ_SCREENING_NONE,
+	LJ_SCREENING_ANONYMOUS,
+	LJ_SCREENING_NONFRIENDS,
+	LJ_SCREENING_ALL
+} LJScreeningType;
+
 /* -- entry --- */
 
 typedef struct _LJEntry {
@@ -56,6 +66,7 @@ typedef struct _LJEntry {
 	gboolean preformatted;
 	gboolean backdated;
 	LJCommentsType comments;
+	LJScreeningType screening;
 
 	struct tm time;
 	LJSecurity security;

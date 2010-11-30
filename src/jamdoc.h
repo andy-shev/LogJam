@@ -75,6 +75,10 @@ void           jam_doc_set_picture(JamDoc *doc, const char *keyword);
 LJCommentsType jam_doc_get_comments(JamDoc *doc);
 void           jam_doc_set_comments(JamDoc *doc, LJCommentsType type);
 
+LJScreeningType
+               jam_doc_get_screening(JamDoc *doc);
+void           jam_doc_set_screening(JamDoc *doc, LJScreeningType type);
+
 void           jam_doc_get_time(JamDoc *doc, struct tm *ptm);
 void           jam_doc_set_time(JamDoc *doc, const struct tm *ptm);
 

@@ -272,6 +272,15 @@ jam_doc_set_comments(JamDoc *doc, LJCommentsType type) {
 	doc->entry->comments = type;
 }
 
+LJScreeningType
+jam_doc_get_screening(JamDoc *doc) {
+	return doc->entry->screening;
+}
+void
+jam_doc_set_screening(JamDoc *doc, LJScreeningType type) {
+	doc->entry->screening = type;
+}
+
 void
 jam_doc_get_time(JamDoc *doc, struct tm *ptm) {
 	*ptm = doc->entry->time;

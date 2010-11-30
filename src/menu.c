@@ -61,6 +61,7 @@ enum {
 	ACTION_VIEW_PREFORMATTED,
 	ACTION_VIEW_DATESEL,
 	ACTION_VIEW_COMMENTS,
+	ACTION_VIEW_SCREENING,
 
 	ACTION_JOURNAL,
 	ACTION_JOURNAL_USE,
@@ -195,6 +196,13 @@ comments_cb(JamWin *jw, int action, GtkCheckMenuItem *item) {
 	if (!gtk_check_menu_item_get_active(item))
 		return;
 	jam_doc_set_comments(jw->doc, action - ACTION_ENTRY_COMMENTS_DEFAULT);
+}
+
+static void
+screening_cb(JamWin *jw, int action, GtkCheckMenuItem *item) {
+	if (!gtk_check_menu_item_get_active(item))
+		return;
+	jam_doc_set_screening(jw->doc, action - ACTION_ENTRY_SCREENING_DEFAULT);
 }
 
 static void
@@ -434,6 +442,7 @@ static GtkItemFactoryEntry menu_items[] = {
 { N_("/View/_Location"),          NULL, menu_view_cb, ACTION_VIEW_LOCATION,     "<CheckItem>" },
 { N_("/View/_Preformatted"),      NULL, menu_view_cb, ACTION_VIEW_PREFORMATTED, "<CheckItem>" },
 { N_("/View/_Comments"),          NULL, menu_view_cb, ACTION_VIEW_COMMENTS,     "<CheckItem>" },
+{ N_("/View/Scr_eening"),         NULL, menu_view_cb, ACTION_VIEW_SCREENING,    "<CheckItem>" },
 
 { N_("/_HTML"),						NULL, NULL, 0, "<Branch>" },
 { N_("/HTML/_Bold"),				"<ctl><alt>B", menu_html_mark_bold },

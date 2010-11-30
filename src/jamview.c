@@ -56,6 +56,7 @@ struct _JamView {
 	GtkWidget *preformatted;
 	GtkWidget *datesel;
 	GtkWidget *commentsbox, *comments;
+	GtkWidget *screeningbox, *screening;
 
 	GtkSizeGroup *sizegroup;
 	UndoMgr *undomgr;
@@ -521,7 +522,8 @@ static void
 option_remove(JamView *view) {
 	if (!view->optionbar)
 		return;
-	if (view->preformatted || view->datesel || view->commentsbox)
+	if (view->preformatted || view->datesel || view->commentsbox ||
+			view->screeningbox)
 		return;
 	gtk_widget_destroy(view->optionbar);
 	view->optionbar = NULL;
@@ -582,7 +584,7 @@ comments_add(JamView *view) {
 	gtk_option_menu_set_menu(GTK_OPTION_MENU(view->comments), menu);
 
 	view->commentsbox = labelled_box_new(_("_Comments:"), view->comments);
-	gtk_box_pack_end(GTK_BOX(view->optionbar), view->commentsbox, FALSE, FALSE, 0);
+	gtk_box_pack_start(GTK_BOX(view->optionbar), view->commentsbox, FALSE, FALSE, 0);
 	gtk_widget_show_all(view->commentsbox);
 }
 static void
@@ -608,6 +610,58 @@ static void
 comments_store(JamView *view) {
 	LJCommentsType type = gtk_option_menu_get_history(GTK_OPTION_MENU(view->comments));
 	jam_doc_set_comments(view->doc, type);
+}
+
+static void
+screening_add(JamView *view) {
+	GtkWidget *menu, *item;
+	static const char * items[] = {
+		N_("Default"),
+		N_("None"),
+		N_("Anonymous Only"),
+		N_("Non-Friends"),
+		N_("All")
+	};
+	int i;
+
+	option_add(view);
+	view->screening = gtk_option_menu_new();
+
+	menu = gtk_menu_new();
+	for (i = 0; i < sizeof(items)/sizeof(char*); i++) {
+		item = gtk_menu_item_new_with_label(_(items[i]));
+		gtk_widget_show(item);
+		gtk_menu_shell_append(GTK_MENU_SHELL(menu), item);
+	}
+	gtk_option_menu_set_menu(GTK_OPTION_MENU(view->screening), menu);
+
+	view->screeningbox = labelled_box_new(_("Scr_eening:"), view->screening);
+	gtk_box_pack_end(GTK_BOX(view->optionbar), view->screeningbox, FALSE, FALSE, 0);
+	gtk_widget_show_all(view->screeningbox);
+}
+static void
+screening_remove(JamView *view) {
+	jam_doc_set_screening(view->doc, LJ_SCREENING_DEFAULT);
+	gtk_widget_destroy(view->screeningbox);
+	view->screeningbox = view->screening = NULL;
+	option_remove(view);
+}
+static gboolean
+screening_visible(JamView *view) {
+	return view->screeningbox != NULL;
+}
+static void
+screening_load(JamView *view) {
+	LJCommentsType type = jam_doc_get_screening(view->doc);
+	if (type != LJ_SCREENING_DEFAULT)
+		show_meta(view, JAM_VIEW_SCREENING);
+	if (screening_visible(view))
+		gtk_option_menu_set_history(GTK_OPTION_MENU(view->screening), type);
+}
+static void
+screening_store(JamView *view) {
+	LJCommentsType type = gtk_option_menu_get_history(GTK_OPTION_MENU(view->screening));
+	jam_doc_set_screening(view->doc, type);
 }
 
 static struct {
@@ -637,6 +691,7 @@ static struct {
 	{ "preformatted", TRUE, STD(preformatted), NULL },
 	{ "datesel",      TRUE, STD(datesel),      NULL },
 	{ "comments",     TRUE, STD(comments),     NULL },
+	{ "screening",    TRUE, STD(screening),    NULL },
 	{ 0 }
 };
 
