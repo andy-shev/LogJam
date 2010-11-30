@@ -27,7 +27,7 @@ typedef struct _LJFriend {
 	char *fullname;
 	guint32 foreground, background; /* colors. */
 	int conn; /* LJ_FRIEND_CONN_MY, etc */
-	LJFriendType type; 
+	LJFriendType type;
 	guint32 groupmask;
 } LJFriend;
 

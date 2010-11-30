@@ -15,7 +15,7 @@ parse_result(LJVerb *verb) {
 	LJConsoleCommand *cc = (LJConsoleCommand*)verb;
 	int i;
 	char *linetext, *linetype;
-	
+
 	cc->linecount = lj_result_get_int(verb->result, "cmd_line_count");
 	cc->lines = g_new0(LJConsoleLine, cc->linecount);
 	for (i = 0; i < cc->linecount; i++) {
@@ -28,7 +28,7 @@ parse_result(LJVerb *verb) {
 			cc->lines[i].type = LJ_CONSOLE_LINE_TYPE_ERROR;
 		else if (g_ascii_strcasecmp(linetype, "info") == 0)
 			cc->lines[i].type = LJ_CONSOLE_LINE_TYPE_INFO;
-		else 
+		else
 			cc->lines[i].type = LJ_CONSOLE_LINE_TYPE_INFO;
 
 		if (linetext)

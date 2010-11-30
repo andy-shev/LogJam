@@ -42,17 +42,17 @@ lj_urlencode(const char *string) {
 	const char *src;
 	char *dest;
 	char *newstr;
-	
+
 	char hextable[] = { '0', '1', '2', '3', '4', '5', '6', '7',
 	                    '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'  };
-	
+
 	if (string == NULL) return NULL;
 
-	for (src = string; *src != 0; src++) 
+	for (src = string; *src != 0; src++)
 		if (needsescape(*src)) escapecount++;
-	
+
 	newstr = g_new(char, (src-string) - escapecount + (escapecount * 3) + 1);
-	
+
 	src = string;
 	dest = newstr;
 	while (*src != 0) {
@@ -71,13 +71,13 @@ lj_urlencode(const char *string) {
 	return newstr;
 }
 
-char* 
+char*
 lj_urldecode(const char *string) {
 	int destlen = 0;
 	const char *src;
 	char *dest;
 	char *newstr;
-	
+
 	if (string == NULL) return NULL;
 
 	for (src = string; *src != 0; src++) {
@@ -85,7 +85,7 @@ lj_urldecode(const char *string) {
 										the next two chars for 0 */
 		destlen++;
 	}
-	
+
 	newstr = g_new(char, destlen + 1);
 	src = string;
 	dest = newstr;
@@ -125,12 +125,12 @@ get_line_inplace(char *src, char **dest) {
 	return src;
 }
 
-static LJResult* 
+static LJResult*
 lj_result_new(void) {
 	return g_new0(LJResult, 1);
 }
 
-LJResult* 
+LJResult*
 lj_result_new_from_response(const char *res) {
 	char *origsrc, *src;
 	char *key;
@@ -167,7 +167,7 @@ lj_result_new_from_response(const char *res) {
 	return result;
 }
 
-gboolean 
+gboolean
 lj_result_succeeded(LJResult *result) {
 	char *error;
 
@@ -302,7 +302,7 @@ lj_result_getf(LJResult* result, const char *key, ...) {
 	va_start(ap, key);
 	g_vsnprintf(buf, 100, key, ap);
 	va_end(ap);
-	return lj_result_get(result, buf); 
+	return lj_result_get(result, buf);
 }
 
 int
@@ -322,7 +322,7 @@ lj_result_getf_int(LJResult* result, const char *key, ...) {
 	va_start(ap, key);
 	g_vsnprintf(buf, 100, key, ap);
 	va_end(ap);
-	return lj_result_get_int(result, buf); 
+	return lj_result_get_int(result, buf);
 }
 
 void

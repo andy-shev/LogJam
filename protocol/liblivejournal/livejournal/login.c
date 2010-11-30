@@ -37,7 +37,7 @@ read_moods(LJResult *result, LJServer *s) {
 		m->name = g_strdup(name);
 		m->parentid = lj_result_getf_int(result, "mood_%d_parent", i);
 
-		s->moods = g_slist_insert_sorted(s->moods, m, 
+		s->moods = g_slist_insert_sorted(s->moods, m,
 				(GCompareFunc)lj_mood_compare);
 	}
 }

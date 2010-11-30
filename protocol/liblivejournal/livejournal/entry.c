@@ -73,7 +73,7 @@ const char*
 lj_get_summary(const char *subject, const char *event) {
 #define SUMMARY_LENGTH 50
 	/* SUMMARY_LENGTH is in chars, not bytes.
-	 * UTF-8 chars can be up to 6 bytes, and then 
+	 * UTF-8 chars can be up to 6 bytes, and then
 	 * we need a bit more space to hold the "...". */
 
 	static char buf[SUMMARY_LENGTH*6 + 5];
@@ -141,11 +141,11 @@ lj_entry_set_request_fields(LJEntry *entry, LJRequest *request) {
 		lj_request_add(request, "prop_current_moodid", "");
 	lj_request_add(request,
 			"prop_current_location", entry->location ? entry->location : "");
-	lj_request_add(request, 
+	lj_request_add(request,
 			"prop_current_music", entry->music ? entry->music : "");
-	lj_request_add(request, 
+	lj_request_add(request,
 			"prop_taglist", entry->taglist ? entry->taglist : "");
-	lj_request_add(request, 
+	lj_request_add(request,
 			"prop_picture_keyword", entry->pickeyword ? entry->pickeyword : "");
 	lj_request_add_int(request, "prop_opt_preformatted", entry->preformatted);
 	lj_request_add_int(request, "prop_opt_nocomments", entry->comments == LJ_COMMENTS_DISABLE);
@@ -352,7 +352,7 @@ lj_entry_new_from_filename(const char *filename, LJEntryFileType type,
 				_("Error reading file '%s': %s"), filename, g_strerror(errno));
 		return NULL;
 	}
-		
+
 	entry = lj_entry_new_from_file(f, type, typeret, err);
 	fclose(f);
 
@@ -376,16 +376,16 @@ lj_entry_new_from_result(LJResult *result, int i) {
 
 	entry->event = lj_urldecode(lj_result_getf(result, "events_%d_event", i));
 	if (!verify_utf8(&entry->event))
-		g_warning("Bad UTF-8 in event of itemid %d.\n", entry->itemid); 
+		g_warning("Bad UTF-8 in event of itemid %d.\n", entry->itemid);
 	/* http://www.livejournal.com/community/logjam/113710.html */
 	if (!entry->event)
 		entry->event = g_strdup("");
 
 	entry->subject = g_strdup(lj_result_getf(result, "events_%d_subject", i));
 	if (!verify_utf8(&entry->subject))
-		g_warning("Bad UTF-8 in subject of itemid %d.\n", entry->itemid); 
+		g_warning("Bad UTF-8 in subject of itemid %d.\n", entry->itemid);
 
-	lj_security_from_strings(&entry->security, 
+	lj_security_from_strings(&entry->security,
 			lj_result_getf(result, "events_%d_security", i),
 			lj_result_getf(result, "events_%d_allowmask", i));
 
@@ -718,11 +718,11 @@ gboolean
 lj_entry_to_xml_file(LJEntry *entry, const char *filename, GError **err) {
 	int ret;
 	xmlDocPtr doc;
-	
+
 	doc = lj_entry_to_xml(entry);
 	ret = xmlSaveFormatFileEnc(filename, doc, "utf-8", TRUE);
 	xmlFreeDoc(doc);
-	
+
 	if (ret < 0) {
 		/* XXX um, is there no way to get a more reasonable error message
 		 * out of libxml? */
@@ -757,7 +757,7 @@ lj_entry_to_rfc822(LJEntry *entry, gboolean includeempty) {
 		g_string_printf(str, "Time: %s\n", ljdate);
 		g_free(ljdate);
 	}
-	
+
 	/* XXX: add all other metadata fields */
 	append_field(str, "Subject", entry->subject, includeempty);
 	append_field(str, "Mood", entry->mood, includeempty);
@@ -782,10 +782,10 @@ lj_entry_to_rfc822_file(LJEntry *entry, const char *filename, gboolean includeem
 	str = lj_entry_to_rfc822(entry, includeempty);
 	fprintf(f, "%s", str->str);
 	g_string_free(str, TRUE);
-	
+
 	if (fclose(f) != 0)
 		_FILE_ERROR_THROW(err, _("can't close rfc822 file"));
-	
+
 	return TRUE;
 }
 
@@ -802,7 +802,7 @@ lj_entry_edit_with_usereditor(LJEntry *entry, const char *basepath, GError **err
 	char *filename = NULL;
 	LJEntry *tmp_entry = NULL;
 	gint editfh;
-	
+
 	filename = g_build_filename(basepath, "logjam-edit-XXXXXX", NULL);
 	editfh = g_mkstemp(filename);
 	if (!editfh) {
@@ -843,7 +843,7 @@ lj_entry_from_user_editor(const char *filename, GError **err) {
 #ifndef G_OS_WIN32
 	gint   pid;
 	LJEntry *entry;
-	
+
 	/* g_spawn* would do no good: it disassociates the tty. viva fork! */
 	pid = fork();
 	if (pid < 0) {                 /* fork error */
@@ -870,9 +870,9 @@ lj_entry_from_user_editor(const char *filename, GError **err) {
 	if (!(entry = lj_entry_new_from_filename(filename, LJ_ENTRY_FILE_RFC822, NULL, err))) {
 		return NULL; /* err has already been already set; propagate it */
 	}
-	
+
 	return entry;
-	
+
 #else
 	g_warning("external editor option not supported on Win32 yet. Sorry.\n");
 	return NULL;

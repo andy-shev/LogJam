@@ -15,7 +15,7 @@ typedef struct {
 	GString *response;
 } RequestData;
 
-static size_t 
+static size_t
 curlwrite_cb(void *ptr, size_t size, size_t nmemb, void *data) {
 	RequestData *requestdata = data;
 	g_string_append_len(requestdata->response, ptr, size*nmemb);
@@ -43,14 +43,14 @@ run_request(LJRequest *request, GError **err) {
 	curl_easy_setopt(curl, CURLOPT_NOPROGRESS, 1);
 	curl_easy_setopt(curl, CURLOPT_ERRORBUFFER, errorbuf);
 
-	g_snprintf(urlreq, sizeof(urlreq), 
+	g_snprintf(urlreq, sizeof(urlreq),
 			"%s/interface/flat", server->url);
 	curl_easy_setopt(curl, CURLOPT_URL, urlreq);
 
 	/*if (conf.options.useproxy) {
 		curl_easy_setopt(curl, CURLOPT_PROXY, conf.proxy);
 		if (conf.options.useproxyauth) {
-			g_snprintf(proxyuserpass, sizeof(proxyuserpass), "%s:%s", 
+			g_snprintf(proxyuserpass, sizeof(proxyuserpass), "%s:%s",
 					conf.proxyuser, conf.proxypass);
 			curl_easy_setopt(curl, CURLOPT_PROXYUSERPWD, proxyuserpass);
 		}
@@ -64,7 +64,7 @@ run_request(LJRequest *request, GError **err) {
 	requestdata.curl = curl;
 	requestdata.response = g_string_sized_new(4096);
 	curl_easy_setopt(curl, CURLOPT_FILE, &requestdata);
-	
+
 	curlres = curl_easy_perform(curl);
 	curl_easy_cleanup(curl);
 

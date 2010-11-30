@@ -75,7 +75,7 @@ read_friendofs(LJResult *result, GHashTable *friends) {
 static void
 parse_result(LJVerb *verb) {
 	GHashTable *friends;
-	
+
 	friends = g_hash_table_new(g_str_hash, g_str_equal);
 
 	read_friends(verb->result, friends);

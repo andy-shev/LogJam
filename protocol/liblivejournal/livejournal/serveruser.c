@@ -30,12 +30,12 @@ lj_server_new(const char *url) {
 	return s;
 }
 
-int 
+int
 lj_server_get_last_cached_moodid(LJServer *server) {
 	GSList *l;
 	int max = 0;
 	for (l = server->moods; l != NULL; l = l->next) {
-		if (((LJMood*)l->data)->id > max) 
+		if (((LJMood*)l->data)->id > max)
 			max = ((LJMood*)l->data)->id;
 	}
 	return max;

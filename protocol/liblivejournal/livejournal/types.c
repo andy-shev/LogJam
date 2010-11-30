@@ -20,7 +20,7 @@
 char*
 _lj_nid_by_id(GSList *l, int id) {
 	for ( ; l; l = l->next) {
-		if (((_LJNameIDHash*)l->data)->id == id) 
+		if (((_LJNameIDHash*)l->data)->id == id)
 			return ((_LJNameIDHash*)l->data)->name;
 	}
 	return NULL;
@@ -28,7 +28,7 @@ _lj_nid_by_id(GSList *l, int id) {
 int
 _lj_nid_by_name(GSList *l, const char* name) {
 	for ( ; l; l = l->next) {
-		if (strcmp(((_LJNameIDHash*)l->data)->name, name) == 0) 
+		if (strcmp(((_LJNameIDHash*)l->data)->name, name) == 0)
 			return ((_LJNameIDHash*)l->data)->id;
 	}
 	return -1;
@@ -55,9 +55,9 @@ lj_friend_new(void) {
 LJFriendType
 lj_friend_type_from_str(char *str) {
 	if (str) {
-		if (strcmp(str, "community") == 0) 
+		if (strcmp(str, "community") == 0)
 			return LJ_FRIEND_TYPE_COMMUNITY;
-	} 
+	}
 	return LJ_FRIEND_TYPE_USER;
 }
 
@@ -88,7 +88,7 @@ lj_tag_free(LJTag *t) {
    g_free(t);
 }
 
-void 
+void
 lj_security_append_to_request(LJSecurity *security, LJRequest *request) {
 	char *text = NULL;
 
@@ -132,7 +132,7 @@ lj_security_from_strings(LJSecurity *security, const char *sectext, const char *
 		switch (am) {
 			case 0:
 				security->type = LJ_SECURITY_PRIVATE; break;
-			case LJ_SECURITY_ALLOWMASK_FRIENDS: 
+			case LJ_SECURITY_ALLOWMASK_FRIENDS:
 				security->type = LJ_SECURITY_FRIENDS; break;
 			default:
 				security->type = LJ_SECURITY_CUSTOM;
@@ -144,7 +144,7 @@ lj_security_from_strings(LJSecurity *security, const char *sectext, const char *
 }
 
 #if 0
-void 
+void
 security_load_from_result(LJSecurity *security, NetResult *result) {
 	char *sectext, *allowmask;
 
@@ -181,7 +181,7 @@ lj_timegm(struct tm *tm) {
 	 * windows getenv/putenv works in a wacky way. */
 	time_t ret;
 	char *tz;
-	
+
 	tz = getenv("TZ");
 	putenv("TZ=UTC");
 	tzset();

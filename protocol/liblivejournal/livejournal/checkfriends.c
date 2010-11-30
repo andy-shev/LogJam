@@ -13,7 +13,7 @@
 static void
 parse_result(LJVerb *verb) {
 	LJCheckFriends *cf = (LJCheckFriends*)verb;
-	
+
 	cf->lastupdate = g_strdup(lj_result_get(verb->result, "lastupdate"));
 	cf->interval = lj_result_get_int(verb->result, "interval");
 	cf->newposts = lj_result_get_int(verb->result, "new");
