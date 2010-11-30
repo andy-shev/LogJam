@@ -1,0 +1,48 @@
+body {
+	margin: 0px;
+	margin-bottom: 5ex;
+	background: white;
+	color: #000000;
+	text-align: left;
+}
+th {
+	font-weight: bold;
+}
+td.number {
+	text-align: right;
+}
+tt, pre {
+	font-family: monospace;
+}
+a.download {
+	font-weight: bold;
+	text-align: center;
+}
+h1 {
+	background: #666666;
+	color: white;
+	font-weight: bold;
+	padding: 3px;
+	margin: 0px;
+	text-align: center;
+}
+h2 {
+	margin-left: -2ex;
+	font-weight: bold;
+	font-size: large;
+	padding: 0px;
+}
+div.index {
+	text-align: center;
+	font-size: smaller;
+}
+div.content {
+	padding: 0ex 8ex;
+	text-align: left;
+}
+.console {
+	font-family: monospace;
+	padding-left: 1ex;
+	background: #CCCCCC;
+}
+
