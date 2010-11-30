@@ -210,8 +210,8 @@ AC_SUBST(XMMS_LIBS)
 AC_SUBST(XMMS_CFLAGS)
 
 AC_ARG_WITH(banshee,
-  AC_HELP_STRING([--with-banshee], [build banshee helper (default yes)]),
-  , [with_banshee=yes])
+  AC_HELP_STRING([--with-banshee], [build banshee helper (default no)]),
+  , [with_banshee=no])
 
 AM_CONDITIONAL(WITH_BANSHEE, test "$with_banshee" = "yes")
 
