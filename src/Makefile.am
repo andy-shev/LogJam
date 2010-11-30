@@ -51,7 +51,7 @@ src_gtk = gtk-all.h util-gtk.c util-gtk.h \
           $(HISTORY) $(OFFLINE) \
           jam.c jam.h $(USEJOURNAL) \
           lj_dbus.c lj_dbus.h \
-          security.c security.h about.c thanks.h \
+          security.c security.h about.c about.h thanks.h \
           menu.c menu.h $(TOOLS) smartquotes.c smartquotes.h \
           $(LOGIN) manager.c \
           spawn.c spawn.h icons.c icons.h \
