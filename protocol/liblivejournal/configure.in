@@ -5,6 +5,8 @@ dnl don't use parent for auxfiles; allows separate dist
 dnl AC_CONFIG_AUX_DIR([.])
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION, [dist-bzip2])
+AC_CONFIG_MACRO_DIR([m4])
+
 AC_CONFIG_SRCDIR(livejournal/livejournal.h)
 AM_CONFIG_HEADER(config.h)
 

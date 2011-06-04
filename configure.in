@@ -2,6 +2,8 @@ AC_PREREQ(2.52)
 AC_INIT(logjam, 4.6.1, evan@livejournal.com)
 AC_CANONICAL_SYSTEM
 AM_INIT_AUTOMAKE
+AC_CONFIG_MACRO_DIR([m4])
+
 AC_CONFIG_SRCDIR(src/jam.c)
 AM_CONFIG_HEADER(config.h)
 

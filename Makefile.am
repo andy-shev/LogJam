@@ -1,3 +1,4 @@
+ACLOCAL_AMFLAGS = -I m4
 AUTOMAKE_OPTIONS = dist-bzip2
 
 if WITH_GTK
