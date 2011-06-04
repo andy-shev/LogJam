@@ -12,14 +12,21 @@
 
 
 void
-html_mark_tag(JamDoc *doc, const char* tag) {
+html_mark_tag(JamDoc *doc, const char* tag, ...) {
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	GtkTextMark *ins;
 	char * startTag, * endTag;
 	int tagLen;
+	va_list ap;
 
-	startTag = g_strdup_printf("<%s>", tag);
+	if (!strcmp(tag, "span")) {
+		va_start(ap, tag);
+		startTag = g_strdup_printf("<%s %s>", tag, va_arg(ap, const char *));
+		va_end(ap);
+	} else {
+		startTag = g_strdup_printf("<%s>", tag);
+	}
 	endTag   = g_strdup_printf("</%s>", tag);
 	tagLen = (int)strlen(endTag);
 
