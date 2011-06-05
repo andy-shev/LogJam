@@ -2,27 +2,26 @@
 # Русские переводы для пакета LogJam.
 # Copyright (C) 2002 Evan Martin <evan@livejournal.com>
 # This file is distributed under the same license as the LogJam package.
-# Mikhail Chekanov <mihun@bitex.com>,
-# http://www.livejournal.com/~mihun/, 2002.
-# Grigory Bakunov <black@asplinux.ru>,
-# http://www.livejournal.com/~bobuk/, 2003.
-# Kir Kolyshkin <kir@sacred.ru>,
-# http://www.livejournal.com/~k001/, 2003-2004.
-# Andy Shevchenko <andy@smile.org.ua>,
-# http://www.livejournal.com/~andy_shev/, 2005.
+# Mikhail Chekanov <mihun@bitex.com>, 2002.
+# Grigory Bakunov <black@asplinux.ru>, 2003.
+# Kir Kolyshkin <kir@sacred.ru>, 2003-2004.
+# Andy Shevchenko <andy@smile.org.ua>, 2005.
+# Andy Shevchenko <andy.shevchenko@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: LogJam 4.4.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-06-05 22:45+0300\n"
-"PO-Revision-Date: 2005-10-25 13:04+0300\n"
-"Last-Translator: Andy Shevchenko <andy@smile.org.ua>\n"
+"PO-Revision-Date: 2011-06-06 00:33+0300\n"
+"Last-Translator: Andy Shevchenko <andy.shevchenko@gmail.com>\n"
 "Language-Team: Russian <ru@li.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.10.2\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
+"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../data/logjam.desktop.in.h:1 ../src/docklet.c:123 ../src/init.c:206
 msgid "LogJam"
@@ -33,9 +32,9 @@ msgid "Manage journal/weblog"
 msgstr "Управление дневником/веблогом"
 
 #: ../protocol/liblivejournal/livejournal/entry.c:352
-#, fuzzy, c-format
+#, c-format
 msgid "Error reading file '%s': %s"
-msgstr "Ошибка загрузки файла: %s."
+msgstr "Ошибка загрузки файла '%s': %s"
 
 #: ../protocol/liblivejournal/livejournal/entry.c:780
 msgid "can't open rfc822 file"
@@ -48,12 +47,12 @@ msgstr ""
 #: ../protocol/liblivejournal/livejournal/entry.c:810
 #, c-format
 msgid "Can't make temp file: %s"
-msgstr ""
+msgstr "Невозможно создать временный файл: %s"
 
 #: ../protocol/liblivejournal/livejournal/entry.c:817
 #, c-format
 msgid "Can't close temp file: %s"
-msgstr ""
+msgstr "Невозможно закрыть временный файл: %s"
 
 #: ../src/about.c:63
 #, c-format
@@ -93,7 +92,7 @@ msgstr "хост %s не найден в конфигурации"
 #: ../src/account.c:146
 #, c-format
 msgid "user %s not found in server %s"
-msgstr "пользователь %s не найден в сервере %s"
+msgstr "пользователь %s не найден на сервере %s"
 
 #: ../src/checkfriends.c:280
 msgid "Too many network errors; checking friends disabled."
@@ -459,26 +458,23 @@ msgstr "Датировать _задним числом"
 
 #. About...
 #: ../src/docklet.c:37
-#, fuzzy
 msgid "About LogJam..."
-msgstr "О программе"
+msgstr "О программе..."
 
 #. Friends...
 #: ../src/docklet.c:45
-#, fuzzy
 msgid "Friends..."
-msgstr "Друзья"
+msgstr "Друзья..."
 
 #. Preferences...
 #: ../src/docklet.c:51
-#, fuzzy
 msgid "Preferences..."
-msgstr "Настройки"
+msgstr "Настройки..."
 
 #. Quit
 #: ../src/docklet.c:64
 msgid "Quit"
-msgstr ""
+msgstr "Выход"
 
 #: ../src/docklet.c:105 ../src/settings.c:796
 msgid "Check Friends"
@@ -1016,14 +1012,12 @@ msgid "_URL:"
 msgstr "_URL:"
 
 #: ../src/imagelink.c:93
-#, fuzzy
 msgid "Title:"
-msgstr "_Заголовок черновика:"
+msgstr "Название:"
 
 #: ../src/imagelink.c:97
-#, fuzzy
 msgid "Link:"
-msgstr "Связь"
+msgstr "Ссылка:"
 
 #: ../src/imagelink.c:105
 msgid "_Width:"
@@ -1234,9 +1228,8 @@ msgid "_Music:"
 msgstr "_Музыка:"
 
 #: ../src/jamview.c:443
-#, fuzzy
 msgid "_Location:"
-msgstr "_Опция:"
+msgstr "_Местоположение:"
 
 #: ../src/jamview.c:477
 msgid "_Tags:"
@@ -1268,20 +1261,19 @@ msgstr "Ничего"
 
 #: ../src/jamview.c:621
 msgid "Anonymous Only"
-msgstr ""
+msgstr "Только анонимные"
 
 #: ../src/jamview.c:622
-#, fuzzy
 msgid "Non-Friends"
-msgstr "Друзья"
+msgstr "Кроме друзей"
 
 #: ../src/jamview.c:623
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 #: ../src/jamview.c:638
 msgid "Scr_eening:"
-msgstr ""
+msgstr "_Сокрытие:"
 
 #: ../src/jamview.c:933 ../src/jamview.c:954 ../src/jamview.c:961
 #, c-format
@@ -1332,9 +1324,8 @@ msgid "Link _Text:"
 msgstr "Текст ссылки:"
 
 #: ../src/link.c:119
-#, fuzzy
 msgid "Link Title:"
-msgstr "Текст ссылки:"
+msgstr "Название ссылки:"
 
 #: ../src/link.c:131
 msgid "_LiveJournal User:"
@@ -1346,7 +1337,7 @@ msgstr "Сообществo"
 
 #: ../src/link-journal.c:38
 msgid "Twitter user"
-msgstr ""
+msgstr "Пользователь сервиса Twitter"
 
 #: ../src/link-journal.c:64
 msgid "Insert lj user / lj community Tag"
@@ -1357,9 +1348,8 @@ msgid "_Username:"
 msgstr "Пользователь:"
 
 #: ../src/link-journal.c:86
-#, fuzzy
 msgid "_Nickname:"
-msgstr "_Имя:"
+msgstr "_Прозвище:"
 
 #: ../src/link-journal.c:90
 msgid "User _Type:"
@@ -1375,25 +1365,25 @@ msgstr ""
 
 #: ../src/lj_dbus.c:386
 msgid "Unknown Artist"
-msgstr ""
+msgstr "Неизвестный исполнитель"
 
 #: ../src/lj_dbus.c:387
 msgid "Unknown Album"
-msgstr ""
+msgstr "Неизвестный альбом"
 
 #: ../src/lj_dbus.c:388
 msgid "Unknown Track"
-msgstr ""
+msgstr "Неизвестный трек"
 
 #: ../src/lj_dbus.c:392
 #, c-format
 msgid "Player is stopped."
-msgstr ""
+msgstr "Проигрыватель остановлен."
 
 #: ../src/lj_dbus.c:396
 #, c-format
 msgid "No players found."
-msgstr ""
+msgstr "Проигрыватели не найдены."
 
 #: ../src/login.c:103
 msgid "Logging In"
@@ -1673,22 +1663,19 @@ msgstr "/Вставить/Ссылку на _дневник..."
 
 #: ../src/menu.c:498
 msgid "/Insert/lj-_cut..."
-msgstr "/Вставить/С_крытие (lj-cut)..."
+msgstr "/Вставить/Выре_зка (lj-cut)..."
 
 #: ../src/menu.c:499
-#, fuzzy
 msgid "/Insert/lj-_repost..."
-msgstr "/Вставить/С_крытие (lj-cut)..."
+msgstr "/Вставить/Пере_пост (lj-repost)..."
 
 #: ../src/menu.c:500
-#, fuzzy
 msgid "/Insert/lj-li_ke..."
-msgstr "/Вставить/С_крытие (lj-cut)..."
+msgstr "/Вставить/+1 (lj-like)..."
 
 #: ../src/menu.c:501
-#, fuzzy
 msgid "/Insert/_Embedded Media..."
-msgstr "/Вставить/_Картинку..."
+msgstr "/Вставить/_Встраиваемый объект..."
 
 #: ../src/menu.c:503
 msgid "/_View"
@@ -1719,9 +1706,8 @@ msgid "/View/M_usic"
 msgstr "/Вид/_Музыка"
 
 #: ../src/menu.c:510
-#, fuzzy
 msgid "/View/_Location"
-msgstr "/Вид/_Настроение"
+msgstr "/Вид/_Местоположение"
 
 #: ../src/menu.c:511
 msgid "/View/_Preformatted"
@@ -1732,9 +1718,8 @@ msgid "/View/_Comments"
 msgstr "/Вид/_Комментарии"
 
 #: ../src/menu.c:513
-#, fuzzy
 msgid "/View/Scr_eening"
-msgstr "/Вид/_Доступ"
+msgstr "/Вид/_Сокрытие"
 
 #: ../src/menu.c:515
 msgid "/_HTML"
@@ -1749,9 +1734,8 @@ msgid "/HTML/_Italic"
 msgstr "/HTML/_Курсив"
 
 #: ../src/menu.c:518
-#, fuzzy
 msgid "/HTML/Emphasized"
-msgstr "/HTML/_Моноширинный"
+msgstr "/HTML/_Выделенный"
 
 #: ../src/menu.c:519
 msgid "/HTML/_Strikeout"
@@ -1767,7 +1751,7 @@ msgstr "/HTML/_Моноширинный"
 
 #: ../src/menu.c:522
 msgid "/HTML/_Underline"
-msgstr "/HTML/_Подчеркнутый"
+msgstr "/HTML/Под_черкнутый"
 
 #: ../src/menu.c:523
 #, fuzzy
@@ -1776,57 +1760,51 @@ msgstr "/HTML/_Жирный"
 
 #: ../src/menu.c:524
 msgid "/HTML/_Paragraph"
-msgstr ""
+msgstr "/HTML/_Абзац"
 
 #: ../src/menu.c:526
 msgid "/HTML/Heading _1"
-msgstr ""
+msgstr "/HTML/Заглавие _1"
 
 #: ../src/menu.c:527
 msgid "/HTML/Heading _2"
-msgstr ""
+msgstr "/HTML/Заглавие _2"
 
 #: ../src/menu.c:528
 msgid "/HTML/Heading _3"
-msgstr ""
+msgstr "/HTML/Заглавие _3"
 
 #: ../src/menu.c:529
 msgid "/HTML/Heading _4"
-msgstr ""
+msgstr "/HTML/Заглавие _4"
 
 #: ../src/menu.c:530
-#, fuzzy
 msgid "/HTML/Bi_gger"
-msgstr "/HTML/_Подчеркнутый"
+msgstr "/HTML/Бол_ьший"
 
 #: ../src/menu.c:531
-#, fuzzy
 msgid "/HTML/S_maller"
-msgstr "/HTML/_Курсив"
+msgstr "/HTML/Мен_ьший"
 
 #: ../src/menu.c:532
 msgid "/HTML/Superscrip_t"
-msgstr ""
+msgstr "/HTML/Верхний _индекс"
 
 #: ../src/menu.c:533
-#, fuzzy
 msgid "/HTML/S_ubscript"
-msgstr "/HTML/Пере_черкнутый"
+msgstr "/HTML/Нижний _индекс"
 
 #: ../src/menu.c:535
-#, fuzzy
 msgid "/HTML/U_nordered List"
-msgstr "/HTML/_Подчеркнутый"
+msgstr "/HTML/Не_упорядоченный список"
 
 #: ../src/menu.c:536
-#, fuzzy
 msgid "/HTML/_Ordered list"
-msgstr "/HTML/_Подчеркнутый"
+msgstr "/HTML/_Упорядоченый список"
 
 #: ../src/menu.c:537
-#, fuzzy
 msgid "/HTML/_List item"
-msgstr "/HTML/Пере_черкнутый"
+msgstr "/HTML/_Элемент списка"
 
 #: ../src/menu.c:539
 msgid "/_Journal"
@@ -2166,9 +2144,8 @@ msgid "Current Music"
 msgstr "Текущая музыка"
 
 #: ../src/preview.c:188
-#, fuzzy
 msgid "Current Location"
-msgstr "Текущее настроение"
+msgstr "Текущее местоположение"
 
 #: ../src/preview.c:190
 msgid "Tags"
@@ -2237,6 +2214,7 @@ msgstr "_Язык записи:"
 #: ../src/settings.c:89
 msgid "Show login history (number of days since last login)"
 msgstr ""
+"Показывать историю посещений (количество дней с момента последнего входа)"
 
 #: ../src/settings.c:91
 msgid "Automatically change _quotes to matching pairs"
@@ -2248,7 +2226,7 @@ msgstr "Шрифт сообщения:"
 
 #: ../src/settings.c:96
 msgid "Close main window after sending"
-msgstr ""
+msgstr "Закрывать основное окно после отправки"
 
 #: ../src/settings.c:98
 msgid "Add icon to system _tray (for GNOME/KDE/etc. dock)"
@@ -2256,7 +2234,7 @@ msgstr "Добавить _иконку в системный трей (для д
 
 #: ../src/settings.c:100
 msgid "Start in system tray"
-msgstr ""
+msgstr "Запускать в системном лотке"
 
 #: ../src/settings.c:105
 msgid "Web browser:"
@@ -2267,9 +2245,8 @@ msgid "Detect music from:"
 msgstr "Определение музыки:"
 
 #: ../src/settings.c:110
-#, fuzzy
 msgid "Detect music via MPRIS"
-msgstr "Определение музыки:"
+msgstr "Определение музыки через MPRIS"
 
 #: ../src/settings.c:113
 msgid "Use _proxy server"
@@ -2500,18 +2477,16 @@ msgid "Warnings:\n"
 msgstr "Предупреждения:\n"
 
 #: ../src/tags.c:22
-#, fuzzy
 msgid "Loading Tags"
-msgstr "Загружается список друзей"
+msgstr "Загружаются теги"
 
 #: ../src/tags.c:149
 msgid "Tag name"
-msgstr ""
+msgstr "Имя тега"
 
 #: ../src/tags.c:195
-#, fuzzy
 msgid "Select tags"
-msgstr "Выбрать дату"
+msgstr "Выбрать теги"
 
 #. this translation is not crucial
 #: ../src/thanks.h:11
@@ -2745,11 +2720,11 @@ msgstr "Документ правильно сформирован в XML."
 
 #: ../src/tools.c:361
 msgid "Embedded Media"
-msgstr ""
+msgstr "Встраиваемый объект"
 
 #: ../src/tools.c:374
 msgid "E_mbedded code:"
-msgstr ""
+msgstr "_Код встраиваемого объекта:"
 
 #: ../src/tools.c:379
 msgid ""
@@ -2764,27 +2739,27 @@ msgstr ""
 
 #: ../src/tools.c:480
 msgid "Cut c_aption:"
-msgstr "Заголовок _скрытия:"
+msgstr "Заголовок выре_зки:"
 
 #: ../src/tools.c:480
 msgid "LJ-Cut"
-msgstr "Скрытие"
+msgstr "Вырезка"
 
 #: ../src/tools.c:486
 msgid "Repost _button:"
-msgstr ""
+msgstr "_Текст кнопки перепостинга: "
 
 #: ../src/tools.c:486
 msgid "LJ-Repost"
-msgstr ""
+msgstr "Перепост"
 
 #: ../src/tools.c:492
 msgid "_Like for:"
-msgstr ""
+msgstr "+1 для:"
 
 #: ../src/tools.c:492
 msgid "LJ-Like"
-msgstr ""
+msgstr "+1"
 
 #. this string is the separator between the server and username
 #. * next to the "submit" button.
@@ -2814,9 +2789,9 @@ msgstr "Не показывать снова"
 #: ../util/xmmsclient/logjam-xmms-client.c:32
 #, c-format
 msgid "usage: %s [session_number]\n"
-msgstr ""
+msgstr "использование: %s [номер_сессии]\n"
 
 #: ../util/xmmsclient/logjam-xmms-client.c:41
 #, c-format
 msgid "XMMS error.  Is XMMS running?\n"
-msgstr ""
+msgstr "Ошибка XMMS. XMMS запущен?\n"
