@@ -352,11 +352,11 @@ pollscaledlg_init(PollScaleDlg *psdlg, GtkWindow *parent) {
 	GtkSizeGroup *sizegroup;
 
 	GtkAdjustment *adj1 = (GtkAdjustment*)gtk_adjustment_new(
-			1.0,  -32000.0, 32000.0, 1.0, 5.0, 5.0);
+			1.0,  -32000.0, 32000.0, 1.0, 5.0, 0);
 	GtkAdjustment *adj2 = (GtkAdjustment*)gtk_adjustment_new(
-			10.0, -32000.0, 32000.0, 1.0, 5.0, 5.0);
+			10.0, -32000.0, 32000.0, 1.0, 5.0, 0);
 	GtkAdjustment *adj3 = (GtkAdjustment*)gtk_adjustment_new(
-			1.0,  -32000.0, 32000.0, 1.0, 5.0, 5.0);
+			1.0,  -32000.0, 32000.0, 1.0, 5.0, 0);
 
 	psdlg->dlg = gtk_dialog_new_with_buttons(_("Scale Poll Question"),
 			parent, GTK_DIALOG_MODAL,
