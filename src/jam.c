@@ -878,6 +878,8 @@ jam_run(JamDoc *doc) {
 					_("An autosaved draft was found, possibly from a previous run of LogJam that crashed.  "
 					  "Would you like to recover it?"))) {
 			jam_doc_load_entry(jw->doc, draftentry);
+			/* Prevent Ctrl+Q to lose this entry */
+			jam_doc_set_dirty(jw->doc, TRUE);
 		}
 		lj_entry_free(draftentry);
 	}
