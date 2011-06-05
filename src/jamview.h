@@ -26,10 +26,11 @@ typedef enum {
 	JAM_VIEW_PREFORMATTED,
 	JAM_VIEW_DATESEL,
 	JAM_VIEW_COMMENTS,
+	JAM_VIEW_SCREENING,
 	JAM_VIEW_META_COUNT
 } JamViewMeta;
 #define JAM_VIEW_META_FIRST JAM_VIEW_SECURITY
-#define JAM_VIEW_META_LAST JAM_VIEW_COMMENTS
+#define JAM_VIEW_META_LAST JAM_VIEW_SCREENING
 
 const char *jam_view_meta_to_name(JamViewMeta meta);
 gboolean jam_view_meta_from_name(const char *name, JamViewMeta *meta);

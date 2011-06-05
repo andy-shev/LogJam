@@ -12,14 +12,21 @@
 
 
 void
-html_mark_tag(JamDoc *doc, const char* tag) {
+html_mark_tag(JamDoc *doc, const char* tag, ...) {
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	GtkTextMark *ins;
 	char * startTag, * endTag;
 	int tagLen;
+	va_list ap;
 
-	startTag = g_strdup_printf("<%s>", tag);
+	if (!strcmp(tag, "span")) {
+		va_start(ap, tag);
+		startTag = g_strdup_printf("<%s %s>", tag, va_arg(ap, const char *));
+		va_end(ap);
+	} else {
+		startTag = g_strdup_printf("<%s>", tag);
+	}
 	endTag   = g_strdup_printf("</%s>", tag);
 	tagLen = (int)strlen(endTag);
 
@@ -61,6 +68,11 @@ html_mark_italic(JamDoc *doc) {
 }
 
 void
+html_mark_em(JamDoc *doc) {
+	html_mark_tag(doc, "em");
+}
+
+void
 html_mark_underline(JamDoc *doc) {
 	html_mark_tag(doc, "u");
 }
@@ -76,6 +88,73 @@ html_mark_monospaced(JamDoc *doc) {
 }
 
 void
+html_mark_para(JamDoc *doc) {
+	html_mark_tag(doc, "p");
+}
+
+void
+html_mark_smallcaps(JamDoc *doc) {
+	html_mark_tag(doc, "span", "style=\"font-variant: small-caps\"");
+}
+
+void
 html_mark_blockquote(JamDoc *doc) {
 	html_mark_tag(doc, "blockquote");
+}
+
+void
+html_mark_small(JamDoc *doc) {
+	html_mark_tag(doc, "small");
+}
+
+void
+html_mark_big(JamDoc *doc) {
+	html_mark_tag(doc, "big");
+}
+
+void
+html_mark_superscript(JamDoc *doc) {
+	html_mark_tag(doc, "small");
+	html_mark_tag(doc, "sup");
+}
+
+void
+html_mark_subscript(JamDoc *doc) {
+	html_mark_tag(doc, "small");
+	html_mark_tag(doc, "sub");
+}
+
+void
+html_mark_ulist(JamDoc *doc) {
+	html_mark_tag(doc, "ul");
+}
+
+void
+html_mark_olist(JamDoc *doc) {
+	html_mark_tag(doc, "ol");
+}
+
+void
+html_mark_listitem(JamDoc *doc) {
+	html_mark_tag(doc, "li");
+}
+
+void
+html_mark_h1(JamDoc *doc) {
+	html_mark_tag(doc, "h1");
+}
+
+void
+html_mark_h2(JamDoc *doc) {
+	html_mark_tag(doc, "h2");
+}
+
+void
+html_mark_h3(JamDoc *doc) {
+	html_mark_tag(doc, "h3");
+}
+
+void
+html_mark_h4(JamDoc *doc) {
+	html_mark_tag(doc, "h4");
 }

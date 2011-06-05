@@ -61,6 +61,7 @@ enum {
 	ACTION_VIEW_PREFORMATTED,
 	ACTION_VIEW_DATESEL,
 	ACTION_VIEW_COMMENTS,
+	ACTION_VIEW_SCREENING,
 
 	ACTION_JOURNAL,
 	ACTION_JOURNAL_USE,
@@ -198,6 +199,13 @@ comments_cb(JamWin *jw, int action, GtkCheckMenuItem *item) {
 }
 
 static void
+screening_cb(JamWin *jw, int action, GtkCheckMenuItem *item) {
+	if (!gtk_check_menu_item_get_active(item))
+		return;
+	jam_doc_set_screening(jw->doc, action - ACTION_ENTRY_SCREENING_DEFAULT);
+}
+
+static void
 backdated_cb(JamWin *jw, int action, GtkCheckMenuItem *item) {
 	jam_doc_set_backdated(jw->doc, gtk_check_menu_item_get_active(item));
 }
@@ -277,6 +285,16 @@ menu_ljcut(JamWin *jw) {
 }
 
 static void
+menu_lj_repost(JamWin *jw) {
+	tools_lj_repost(GTK_WINDOW(jw), jw->doc);
+}
+
+static void
+menu_lj_like(JamWin *jw) {
+	tools_lj_like(GTK_WINDOW(jw), jw->doc);
+}
+
+static void
 menu_embedded_media(JamWin *jw) {
 	tools_embedded_media(GTK_WINDOW(jw), jw->doc);
 }
@@ -311,6 +329,10 @@ menu_html_mark_italic(JamWin *jw) {
 	html_mark_italic(jw->doc);
 }
 static void
+menu_html_mark_em(JamWin *jw) {
+	html_mark_em(jw->doc);
+}
+static void
 menu_html_mark_underline(JamWin *jw) {
 	html_mark_underline(jw->doc);
 }
@@ -323,8 +345,60 @@ menu_html_mark_monospaced(JamWin *jw) {
 	html_mark_monospaced(jw->doc);
 }
 static void
+menu_html_mark_para(JamWin *jw) {
+	html_mark_para(jw->doc);
+}
+static void
+menu_html_mark_smallcaps(JamWin *jw) {
+	html_mark_smallcaps(jw->doc);
+}
+static void
+menu_html_mark_superscript(JamWin *jw) {
+	html_mark_superscript(jw->doc);
+}
+static void
+menu_html_mark_subscript(JamWin *jw) {
+	html_mark_subscript(jw->doc);
+}
+static void
 menu_html_mark_blockquote(JamWin *jw) {
 	html_mark_blockquote(jw->doc);
+}
+static void
+menu_html_mark_small(JamWin *jw) {
+	html_mark_small(jw->doc);
+}
+static void
+menu_html_mark_big(JamWin *jw) {
+	html_mark_big(jw->doc);
+}
+static void
+menu_html_mark_ulist(JamWin *jw) {
+	html_mark_ulist(jw->doc);
+}
+static void
+menu_html_mark_olist(JamWin *jw) {
+	html_mark_olist(jw->doc);
+}
+static void
+menu_html_mark_listitem(JamWin *jw) {
+	html_mark_listitem(jw->doc);
+}
+static void
+menu_html_mark_h1(JamWin *jw) {
+	html_mark_h1(jw->doc);
+}
+static void
+menu_html_mark_h2(JamWin *jw) {
+	html_mark_h2(jw->doc);
+}
+static void
+menu_html_mark_h3(JamWin *jw) {
+	html_mark_h3(jw->doc);
+}
+static void
+menu_html_mark_h4(JamWin *jw) {
+	html_mark_h4(jw->doc);
 }
 
 void manager_dialog(GtkWidget *parent);
@@ -422,6 +496,8 @@ static GtkItemFactoryEntry menu_items[] = {
 { N_("/Insert/_Image..."),        NULL,          menu_insert_image },
 { N_("/Insert/_Journal Link..."), "<ctl><alt>L", menu_make_journal_link },
 { N_("/Insert/lj-_cut..."),       "<ctl><alt>X", menu_ljcut, 0, NULL },
+{ N_("/Insert/lj-_repost..."),    "<ctl><alt>P", menu_lj_repost, 0, NULL },
+{ N_("/Insert/lj-li_ke..."),      "<ctl><alt>K", menu_lj_like, 0, NULL },
 { N_("/Insert/_Embedded Media..."), "<ctl><alt>E", menu_embedded_media },
 
 { N_("/_View"),                   NULL, NULL, ACTION_VIEW, "<Branch>" },
@@ -434,14 +510,31 @@ static GtkItemFactoryEntry menu_items[] = {
 { N_("/View/_Location"),          NULL, menu_view_cb, ACTION_VIEW_LOCATION,     "<CheckItem>" },
 { N_("/View/_Preformatted"),      NULL, menu_view_cb, ACTION_VIEW_PREFORMATTED, "<CheckItem>" },
 { N_("/View/_Comments"),          NULL, menu_view_cb, ACTION_VIEW_COMMENTS,     "<CheckItem>" },
+{ N_("/View/Scr_eening"),         NULL, menu_view_cb, ACTION_VIEW_SCREENING,    "<CheckItem>" },
 
 { N_("/_HTML"),						NULL, NULL, 0, "<Branch>" },
 { N_("/HTML/_Bold"),				"<ctl><alt>B", menu_html_mark_bold },
 { N_("/HTML/_Italic"),				"<ctl><alt>I", menu_html_mark_italic },
+{ N_("/HTML/Emphasized"),			"<ctl><shift>M", menu_html_mark_em },
 { N_("/HTML/_Strikeout"),			"<ctl><alt>S", menu_html_mark_strikeout },
+{ N_("/HTML/Small _Caps"),			"<ctl><alt>C", menu_html_mark_smallcaps },
 { N_("/HTML/_Monospaced"),			"<ctl><alt>M", menu_html_mark_monospaced },
 { N_("/HTML/_Underline"),			"<ctl><alt>U", menu_html_mark_underline },
 { N_("/HTML/_Blockquote"),			"<ctl><alt>Q", menu_html_mark_blockquote },
+{ N_("/HTML/_Paragraph"),	        "<ctl><shift>P", menu_html_mark_para },
+{    "/HTML/---",					NULL, NULL, 0, "<Separator>" },
+{ N_("/HTML/Heading _1"),			"<ctl><alt>1", menu_html_mark_h1 },
+{ N_("/HTML/Heading _2"),			"<ctl><alt>2", menu_html_mark_h2 },
+{ N_("/HTML/Heading _3"),			"<ctl><alt>3", menu_html_mark_h3 },
+{ N_("/HTML/Heading _4"),			"<ctl><alt>4", menu_html_mark_h4 },
+{ N_("/HTML/Bi_gger"),				"<ctl><shift>B", menu_html_mark_big },
+{ N_("/HTML/S_maller"),				"<ctl><shift>S", menu_html_mark_small },
+{ N_("/HTML/Superscrip_t"),			"<ctl><shift>T", menu_html_mark_superscript },
+{ N_("/HTML/S_ubscript"),			"<ctl><shift>U", menu_html_mark_subscript },
+{    "/HTML/---",NULL, NULL, 0, 	"<Separator>" },
+{ N_("/HTML/U_nordered List"),		"<ctl><shift>N", menu_html_mark_ulist },
+{ N_("/HTML/_Ordered list"),		"<ctl><shift>O", menu_html_mark_olist },
+{ N_("/HTML/_List item"),			"<ctl><shift>L", menu_html_mark_listitem },
 
 { N_("/_Journal"),                      NULL,          NULL, ACTION_JOURNAL, "<Branch>" },
 { N_("/Journal/_Use Journal"),          NULL,          NULL, ACTION_JOURNAL_USE, NULL },
