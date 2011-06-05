@@ -329,22 +329,24 @@ static void
 tools_insert_tag(GtkTextBuffer *buffer, char *tag, char *arg,
 			char *text, char *body, gboolean full) {
 	char *inset;
+	char *inl = (full && (!body || !*body)) ? " /" : "";
 
 	if (text) {
-		inset = g_strdup_printf("<%s %s=\"%s\">", tag, arg, text);
+		inset = g_strdup_printf("<%s %s=\"%s\"%s>", tag, arg, text, inl);
 	} else {
-		inset = g_strdup_printf("<%s>", tag);
+		inset = g_strdup_printf("<%s%s>", tag, inl);
 	}
 	gtk_text_buffer_insert_at_cursor(buffer, inset, -1);
 	g_free(inset);
 
-	if (body && *body)
+	if (body && *body) {
 		gtk_text_buffer_insert_at_cursor(buffer, body, -1);
 
-	if (full) {
-		inset = g_strdup_printf("</%s>", tag);
-		gtk_text_buffer_insert_at_cursor(buffer, inset, -1);
-		g_free(inset);
+		if (full) {
+			inset = g_strdup_printf("</%s>", tag);
+			gtk_text_buffer_insert_at_cursor(buffer, inset, -1);
+			g_free(inset);
+		}
 	}
 }
 
@@ -403,7 +405,7 @@ tools_embedded_media(GtkWindow *win, JamDoc *doc) {
 
 static void
 tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
-			char *lname, char *tip, char *dname, gboolean full) {
+			char *lname, char *tip, char *dname, gboolean full, gboolean ignsel) {
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	GtkWidget *dlg, *vbox, *hbox, *label, *entry;
@@ -447,7 +449,7 @@ tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
 	buffer = jam_doc_get_text_buffer(doc);
 
 	gtk_text_buffer_begin_user_action(buffer); /* start undo action */
-	if (!gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
+	if (ignsel || !gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
 		tools_insert_tag(buffer, tag, arg, text, NULL, full);
 	} else {
 		if (text) {
@@ -475,12 +477,18 @@ tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
 void
 tools_ljcut(GtkWindow *win, JamDoc *doc) {
 	return tools_lj_macro(win, doc, "lj-cut", "text",
-			_("Cut c_aption:"), NULL, _("LJ-Cut"), FALSE);
+			_("Cut c_aption:"), NULL, _("LJ-Cut"), FALSE, FALSE);
 }
 
 void
 tools_lj_repost(GtkWindow *win, JamDoc *doc) {
 	return tools_lj_macro(win, doc, "lj-repost", "button",
-			_("Repost _button:"), NULL, _("LJ-Repost"), TRUE);
+			_("Repost _button:"), NULL, _("LJ-Repost"), TRUE, FALSE);
+}
+
+void
+tools_lj_like(GtkWindow *win, JamDoc *doc) {
+	return tools_lj_macro(win, doc, "lj-like", "buttons",
+			_("_Like for:"), NULL, _("LJ-Like"), TRUE, TRUE);
 }
 
