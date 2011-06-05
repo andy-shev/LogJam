@@ -10,21 +10,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: LogJam 3.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-24 10:10-0700\n"
+"POT-Creation-Date: 2011-06-05 22:45+0300\n"
 "PO-Revision-Date: 2005-07-18 18:15+0300\n"
 "Last-Translator: Maxim Dziumanenko <mvd@mylinux.ua>\n"
 "Language-Team: Ukrainian\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/logjam.desktop.in.h:1 ../src/docklet.c:67 ../src/init.c:192
+#: ../data/logjam.desktop.in.h:1 ../src/docklet.c:123 ../src/init.c:206
 msgid "LogJam"
 msgstr "LogJam"
 
 #: ../data/logjam.desktop.in.h:2
 msgid "Manage journal/weblog"
 msgstr "Керування веб-журналами"
+
+#: ../protocol/liblivejournal/livejournal/entry.c:352
+#, fuzzy, c-format
+msgid "Error reading file '%s': %s"
+msgstr "Помилка завантаження файлу: %s"
+
+#: ../protocol/liblivejournal/livejournal/entry.c:780
+msgid "can't open rfc822 file"
+msgstr ""
+
+#: ../protocol/liblivejournal/livejournal/entry.c:787
+msgid "can't close rfc822 file"
+msgstr ""
+
+#: ../protocol/liblivejournal/livejournal/entry.c:810
+#, c-format
+msgid "Can't make temp file: %s"
+msgstr ""
+
+#: ../protocol/liblivejournal/livejournal/entry.c:817
+#, c-format
+msgid "Can't close temp file: %s"
+msgstr ""
 
 #: ../src/about.c:63
 #, c-format
@@ -90,6 +114,7 @@ msgstr ""
 "Виконайте \"%s --checkfriends=purge\" і спробуйте знов.\n"
 
 #: ../src/checkfriends.c:400
+#, c-format
 msgid "Request rate exceeded. Slow down.\n"
 msgstr "Перевищено кількість запитів. Повільніше.\n"
 
@@ -144,7 +169,7 @@ msgstr "_Перевіряти, чи не пишуть друзі"
 msgid "_Open friends list in browser"
 msgstr "_Відкрити список друзів у веб-переглядачі"
 
-#: ../src/cmdline.c:84
+#: ../src/cmdline.c:82
 #, c-format
 msgid ""
 "LogJam %s\n"
@@ -155,145 +180,161 @@ msgstr ""
 "Авторські права (C) 2000-2004 Evan Martin\n"
 "\n"
 
-#: ../src/cmdline.c:106
+#: ../src/cmdline.c:104
+#, c-format
 msgid "Subcommands:\n"
 msgstr "Підкоманди:\n"
 
-#: ../src/cmdline.c:114
+#: ../src/cmdline.c:112
 #, c-format
 msgid "Use:  %s [options] [command [commandargs]]\n"
 msgstr "Використання: %s [параметри] [команда [аргументи]]\n"
 
-#: ../src/cmdline.c:118
+#: ../src/cmdline.c:116
+#, c-format
 msgid ""
 "If no subcommand is provided, the default behavior is to load the GUI.\n"
 msgstr ""
 "Якщо не вказано підкоманду, буде завантажуватись графічний інтерфейс.\n"
 
-#: ../src/cmdline.c:128
+#: ../src/cmdline.c:126
+#, c-format
 msgid "Also, GTK+ command line options (such as --display) can be used.\n"
 msgstr "Також, можна використовувати команди GTK+ (такі як --display).\n"
 
 #. unknown option character.
 #. missing option character.
-#: ../src/cmdline.c:154
+#: ../src/cmdline.c:152
+#, c-format
 msgid "Unknown or missing option character\n"
 msgstr "Невідомий чи відсутній символ параметра\n"
 
-#: ../src/cmdline.c:197
+#: ../src/cmdline.c:195
+#, c-format
 msgid "Blogger accounts do not have a console interface.\n"
 msgstr "Облікові рахунки веб-щоденника не мають консольного інтерфейсу.\n"
 
-#: ../src/cmdline.c:203
+#: ../src/cmdline.c:201
+#, c-format
 msgid "Must specify a console command.  Try \"help\".\n"
 msgstr "Треба вказати консольну команду. Спробуйте \"help\".\n"
 
-#: ../src/cmdline.c:246
+#: ../src/cmdline.c:244
+#, c-format
 msgid "Success.\n"
 msgstr "Успішно.\n"
 
-#: ../src/cmdline.c:261
+#: ../src/cmdline.c:259
+#, c-format
 msgid "Checkfriends is only supported by LiveJournal accounts.\n"
 msgstr "Checkfriends підтримується лише рахунками типу LiveJournal.\n"
 
-#: ../src/cmdline.c:275
+#: ../src/cmdline.c:273
 #, c-format
 msgid "Checkfriends information for %s purged.\n"
 msgstr "Checkfriends інформація про %s очищено.\n"
 
-#: ../src/cmdline.c:279
+#: ../src/cmdline.c:277
 #, c-format
 msgid "Unknown argument %s to --checkfriends\n"
 msgstr "Невідомий аргумент %s до параметра --checkfriends\n"
 
-#: ../src/cmdline.c:294
+#: ../src/cmdline.c:292
+#, c-format
 msgid "Sync is only supported by LiveJournal accounts.\n"
 msgstr "Синхронізація підтримується лише рахунками типу LiveJournal.\n"
 
-#: ../src/cmdline.c:322
+#: ../src/cmdline.c:320
 #, c-format
 msgid "Specify at least one itemid or 'latest'.\n"
 msgstr "Вкажіть принаймні один ідентифікатор елементу або 'latest'.\n"
 
-#: ../src/cmdline.c:340
+#: ../src/cmdline.c:338
 #, c-format
 msgid "expected itemid, got %s\n"
 msgstr "очікувався ідентифікатор елементу, отримано %s\n"
 
-#: ../src/cmdline.c:348
+#: ../src/cmdline.c:346
 #, c-format
 msgid "entry %d not found\n"
 msgstr "елемент %d не знайдено\n"
 
-#: ../src/cmdline.c:429
+#: ../src/cmdline.c:427
+#, c-format
 msgid "Specify a regexp to match\n"
 msgstr "Вкажіть регулярний вираз\n"
 
-#: ../src/cmdline.c:439
+#: ../src/cmdline.c:437
 #, c-format
 msgid "Regexp error: %s.\n"
 msgstr "Помилка регулярного виразу: %s.\n"
 
-#: ../src/cmdline.c:456
+#: ../src/cmdline.c:454
+#, c-format
 msgid "Regexp error: out of memory.\n"
 msgstr "Помилка регулярного виразу: недостатньо пам'яті.\n"
 
-#: ../src/cmdline.c:487
+#: ../src/cmdline.c:485
+#, c-format
 msgid "LogJam was compiled without regular expression support.\n"
 msgstr "LogJam скомпільовано без підтримки регулярних виразів.\n"
 
-#: ../src/cmdline.c:510
+#: ../src/cmdline.c:508
 #, c-format
 msgid "Offline journal for '%s':\n"
 msgstr "Автономний журнал для '%s':\n"
 
-#: ../src/cmdline.c:514
+#: ../src/cmdline.c:512
 #, c-format
 msgid "  Last synced: %s.\n"
 msgstr "  Востаннє синхронізовано: %s.\n"
 
-#: ../src/cmdline.c:517
+#: ../src/cmdline.c:515
 #, c-format
 msgid "  Entry count: %d.\n"
 msgstr "  Кількість записів: %d.\n"
 
-#: ../src/cmdline.c:518
+#: ../src/cmdline.c:516
 #, c-format
 msgid "  Latest itemid: %d.\n"
 msgstr "  Останній ідентифікатор елементу: %d.\n"
 
-#: ../src/cmdline.c:530
+#: ../src/cmdline.c:528
+#, c-format
 msgid "Rebuilding index..."
 msgstr "Перебудовується індекс..."
 
-#: ../src/cmdline.c:533
+#: ../src/cmdline.c:531
 #, c-format
 msgid " ERROR: %s.\n"
 msgstr " ПОМИЛКА: %s.\n"
 
-#: ../src/cmdline.c:537 ../src/sync.c:233
+#: ../src/cmdline.c:535 ../src/sync.c:233
+#, c-format
 msgid "done.\n"
 msgstr "завершено.\n"
 
-#: ../src/cmdline.c:566
+#: ../src/cmdline.c:564
+#, c-format
 msgid "Error: specify a user.\n"
 msgstr "Помилка: вкажіть користувача.\n"
 
-#: ../src/cmdline.c:628
+#: ../src/cmdline.c:626
 #, c-format
 msgid "Unknown account '%s'.\n"
 msgstr "Невідомий обліковий рахунок '%s'.\n"
 
-#: ../src/cmdline.c:636
+#: ../src/cmdline.c:634
 msgid "Password: "
 msgstr "Пароль: "
 
-#: ../src/cmdline.c:691
+#: ../src/cmdline.c:689
 #, c-format
 msgid "Error: Unknown action '%s'.\n"
 msgstr "Помилка: Невідома дія '%s'.\n"
 
-#: ../src/cmdline.c:699
+#: ../src/cmdline.c:697
+#, c-format
 msgid "Error:  Must specify account.\n"
 msgstr "Помилка:  Необхідно вказати обліковий рахунок.\n"
 
@@ -346,6 +387,7 @@ msgid "Add a user to the user list."
 msgstr "Додати користувача до списку користувачів."
 
 #: ../src/conf.c:88
+#, c-format
 msgid "new host name is invalid"
 msgstr "нова назва вузла є неправильною"
 
@@ -404,7 +446,30 @@ msgstr "Використовувати _поточний час/дату"
 msgid "Entry is _backdated"
 msgstr "Запис _заднім числом"
 
-#: ../src/docklet.c:49 ../src/settings.c:738
+#. About...
+#: ../src/docklet.c:37
+#, fuzzy
+msgid "About LogJam..."
+msgstr "Про LogJam"
+
+#. Friends...
+#: ../src/docklet.c:45
+#, fuzzy
+msgid "Friends..."
+msgstr "Друзі"
+
+#. Preferences...
+#: ../src/docklet.c:51
+#, fuzzy
+msgid "Preferences..."
+msgstr "Параметри"
+
+#. Quit
+#: ../src/docklet.c:64
+msgid "Quit"
+msgstr ""
+
+#: ../src/docklet.c:105 ../src/settings.c:796
 msgid "Check Friends"
 msgstr "Перевірити друзів"
 
@@ -416,7 +481,7 @@ msgstr "Дата"
 msgid "Subject"
 msgstr "Тема"
 
-#: ../src/draftstore_ui.c:82 ../src/jam.c:345 ../src/jam.c:390
+#: ../src/draftstore_ui.c:82 ../src/jam.c:345 ../src/jam.c:394
 msgid "Delete"
 msgstr "Видалити"
 
@@ -424,7 +489,7 @@ msgstr "Видалити"
 msgid "Delete entry?"
 msgstr "Видалити запис?"
 
-#: ../src/draftstore_ui.c:104 ../src/settings.c:398
+#: ../src/draftstore_ui.c:104 ../src/settings.c:428
 msgid "Entries"
 msgstr "Записи"
 
@@ -628,7 +693,7 @@ msgstr "/Друзі/sep"
 msgid "/Friends/_Close"
 msgstr "/Друзі/_Закрити"
 
-#: ../src/friends.c:238 ../src/menu.c:385
+#: ../src/friends.c:238 ../src/menu.c:473
 msgid "/_Edit"
 msgstr "/_Правка"
 
@@ -676,7 +741,7 @@ msgstr "Видалення друга"
 msgid "Link"
 msgstr "Зв'язок"
 
-#: ../src/friends.c:768 ../src/link.c:248
+#: ../src/friends.c:768 ../src/link-journal.c:36
 msgid "User"
 msgstr "Користувач"
 
@@ -741,11 +806,11 @@ msgstr "Виберіть файл для запису"
 msgid "  Suggest Filename  "
 msgstr " Підказати ім'я файла "
 
-#: ../src/get_cmd_out.c:99 ../src/get_cmd_out.c:115
+#: ../src/get_cmd_out.c:100 ../src/get_cmd_out.c:116
 msgid "Command is running..."
 msgstr "Команду запущено..."
 
-#: ../src/get_cmd_out.c:151 ../src/get_cmd_out.c:179
+#: ../src/get_cmd_out.c:152 ../src/get_cmd_out.c:180
 #, c-format
 msgid "command failed: %s"
 msgstr "збій команди: %s"
@@ -756,7 +821,8 @@ msgstr "збій команди: %s"
 #. * close a dialog asking for command name, but rather let
 #. * the user correct it (or click "Cancel").
 #.
-#: ../src/get_cmd_out.c:191
+#: ../src/get_cmd_out.c:192
+#, c-format
 msgid "command not found"
 msgstr "команда не існує"
 
@@ -873,7 +939,7 @@ msgstr ""
 "  -k, --userpic=КЛЮЧОВЕСЛОВО Ключове слово для фото користувача.\n"
 "  -e, --edit                 Використовувати типовий редактор повідомлення.\n"
 
-#: ../src/history.c:744
+#: ../src/history.c:748
 msgid "Loading Entry"
 msgstr "Завантаження запису"
 
@@ -931,42 +997,55 @@ msgstr "Помилка завантаження зображення: %s."
 msgid "Insert Image"
 msgstr "Вставити зображення"
 
-#: ../src/imagelink.c:88 ../src/link.c:131 ../src/manager.c:457
+#: ../src/imagelink.c:88 ../src/link.c:123 ../src/manager.c:457
 msgid "_URL:"
 msgstr "_URL:"
 
+#: ../src/imagelink.c:93
+#, fuzzy
+msgid "Title:"
+msgstr "Заголовок _чернетки:"
+
 #: ../src/imagelink.c:97
+#, fuzzy
+msgid "Link:"
+msgstr "Зв'язок"
+
+#: ../src/imagelink.c:105
 msgid "_Width:"
 msgstr "_Ширина:"
 
-#: ../src/imagelink.c:103
+#: ../src/imagelink.c:111
 msgid "_Height:"
 msgstr "_Висота:"
 
-#: ../src/imagelink.c:109
+#: ../src/imagelink.c:117
 msgid "_Retrieve Dimensions from Network"
 msgstr "_Отримувати розміри з мережі"
 
 #. we popped up another window, so we're done.
-#: ../src/init.c:75
+#: ../src/init.c:76
+#, c-format
 msgid "Bringing already-running LogJam instance to the foreground...\n"
 msgstr "Переведення вже запущеного екземпляру LogJam у автономний режим...\n"
 
-#: ../src/init.c:79
+#: ../src/init.c:80
 #, c-format
 msgid "Error sending remote command: %s.\n"
 msgstr "Помилка надсилання віддаленої команди: %s.\n"
 
-#: ../src/init.c:223
+#: ../src/init.c:237
+#, c-format
 msgid "GTK init failed -- are you in X?\n"
 msgstr "Помилка ініціалізації GTK -- ви у системі X?\n"
 
-#: ../src/init.c:224 ../src/init.c:231
+#: ../src/init.c:238 ../src/init.c:245
 #, c-format
 msgid "Run %s --help for command-line options.\n"
 msgstr "Запустіть %s --help для виводу параметрів командного рядка.\n"
 
-#: ../src/init.c:230
+#: ../src/init.c:244
+#, c-format
 msgid "Error: No action given.\n"
 msgstr "Помилка: Дію не вказано.\n"
 
@@ -1021,69 +1100,69 @@ msgstr "Помилка зберження: %s."
 msgid "LogJam - %s%s"
 msgstr "LogJam - %s%s"
 
-#: ../src/jam.c:345 ../src/jam.c:384
+#: ../src/jam.c:345 ../src/jam.c:388
 msgid "Delete this draft from disk?"
 msgstr "Видалити цю чернетку з диску?"
 
-#: ../src/jam.c:385
+#: ../src/jam.c:389
 msgid "Delete this entry from server?"
 msgstr "Видалити цей запис з сервера?"
 
-#: ../src/jam.c:490
+#: ../src/jam.c:498
 msgid "Autodetect"
 msgstr "Автовизначення"
 
-#: ../src/jam.c:491
+#: ../src/jam.c:499
 msgid "XML"
 msgstr "XML"
 
-#: ../src/jam.c:492
+#: ../src/jam.c:500
 msgid "RFC822-Style"
 msgstr "У стилі RFC822"
 
-#: ../src/jam.c:493
+#: ../src/jam.c:501
 msgid "Plain Text"
 msgstr "Звичайний текст"
 
-#: ../src/jam.c:499
+#: ../src/jam.c:507
 msgid "Open Entry"
 msgstr "Відкрити запис"
 
-#: ../src/jam.c:515
+#: ../src/jam.c:523
 msgid "File Type:"
 msgstr "Тип файла:"
 
-#: ../src/jam.c:572
+#: ../src/jam.c:583
 msgid "Error Changing Text Format"
 msgstr "Помилка зміни формату тексту"
 
-#: ../src/jam.c:586
+#: ../src/jam.c:597
 msgid "Normal"
 msgstr "Звичайний"
 
-#: ../src/jam.c:590
+#: ../src/jam.c:601
 msgid "Structured"
 msgstr "Структурований"
 
-#: ../src/jam.c:605
+#: ../src/jam.c:616
 msgid "Entry Format:"
 msgstr "Формат запису:"
 
-#: ../src/jam.c:739
+#: ../src/jam.c:750
 #, c-format
 msgid "Error loading draft: %s."
 msgstr "Помилка при завантаженні чернетки: %s."
 
-#: ../src/jam.c:843
+#: ../src/jam.c:857
 #, c-format
 msgid "Error initializing remote command socket: %s."
 msgstr "Помилка ініціалізації сокету віддаленої команди: %s."
 
-#: ../src/jam.c:857
+#: ../src/jam.c:877
 msgid "Autosaved Draft Found"
 msgstr "Знайдено автоматично збережену чернетку"
 
-#: ../src/jam.c:858
+#: ../src/jam.c:878
 msgid ""
 "An autosaved draft was found, possibly from a previous run of LogJam that "
 "crashed.  Would you like to recover it?"
@@ -1091,80 +1170,105 @@ msgstr ""
 "Знайдено автоматично збережену чернетку, можливо з попереднього запуску "
 "LogJam, який завершився аварійно. Спробувати відновити її?"
 
-#: ../src/jamdoc.c:477
+#: ../src/jamdoc.c:492
 #, c-format
 msgid "Draft %d"
 msgstr "Чернетка %d"
 
-#: ../src/jamdoc.c:479
+#: ../src/jamdoc.c:494
 #, c-format
 msgid "Entry %d"
 msgstr "Запис %d"
 
-#: ../src/jamdoc.c:481
+#: ../src/jamdoc.c:496
 msgid "New Entry"
 msgstr "Новий запис"
 
-#: ../src/jamdoc.c:521
+#: ../src/jamdoc.c:536
 #, c-format
 msgid "Invalid UTF-8 starting at byte %d."
 msgstr "неправильний рядок UTF-8 у байті %d."
 
-#: ../src/jamview.c:81
+#: ../src/jamview.c:87
 msgid "_Subject:"
 msgstr "_Тема:"
 
 #. view->moodbox = gtk_hbox_new(FALSE, 12);
 #. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodbutton, FALSE, FALSE, 0);
 #. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodcombo, TRUE, TRUE, 0);
-#: ../src/jamview.c:234
+#: ../src/jamview.c:240
 msgid "_Mood:"
 msgstr "_Настрій:"
 
-#: ../src/jamview.c:286
+#: ../src/jamview.c:292
 msgid "[default]"
 msgstr "[стандартне]"
 
-#: ../src/jamview.c:304
+#: ../src/jamview.c:310
 msgid "_Picture:"
 msgstr "_Фото:"
 
-#: ../src/jamview.c:366 ../src/settings.c:506
+#: ../src/jamview.c:377 ../src/settings.c:545 ../src/settings.c:590
 #, c-format
 msgid "Error detecting music: %s"
 msgstr "Помилка визначення музики: %s."
 
-#: ../src/jamview.c:374
+#: ../src/jamview.c:385
 msgid "_Music:"
 msgstr "_Музика:"
 
-#: ../src/jamview.c:414
+#: ../src/jamview.c:443
+#, fuzzy
+msgid "_Location:"
+msgstr "_Варіант відповіді:"
+
+#: ../src/jamview.c:477
 #, fuzzy
 msgid "_Tags:"
 msgstr "_До:"
 
-#: ../src/jamview.c:466
+#: ../src/jamview.c:535
 msgid "_Preformatted"
 msgstr "_Пре-форматований"
 
-#: ../src/jamview.c:500
+#: ../src/jamview.c:569 ../src/jamview.c:619
 msgid "Default"
 msgstr "Типовий"
 
-#: ../src/jamview.c:501
+#: ../src/jamview.c:570
 msgid "Don't Email"
 msgstr "Не висилати поштою"
 
-#: ../src/jamview.c:502
+#: ../src/jamview.c:571
 msgid "Disable"
 msgstr "Вимкнути"
 
-#: ../src/jamview.c:517
+#: ../src/jamview.c:586
 msgid "_Comments:"
 msgstr "_Коментарі:"
 
-#. XXX GTK_WINDOW(view->jw),
-#: ../src/jamview.c:808 ../src/jamview.c:828
+#: ../src/jamview.c:620 ../src/music.c:18
+msgid "None"
+msgstr "Нікому"
+
+#: ../src/jamview.c:621
+msgid "Anonymous Only"
+msgstr ""
+
+#: ../src/jamview.c:622
+#, fuzzy
+msgid "Non-Friends"
+msgstr "Друзі"
+
+#: ../src/jamview.c:623
+msgid "All"
+msgstr ""
+
+#: ../src/jamview.c:638
+msgid "Scr_eening:"
+msgstr ""
+
+#: ../src/jamview.c:933 ../src/jamview.c:954 ../src/jamview.c:961
 #, c-format
 msgid "GtkSpell error: %s"
 msgstr "Помилка GtkSpell: %s"
@@ -1174,61 +1278,75 @@ msgstr "Помилка GtkSpell: %s"
 msgid "Can't open '%s': %s"
 msgstr "Не вдається відкрити '%s': %s"
 
-#: ../src/journalstore_xml.c:128
+#: ../src/journalstore-xml.c:128
 #, c-format
 msgid "Error opening index: %s"
 msgstr "Помилка відкривання індексу: %s"
 
-#: ../src/journalstore_xml.c:135
+#: ../src/journalstore-xml.c:135
 #, c-format
 msgid "Error writing index: %s"
 msgstr "Помилка запису індексу: %s"
 
-#: ../src/journalstore_xml.c:228
+#: ../src/journalstore-xml.c:228
 #, c-format
 msgid "Error writing journal xml file to %s: %s"
 msgstr "Помилка запису xml-файлу журналу у %s: %s"
 
-#: ../src/journalstore_xml.c:234
+#: ../src/journalstore-xml.c:234
 #, c-format
 msgid "Error renaming journal xml file %s to %s: %s"
 msgstr "Помилка зміни назви xml-файлу журналу %s на %s: %s"
 
-#: ../src/journalstore_xml.c:268
+#: ../src/journalstore-xml.c:268
 #, c-format
 msgid "Error parsing journal XML file %s"
 msgstr "Помилка розбору xml-файлу журналу %s"
 
-#: ../src/journalstore_xml.c:751
-#, fuzzy
+#: ../src/journalstore-xml.c:751
+#, fuzzy, c-format
 msgid "No offline copy of this journal."
 msgstr "Керувати автономними копіями журналу."
 
-#: ../src/link.c:113
+#: ../src/link.c:105
 msgid "Make Link"
 msgstr "Створити посилання"
 
-#: ../src/link.c:127
+#: ../src/link.c:116
 msgid "Link _Text:"
 msgstr "_Текст посилання:"
 
-#: ../src/link.c:140
+#: ../src/link.c:119
+#, fuzzy
+msgid "Link Title:"
+msgstr "_Текст посилання:"
+
+#: ../src/link.c:131
 msgid "_LiveJournal User:"
 msgstr "Користувач _LiveJournal:"
 
-#: ../src/link.c:249
+#: ../src/link-journal.c:37
 msgid "Community"
 msgstr "Спільнота"
 
-#: ../src/link.c:273
+#: ../src/link-journal.c:38
+msgid "Twitter user"
+msgstr ""
+
+#: ../src/link-journal.c:64
 msgid "Insert lj user / lj community Tag"
 msgstr "Вставити тег lj користувач / lj спільнота"
 
-#: ../src/link.c:290
+#: ../src/link-journal.c:81
 msgid "_Username:"
 msgstr "_Користувач:"
 
-#: ../src/link.c:294
+#: ../src/link-journal.c:86
+#, fuzzy
+msgid "_Nickname:"
+msgstr "_Назва:"
+
+#: ../src/link-journal.c:90
 msgid "User _Type:"
 msgstr "_Тип користувача:"
 
@@ -1239,6 +1357,28 @@ msgid ""
 msgstr ""
 "Помилка: Ваше повідомлення містить символи Юнікоду, але ви намагаєтесь "
 "надіслати їх на сервер, що не підтримує Юнікод."
+
+#: ../src/lj_dbus.c:386
+msgid "Unknown Artist"
+msgstr ""
+
+#: ../src/lj_dbus.c:387
+msgid "Unknown Album"
+msgstr ""
+
+#: ../src/lj_dbus.c:388
+msgid "Unknown Track"
+msgstr ""
+
+#: ../src/lj_dbus.c:392
+#, c-format
+msgid "Player is stopped."
+msgstr ""
+
+#: ../src/lj_dbus.c:396
+#, c-format
+msgid "No players found."
+msgstr ""
 
 #: ../src/login.c:103
 msgid "Logging In"
@@ -1261,7 +1401,7 @@ msgid "_User Name:"
 msgstr "_Користувач:"
 
 #: ../src/login.c:251 ../src/manager.c:141 ../src/manager.c:261
-#: ../src/settings.c:109
+#: ../src/settings.c:122
 msgid "_Password:"
 msgstr "_Пароль:"
 
@@ -1277,21 +1417,21 @@ msgstr "Запа_м'ятати пароль"
 msgid "Update _Information"
 msgstr "_Оновити інформацію"
 
-#: ../src/login.c:300
+#: ../src/login.c:303
 #, c-format
 msgid "Account '%s' hasn't ever logged in.  Log in now?"
 msgstr "Перший вхід у обліковий рахунок '%s'.  Увійти зараз?"
 
-#: ../src/login.c:303
+#: ../src/login.c:306
 #, c-format
 msgid "Account '%s' hasn't logged in in at least %lu days.  Log in now?"
 msgstr "У обліковий рахунок '%s' не входити принаймні %lu днів.  Увійти зараз?"
 
-#: ../src/login.c:330
+#: ../src/login.c:333
 msgid "Select User"
 msgstr "Вибір користувача"
 
-#: ../src/login.c:333
+#: ../src/login.c:336
 msgid "Selec_t"
 msgstr "_Вибрати"
 
@@ -1378,236 +1518,329 @@ msgstr "Властивості сервера"
 msgid "Servers"
 msgstr "Сервери"
 
-#: ../src/menu.c:358
+#: ../src/menu.c:446
 msgid "/_LogJam"
 msgstr "/_LogJam"
 
-#: ../src/menu.c:359
+#: ../src/menu.c:447
 msgid "/LogJam/_About LogJam..."
 msgstr "/LogJam/_Про програму LogJam..."
 
-#: ../src/menu.c:360
+#: ../src/menu.c:448
 msgid "/LogJam/_Servers and Users..."
 msgstr "/LogJam/_Сервери та користувачі..."
 
-#: ../src/menu.c:361
+#: ../src/menu.c:449
 msgid "/LogJam/_Change User..."
 msgstr "/LogJam/_Змінити користувача..."
 
-#: ../src/menu.c:362
+#: ../src/menu.c:450
 msgid "/LogJam/_Preferences..."
 msgstr "/LogJam/П_араметри..."
 
-#: ../src/menu.c:364
+#: ../src/menu.c:452
 msgid "/LogJam/_Quit"
 msgstr "/LogJam/Ви_йти"
 
-#: ../src/menu.c:366
+#: ../src/menu.c:454
 msgid "/E_ntry"
 msgstr "/_Запис"
 
-#: ../src/menu.c:367
+#: ../src/menu.c:455
 msgid "/Entry/_New"
 msgstr "/Запис/_Створити"
 
-#: ../src/menu.c:368
+#: ../src/menu.c:456
 msgid "/Entry/_Open"
 msgstr "/Запис/_Відкрити"
 
-#: ../src/menu.c:369
+#: ../src/menu.c:457
 msgid "/Entry/Open/File..."
 msgstr "/Запис/Відкрити/Файл..."
 
-#: ../src/menu.c:370
+#: ../src/menu.c:458
 msgid "/Entry/Open/Draft..."
 msgstr "/Запис/Відкрити/Чернетку..."
 
-#: ../src/menu.c:371
+#: ../src/menu.c:459
 msgid "/Entry/_Save"
 msgstr "/Запис/З_берегти"
 
-#: ../src/menu.c:372
+#: ../src/menu.c:460
 msgid "/Entry/Save _As"
 msgstr "/Запис/Зберегти _як"
 
-#: ../src/menu.c:373
+#: ../src/menu.c:461
 msgid "/Entry/Save As/_File..."
 msgstr "/Запис/Зберегти як/_Файл..."
 
-#: ../src/menu.c:374
+#: ../src/menu.c:462
 msgid "/Entry/Save As/_Draft..."
 msgstr "/Запис/Зберегти як/_Чернетку..."
 
-#: ../src/menu.c:377
+#: ../src/menu.c:465
 msgid "/Entry/_Validate XML"
 msgstr "/Запис/_Перевірити цілісність XML"
 
-#: ../src/menu.c:379
+#: ../src/menu.c:467
 msgid "/Entry/_Preview HTML..."
 msgstr "/Запис/_Попередній перегляд HTML..."
 
-#: ../src/menu.c:382
+#: ../src/menu.c:470
 msgid "/Entry/S_ubmit as New"
 msgstr "/Запис/_Надіслати як новий"
 
-#: ../src/menu.c:383
+#: ../src/menu.c:471
 msgid "/Entry/_Save Changes to Server"
 msgstr "/Запис/З_берегти зміни на сервері"
 
-#: ../src/menu.c:386
+#: ../src/menu.c:474
 msgid "/Edit/_Undo"
 msgstr "/Правка/В_ернути"
 
-#: ../src/menu.c:388
+#: ../src/menu.c:476
 msgid "/Edit/_Redo"
 msgstr "/Правка/Повт_орити"
 
-#: ../src/menu.c:391
+#: ../src/menu.c:479
 msgid "/Edit/Cu_t"
 msgstr "/Правка/_Вирізати"
 
-#: ../src/menu.c:393
+#: ../src/menu.c:481
 msgid "/Edit/_Copy"
 msgstr "/Правка/_Копіювати"
 
-#: ../src/menu.c:395
+#: ../src/menu.c:483
 msgid "/Edit/_Paste"
 msgstr "/Правка/Вст_авити"
 
-#: ../src/menu.c:398
+#: ../src/menu.c:486
 msgid "/Edit/_HTML Escape"
 msgstr "/Вигляд/_HTML екранування"
 
-#: ../src/menu.c:399
+#: ../src/menu.c:487
 msgid "/Edit/_Remove Linebreaks"
 msgstr "/Правка/В_идалити розриви рядків"
 
-#: ../src/menu.c:401
+#: ../src/menu.c:489
 msgid "/_Insert"
 msgstr "/Вст_авка"
 
-#: ../src/menu.c:402
+#: ../src/menu.c:490
 msgid "/Insert/_Poll..."
 msgstr "/Вставка/_Голосування..."
 
-#: ../src/menu.c:403
+#: ../src/menu.c:491
 msgid "/Insert/_File..."
 msgstr "/Вставка/_Файл..."
 
-#: ../src/menu.c:404
+#: ../src/menu.c:492
 msgid "/Insert/Command _Output..."
 msgstr "/Вставка/_Вивід команди..."
 
-#: ../src/menu.c:407
+#: ../src/menu.c:495
 msgid "/Insert/_Link..."
 msgstr "/Вставка/_Посилання..."
 
-#: ../src/menu.c:408
+#: ../src/menu.c:496
 msgid "/Insert/_Image..."
 msgstr "/Вставка/_Зображення..."
 
-#: ../src/menu.c:409
+#: ../src/menu.c:497
 msgid "/Insert/_Journal Link..."
 msgstr "/Вставка/Посилання _журналу..."
 
-#: ../src/menu.c:410
+#: ../src/menu.c:498
 msgid "/Insert/lj-_cut..."
 msgstr "/Вставка/lj-_вирізка..."
 
-#: ../src/menu.c:412
+#: ../src/menu.c:499
+#, fuzzy
+msgid "/Insert/lj-_repost..."
+msgstr "/Вставка/lj-_вирізка..."
+
+#: ../src/menu.c:500
+#, fuzzy
+msgid "/Insert/lj-li_ke..."
+msgstr "/Вставка/lj-_вирізка..."
+
+#: ../src/menu.c:501
+#, fuzzy
+msgid "/Insert/_Embedded Media..."
+msgstr "/Вставка/_Зображення..."
+
+#: ../src/menu.c:503
 msgid "/_View"
 msgstr "/_Вигляд"
 
-#: ../src/menu.c:413
+#: ../src/menu.c:504
 msgid "/View/_Security"
 msgstr "/Вигляд/_Безпека"
 
-#: ../src/menu.c:414
+#: ../src/menu.c:505
 msgid "/View/Entry _Date"
 msgstr "/Вигляд/_Дата запису"
 
-#: ../src/menu.c:415
+#: ../src/menu.c:506
 msgid "/View/_Mood"
 msgstr "/Вигляд/_Настрій"
 
-#: ../src/menu.c:416
+#: ../src/menu.c:507
 msgid "/View/_Picture"
 msgstr "/Вигляд/_Фото"
 
-#: ../src/menu.c:417
+#: ../src/menu.c:508
 #, fuzzy
 msgid "/View/_Tags"
 msgstr "/Вигляд/_Музика:"
 
-#: ../src/menu.c:418
+#: ../src/menu.c:509
 msgid "/View/M_usic"
 msgstr "/Вигляд/_Музика:"
 
-#: ../src/menu.c:419
+#: ../src/menu.c:510
+#, fuzzy
+msgid "/View/_Location"
+msgstr "/Вигляд/_Настрій"
+
+#: ../src/menu.c:511
 msgid "/View/_Preformatted"
 msgstr "/Вигляд/_Пре-форматування"
 
-#: ../src/menu.c:420
+#: ../src/menu.c:512
 msgid "/View/_Comments"
 msgstr "/Вигляд/_Коментарі"
 
-#: ../src/menu.c:422
+#: ../src/menu.c:513
+#, fuzzy
+msgid "/View/Scr_eening"
+msgstr "/Вигляд/_Безпека"
+
+#: ../src/menu.c:515
 msgid "/_HTML"
 msgstr "/_HTML"
 
-#: ../src/menu.c:423
+#: ../src/menu.c:516
 msgid "/HTML/_Bold"
 msgstr "/HTML/_Жирний"
 
-#: ../src/menu.c:424
+#: ../src/menu.c:517
 msgid "/HTML/_Italic"
 msgstr "/HTML/_Курсив"
 
-#: ../src/menu.c:425
+#: ../src/menu.c:518
+#, fuzzy
+msgid "/HTML/Emphasized"
+msgstr "/HTML/_Моноширний"
+
+#: ../src/menu.c:519
 msgid "/HTML/_Strikeout"
 msgstr "/HTML/_Перекреслений"
 
-#: ../src/menu.c:426
+#: ../src/menu.c:520
+msgid "/HTML/Small _Caps"
+msgstr ""
+
+#: ../src/menu.c:521
 msgid "/HTML/_Monospaced"
 msgstr "/HTML/_Моноширний"
 
-#: ../src/menu.c:427
+#: ../src/menu.c:522
 msgid "/HTML/_Underline"
 msgstr "/HTML/П_ідкреслений"
 
-#: ../src/menu.c:429
+#: ../src/menu.c:523
+#, fuzzy
+msgid "/HTML/_Blockquote"
+msgstr "/HTML/_Жирний"
+
+#: ../src/menu.c:524
+msgid "/HTML/_Paragraph"
+msgstr ""
+
+#: ../src/menu.c:526
+msgid "/HTML/Heading _1"
+msgstr ""
+
+#: ../src/menu.c:527
+msgid "/HTML/Heading _2"
+msgstr ""
+
+#: ../src/menu.c:528
+msgid "/HTML/Heading _3"
+msgstr ""
+
+#: ../src/menu.c:529
+msgid "/HTML/Heading _4"
+msgstr ""
+
+#: ../src/menu.c:530
+#, fuzzy
+msgid "/HTML/Bi_gger"
+msgstr "/HTML/П_ідкреслений"
+
+#: ../src/menu.c:531
+#, fuzzy
+msgid "/HTML/S_maller"
+msgstr "/HTML/_Курсив"
+
+#: ../src/menu.c:532
+msgid "/HTML/Superscrip_t"
+msgstr ""
+
+#: ../src/menu.c:533
+#, fuzzy
+msgid "/HTML/S_ubscript"
+msgstr "/HTML/_Перекреслений"
+
+#: ../src/menu.c:535
+#, fuzzy
+msgid "/HTML/U_nordered List"
+msgstr "/HTML/П_ідкреслений"
+
+#: ../src/menu.c:536
+#, fuzzy
+msgid "/HTML/_Ordered list"
+msgstr "/HTML/П_ідкреслений"
+
+#: ../src/menu.c:537
+#, fuzzy
+msgid "/HTML/_List item"
+msgstr "/HTML/_Перекреслений"
+
+#: ../src/menu.c:539
 msgid "/_Journal"
 msgstr "/_Щоденник"
 
-#: ../src/menu.c:430
+#: ../src/menu.c:540
 msgid "/Journal/_Use Journal"
 msgstr "/Щоденник/_Використовувати журнал"
 
-#: ../src/menu.c:432
+#: ../src/menu.c:542
 msgid "/Journal/_Friends..."
 msgstr "/Щоденник/_Друзі..."
 
-#: ../src/menu.c:434
+#: ../src/menu.c:544
 msgid "/Journal/_Load Last Entry"
 msgstr "/Щоденник/_Завантажити останній запис"
 
-#: ../src/menu.c:435
+#: ../src/menu.c:545
 msgid "/Journal/_Load Recent Entry..."
 msgstr "/Щоденник/_Завантажити недавній запис..."
 
-#: ../src/menu.c:436
+#: ../src/menu.c:546
 msgid "/Journal/_Load Offline Entry..."
 msgstr "/Щоденник/_Завантажити автономний запис..."
 
-#: ../src/menu.c:437
+#: ../src/menu.c:547
 msgid "/Journal/_Synchronize Offline Copy..."
 msgstr "/Щоденник/_Синхронізувати автономну копію..."
 
-#: ../src/menu.c:439
+#: ../src/menu.c:549
 msgid "/Journal/_LiveJournal Console..."
 msgstr "/Щоденник/Консоль _LiveJournal..."
 
-#: ../src/menu.c:440
+#: ../src/menu.c:550
 msgid "/Journal/_Web Links"
 msgstr "/Щоденник/_Веб-посилання"
 
@@ -1631,23 +1864,22 @@ msgstr "_Значок настрою"
 msgid "_Match Text"
 msgstr "Текст _відповідності"
 
-#: ../src/music.c:15
-msgid "None"
-msgstr "Нікому"
-
-#: ../src/music.c:50
+#: ../src/music.c:55
+#, c-format
 msgid "No music command line is set."
 msgstr "Не встановлено рядок музичної команди."
 
-#: ../src/music.c:81
+#: ../src/music.c:86
+#, c-format
 msgid "Command produced no output."
 msgstr "Команда не видала результат."
 
-#: ../src/music.c:108 ../src/music.c:113
+#: ../src/music.c:113 ../src/music.c:118
+#, c-format
 msgid "Music detection is not implemented on this platform."
 msgstr "Визначення музики не реалізовано на цій платформі."
 
-#: ../src/network.c:130 ../src/progress.c:46 ../src/sync.c:260
+#: ../src/network.c:130 ../src/progress.c:46 ../src/sync.c:261
 #, c-format
 msgid "Error: %s\n"
 msgstr "Помилка: %s\n"
@@ -1661,26 +1893,28 @@ msgid "Running request..."
 msgstr "Виконується запит..."
 
 #: ../src/network-curl.c:73
+#, c-format
 msgid "Unable to intialize CURL"
 msgstr "Не вдається ініціалізувати CURL"
 
-#: ../src/network-curl.c:120 ../src/network-libxml.c:30
+#: ../src/network-curl.c:122 ../src/network-libxml.c:31
 #, c-format
 msgid "Request: [%s]\n"
 msgstr "Запит: [%s]\n"
 
-#: ../src/network-curl.c:129
+#: ../src/network-curl.c:131
 #, c-format
 msgid "cURL error: %s."
 msgstr "Помилка cURL: %s."
 
-#: ../src/network-curl.c:135 ../src/network-libxml.c:103
-#: ../src/network-soup.c:87
+#: ../src/network-curl.c:137 ../src/network-libxml.c:110
+#: ../src/network-soup.c:93
 #, c-format
 msgid "Response: [%s]\n"
 msgstr "Відповідь: [%s]\n"
 
 #: ../src/network-fork.c:144
+#, c-format
 msgid "Cancelled."
 msgstr "Скасовано."
 
@@ -1694,7 +1928,8 @@ msgstr "Помилка створення pipe (pipe(): %s)."
 msgid "Error forking (fork(): %s)."
 msgstr "Помилка створення дочірнього процесу(fork(): %s)."
 
-#: ../src/network-libxml.c:37
+#: ../src/network-libxml.c:38
+#, c-format
 msgid ""
 "LogJam was built with libxml's NanoHTTP support, which does not support "
 "proxy authentication."
@@ -1702,19 +1937,23 @@ msgstr ""
 "LogJam побудовано з підтримкою libxml NanoHTTP, яка не підтримує "
 "автентифікацію проксі."
 
-#: ../src/network-libxml.c:65
+#: ../src/network-libxml.c:72
+#, c-format
 msgid "xmlNanoHTTPMethod error."
 msgstr "помилка xmlNanoHTTPMethod."
 
-#: ../src/network-libxml.c:73
+#: ../src/network-libxml.c:80
+#, c-format
 msgid "File not found."
 msgstr "Файл не існує."
 
-#: ../src/network-libxml.c:84
+#: ../src/network-libxml.c:91
+#, c-format
 msgid "xmlNanoHTTPRead error."
 msgstr "помилка xmlNanoHTTPRead."
 
 #: ../src/network-win32.c:97
+#, c-format
 msgid "The connection was closed."
 msgstr "З'єднання закрито."
 
@@ -1735,7 +1974,7 @@ msgstr "_Шукати:"
 msgid "_Case sensitive"
 msgstr "Збігається _регістр"
 
-#: ../src/offline.c:407
+#: ../src/offline.c:404
 msgid ""
 "LogJam has no offline entries for this journal. You must first synchronize "
 "this journal to your local storage before you can load entries from it."
@@ -1743,27 +1982,27 @@ msgstr ""
 "У цьому журналі немає автономних записів. Спочатку треба синхронізувати цей "
 "журнал з локальним сховищем переш ніж ви можете завантажувати записи з нього."
 
-#: ../src/offline.c:411
+#: ../src/offline.c:408
 msgid "_Synchronize"
 msgstr "_Синхронізувати"
 
-#: ../src/offline.c:458
+#: ../src/offline.c:454
 msgid "Select Offline Entry"
 msgstr "Виберіть автономний запис"
 
-#: ../src/offline.c:465
+#: ../src/offline.c:461
 msgid "Select by Date"
 msgstr "Вибір за датою"
 
-#: ../src/offline.c:467
+#: ../src/offline.c:463
 msgid "Select by Search"
 msgstr "Вибір за пошуком"
 
-#: ../src/offline.c:499
+#: ../src/offline.c:495
 msgid "Copy online entry URL to clipboard"
 msgstr "Копіювати URL запису у буфер обміну"
 
-#: ../src/offline.c:500
+#: ../src/offline.c:496
 msgid ""
 "Clicking here will place the URL of the entry currently being previewed in "
 "your clipboard, so you can link to it."
@@ -1905,14 +2144,19 @@ msgid "Current Music"
 msgstr "Поточна музика"
 
 #: ../src/preview.c:188
+#, fuzzy
+msgid "Current Location"
+msgstr "Поточний настрій"
+
+#: ../src/preview.c:190
 msgid "Tags"
 msgstr ""
 
-#: ../src/preview.c:248
+#: ../src/preview.c:250
 msgid "HTML Preview"
 msgstr "Попередній перегляд HTML"
 
-#: ../src/preview.c:251
+#: ../src/preview.c:253
 msgid "_Update"
 msgstr "_Оновити"
 
@@ -1940,133 +2184,154 @@ msgstr "Включені групи"
 msgid "Select Friend Groups"
 msgstr "Виберіть групи друзів"
 
-#: ../src/settings.c:69
+#: ../src/settings.c:70
 msgid "_Revert to primary journal after posting on a community"
 msgstr "_Відновити головний журнал після надсилання до спільноти"
 
-#: ../src/settings.c:71
+#: ../src/settings.c:72
 msgid "Default _security on posts:"
 msgstr "Типова _безпека при надсиланні:"
 
-#: ../src/settings.c:73
+#: ../src/settings.c:74
 msgid "Automatically save _drafts (for crash recovery)"
 msgstr "Автоматично зберігати _чернетки (для відновлення після аварій)"
 
-#: ../src/settings.c:76
+#: ../src/settings.c:77
 msgid "Allow multiple _instances of LogJam to run simultaneously"
 msgstr "Дозволити одночасний запуск кількох _екземплярів LogJam"
 
-#: ../src/settings.c:79
+#: ../src/settings.c:80
+msgid "_Keep saved drafts after posting"
+msgstr ""
+
+#: ../src/settings.c:84
 msgid "_Use spell check"
 msgstr "Перевіряти _орфографію"
 
-#: ../src/settings.c:81
+#: ../src/settings.c:86
 msgid "Entry _language:"
 msgstr "_Мова запису:"
 
-#: ../src/settings.c:84
+#: ../src/settings.c:89
+msgid "Show login history (number of days since last login)"
+msgstr ""
+
+#: ../src/settings.c:91
 msgid "Automatically change _quotes to matching pairs"
 msgstr "Автоматично змінювати _дужки для відповідності пар"
 
-#: ../src/settings.c:86
+#: ../src/settings.c:93
 msgid "Entry display font:"
 msgstr "Шрифт відображення запису:"
 
-#: ../src/settings.c:89
+#: ../src/settings.c:96
+msgid "Close main window after sending"
+msgstr ""
+
+#: ../src/settings.c:98
 msgid "Add icon to system _tray (for GNOME/KDE/etc. dock)"
 msgstr "Додавати значок до системного _лотка (у GNOME/KDE/тощо)"
 
-#: ../src/settings.c:94
+#: ../src/settings.c:100
+msgid "Start in system tray"
+msgstr ""
+
+#: ../src/settings.c:105
 msgid "Web browser:"
 msgstr "Веб-переглядач"
 
-#: ../src/settings.c:97
+#: ../src/settings.c:108
 msgid "Detect music from:"
 msgstr "Визначати музику з:"
 
-#: ../src/settings.c:100
+#: ../src/settings.c:110
+#, fuzzy
+msgid "Detect music via MPRIS"
+msgstr "Визначати музику з:"
+
+#: ../src/settings.c:113
 msgid "Use _proxy server"
 msgstr "Використовувати _проксі-сервер"
 
-#: ../src/settings.c:102
+#: ../src/settings.c:115
 msgid "UR_L:"
 msgstr "UR_L:"
 
-#: ../src/settings.c:105
+#: ../src/settings.c:118
 msgid "Use proxy _authentication"
 msgstr "Використовувати проксі _автентифікацію"
 
-#: ../src/settings.c:107
+#: ../src/settings.c:120
 msgid "_User:"
 msgstr "_Користувач:"
 
-#: ../src/settings.c:113
+#: ../src/settings.c:126
 msgid "Dump _network data on stderr"
 msgstr "Дамп даних _мережі на stderr"
 
-#: ../src/settings.c:116
+#: ../src/settings.c:129
 msgid "Don't _fork on network requests"
 msgstr "Не створювати _дочірній процес при запитах до мережі"
 
-#: ../src/settings.c:119
+#: ../src/settings.c:132
 msgid "Don't run network requests in a separate _thread"
 msgstr "Не запускати запити мережі у окремому _потоці виконання"
 
-#: ../src/settings.c:124
+#: ../src/settings.c:137
 msgid "_Monitor friends list for new entries upon login"
 msgstr "_Контролювати при вході наявність нових записів у списку друзів"
 
-#: ../src/settings.c:126
+#: ../src/settings.c:139
 msgid "_Limit monitoring to groups of friends"
 msgstr "_Обмежувати контроль груп друзів"
 
-#: ../src/settings.c:130
+#: ../src/settings.c:143
 msgid "_Check friends list every "
 msgstr "_Перевіряти список друзів кожні "
 
-#: ../src/settings.c:132
+#: ../src/settings.c:145
 msgid "_Notify me after "
 msgstr "_Сповіщати мене"
 
-#: ../src/settings.c:134
+#: ../src/settings.c:147
 msgid "_Floating indicator"
 msgstr "_Плаваючий індикатор"
 
-#: ../src/settings.c:136
+#: ../src/settings.c:149
 msgid "_Raise floating indicator when new entries detected"
 msgstr "_Піднімати індикатор при виявленні нових записів"
 
-#: ../src/settings.c:138
+#: ../src/settings.c:151
 msgid "Show _titlebar on floating indicator"
 msgstr "Показувати _заголовок плаваючого індикатора"
 
-#: ../src/settings.c:252
+#: ../src/settings.c:278
 msgid "Custom Command"
 msgstr "Власні команди"
 
-#: ../src/settings.c:341
+#: ../src/settings.c:367
 msgid "Select font"
 msgstr "Вибрати шрифт"
 
-#: ../src/settings.c:385
+#: ../src/settings.c:411
 msgid "Posting"
 msgstr "Надсилання"
 
-#: ../src/settings.c:433
+#: ../src/settings.c:466
 msgid "[gtk default]"
 msgstr "[gtk default]"
 
-#: ../src/settings.c:452
+#: ../src/settings.c:485
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: ../src/settings.c:503
+#: ../src/settings.c:542
 msgid "LogJam XMMS helper not found.  Did you install LogJam's XMMS support?"
 msgstr ""
 "Допоміжна програма LogJam XMMS не знайдена.  Ви встановили підтримку "
 "LogJam's XMMS?"
 
-#: ../src/settings.c:511
+#: ../src/settings.c:550
 #, c-format
 msgid ""
 "Music detection succeeded.\n"
@@ -2079,35 +2344,35 @@ msgstr ""
 "Поточна музика:\n"
 "%s"
 
-#: ../src/settings.c:512
+#: ../src/settings.c:551
 msgid "Music Detection"
 msgstr "Визначення музики"
 
-#: ../src/settings.c:521
+#: ../src/settings.c:560
 msgid "Proxy"
 msgstr "Проксі"
 
-#: ../src/settings.c:553
+#: ../src/settings.c:602
 msgid "Programs"
 msgstr "Програми"
 
-#: ../src/settings.c:561
+#: ../src/settings.c:619
 msgid "_Diagnose"
 msgstr "_Діагностика"
 
-#: ../src/settings.c:564
+#: ../src/settings.c:622
 msgid "Diagnose problems detecting music:"
 msgstr "Діагностика проблем визначення музики:"
 
-#: ../src/settings.c:590
+#: ../src/settings.c:648
 msgid "Network"
 msgstr "Мережа"
 
-#: ../src/settings.c:604
+#: ../src/settings.c:662
 msgid "General"
 msgstr "Загальне"
 
-#: ../src/settings.c:614
+#: ../src/settings.c:672
 msgid "new entries by my friends"
 msgstr "нові елементи моїх друзів"
 
@@ -2115,57 +2380,57 @@ msgstr "нові елементи моїх друзів"
 #. range
 #. increments
 #. digits
-#: ../src/settings.c:623
+#: ../src/settings.c:681
 msgid "seconds"
 msgstr "секунд"
 
-#: ../src/settings.c:637
+#: ../src/settings.c:695
 msgid "Filter"
 msgstr "Фільтр"
 
-#: ../src/settings.c:644
+#: ../src/settings.c:702
 msgid "Choose filter"
 msgstr "Виберіть фільтр"
 
-#: ../src/settings.c:651
+#: ../src/settings.c:709
 msgid "<small>The filter chosen here only affects the current user.</small>"
 msgstr "<small>Обраний фільтр впливає лише на поточного користувача.</small>"
 
-#: ../src/settings.c:672
+#: ../src/settings.c:730
 msgid "Indicators"
 msgstr "Індикатори"
 
-#: ../src/settings.c:722
+#: ../src/settings.c:780
 msgid "Preferences"
 msgstr "Параметри"
 
-#: ../src/settings.c:731
+#: ../src/settings.c:789
 msgid "Interface"
 msgstr "Інтерфейс"
 
-#: ../src/settings.c:734
+#: ../src/settings.c:792
 msgid "System"
 msgstr "Система"
 
-#: ../src/settings.c:740
+#: ../src/settings.c:798
 msgid "Debug"
 msgstr "Налагодження"
 
-#: ../src/settings.c:762
+#: ../src/settings.c:820
 msgid "Checkfriends Preferences"
 msgstr "Параметри Checkfriends"
 
-#: ../src/settings.c:797
+#: ../src/settings.c:855
 #, c-format
 msgid "Error stopping remote listener: %s."
 msgstr "Помилка зупинки віддаленого прослуховування: %s."
 
-#: ../src/settings.c:805
+#: ../src/settings.c:863
 #, c-format
 msgid "Error starting remote listener: %s."
 msgstr "Помилка запуску віддаленого прослуховування: %s."
 
-#: ../src/spawn.c:68
+#: ../src/spawn.c:74
 #, c-format
 msgid "Error spawning URL '%s': %s\n"
 msgstr "Помилка розмноження URL '%s': %s\n"
@@ -2186,6 +2451,7 @@ msgid "Warnings"
 msgstr "Попередження"
 
 #: ../src/sync.c:218
+#, c-format
 msgid "Up-to-date.\n"
 msgstr "Оновлено.\n"
 
@@ -2199,14 +2465,29 @@ msgstr "Завантажуються %d синхронних елементи: "
 msgid "Downloading %d entries: "
 msgstr "Завантажуються %d елементів: "
 
-#: ../src/sync.c:246
+#: ../src/sync.c:247
 #, c-format
 msgid "Synchronizing '%s'..."
 msgstr "Синхронізується '%s'..."
 
-#: ../src/sync.c:253
+#: ../src/sync.c:254
+#, c-format
 msgid "Warnings:\n"
 msgstr "Попередження:\n"
+
+#: ../src/tags.c:22
+#, fuzzy
+msgid "Loading Tags"
+msgstr "Завантаження друзів"
+
+#: ../src/tags.c:149
+msgid "Tag name"
+msgstr ""
+
+#: ../src/tags.c:195
+#, fuzzy
+msgid "Select tags"
+msgstr "Вибір діти"
 
 #. this translation is not crucial
 #: ../src/thanks.h:11
@@ -2361,11 +2642,11 @@ msgid "much of the original client"
 msgstr "значна частина початкового клієнта"
 
 #. no selection; give them some help.
-#: ../src/tools.c:41
+#: ../src/tools.c:42
 msgid "HTML Escape Help"
 msgstr "Довідка з HTML екранування"
 
-#: ../src/tools.c:42
+#: ../src/tools.c:43
 msgid ""
 "Some characters (such as '<' and '&') are reserved in HTML, and may not "
 "display correctly in your post.\n"
@@ -2377,11 +2658,11 @@ msgstr ""
 "Виберіть частину тексту з подібними символами і виберіть це меню знову.\n"
 
 #. no selection; give them some help.
-#: ../src/tools.c:89
+#: ../src/tools.c:90
 msgid "Linebreak Removal Help"
 msgstr "Довідка з видалення розривів рядків"
 
-#: ../src/tools.c:90
+#: ../src/tools.c:91
 msgid ""
 "When you paste text into LogJam, linebreaks from the original are preserved, "
 "and will normally show up in your post on the server. You can have LogJam "
@@ -2397,61 +2678,91 @@ msgstr ""
 "Зауважте, також можна використовувати параметр надсилання \"без "
 "автоформатування\"."
 
-#: ../src/tools.c:149
+#: ../src/tools.c:150
 msgid "Select File"
 msgstr "Вибрати файл"
 
-#: ../src/tools.c:156
+#: ../src/tools.c:157
 msgid "File _encoding:"
 msgstr "_Кодування файлу:"
 
-#: ../src/tools.c:187
+#: ../src/tools.c:188
 #, c-format
 msgid "Error loading file: %s"
 msgstr "Помилка завантаження файлу: %s"
 
-#: ../src/tools.c:201
+#: ../src/tools.c:202
 msgid "Insert Command Output"
 msgstr "Вставити вивід команди"
 
-#: ../src/tools.c:210
+#: ../src/tools.c:211
 msgid "_Command:"
 msgstr "_Команда:"
 
-#: ../src/tools.c:225
+#: ../src/tools.c:226
 #, c-format
 msgid "Error getting command output: %s"
 msgstr "Помилка отримання виводу команди: %s"
 
-#: ../src/tools.c:262
+#: ../src/tools.c:263
 msgid "XML Parse Error"
 msgstr "Помилка розбору XML"
 
-#: ../src/tools.c:269
+#: ../src/tools.c:270
 msgid "Error parsing XML:"
 msgstr "Помилка розбору XML:"
 
-#: ../src/tools.c:317
+#: ../src/tools.c:318
 msgid "XML Validation"
 msgstr "Перевірка цілісності XML"
 
-#: ../src/tools.c:318
+#: ../src/tools.c:319
 msgid "Document is well-formed XML."
 msgstr "Документ є правильно сформованим документом XML."
 
-#: ../src/tools.c:332
-msgid "LJ-Cut"
-msgstr "LJ-Cut"
+#: ../src/tools.c:361
+msgid "Embedded Media"
+msgstr ""
 
-#: ../src/tools.c:344
-msgid "Cut c_aption:"
-msgstr "Вирізати _заголовок:"
+#: ../src/tools.c:374
+msgid "E_mbedded code:"
+msgstr ""
 
-#: ../src/tools.c:349
+#: ../src/tools.c:379
+msgid ""
+"<small>This is where you paste the embedded code, e.g. for a YouTube video.</"
+"small>"
+msgstr ""
+
+#: ../src/tools.c:413
 msgid "<small>If left empty, the LiveJournal default will be used.</small>"
 msgstr ""
 "<small>Якщо залишити порожнім, буде використовуватись типовий для "
 "LiveJournal.</small>"
+
+#: ../src/tools.c:480
+msgid "Cut c_aption:"
+msgstr "Вирізати _заголовок:"
+
+#: ../src/tools.c:480
+msgid "LJ-Cut"
+msgstr "LJ-Cut"
+
+#: ../src/tools.c:486
+msgid "Repost _button:"
+msgstr ""
+
+#: ../src/tools.c:486
+msgid "LJ-Repost"
+msgstr ""
+
+#: ../src/tools.c:492
+msgid "_Like for:"
+msgstr ""
+
+#: ../src/tools.c:492
+msgid "LJ-Like"
+msgstr ""
 
 #. this string is the separator between the server and username
 #. * next to the "submit" button.
@@ -2476,6 +2787,17 @@ msgstr "Попередження"
 #: ../src/util-gtk.c:318
 msgid "Do not show again"
 msgstr "Не показувати знову"
+
+#. translators: this is the logjam-xmms-client command line.
+#: ../util/xmmsclient/logjam-xmms-client.c:32
+#, c-format
+msgid "usage: %s [session_number]\n"
+msgstr ""
+
+#: ../util/xmmsclient/logjam-xmms-client.c:41
+#, c-format
+msgid "XMMS error.  Is XMMS running?\n"
+msgstr ""
 
 #~ msgid "automake fixes, testing"
 #~ msgstr "виправлення automake, тестування"

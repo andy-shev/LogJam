@@ -7,21 +7,45 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Logjam 4.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-24 09:12-0700\n"
+"POT-Creation-Date: 2011-06-05 22:45+0300\n"
 "PO-Revision-Date: 2005-01-03 23:56+0900\n"
 "Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
+"Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../data/logjam.desktop.in.h:1 ../src/docklet.c:67 ../src/init.c:190
+#: ../data/logjam.desktop.in.h:1 ../src/docklet.c:123 ../src/init.c:206
 msgid "LogJam"
 msgstr "LogJam"
 
 #: ../data/logjam.desktop.in.h:2
 msgid "Manage journal/weblog"
 msgstr "日記/ブログを管理"
+
+#: ../protocol/liblivejournal/livejournal/entry.c:352
+#, fuzzy, c-format
+msgid "Error reading file '%s': %s"
+msgstr "ファイル読み込み中にエラー: %s"
+
+#: ../protocol/liblivejournal/livejournal/entry.c:780
+msgid "can't open rfc822 file"
+msgstr ""
+
+#: ../protocol/liblivejournal/livejournal/entry.c:787
+msgid "can't close rfc822 file"
+msgstr ""
+
+#: ../protocol/liblivejournal/livejournal/entry.c:810
+#, c-format
+msgid "Can't make temp file: %s"
+msgstr ""
+
+#: ../protocol/liblivejournal/livejournal/entry.c:817
+#, c-format
+msgid "Can't close temp file: %s"
+msgstr ""
 
 #: ../src/about.c:63
 #, c-format
@@ -85,6 +109,7 @@ msgstr ""
 "\"%s --checkfriends=purge\" を実行して再度試して下さい\n"
 
 #: ../src/checkfriends.c:400
+#, c-format
 msgid "Request rate exceeded. Slow down.\n"
 msgstr "要求レートを超過しました. スローダウンします\n"
 
@@ -139,7 +164,7 @@ msgstr "友達の新しいエントリをチェック(_C)"
 msgid "_Open friends list in browser"
 msgstr "ブラウザで友達リストを開く(_O)"
 
-#: ../src/cmdline.c:84
+#: ../src/cmdline.c:82
 #, c-format
 msgid ""
 "LogJam %s\n"
@@ -150,146 +175,162 @@ msgstr ""
 "著作権 (C) 2000-2004 Evan Martin\n"
 "\n"
 
-#: ../src/cmdline.c:106
+#: ../src/cmdline.c:104
+#, c-format
 msgid "Subcommands:\n"
 msgstr "副コマンド:\n"
 
-#: ../src/cmdline.c:114
+#: ../src/cmdline.c:112
 #, c-format
 msgid "Use:  %s [options] [command [commandargs]]\n"
 msgstr "使い方: %s [オプション] [コマンド [コマンド引数]]\n"
 
-#: ../src/cmdline.c:118
+#: ../src/cmdline.c:116
+#, c-format
 msgid ""
 "If no subcommand is provided, the default behavior is to load the GUI.\n"
 msgstr "副コマンドがない場合の既定の動作は GUI の読み込みです\n"
 
-#: ../src/cmdline.c:128
+#: ../src/cmdline.c:126
+#, c-format
 msgid "Also, GTK+ command line options (such as --display) can be used.\n"
 msgstr "また GTK+ コマンド行オプション (例: --display) も利用できます\n"
 
 #. unknown option character.
 #. missing option character.
-#: ../src/cmdline.c:154
+#: ../src/cmdline.c:152
+#, c-format
 msgid "Unknown or missing option character\n"
 msgstr "不明なオプション、またはオプションが不完全です\n"
 
-#: ../src/cmdline.c:197
+#: ../src/cmdline.c:195
+#, c-format
 msgid "Blogger accounts do not have a console interface.\n"
 msgstr "Blogger アカウントではコンソールインターフェースは利用できません\n"
 
-#: ../src/cmdline.c:203
+#: ../src/cmdline.c:201
+#, c-format
 msgid "Must specify a console command.  Try \"help\".\n"
 msgstr ""
 "コンソールコマンドを指定しなければなりません. \"help\" を試して下さい\n"
 
-#: ../src/cmdline.c:246
+#: ../src/cmdline.c:244
+#, c-format
 msgid "Success.\n"
 msgstr "成功\n"
 
-#: ../src/cmdline.c:261
+#: ../src/cmdline.c:259
+#, c-format
 msgid "Checkfriends is only supported by LiveJournal accounts.\n"
 msgstr ""
 "Checkfriends は LiveJournal アカウントについてのみサポートされています\n"
 
-#: ../src/cmdline.c:275
+#: ../src/cmdline.c:273
 #, c-format
 msgid "Checkfriends information for %s purged.\n"
 msgstr "%s の Checkfriends 情報を削除しました\n"
 
-#: ../src/cmdline.c:279
+#: ../src/cmdline.c:277
 #, c-format
 msgid "Unknown argument %s to --checkfriends\n"
 msgstr "--checkfriends に対して不明な引数 %s\n"
 
-#: ../src/cmdline.c:294
+#: ../src/cmdline.c:292
+#, c-format
 msgid "Sync is only supported by LiveJournal accounts.\n"
 msgstr "Sync は LiveJournal アカウントについてのみサポートされています\n"
 
-#: ../src/cmdline.c:322
+#: ../src/cmdline.c:320
 #, c-format
 msgid "Specify at least one itemid or 'latest'.\n"
 msgstr "最低でも一つのアイテム ID または '最新' を指定して下さい\n"
 
-#: ../src/cmdline.c:340
+#: ../src/cmdline.c:338
 #, c-format
 msgid "expected itemid, got %s\n"
 msgstr "期待されるアイテム ID. %s を取得\n"
 
-#: ../src/cmdline.c:348
+#: ../src/cmdline.c:346
 #, c-format
 msgid "entry %d not found\n"
 msgstr "エントリ %d がみつかりません\n"
 
-#: ../src/cmdline.c:429
+#: ../src/cmdline.c:427
+#, c-format
 msgid "Specify a regexp to match\n"
 msgstr "マッチさせる正規表現を指定して下さい\n"
 
-#: ../src/cmdline.c:439
+#: ../src/cmdline.c:437
 #, c-format
 msgid "Regexp error: %s.\n"
 msgstr "正規表現エラー: %s\n"
 
-#: ../src/cmdline.c:456
+#: ../src/cmdline.c:454
+#, c-format
 msgid "Regexp error: out of memory.\n"
 msgstr "正規表現エラー: メモリ不足\n"
 
-#: ../src/cmdline.c:487
+#: ../src/cmdline.c:485
+#, c-format
 msgid "LogJam was compiled without regular expression support.\n"
 msgstr "LogJam は正規表現サポートなしでコンパイルされています\n"
 
-#: ../src/cmdline.c:510
+#: ../src/cmdline.c:508
 #, c-format
 msgid "Offline journal for '%s':\n"
 msgstr "'%s' のオフライン日記:\n"
 
-#: ../src/cmdline.c:514
+#: ../src/cmdline.c:512
 #, c-format
 msgid "  Last synced: %s.\n"
 msgstr "  最終同期: %s\n"
 
-#: ../src/cmdline.c:517
+#: ../src/cmdline.c:515
 #, c-format
 msgid "  Entry count: %d.\n"
 msgstr "  エントリ個数: %d\n"
 
-#: ../src/cmdline.c:518
+#: ../src/cmdline.c:516
 #, c-format
 msgid "  Latest itemid: %d.\n"
 msgstr "  最新のアイテム ID: %d\n"
 
-#: ../src/cmdline.c:530
+#: ../src/cmdline.c:528
+#, c-format
 msgid "Rebuilding index..."
 msgstr "索引を再構築中..."
 
-#: ../src/cmdline.c:533
+#: ../src/cmdline.c:531
 #, c-format
 msgid " ERROR: %s.\n"
 msgstr " エラー: %s\n"
 
-#: ../src/cmdline.c:537 ../src/sync.c:233
+#: ../src/cmdline.c:535 ../src/sync.c:233
+#, c-format
 msgid "done.\n"
 msgstr "完了\n"
 
-#: ../src/cmdline.c:566
+#: ../src/cmdline.c:564
+#, c-format
 msgid "Error: specify a user.\n"
 msgstr "エラー: ユーザーを指定して下さい\n"
 
-#: ../src/cmdline.c:628
+#: ../src/cmdline.c:626
 #, c-format
 msgid "Unknown account '%s'.\n"
 msgstr "不明なアカウント '%s'\n"
 
-#: ../src/cmdline.c:636
+#: ../src/cmdline.c:634
 msgid "Password: "
 msgstr "パスワード: "
 
-#: ../src/cmdline.c:691
+#: ../src/cmdline.c:689
 #, c-format
 msgid "Error: Unknown action '%s'.\n"
 msgstr "エラー: 不明なアクション '%s'\n"
 
-#: ../src/cmdline.c:699
+#: ../src/cmdline.c:697
+#, c-format
 msgid "Error:  Must specify account.\n"
 msgstr "エラー: アカウントを指定しなければなりません\n"
 
@@ -342,6 +383,7 @@ msgid "Add a user to the user list."
 msgstr "ユーザーをユーザーリストに追加"
 
 #: ../src/conf.c:88
+#, c-format
 msgid "new host name is invalid"
 msgstr "新しいホスト名は不適切なものです"
 
@@ -400,7 +442,30 @@ msgstr "現在の日時を使用(_C)"
 msgid "Entry is _backdated"
 msgstr "エントリは前の日付のものです"
 
-#: ../src/docklet.c:49 ../src/settings.c:738
+#. About...
+#: ../src/docklet.c:37
+#, fuzzy
+msgid "About LogJam..."
+msgstr "LogJam について"
+
+#. Friends...
+#: ../src/docklet.c:45
+#, fuzzy
+msgid "Friends..."
+msgstr "友達"
+
+#. Preferences...
+#: ../src/docklet.c:51
+#, fuzzy
+msgid "Preferences..."
+msgstr "設定"
+
+#. Quit
+#: ../src/docklet.c:64
+msgid "Quit"
+msgstr ""
+
+#: ../src/docklet.c:105 ../src/settings.c:796
 msgid "Check Friends"
 msgstr "友達チェック"
 
@@ -412,7 +477,7 @@ msgstr "日時"
 msgid "Subject"
 msgstr "題"
 
-#: ../src/draftstore_ui.c:82 ../src/jam.c:345 ../src/jam.c:390
+#: ../src/draftstore_ui.c:82 ../src/jam.c:345 ../src/jam.c:394
 msgid "Delete"
 msgstr "削除"
 
@@ -420,7 +485,7 @@ msgstr "削除"
 msgid "Delete entry?"
 msgstr "エントリを削除しますか?"
 
-#: ../src/draftstore_ui.c:104 ../src/settings.c:398
+#: ../src/draftstore_ui.c:104 ../src/settings.c:428
 msgid "Entries"
 msgstr "エントリ"
 
@@ -626,7 +691,7 @@ msgstr "/友達/セパレータ"
 msgid "/Friends/_Close"
 msgstr "/友達/閉じる(_C)"
 
-#: ../src/friends.c:238 ../src/menu.c:385
+#: ../src/friends.c:238 ../src/menu.c:473
 msgid "/_Edit"
 msgstr "/編集(_E)"
 
@@ -674,7 +739,7 @@ msgstr "友達を削除中"
 msgid "Link"
 msgstr "リンク"
 
-#: ../src/friends.c:768 ../src/link.c:248
+#: ../src/friends.c:768 ../src/link-journal.c:36
 msgid "User"
 msgstr "ユーザー"
 
@@ -739,11 +804,11 @@ msgstr "出力ファイルを選択"
 msgid "  Suggest Filename  "
 msgstr "  ファイル名を提案  "
 
-#: ../src/get_cmd_out.c:99 ../src/get_cmd_out.c:115
+#: ../src/get_cmd_out.c:100 ../src/get_cmd_out.c:116
 msgid "Command is running..."
 msgstr "コマンド実行中..."
 
-#: ../src/get_cmd_out.c:151 ../src/get_cmd_out.c:179
+#: ../src/get_cmd_out.c:152 ../src/get_cmd_out.c:180
 #, c-format
 msgid "command failed: %s"
 msgstr "コマンド失敗: %s"
@@ -754,7 +819,8 @@ msgstr "コマンド失敗: %s"
 #. * close a dialog asking for command name, but rather let
 #. * the user correct it (or click "Cancel").
 #.
-#: ../src/get_cmd_out.c:191
+#: ../src/get_cmd_out.c:192
+#, c-format
 msgid "command not found"
 msgstr "コマンドがみつかりません"
 
@@ -871,7 +937,7 @@ msgstr ""
 "  -k, --userpic=KEYWORD      使用するユーザー画像のキーワード\n"
 "  -e, --edit                 投稿編集にデフォルトのエディタを使用\n"
 
-#: ../src/history.c:744
+#: ../src/history.c:748
 msgid "Loading Entry"
 msgstr "エントリを読み込み中"
 
@@ -928,43 +994,56 @@ msgstr "画像を読み込み中にエラー: %s"
 msgid "Insert Image"
 msgstr "画像を挿入"
 
-#: ../src/imagelink.c:88 ../src/link.c:131 ../src/manager.c:457
+#: ../src/imagelink.c:88 ../src/link.c:123 ../src/manager.c:457
 msgid "_URL:"
 msgstr "URL(_U):"
 
+#: ../src/imagelink.c:93
+#, fuzzy
+msgid "Title:"
+msgstr "草稿の題(_D):"
+
 #: ../src/imagelink.c:97
+#, fuzzy
+msgid "Link:"
+msgstr "リンク"
+
+#: ../src/imagelink.c:105
 msgid "_Width:"
 msgstr "幅(_W):"
 
-#: ../src/imagelink.c:103
+#: ../src/imagelink.c:111
 msgid "_Height:"
 msgstr "高さ(_H):"
 
-#: ../src/imagelink.c:109
+#: ../src/imagelink.c:117
 msgid "_Retrieve Dimensions from Network"
 msgstr "ネットワークから大きさを取得(_R)"
 
 #. we popped up another window, so we're done.
-#: ../src/init.c:75
+#: ../src/init.c:76
+#, c-format
 msgid "Bringing already-running LogJam instance to the foreground...\n"
 msgstr ""
 "既に実行中の LogJam インスタンスをフォアグラウンドに呼んできています...\n"
 
-#: ../src/init.c:79
+#: ../src/init.c:80
 #, c-format
 msgid "Error sending remote command: %s.\n"
 msgstr "リモートコマンドを送信中にエラー: %s\n"
 
-#: ../src/init.c:221
+#: ../src/init.c:237
+#, c-format
 msgid "GTK init failed -- are you in X?\n"
 msgstr "GTK init 失敗 -- X 上にいますか?\n"
 
-#: ../src/init.c:222 ../src/init.c:229
+#: ../src/init.c:238 ../src/init.c:245
 #, c-format
 msgid "Run %s --help for command-line options.\n"
 msgstr "コマンド行オプションについては %s --help を実行して下さい\n"
 
-#: ../src/init.c:228
+#: ../src/init.c:244
+#, c-format
 msgid "Error: No action given.\n"
 msgstr "エラー: アクションが与えられていません\n"
 
@@ -1020,69 +1099,69 @@ msgstr "保存中にエラー: %s"
 msgid "LogJam - %s%s"
 msgstr "LogJam - %s%s"
 
-#: ../src/jam.c:345 ../src/jam.c:384
+#: ../src/jam.c:345 ../src/jam.c:388
 msgid "Delete this draft from disk?"
 msgstr "この草稿をディスクから削除しますか?"
 
-#: ../src/jam.c:385
+#: ../src/jam.c:389
 msgid "Delete this entry from server?"
 msgstr "このエントリをサーバーから削除しますか?"
 
-#: ../src/jam.c:490
+#: ../src/jam.c:498
 msgid "Autodetect"
 msgstr "自動検出"
 
-#: ../src/jam.c:491
+#: ../src/jam.c:499
 msgid "XML"
 msgstr "XML"
 
-#: ../src/jam.c:492
+#: ../src/jam.c:500
 msgid "RFC822-Style"
 msgstr "RFC2822 (メール) 形式"
 
-#: ../src/jam.c:493
+#: ../src/jam.c:501
 msgid "Plain Text"
 msgstr "平文テキスト"
 
-#: ../src/jam.c:499
+#: ../src/jam.c:507
 msgid "Open Entry"
 msgstr "エントリを開く"
 
-#: ../src/jam.c:515
+#: ../src/jam.c:523
 msgid "File Type:"
 msgstr "ファイルタイプ:"
 
-#: ../src/jam.c:572
+#: ../src/jam.c:583
 msgid "Error Changing Text Format"
 msgstr "テキスト形式に変更中にエラー"
 
-#: ../src/jam.c:586
+#: ../src/jam.c:597
 msgid "Normal"
 msgstr "通常"
 
-#: ../src/jam.c:590
+#: ../src/jam.c:601
 msgid "Structured"
 msgstr "構造化"
 
-#: ../src/jam.c:605
+#: ../src/jam.c:616
 msgid "Entry Format:"
 msgstr "エントリ形式:"
 
-#: ../src/jam.c:739
+#: ../src/jam.c:750
 #, c-format
 msgid "Error loading draft: %s."
 msgstr "草稿を読み込み中にエラー: %s"
 
-#: ../src/jam.c:843
+#: ../src/jam.c:857
 #, c-format
 msgid "Error initializing remote command socket: %s."
 msgstr "リモートコマンドソケットを初期化中にエラー: %s"
 
-#: ../src/jam.c:857
+#: ../src/jam.c:877
 msgid "Autosaved Draft Found"
 msgstr "自動保存された草稿がみつかりました"
 
-#: ../src/jam.c:858
+#: ../src/jam.c:878
 msgid ""
 "An autosaved draft was found, possibly from a previous run of LogJam that "
 "crashed.  Would you like to recover it?"
@@ -1090,80 +1169,105 @@ msgstr ""
 "自動保存された草稿がみつかりました. おそらく前に LogJam を実行中にクラッシュ"
 "したためでしょう. 復活させますか?"
 
-#: ../src/jamdoc.c:477
+#: ../src/jamdoc.c:492
 #, c-format
 msgid "Draft %d"
 msgstr "草稿 %d"
 
-#: ../src/jamdoc.c:479
+#: ../src/jamdoc.c:494
 #, c-format
 msgid "Entry %d"
 msgstr "エントリ %d"
 
-#: ../src/jamdoc.c:481
+#: ../src/jamdoc.c:496
 msgid "New Entry"
 msgstr "新しいエントリ"
 
-#: ../src/jamdoc.c:521
+#: ../src/jamdoc.c:536
 #, c-format
 msgid "Invalid UTF-8 starting at byte %d."
 msgstr "不正な UTF-8 文字がバイト %d から始まっています"
 
-#: ../src/jamview.c:81
+#: ../src/jamview.c:87
 msgid "_Subject:"
 msgstr "題(_S):"
 
 #. view->moodbox = gtk_hbox_new(FALSE, 12);
 #. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodbutton, FALSE, FALSE, 0);
 #. gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodcombo, TRUE, TRUE, 0);
-#: ../src/jamview.c:234
+#: ../src/jamview.c:240
 msgid "_Mood:"
 msgstr "ムード(_M):"
 
-#: ../src/jamview.c:286
+#: ../src/jamview.c:292
 msgid "[default]"
 msgstr "[デフォルト]"
 
-#: ../src/jamview.c:304
+#: ../src/jamview.c:310
 msgid "_Picture:"
 msgstr "画像(_P):"
 
-#: ../src/jamview.c:366 ../src/settings.c:506
+#: ../src/jamview.c:377 ../src/settings.c:545 ../src/settings.c:590
 #, c-format
 msgid "Error detecting music: %s"
 msgstr "音楽を検出中にエラー: %s"
 
-#: ../src/jamview.c:374
+#: ../src/jamview.c:385
 msgid "_Music:"
 msgstr "音楽(_M):"
 
-#: ../src/jamview.c:414
+#: ../src/jamview.c:443
+#, fuzzy
+msgid "_Location:"
+msgstr "オプション(_P):"
+
+#: ../src/jamview.c:477
 #, fuzzy
 msgid "_Tags:"
 msgstr "To(_T):"
 
-#: ../src/jamview.c:466
+#: ../src/jamview.c:535
 msgid "_Preformatted"
 msgstr "あらかじめフォーマット(_P)"
 
-#: ../src/jamview.c:500
+#: ../src/jamview.c:569 ../src/jamview.c:619
 msgid "Default"
 msgstr "デフォルト"
 
-#: ../src/jamview.c:501
+#: ../src/jamview.c:570
 msgid "Don't Email"
 msgstr "メールしない"
 
-#: ../src/jamview.c:502
+#: ../src/jamview.c:571
 msgid "Disable"
 msgstr "無効に"
 
-#: ../src/jamview.c:517
+#: ../src/jamview.c:586
 msgid "_Comments:"
 msgstr "コメント(_C):"
 
-#. XXX GTK_WINDOW(view->jw),
-#: ../src/jamview.c:808 ../src/jamview.c:828
+#: ../src/jamview.c:620 ../src/music.c:18
+msgid "None"
+msgstr "なし"
+
+#: ../src/jamview.c:621
+msgid "Anonymous Only"
+msgstr ""
+
+#: ../src/jamview.c:622
+#, fuzzy
+msgid "Non-Friends"
+msgstr "友達"
+
+#: ../src/jamview.c:623
+msgid "All"
+msgstr ""
+
+#: ../src/jamview.c:638
+msgid "Scr_eening:"
+msgstr ""
+
+#: ../src/jamview.c:933 ../src/jamview.c:954 ../src/jamview.c:961
 #, c-format
 msgid "GtkSpell error: %s"
 msgstr "GtkSpell エラー: %s"
@@ -1173,61 +1277,75 @@ msgstr "GtkSpell エラー: %s"
 msgid "Can't open '%s': %s"
 msgstr "'%s' を開けません: %s"
 
-#: ../src/journalstore_xml.c:128
+#: ../src/journalstore-xml.c:128
 #, c-format
 msgid "Error opening index: %s"
 msgstr "索引読み込み中にエラー: %s"
 
-#: ../src/journalstore_xml.c:135
+#: ../src/journalstore-xml.c:135
 #, c-format
 msgid "Error writing index: %s"
 msgstr "索引書き込み中にエラー: %s"
 
-#: ../src/journalstore_xml.c:228
+#: ../src/journalstore-xml.c:228
 #, c-format
 msgid "Error writing journal xml file to %s: %s"
 msgstr "ジャーナル XML ファイルを %s に書き込み中にエラー: %s"
 
-#: ../src/journalstore_xml.c:234
+#: ../src/journalstore-xml.c:234
 #, c-format
 msgid "Error renaming journal xml file %s to %s: %s"
 msgstr "ジャーナル XML ファイルの名前を %s に変更中にエラー: %s"
 
-#: ../src/journalstore_xml.c:268
+#: ../src/journalstore-xml.c:268
 #, c-format
 msgid "Error parsing journal XML file %s"
 msgstr "ジャーナル XML ファイル %s を解析中にエラー: %s"
 
-#: ../src/journalstore_xml.c:751
-#, fuzzy
+#: ../src/journalstore-xml.c:751
+#, fuzzy, c-format
 msgid "No offline copy of this journal."
 msgstr "日記のオフラインコピーを管理"
 
-#: ../src/link.c:113
+#: ../src/link.c:105
 msgid "Make Link"
 msgstr "リンクを作成"
 
-#: ../src/link.c:127
+#: ../src/link.c:116
 msgid "Link _Text:"
 msgstr "テキストをリンク(_T):"
 
-#: ../src/link.c:140
+#: ../src/link.c:119
+#, fuzzy
+msgid "Link Title:"
+msgstr "テキストをリンク(_T):"
+
+#: ../src/link.c:131
 msgid "_LiveJournal User:"
 msgstr "LiveJournal ユーザー(_L):"
 
-#: ../src/link.c:249
+#: ../src/link-journal.c:37
 msgid "Community"
 msgstr "コミュニティ"
 
-#: ../src/link.c:273
+#: ../src/link-journal.c:38
+msgid "Twitter user"
+msgstr ""
+
+#: ../src/link-journal.c:64
 msgid "Insert lj user / lj community Tag"
 msgstr "lj ユーザー / lj コミュニティタグを挿入"
 
-#: ../src/link.c:290
+#: ../src/link-journal.c:81
 msgid "_Username:"
 msgstr "ユーザー名(_U):"
 
-#: ../src/link.c:294
+#: ../src/link-journal.c:86
+#, fuzzy
+msgid "_Nickname:"
+msgstr "名前(_N):"
+
+#: ../src/link-journal.c:90
 msgid "User _Type:"
 msgstr "ユーザーの種別(_T):"
 
@@ -1238,6 +1356,28 @@ msgid ""
 msgstr ""
 "エラー: あなたは Unicode 文字を含めて投稿しようとしていますが、投稿先のサー"
 "バーは Unicode をサポートしていません"
+
+#: ../src/lj_dbus.c:386
+msgid "Unknown Artist"
+msgstr ""
+
+#: ../src/lj_dbus.c:387
+msgid "Unknown Album"
+msgstr ""
+
+#: ../src/lj_dbus.c:388
+msgid "Unknown Track"
+msgstr ""
+
+#: ../src/lj_dbus.c:392
+#, c-format
+msgid "Player is stopped."
+msgstr ""
+
+#: ../src/lj_dbus.c:396
+#, c-format
+msgid "No players found."
+msgstr ""
 
 #: ../src/login.c:103
 msgid "Logging In"
@@ -1260,7 +1400,7 @@ msgid "_User Name:"
 msgstr "ユーザー名(_U):"
 
 #: ../src/login.c:251 ../src/manager.c:141 ../src/manager.c:261
-#: ../src/settings.c:109
+#: ../src/settings.c:122
 msgid "_Password:"
 msgstr "パスワード(_P):"
 
@@ -1276,24 +1416,24 @@ msgstr "パスワードを記憶(_M)"
 msgid "Update _Information"
 msgstr "情報を更新(_I)"
 
-#: ../src/login.c:300
+#: ../src/login.c:303
 #, c-format
 msgid "Account '%s' hasn't ever logged in.  Log in now?"
 msgstr ""
 "アカウント '%s' はまだログインしたことがありません. 今ログインしますか?"
 
-#: ../src/login.c:303
+#: ../src/login.c:306
 #, c-format
 msgid "Account '%s' hasn't logged in in at least %lu days.  Log in now?"
 msgstr ""
 "アカウント '%s' は少なくとも %lu 日間ログインしていません. 今ログインします"
 "か?"
 
-#: ../src/login.c:330
+#: ../src/login.c:333
 msgid "Select User"
 msgstr "ユーザーを選択"
 
-#: ../src/login.c:333
+#: ../src/login.c:336
 msgid "Selec_t"
 msgstr "選択(_T)"
 
@@ -1380,236 +1520,329 @@ msgstr "サーバープロパティ"
 msgid "Servers"
 msgstr "サーバー"
 
-#: ../src/menu.c:358
+#: ../src/menu.c:446
 msgid "/_LogJam"
 msgstr "/LogJam(_L)"
 
-#: ../src/menu.c:359
+#: ../src/menu.c:447
 msgid "/LogJam/_About LogJam..."
 msgstr "/LogJam/LogJam について(_A)..."
 
-#: ../src/menu.c:360
+#: ../src/menu.c:448
 msgid "/LogJam/_Servers and Users..."
 msgstr "/LogJam/サーバーとユーザー(_S)..."
 
-#: ../src/menu.c:361
+#: ../src/menu.c:449
 msgid "/LogJam/_Change User..."
 msgstr "/LogJam/ユーザーを変更(_C)..."
 
-#: ../src/menu.c:362
+#: ../src/menu.c:450
 msgid "/LogJam/_Preferences..."
 msgstr "/LogJam/設定(_P)..."
 
-#: ../src/menu.c:364
+#: ../src/menu.c:452
 msgid "/LogJam/_Quit"
 msgstr "/LogJam/終了(_Q)"
 
-#: ../src/menu.c:366
+#: ../src/menu.c:454
 msgid "/E_ntry"
 msgstr "/エントリ(_N)"
 
-#: ../src/menu.c:367
+#: ../src/menu.c:455
 msgid "/Entry/_New"
 msgstr "/エントリ/新規(_N)"
 
-#: ../src/menu.c:368
+#: ../src/menu.c:456
 msgid "/Entry/_Open"
 msgstr "/エントリ/開く(_O)"
 
-#: ../src/menu.c:369
+#: ../src/menu.c:457
 msgid "/Entry/Open/File..."
 msgstr "/エントリ/開く/ファイル..."
 
-#: ../src/menu.c:370
+#: ../src/menu.c:458
 msgid "/Entry/Open/Draft..."
 msgstr "/エントリ/開く/草稿..."
 
-#: ../src/menu.c:371
+#: ../src/menu.c:459
 msgid "/Entry/_Save"
 msgstr "/エントリ/保存(_S)"
 
-#: ../src/menu.c:372
+#: ../src/menu.c:460
 msgid "/Entry/Save _As"
 msgstr "/エントリ/別名で保存(_A)"
 
-#: ../src/menu.c:373
+#: ../src/menu.c:461
 msgid "/Entry/Save As/_File..."
 msgstr "/エントリ/別名で保存/ファイル(_F)..."
 
-#: ../src/menu.c:374
+#: ../src/menu.c:462
 msgid "/Entry/Save As/_Draft..."
 msgstr "/エントリ/別名で保存/草稿(_D)..."
 
-#: ../src/menu.c:377
+#: ../src/menu.c:465
 msgid "/Entry/_Validate XML"
 msgstr "/エントリ/XML の検証(_V)"
 
-#: ../src/menu.c:379
+#: ../src/menu.c:467
 msgid "/Entry/_Preview HTML..."
 msgstr "/エントリ/HTML をプレビュー(_P)..."
 
-#: ../src/menu.c:382
+#: ../src/menu.c:470
 msgid "/Entry/S_ubmit as New"
 msgstr "/エントリ/新しいエントリとして投稿(_U)"
 
-#: ../src/menu.c:383
+#: ../src/menu.c:471
 msgid "/Entry/_Save Changes to Server"
 msgstr "/エントリ/変更をサーバーに保存(_S)"
 
-#: ../src/menu.c:386
+#: ../src/menu.c:474
 msgid "/Edit/_Undo"
 msgstr "/編集/アンドゥ(_U)"
 
-#: ../src/menu.c:388
+#: ../src/menu.c:476
 msgid "/Edit/_Redo"
 msgstr "/編集/リドゥ(_R)"
 
-#: ../src/menu.c:391
+#: ../src/menu.c:479
 msgid "/Edit/Cu_t"
 msgstr "/編集/切り取り(_T)"
 
-#: ../src/menu.c:393
+#: ../src/menu.c:481
 msgid "/Edit/_Copy"
 msgstr "/編集/コピー(_C)"
 
-#: ../src/menu.c:395
+#: ../src/menu.c:483
 msgid "/Edit/_Paste"
 msgstr "/編集/貼り付け(_P)"
 
-#: ../src/menu.c:398
+#: ../src/menu.c:486
 msgid "/Edit/_HTML Escape"
 msgstr "/編集/HTML エスケープ(_H)"
 
-#: ../src/menu.c:399
+#: ../src/menu.c:487
 msgid "/Edit/_Remove Linebreaks"
 msgstr "/編集/改行を削除(_R)"
 
-#: ../src/menu.c:401
+#: ../src/menu.c:489
 msgid "/_Insert"
 msgstr "/挿入(_I)"
 
-#: ../src/menu.c:402
+#: ../src/menu.c:490
 msgid "/Insert/_Poll..."
 msgstr "/挿入/投票(_P)..."
 
-#: ../src/menu.c:403
+#: ../src/menu.c:491
 msgid "/Insert/_File..."
 msgstr "/挿入/ファイル(_F)..."
 
-#: ../src/menu.c:404
+#: ../src/menu.c:492
 msgid "/Insert/Command _Output..."
 msgstr "/挿入/コマンド出力(_O)..."
 
-#: ../src/menu.c:407
+#: ../src/menu.c:495
 msgid "/Insert/_Link..."
 msgstr "/挿入/リンク(_L)..."
 
-#: ../src/menu.c:408
+#: ../src/menu.c:496
 msgid "/Insert/_Image..."
 msgstr "/挿入/画像(_I)..."
 
-#: ../src/menu.c:409
+#: ../src/menu.c:497
 msgid "/Insert/_Journal Link..."
 msgstr "/挿入/ジャーナルリンク(_J)..."
 
-#: ../src/menu.c:410
+#: ../src/menu.c:498
 msgid "/Insert/lj-_cut..."
 msgstr "/挿入/lj-cut(_C)..."
 
-#: ../src/menu.c:412
+#: ../src/menu.c:499
+#, fuzzy
+msgid "/Insert/lj-_repost..."
+msgstr "/挿入/lj-cut(_C)..."
+
+#: ../src/menu.c:500
+#, fuzzy
+msgid "/Insert/lj-li_ke..."
+msgstr "/挿入/lj-cut(_C)..."
+
+#: ../src/menu.c:501
+#, fuzzy
+msgid "/Insert/_Embedded Media..."
+msgstr "/挿入/画像(_I)..."
+
+#: ../src/menu.c:503
 msgid "/_View"
 msgstr "/ビュー(_V)"
 
-#: ../src/menu.c:413
+#: ../src/menu.c:504
 msgid "/View/_Security"
 msgstr "/ビュー/セキュリティ(_S)"
 
-#: ../src/menu.c:414
+#: ../src/menu.c:505
 msgid "/View/Entry _Date"
 msgstr "/ビュー/エントリ日付(_D)"
 
-#: ../src/menu.c:415
+#: ../src/menu.c:506
 msgid "/View/_Mood"
 msgstr "/ビュー/気分(_M)"
 
-#: ../src/menu.c:416
+#: ../src/menu.c:507
 msgid "/View/_Picture"
 msgstr "/ビュー/画像(_P)"
 
-#: ../src/menu.c:417
+#: ../src/menu.c:508
 #, fuzzy
 msgid "/View/_Tags"
 msgstr "/ビュー/音楽(_U)"
 
-#: ../src/menu.c:418
+#: ../src/menu.c:509
 msgid "/View/M_usic"
 msgstr "/ビュー/音楽(_U)"
 
-#: ../src/menu.c:419
+#: ../src/menu.c:510
+#, fuzzy
+msgid "/View/_Location"
+msgstr "/ビュー/気分(_M)"
+
+#: ../src/menu.c:511
 msgid "/View/_Preformatted"
 msgstr "/ビュー/あらかじめフォーマット(_P)"
 
-#: ../src/menu.c:420
+#: ../src/menu.c:512
 msgid "/View/_Comments"
 msgstr "/ビュー/コメント(_C)"
 
-#: ../src/menu.c:422
+#: ../src/menu.c:513
+#, fuzzy
+msgid "/View/Scr_eening"
+msgstr "/ビュー/セキュリティ(_S)"
+
+#: ../src/menu.c:515
 msgid "/_HTML"
 msgstr "/HTML(_H)"
 
-#: ../src/menu.c:423
+#: ../src/menu.c:516
 msgid "/HTML/_Bold"
 msgstr "/HTML/太字(_B)"
 
-#: ../src/menu.c:424
+#: ../src/menu.c:517
 msgid "/HTML/_Italic"
 msgstr "/HTML/イタリック(_I)"
 
-#: ../src/menu.c:425
+#: ../src/menu.c:518
+#, fuzzy
+msgid "/HTML/Emphasized"
+msgstr "/HTML/モノスペース(_M)"
+
+#: ../src/menu.c:519
 msgid "/HTML/_Strikeout"
 msgstr "/HTML/Strikeout(_S)"
 
-#: ../src/menu.c:426
+#: ../src/menu.c:520
+msgid "/HTML/Small _Caps"
+msgstr ""
+
+#: ../src/menu.c:521
 msgid "/HTML/_Monospaced"
 msgstr "/HTML/モノスペース(_M)"
 
-#: ../src/menu.c:427
+#: ../src/menu.c:522
 msgid "/HTML/_Underline"
 msgstr "/HTML/下線(_U)"
 
-#: ../src/menu.c:429
+#: ../src/menu.c:523
+#, fuzzy
+msgid "/HTML/_Blockquote"
+msgstr "/HTML/太字(_B)"
+
+#: ../src/menu.c:524
+msgid "/HTML/_Paragraph"
+msgstr ""
+
+#: ../src/menu.c:526
+msgid "/HTML/Heading _1"
+msgstr ""
+
+#: ../src/menu.c:527
+msgid "/HTML/Heading _2"
+msgstr ""
+
+#: ../src/menu.c:528
+msgid "/HTML/Heading _3"
+msgstr ""
+
+#: ../src/menu.c:529
+msgid "/HTML/Heading _4"
+msgstr ""
+
+#: ../src/menu.c:530
+#, fuzzy
+msgid "/HTML/Bi_gger"
+msgstr "/HTML/下線(_U)"
+
+#: ../src/menu.c:531
+#, fuzzy
+msgid "/HTML/S_maller"
+msgstr "/HTML/イタリック(_I)"
+
+#: ../src/menu.c:532
+msgid "/HTML/Superscrip_t"
+msgstr ""
+
+#: ../src/menu.c:533
+#, fuzzy
+msgid "/HTML/S_ubscript"
+msgstr "/HTML/Strikeout(_S)"
+
+#: ../src/menu.c:535
+#, fuzzy
+msgid "/HTML/U_nordered List"
+msgstr "/HTML/下線(_U)"
+
+#: ../src/menu.c:536
+#, fuzzy
+msgid "/HTML/_Ordered list"
+msgstr "/HTML/下線(_U)"
+
+#: ../src/menu.c:537
+#, fuzzy
+msgid "/HTML/_List item"
+msgstr "/HTML/Strikeout(_S)"
+
+#: ../src/menu.c:539
 msgid "/_Journal"
 msgstr "/日記(_J)"
 
-#: ../src/menu.c:430
+#: ../src/menu.c:540
 msgid "/Journal/_Use Journal"
 msgstr "/日記/日記を利用(_U)"
 
-#: ../src/menu.c:432
+#: ../src/menu.c:542
 msgid "/Journal/_Friends..."
 msgstr "/日記/友達(_F)..."
 
-#: ../src/menu.c:434
+#: ../src/menu.c:544
 msgid "/Journal/_Load Last Entry"
 msgstr "/日記/最新のエントリを読み込み(_L)"
 
-#: ../src/menu.c:435
+#: ../src/menu.c:545
 msgid "/Journal/_Load Recent Entry..."
 msgstr "/日記/最近のエントリを読み込み(_L)..."
 
-#: ../src/menu.c:436
+#: ../src/menu.c:546
 msgid "/Journal/_Load Offline Entry..."
 msgstr "/日記/オフラインエントリを読み込み(_L)..."
 
-#: ../src/menu.c:437
+#: ../src/menu.c:547
 msgid "/Journal/_Synchronize Offline Copy..."
 msgstr "/日記/オフラインコピーを同期(_S)..."
 
-#: ../src/menu.c:439
+#: ../src/menu.c:549
 msgid "/Journal/_LiveJournal Console..."
 msgstr "/日記/LiveJournal コンソール(_L)..."
 
-#: ../src/menu.c:440
+#: ../src/menu.c:550
 msgid "/Journal/_Web Links"
 msgstr "/日記/ウェブリンク(_W)"
 
@@ -1633,23 +1866,22 @@ msgstr "気分アイコン(_I):"
 msgid "_Match Text"
 msgstr "マッチテキスト(_M)"
 
-#: ../src/music.c:15
-msgid "None"
-msgstr "なし"
-
-#: ../src/music.c:50
+#: ../src/music.c:55
+#, c-format
 msgid "No music command line is set."
 msgstr "音楽コマンド行は未指定です"
 
-#: ../src/music.c:81
+#: ../src/music.c:86
+#, c-format
 msgid "Command produced no output."
 msgstr "コマンドは何も出力しません"
 
-#: ../src/music.c:108 ../src/music.c:113
+#: ../src/music.c:113 ../src/music.c:118
+#, c-format
 msgid "Music detection is not implemented on this platform."
 msgstr "音楽の検出機能はこのプラットフォームでは未実装です"
 
-#: ../src/network.c:130 ../src/progress.c:46 ../src/sync.c:260
+#: ../src/network.c:130 ../src/progress.c:46 ../src/sync.c:261
 #, c-format
 msgid "Error: %s\n"
 msgstr "エラー: %s\n"
@@ -1663,26 +1895,28 @@ msgid "Running request..."
 msgstr "リクエストを実行中..."
 
 #: ../src/network-curl.c:73
+#, c-format
 msgid "Unable to intialize CURL"
 msgstr "CURL を初期化できません"
 
-#: ../src/network-curl.c:120 ../src/network-libxml.c:30
+#: ../src/network-curl.c:122 ../src/network-libxml.c:31
 #, c-format
 msgid "Request: [%s]\n"
 msgstr "リクエスト: [%s]\n"
 
-#: ../src/network-curl.c:129
+#: ../src/network-curl.c:131
 #, c-format
 msgid "cURL error: %s."
 msgstr "cURL エラー: %s"
 
-#: ../src/network-curl.c:135 ../src/network-libxml.c:103
-#: ../src/network-soup.c:87
+#: ../src/network-curl.c:137 ../src/network-libxml.c:110
+#: ../src/network-soup.c:93
 #, c-format
 msgid "Response: [%s]\n"
 msgstr "応答: [%s]\n"
 
 #: ../src/network-fork.c:144
+#, c-format
 msgid "Cancelled."
 msgstr "取り消されました"
 
@@ -1696,7 +1930,8 @@ msgstr "パイプ作成中にエラー (pipe(): %s)"
 msgid "Error forking (fork(): %s)."
 msgstr "フォーク中にエラー (fork(): %s)"
 
-#: ../src/network-libxml.c:37
+#: ../src/network-libxml.c:38
+#, c-format
 msgid ""
 "LogJam was built with libxml's NanoHTTP support, which does not support "
 "proxy authentication."
@@ -1704,19 +1939,23 @@ msgstr ""
 "LogJam は libxml の NanoHTTP サポートを組み込んで構築されていますがNanoHTTP "
 "はプロキシ認証をサポートしていません"
 
-#: ../src/network-libxml.c:65
+#: ../src/network-libxml.c:72
+#, c-format
 msgid "xmlNanoHTTPMethod error."
 msgstr "xmlNanoHTTPMethod エラー"
 
-#: ../src/network-libxml.c:73
+#: ../src/network-libxml.c:80
+#, c-format
 msgid "File not found."
 msgstr "ファイルがありません"
 
-#: ../src/network-libxml.c:84
+#: ../src/network-libxml.c:91
+#, c-format
 msgid "xmlNanoHTTPRead error."
 msgstr "xmlNanoHTTPRead エラー"
 
 #: ../src/network-win32.c:97
+#, c-format
 msgid "The connection was closed."
 msgstr "接続を閉じました"
 
@@ -1737,7 +1976,7 @@ msgstr "検索(_S):"
 msgid "_Case sensitive"
 msgstr "大小文字を区別(_C)"
 
-#: ../src/offline.c:407
+#: ../src/offline.c:404
 msgid ""
 "LogJam has no offline entries for this journal. You must first synchronize "
 "this journal to your local storage before you can load entries from it."
@@ -1745,27 +1984,27 @@ msgstr ""
 "LogJam はこの日記についてオフラインエントリを持っていません.エントリを読み込"
 "む前にまずローカルキャッシュこの日記を同期しなければなりません"
 
-#: ../src/offline.c:411
+#: ../src/offline.c:408
 msgid "_Synchronize"
 msgstr "同期(_S)"
 
-#: ../src/offline.c:458
+#: ../src/offline.c:454
 msgid "Select Offline Entry"
 msgstr "オフラインエントリの選択"
 
-#: ../src/offline.c:465
+#: ../src/offline.c:461
 msgid "Select by Date"
 msgstr "日時で選択"
 
-#: ../src/offline.c:467
+#: ../src/offline.c:463
 msgid "Select by Search"
 msgstr "検索して選択"
 
-#: ../src/offline.c:499
+#: ../src/offline.c:495
 msgid "Copy online entry URL to clipboard"
 msgstr "オンラインエントリ URL をクリップボードにコピー"
 
-#: ../src/offline.c:500
+#: ../src/offline.c:496
 msgid ""
 "Clicking here will place the URL of the entry currently being previewed in "
 "your clipboard, so you can link to it."
@@ -1907,14 +2146,19 @@ msgid "Current Music"
 msgstr "現在の音楽"
 
 #: ../src/preview.c:188
+#, fuzzy
+msgid "Current Location"
+msgstr "今の気分"
+
+#: ../src/preview.c:190
 msgid "Tags"
 msgstr ""
 
-#: ../src/preview.c:248
+#: ../src/preview.c:250
 msgid "HTML Preview"
 msgstr "HTML プレビュー"
 
-#: ../src/preview.c:251
+#: ../src/preview.c:253
 msgid "_Update"
 msgstr "更新(_U)"
 
@@ -1942,133 +2186,154 @@ msgstr "含まれているグループ"
 msgid "Select Friend Groups"
 msgstr "友達グループを選択"
 
-#: ../src/settings.c:69
+#: ../src/settings.c:70
 msgid "_Revert to primary journal after posting on a community"
 msgstr "コミュニティに投稿後に最初の日記に戻る(_R)"
 
-#: ../src/settings.c:71
+#: ../src/settings.c:72
 msgid "Default _security on posts:"
 msgstr "投稿時のデフォルトのセキュリティ(_S):"
 
-#: ../src/settings.c:73
+#: ../src/settings.c:74
 msgid "Automatically save _drafts (for crash recovery)"
 msgstr "投稿を自動的に保存(クラッシュリカバリ)(_D)"
 
-#: ../src/settings.c:76
+#: ../src/settings.c:77
 msgid "Allow multiple _instances of LogJam to run simultaneously"
 msgstr "複数の LogJam インスタンスの同時実行を許可(_I)"
 
-#: ../src/settings.c:79
+#: ../src/settings.c:80
+msgid "_Keep saved drafts after posting"
+msgstr ""
+
+#: ../src/settings.c:84
 msgid "_Use spell check"
 msgstr "スペルチェックを利用(_U)"
 
-#: ../src/settings.c:81
+#: ../src/settings.c:86
 msgid "Entry _language:"
 msgstr "エントリの言語(_L):"
 
-#: ../src/settings.c:84
+#: ../src/settings.c:89
+msgid "Show login history (number of days since last login)"
+msgstr ""
+
+#: ../src/settings.c:91
 msgid "Automatically change _quotes to matching pairs"
 msgstr "自動的にマッチしたペアのクォートを変更(_Q)"
 
-#: ../src/settings.c:86
+#: ../src/settings.c:93
 msgid "Entry display font:"
 msgstr "エントリ表示用のフォント:"
 
-#: ../src/settings.c:89
+#: ../src/settings.c:96
+msgid "Close main window after sending"
+msgstr ""
+
+#: ../src/settings.c:98
 msgid "Add icon to system _tray (for GNOME/KDE/etc. dock)"
 msgstr "システムトレイにアイコンを追加(GNOME/KDE など向け、ドック)(_T)"
 
-#: ../src/settings.c:94
+#: ../src/settings.c:100
+msgid "Start in system tray"
+msgstr ""
+
+#: ../src/settings.c:105
 msgid "Web browser:"
 msgstr "ウェブブラウザ:"
 
-#: ../src/settings.c:97
+#: ../src/settings.c:108
 msgid "Detect music from:"
 msgstr "音楽の検出元:"
 
-#: ../src/settings.c:100
+#: ../src/settings.c:110
+#, fuzzy
+msgid "Detect music via MPRIS"
+msgstr "音楽の検出元:"
+
+#: ../src/settings.c:113
 msgid "Use _proxy server"
 msgstr "プロキシサーバーを利用(_P)"
 
-#: ../src/settings.c:102
+#: ../src/settings.c:115
 msgid "UR_L:"
 msgstr "URL(_L):"
 
-#: ../src/settings.c:105
+#: ../src/settings.c:118
 msgid "Use proxy _authentication"
 msgstr "プロキシ認証の利用(_A)"
 
-#: ../src/settings.c:107
+#: ../src/settings.c:120
 msgid "_User:"
 msgstr "ユーザー(_U):"
 
-#: ../src/settings.c:113
+#: ../src/settings.c:126
 msgid "Dump _network data on stderr"
 msgstr "ネットワークデータを標準出力に出力(_N)"
 
-#: ../src/settings.c:116
+#: ../src/settings.c:129
 msgid "Don't _fork on network requests"
 msgstr "ネットワークリクエスト時にフォークしない(_F)"
 
-#: ../src/settings.c:119
+#: ../src/settings.c:132
 msgid "Don't run network requests in a separate _thread"
 msgstr "ネットワークリクエストを別のスレッドで実行しない(_T)"
 
-#: ../src/settings.c:124
+#: ../src/settings.c:137
 msgid "_Monitor friends list for new entries upon login"
 msgstr "ログイン時に友達リストの新しいエントリをモニタ(_M)"
 
-#: ../src/settings.c:126
+#: ../src/settings.c:139
 msgid "_Limit monitoring to groups of friends"
 msgstr "友達グループのモニタ制限(_L)"
 
-#: ../src/settings.c:130
+#: ../src/settings.c:143
 msgid "_Check friends list every "
 msgstr "友達リストチェックの周期(_C)"
 
-#: ../src/settings.c:132
+#: ../src/settings.c:145
 msgid "_Notify me after "
 msgstr "後で通知(_N) "
 
-#: ../src/settings.c:134
+#: ../src/settings.c:147
 msgid "_Floating indicator"
 msgstr "フロートインジケータ(_F)"
 
-#: ../src/settings.c:136
+#: ../src/settings.c:149
 msgid "_Raise floating indicator when new entries detected"
 msgstr "新しいエントリ検出の際にフロートインジケータを前面に表示(_R)"
 
-#: ../src/settings.c:138
+#: ../src/settings.c:151
 msgid "Show _titlebar on floating indicator"
 msgstr "フロートインジケータにタイトルバーをつける(_T)"
 
-#: ../src/settings.c:252
+#: ../src/settings.c:278
 msgid "Custom Command"
 msgstr "カスタムコマンド"
 
-#: ../src/settings.c:341
+#: ../src/settings.c:367
 msgid "Select font"
 msgstr "フォントを選択"
 
-#: ../src/settings.c:385
+#: ../src/settings.c:411
 msgid "Posting"
 msgstr "投稿中"
 
-#: ../src/settings.c:433
+#: ../src/settings.c:466
 msgid "[gtk default]"
 msgstr "[gtk デフォルト]"
 
-#: ../src/settings.c:452
+#: ../src/settings.c:485
 msgid "Behavior"
 msgstr "動作"
 
-#: ../src/settings.c:503
+#: ../src/settings.c:542
 msgid "LogJam XMMS helper not found.  Did you install LogJam's XMMS support?"
 msgstr ""
 "LogJam XMMS ヘルパーがみつかりません. XMMS サポート付きでインストールしました"
 "か?"
 
-#: ../src/settings.c:511
+#: ../src/settings.c:550
 #, c-format
 msgid ""
 "Music detection succeeded.\n"
@@ -2081,35 +2346,35 @@ msgstr ""
 "現在の音楽:\n"
 "%s"
 
-#: ../src/settings.c:512
+#: ../src/settings.c:551
 msgid "Music Detection"
 msgstr "音楽の検出"
 
-#: ../src/settings.c:521
+#: ../src/settings.c:560
 msgid "Proxy"
 msgstr "プロキシ"
 
-#: ../src/settings.c:553
+#: ../src/settings.c:602
 msgid "Programs"
 msgstr "プログラム"
 
-#: ../src/settings.c:561
+#: ../src/settings.c:619
 msgid "_Diagnose"
 msgstr "診断(_D)"
 
-#: ../src/settings.c:564
+#: ../src/settings.c:622
 msgid "Diagnose problems detecting music:"
 msgstr "音楽検出の障害を診断:"
 
-#: ../src/settings.c:590
+#: ../src/settings.c:648
 msgid "Network"
 msgstr "ネットワーク"
 
-#: ../src/settings.c:604
+#: ../src/settings.c:662
 msgid "General"
 msgstr "一般"
 
-#: ../src/settings.c:614
+#: ../src/settings.c:672
 msgid "new entries by my friends"
 msgstr "友達の新しいエントリ"
 
@@ -2117,57 +2382,57 @@ msgstr "友達の新しいエントリ"
 #. range
 #. increments
 #. digits
-#: ../src/settings.c:623
+#: ../src/settings.c:681
 msgid "seconds"
 msgstr "秒"
 
-#: ../src/settings.c:637
+#: ../src/settings.c:695
 msgid "Filter"
 msgstr "フィルタ"
 
-#: ../src/settings.c:644
+#: ../src/settings.c:702
 msgid "Choose filter"
 msgstr "フィルタを選択"
 
-#: ../src/settings.c:651
+#: ../src/settings.c:709
 msgid "<small>The filter chosen here only affects the current user.</small>"
 msgstr "<small>ここで選択したフィルタは現在のユーザーにのみ影響します</small>"
 
-#: ../src/settings.c:672
+#: ../src/settings.c:730
 msgid "Indicators"
 msgstr "インジケータ"
 
-#: ../src/settings.c:722
+#: ../src/settings.c:780
 msgid "Preferences"
 msgstr "設定"
 
-#: ../src/settings.c:731
+#: ../src/settings.c:789
 msgid "Interface"
 msgstr "インターフェース"
 
-#: ../src/settings.c:734
+#: ../src/settings.c:792
 msgid "System"
 msgstr "システム"
 
-#: ../src/settings.c:740
+#: ../src/settings.c:798
 msgid "Debug"
 msgstr "デバッグ"
 
-#: ../src/settings.c:762
+#: ../src/settings.c:820
 msgid "Checkfriends Preferences"
 msgstr "友達チェック設定"
 
-#: ../src/settings.c:797
+#: ../src/settings.c:855
 #, c-format
 msgid "Error stopping remote listener: %s."
 msgstr "リモートリスナを停止中にエラー: %s"
 
-#: ../src/settings.c:805
+#: ../src/settings.c:863
 #, c-format
 msgid "Error starting remote listener: %s."
 msgstr "リモートリスナを開始中にエラー: %s"
 
-#: ../src/spawn.c:68
+#: ../src/spawn.c:74
 #, c-format
 msgid "Error spawning URL '%s': %s\n"
 msgstr "URL %s を開く際にエラー: %s\n"
@@ -2188,6 +2453,7 @@ msgid "Warnings"
 msgstr "警告"
 
 #: ../src/sync.c:218
+#, c-format
 msgid "Up-to-date.\n"
 msgstr "最新\n"
 
@@ -2201,14 +2467,29 @@ msgstr "%d 同期アイテムをダウンロード中: "
 msgid "Downloading %d entries: "
 msgstr "%d エントリをダウンロード中: "
 
-#: ../src/sync.c:246
+#: ../src/sync.c:247
 #, c-format
 msgid "Synchronizing '%s'..."
 msgstr "'%s' を同期中..."
 
-#: ../src/sync.c:253
+#: ../src/sync.c:254
+#, c-format
 msgid "Warnings:\n"
 msgstr "警告:\n"
+
+#: ../src/tags.c:22
+#, fuzzy
+msgid "Loading Tags"
+msgstr "友達リストを読み込み中"
+
+#: ../src/tags.c:149
+msgid "Tag name"
+msgstr ""
+
+#: ../src/tags.c:195
+#, fuzzy
+msgid "Select tags"
+msgstr "日時を選択"
 
 #. this translation is not crucial
 #: ../src/thanks.h:11
@@ -2363,11 +2644,11 @@ msgid "much of the original client"
 msgstr "オリジナルクライアントのほとんど"
 
 #. no selection; give them some help.
-#: ../src/tools.c:41
+#: ../src/tools.c:42
 msgid "HTML Escape Help"
 msgstr "HTML エスケープヘルプ"
 
-#: ../src/tools.c:42
+#: ../src/tools.c:43
 msgid ""
 "Some characters (such as '<' and '&') are reserved in HTML, and may not "
 "display correctly in your post.\n"
@@ -2380,11 +2661,11 @@ msgstr ""
 "マンドを再度実行します\n"
 
 #. no selection; give them some help.
-#: ../src/tools.c:89
+#: ../src/tools.c:90
 msgid "Linebreak Removal Help"
 msgstr "改行削除についての手助け"
 
-#: ../src/tools.c:90
+#: ../src/tools.c:91
 msgid ""
 "When you paste text into LogJam, linebreaks from the original are preserved, "
 "and will normally show up in your post on the server. You can have LogJam "
@@ -2399,59 +2680,89 @@ msgstr ""
 "\n"
 "投稿について\"自動フォーマットしない\"オプションを使うこともできます"
 
-#: ../src/tools.c:149
+#: ../src/tools.c:150
 msgid "Select File"
 msgstr "ファイル選択"
 
-#: ../src/tools.c:156
+#: ../src/tools.c:157
 msgid "File _encoding:"
 msgstr "ファイルエンコーディング(_E):"
 
-#: ../src/tools.c:187
+#: ../src/tools.c:188
 #, c-format
 msgid "Error loading file: %s"
 msgstr "ファイル読み込み中にエラー: %s"
 
-#: ../src/tools.c:201
+#: ../src/tools.c:202
 msgid "Insert Command Output"
 msgstr "コマンド出力を挿入"
 
-#: ../src/tools.c:210
+#: ../src/tools.c:211
 msgid "_Command:"
 msgstr "コマンド(_C):"
 
-#: ../src/tools.c:225
+#: ../src/tools.c:226
 #, c-format
 msgid "Error getting command output: %s"
 msgstr "コマンド出力を取得中にエラー: %s"
 
-#: ../src/tools.c:262
+#: ../src/tools.c:263
 msgid "XML Parse Error"
 msgstr "XML 解析エラー"
 
-#: ../src/tools.c:269
+#: ../src/tools.c:270
 msgid "Error parsing XML:"
 msgstr "XML 解析中にエラー:"
 
-#: ../src/tools.c:317
+#: ../src/tools.c:318
 msgid "XML Validation"
 msgstr "XML 妥当性の検証"
 
-#: ../src/tools.c:318
+#: ../src/tools.c:319
 msgid "Document is well-formed XML."
 msgstr "文書は妥当な XML ではありません"
 
-#: ../src/tools.c:332
-msgid "LJ-Cut"
-msgstr "LJ-Cut"
+#: ../src/tools.c:361
+msgid "Embedded Media"
+msgstr ""
 
-#: ../src/tools.c:344
+#: ../src/tools.c:374
+msgid "E_mbedded code:"
+msgstr ""
+
+#: ../src/tools.c:379
+msgid ""
+"<small>This is where you paste the embedded code, e.g. for a YouTube video.</"
+"small>"
+msgstr ""
+
+#: ../src/tools.c:413
+msgid "<small>If left empty, the LiveJournal default will be used.</small>"
+msgstr "<small>空の場合は LiveJournal のデフォルトが使われます</small>"
+
+#: ../src/tools.c:480
 msgid "Cut c_aption:"
 msgstr "キャプションを切り取り(_A):"
 
-#: ../src/tools.c:349
-msgid "<small>If left empty, the LiveJournal default will be used.</small>"
-msgstr "<small>空の場合は LiveJournal のデフォルトが使われます</small>"
+#: ../src/tools.c:480
+msgid "LJ-Cut"
+msgstr "LJ-Cut"
+
+#: ../src/tools.c:486
+msgid "Repost _button:"
+msgstr ""
+
+#: ../src/tools.c:486
+msgid "LJ-Repost"
+msgstr ""
+
+#: ../src/tools.c:492
+msgid "_Like for:"
+msgstr ""
+
+#: ../src/tools.c:492
+msgid "LJ-Like"
+msgstr ""
 
 #. this string is the separator between the server and username
 #. * next to the "submit" button.
@@ -2476,6 +2787,17 @@ msgstr "警告"
 #: ../src/util-gtk.c:318
 msgid "Do not show again"
 msgstr "次から表示しない"
+
+#. translators: this is the logjam-xmms-client command line.
+#: ../util/xmmsclient/logjam-xmms-client.c:32
+#, c-format
+msgid "usage: %s [session_number]\n"
+msgstr ""
+
+#: ../util/xmmsclient/logjam-xmms-client.c:41
+#, c-format
+msgid "XMMS error.  Is XMMS running?\n"
+msgstr ""
 
 #~ msgid "automake fixes, testing"
 #~ msgstr "automake 修正、テスト"
