@@ -326,7 +326,8 @@ tools_validate_xml(GtkWindow *win, JamDoc *doc) {
 /* FIXME: These two functions are practically identical. Abstract them to minimize code duplication. */
 
 static void
-tools_insert_tag(GtkTextBuffer *buffer, char *tag, char *arg, char *text, char *body, gboolean full) {
+tools_insert_tag(GtkTextBuffer *buffer, char *tag, char *arg,
+			char *text, char *body, gboolean full) {
 	char *inset;
 
 	if (text) {
@@ -401,7 +402,8 @@ tools_embedded_media(GtkWindow *win, JamDoc *doc) {
 }
 
 static void
-tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg, char *lname, char *tip, char *dname) {
+tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
+			char *lname, char *tip, char *dname, gboolean full) {
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	GtkWidget *dlg, *vbox, *hbox, *label, *entry;
@@ -444,7 +446,7 @@ tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg, char *lname, c
 
 	gtk_text_buffer_begin_user_action(buffer); /* start undo action */
 	if (!gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
-		tools_insert_tag(buffer, tag, arg, text, NULL, FALSE);
+		tools_insert_tag(buffer, tag, arg, text, NULL, full);
 	} else {
 		if (text) {
 			inset = g_strdup_printf("<%s %s=\"%s\">", tag, arg, text);
@@ -473,6 +475,16 @@ tools_ljcut(GtkWindow *win, JamDoc *doc) {
 	return tools_lj_macro(win, doc, "lj-cut", "text",
 		_("Cut c_aption:"),
 		_("<small>If left empty, the LiveJournal default will be used.</small>"),
-		_("LJ-Cut"));
+		_("LJ-Cut"),
+		FALSE);
+}
+
+void
+tools_lj_repost(GtkWindow *win, JamDoc *doc) {
+	return tools_lj_macro(win, doc, "lj-repost", "button",
+		_("Repost _button:"),
+		_("<small>If left empty, the LiveJournal default will be used.</small>"),
+		_("LJ-Repost"),
+		TRUE);
 }
 

@@ -285,6 +285,11 @@ menu_ljcut(JamWin *jw) {
 }
 
 static void
+menu_lj_repost(JamWin *jw) {
+	tools_lj_repost(GTK_WINDOW(jw), jw->doc);
+}
+
+static void
 menu_embedded_media(JamWin *jw) {
 	tools_embedded_media(GTK_WINDOW(jw), jw->doc);
 }
@@ -486,6 +491,7 @@ static GtkItemFactoryEntry menu_items[] = {
 { N_("/Insert/_Image..."),        NULL,          menu_insert_image },
 { N_("/Insert/_Journal Link..."), "<ctl><alt>L", menu_make_journal_link },
 { N_("/Insert/lj-_cut..."),       "<ctl><alt>X", menu_ljcut, 0, NULL },
+{ N_("/Insert/lj-_repost..."),    "<ctl><alt>P", menu_lj_repost, 0, NULL },
 { N_("/Insert/_Embedded Media..."), "<ctl><alt>E", menu_embedded_media },
 
 { N_("/_View"),                   NULL, NULL, ACTION_VIEW, "<Branch>" },
