@@ -17,6 +17,7 @@ typedef struct {
 	gunichar c;
 	char *escaped;
 } htmlescape;
+
 htmlescape htmlescapes[] = {
 	{ '<', "&lt;" },
 	{ '>', "&gt;" },
@@ -324,6 +325,28 @@ tools_validate_xml(GtkWindow *win, JamDoc *doc) {
 
 /* FIXME: These two functions are practically identical. Abstract them to minimize code duplication. */
 
+static void
+tools_insert_tag(GtkTextBuffer *buffer, char *tag, char *arg, char *text, char *body, gboolean full) {
+	char *inset;
+
+	if (text) {
+		inset = g_strdup_printf("<%s %s=\"%s\">", tag, arg, text);
+	} else {
+		inset = g_strdup_printf("<%s>", tag);
+	}
+	gtk_text_buffer_insert_at_cursor(buffer, inset, -1);
+	g_free(inset);
+
+	if (body && *body)
+		gtk_text_buffer_insert_at_cursor(buffer, body, -1);
+
+	if (full) {
+		inset = g_strdup_printf("</%s>", tag);
+		gtk_text_buffer_insert_at_cursor(buffer, inset, -1);
+		g_free(inset);
+	}
+}
+
 void
 tools_embedded_media(GtkWindow *win, JamDoc *doc) {
 	GtkTextBuffer *buffer, *new_buffer;
@@ -371,22 +394,20 @@ tools_embedded_media(GtkWindow *win, JamDoc *doc) {
 	new_buffer = jam_doc_get_text_buffer(doc);
 
 	gtk_text_buffer_begin_user_action(new_buffer); /* start undo action */
-	gtk_text_buffer_insert_at_cursor(new_buffer, "<lj-embed>", -1);
-	gtk_text_buffer_insert_at_cursor(new_buffer, text, -1);
-	gtk_text_buffer_insert_at_cursor(new_buffer, "</lj-embed>", -1);
+	tools_insert_tag(new_buffer, "lj-embed", NULL, NULL, text, TRUE);
 	g_free(text);
 
 	gtk_text_buffer_end_user_action(new_buffer);
 }
 
-void
-tools_ljcut(GtkWindow *win, JamDoc *doc) {
+static void
+tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg, char *lname, char *tip, char *dname) {
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	GtkWidget *dlg, *vbox, *hbox, *label, *entry;
-	char *text;
+	char *text, *inset;
 
-	dlg = gtk_dialog_new_with_buttons(_("LJ-Cut"), win,
+	dlg = gtk_dialog_new_with_buttons(dname, win,
 			GTK_DIALOG_MODAL,
 			GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
 			GTK_STOCK_OK,     GTK_RESPONSE_OK,
@@ -398,13 +419,11 @@ tools_ljcut(GtkWindow *win, JamDoc *doc) {
 
 	entry = gtk_entry_new();
 	gtk_entry_set_activates_default(GTK_ENTRY(entry), TRUE);
-	hbox = labelled_box_new(_("Cut c_aption:"), entry);
+	hbox = labelled_box_new(lname, entry);
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
 
 	label = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(label),
-			_("<small>If left empty, the LiveJournal default "
-				"will be used.</small>"));
+	gtk_label_set_markup(GTK_LABEL(label), tip);
 	gtk_box_pack_start(GTK_BOX(vbox), label, FALSE, FALSE, 0);
 
 	jam_dialog_set_contents(GTK_DIALOG(dlg), vbox);
@@ -425,28 +444,35 @@ tools_ljcut(GtkWindow *win, JamDoc *doc) {
 
 	gtk_text_buffer_begin_user_action(buffer); /* start undo action */
 	if (!gtk_text_buffer_get_selection_bounds(buffer, &start, &end)) {
-		if (text) {
-			gtk_text_buffer_insert_at_cursor(buffer, "<lj-cut text=\"", -1);
-			gtk_text_buffer_insert_at_cursor(buffer, text, -1);
-			gtk_text_buffer_insert_at_cursor(buffer, "\">", -1);
-		} else {
-			gtk_text_buffer_insert_at_cursor(buffer, "<lj-cut>", -1);
-		}
+		tools_insert_tag(buffer, tag, arg, text, NULL, FALSE);
 	} else {
 		if (text) {
-			gtk_text_buffer_insert(buffer, &start, "<lj-cut text=\"", -1);
-			gtk_text_buffer_insert(buffer, &start, text, -1);
-			gtk_text_buffer_insert(buffer, &start, "\">", -1);
+			inset = g_strdup_printf("<%s %s=\"%s\">", tag, arg, text);
 		} else {
-			gtk_text_buffer_insert(buffer, &start, "<lj-cut>", -1);
+			inset = g_strdup_printf("<%s>", tag);
 		}
+		gtk_text_buffer_insert(buffer, &start, inset, -1);
+		g_free(inset);
+
 		gtk_text_buffer_get_selection_bounds(buffer, &start, &end);
-		gtk_text_buffer_insert(buffer, &end, "</lj-cut>", -1);
+
+		inset = g_strdup_printf("</%s>", tag);
+		gtk_text_buffer_insert(buffer, &end, inset, -1);
+		g_free(inset);
+
 		gtk_text_buffer_move_mark_by_name(buffer, "insert", &end);
 		gtk_text_buffer_move_mark_by_name(buffer, "selection_bound", &end);
 	}
 	g_free(text);
 
 	gtk_text_buffer_end_user_action(buffer);
+}
+
+void
+tools_ljcut(GtkWindow *win, JamDoc *doc) {
+	return tools_lj_macro(win, doc, "lj-cut", "text",
+		_("Cut c_aption:"),
+		_("<small>If left empty, the LiveJournal default will be used.</small>"),
+		_("LJ-Cut"));
 }
 
