@@ -408,6 +408,8 @@ tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
 	GtkTextIter start, end;
 	GtkWidget *dlg, *vbox, *hbox, *label, *entry;
 	char *text, *inset;
+	char *tip_text = (tip && *tip) ? tip : _("<small>If left empty, "
+			"the LiveJournal default will be used.</small>");
 
 	dlg = gtk_dialog_new_with_buttons(dname, win,
 			GTK_DIALOG_MODAL,
@@ -425,7 +427,7 @@ tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
 	gtk_box_pack_start(GTK_BOX(vbox), hbox, FALSE, FALSE, 0);
 
 	label = gtk_label_new(NULL);
-	gtk_label_set_markup(GTK_LABEL(label), tip);
+	gtk_label_set_markup(GTK_LABEL(label), tip_text);
 	gtk_box_pack_start(GTK_BOX(vbox), label, FALSE, FALSE, 0);
 
 	jam_dialog_set_contents(GTK_DIALOG(dlg), vbox);
@@ -473,18 +475,12 @@ tools_lj_macro(GtkWindow *win, JamDoc *doc, char *tag, char *arg,
 void
 tools_ljcut(GtkWindow *win, JamDoc *doc) {
 	return tools_lj_macro(win, doc, "lj-cut", "text",
-		_("Cut c_aption:"),
-		_("<small>If left empty, the LiveJournal default will be used.</small>"),
-		_("LJ-Cut"),
-		FALSE);
+			_("Cut c_aption:"), NULL, _("LJ-Cut"), FALSE);
 }
 
 void
 tools_lj_repost(GtkWindow *win, JamDoc *doc) {
 	return tools_lj_macro(win, doc, "lj-repost", "button",
-		_("Repost _button:"),
-		_("<small>If left empty, the LiveJournal default will be used.</small>"),
-		_("LJ-Repost"),
-		TRUE);
+			_("Repost _button:"), NULL, _("LJ-Repost"), TRUE);
 }
 
