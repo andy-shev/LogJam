@@ -1,4 +1,4 @@
-#!//bin/sh
+#!/bin/sh
 
 msginit -i logjam.pot --no-translator -l en -o - 2>/dev/null | \
   msgconv -t UTF-8 | \
