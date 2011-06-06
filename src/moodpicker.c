@@ -131,8 +131,7 @@ mood_picker_run(GtkWindow *parent, JamHostLJ *host, int *moodid, char *moodtext)
 	GtkWidget *textentry, *textpicker, *scroll;
 	MoodTree *mt;
 
-	mt = NULL; // XXX blogger build_mood_tree(host->server);
-	build_mood_tree(NULL);
+	mt = build_mood_tree(jam_host_lj_get_server(host));
 
 	dlg = gtk_dialog_new_with_buttons(_("Current Mood"), parent,
 			GTK_DIALOG_MODAL,

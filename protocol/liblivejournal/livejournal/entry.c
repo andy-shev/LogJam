@@ -261,8 +261,8 @@ lj_entry_to_xml_node(LJEntry *entry, void* doc) {
 
 		if (entry->moodid) {
 			char buf[10];
-			g_snprintf(buf, 10, "%d", entry->itemid);
-			xmlSetProp(node, BAD_CAST "itemid", BAD_CAST buf);
+			g_snprintf(buf, 10, "%d", entry->moodid);
+			xmlSetProp(node, BAD_CAST "moodid", BAD_CAST buf);
 		}
 	}
 	XML_ENTRY_META_SET(music);
@@ -485,7 +485,7 @@ lj_entry_load_from_xml_node(LJEntry *entry, xmlDocPtr doc, xmlNodePtr node) {
 			if (entry->mood && strlen(entry->mood) == 0) {
 				g_free(entry->mood); entry->mood = NULL;
 			}
-			if ((id = xmlGetProp(cur, BAD_CAST "type")) != NULL) {
+			if ((id = xmlGetProp(cur, BAD_CAST "modeid")) != NULL) {
 				entry->moodid = atoi((char*)id);
 				xmlFree(id);
 			}
