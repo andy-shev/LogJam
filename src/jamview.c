@@ -204,39 +204,21 @@ mood_populate(JamView *view) {
 	if (JAM_ACCOUNT_IS_LJ(view->account)) {
 		/* load moods. */
 		LJServer *server = jam_host_lj_get_server(JAM_HOST_LJ(jam_account_get_host(view->account)));
-		LJMood *m;
-		char *text;
-		GList *strings = NULL;
 		GSList *l;
 
-		text = gtk_editable_get_chars(GTK_EDITABLE(GTK_COMBO(view->moodcombo)->entry), 0, -1);
-
-		for (l = server->moods; l; l = l->next) {
-			m = l->data;
-			strings = g_list_insert_sorted(strings, m->name,
-					(GCompareFunc)g_ascii_strcasecmp);
-		}
-		if (strings)
-			gtk_combo_set_popdown_strings(GTK_COMBO(view->moodcombo), strings);
-
-		gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(view->moodcombo)->entry), text);
-		g_free(text);
+		gtk_combo_box_append_text(GTK_COMBO_BOX(view->moodcombo), "");
+		for (l = server->moods; l; l = l->next)
+			gtk_combo_box_append_text(GTK_COMBO_BOX(view->moodcombo),
+					((LJMood *)l->data)->name);
 	}
 }
 static void
 mood_add(JamView *view) {
 	moodpic_add(view);
 
-	/*view->moodbutton = gtk_button_new_with_label(_("Mood"));
-	gtk_size_group_add_widget(view->sizegroup, view->moodbutton);*/
-
-	view->moodcombo = gtk_combo_new();
-	gtk_widget_set_usize(GTK_COMBO(view->moodcombo)->entry, 100, -1);
+	view->moodcombo = gtk_combo_box_new_text();
 	mood_populate(view);
 
-	/*view->moodbox = gtk_hbox_new(FALSE, 12);
-	gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodbutton, FALSE, FALSE, 0);
-	gtk_box_pack_start(GTK_BOX(view->moodbox), view->moodcombo, TRUE, TRUE, 0);*/
 	view->moodbox = labelled_box_new_sg(_("_Mood:"), view->moodcombo, view->sizegroup),
 	gtk_widget_show_all(view->moodbox);
 
@@ -264,19 +246,53 @@ mood_load(JamView *view) {
 	const char *mood = jam_doc_get_mood(view->doc);
 	if (mood)
 		show_meta(view, JAM_VIEW_MOOD);
-	if (mood_visible(view))
-		gtk_entry_set_text(GTK_ENTRY(GTK_COMBO(view->moodcombo)->entry),
-				mood ? mood : "");
+
+	if (mood_visible(view)) {
+		GtkTreeModel *model;
+		GtkTreeIter iter;
+		gboolean valid;
+
+		model = gtk_combo_box_get_model(GTK_COMBO_BOX(view->moodcombo));
+		valid = gtk_tree_model_get_iter_first(model, &iter);
+
+		/* empty mood is a first item in the list */
+		if (!mood && valid) {
+			gtk_combo_box_set_active_iter(GTK_COMBO_BOX(view->moodcombo), &iter);
+			return;
+		}
+
+		for (; valid; valid = gtk_tree_model_iter_next(model, &iter)) {
+			gchar *key;
+
+			gtk_tree_model_get(model, &iter, 0, &key, -1);
+
+			if (g_str_equal(key, mood)) {
+				gtk_combo_box_set_active_iter(GTK_COMBO_BOX(view->moodcombo), &iter);
+				g_free(key);
+				return;
+			}
+
+			g_free(key);
+		}
+	}
 }
 static void
 mood_store(JamView *view) {
-	const char *mood = gtk_entry_get_text(GTK_ENTRY(GTK_COMBO(view->moodcombo)->entry));
-	/* XXX temporary: set moodid based on mood string. */
-	int id = lj_mood_id_from_name(
-			jam_host_lj_get_server(JAM_HOST_LJ(jam_account_get_host(view->account))),
-			mood);
+	int id = 0;
+	GtkTreeIter iter;
 
-	jam_doc_set_mood(view->doc, mood);
+	if (gtk_combo_box_get_active_iter(GTK_COMBO_BOX(view->moodcombo), &iter)) {
+		GtkTreeModel *model = gtk_combo_box_get_model(GTK_COMBO_BOX(view->moodcombo));
+		char *mood;
+
+		gtk_tree_model_get(model, &iter, 0, &mood, -1);
+		jam_doc_set_mood(view->doc, mood);
+		id = lj_mood_id_from_name(
+				jam_host_lj_get_server(JAM_HOST_LJ(jam_account_get_host(view->account))), mood);
+		g_free(mood);
+	}
+
+	/* XXX temporary: set moodid based on mood string. */
 	if (id < 0) id = 0;
 	jam_doc_set_moodid(view->doc, id);
 }
