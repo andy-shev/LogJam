@@ -1,3 +1,7 @@
+/* logjam - a GTK client for LiveJournal.
+ *
+ * vim: tabstop=4 shiftwidth=4 noexpandtab :
+ */
 
 #include "gtk-all.h"
 
@@ -99,14 +103,14 @@ taglist_create (GSList *l, GSList **head)
   GtkTreeIter iter;
   GtkCellRenderer *renderer;
   GtkTreeViewColumn *column;
-  guint i;
-  GSList *prev = *head, *p;
+  GSList *prev = *head, *p, *q;
 
   /* create model */
   store = gtk_list_store_new (2, G_TYPE_BOOLEAN, G_TYPE_STRING);
-  for (i = 0; i < g_slist_length (l); i++) {
-      LJTag *t = (LJTag *) g_slist_nth_data (l, i);
-      gboolean check = FALSE;
+
+	for (q = l; q; q = g_slist_next(q)) {
+		LJTag *t = (LJTag *)q->data;
+		gboolean check = FALSE;
 
       if (prev && (p = g_slist_find_custom(prev, t->tag, (GCompareFunc) g_utf8_collate)) != NULL) {
         check = TRUE;
@@ -119,7 +123,7 @@ taglist_create (GSList *l, GSList **head)
 			  0, check,
 			  1, t->tag,
 			  -1);
-  }
+	}
 
   /* rest of the typed tags */
   for (p = prev; p; p = g_slist_next(p)) {
