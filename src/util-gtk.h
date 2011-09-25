@@ -60,8 +60,6 @@ GtkWidget* scroll_wrap(GtkWidget *w);
 void geometry_tie(GtkWidget *win, GeometryType g);
 void geometry_tie_full(GeometryType g, GtkWindow *win, GtkPaned *paned);
 
-gint text_sort_func(GtkTreeModel *model, GtkTreeIter  *a, GtkTreeIter  *b, gpointer data);
-
 void jam_widget_set_visible(GtkWidget *w, gboolean visible);
 void jam_widget_set_font(GtkWidget *w, const gchar *font_name);
 

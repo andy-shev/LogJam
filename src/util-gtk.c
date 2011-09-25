@@ -368,20 +368,6 @@ void jam_messagebox(GtkWindow *parent, const char *title, const char *message) {
 	jam_message(parent, JAM_MSG_INFO, FALSE, title, message);
 }
 
-/* text sort utility function for GtkTreeModels */
-gint
-text_sort_func(GtkTreeModel *model, GtkTreeIter  *a, GtkTreeIter  *b,
-		gpointer data) {
-	gchar *ta, *tb;
-	gint ret;
-	gtk_tree_model_get(model, a, 0, &ta, -1);
-	gtk_tree_model_get(model, b, 0, &tb, -1);
-	ret = g_ascii_strcasecmp(ta, tb);
-	g_free(ta);
-	g_free(tb);
-	return ret;
-}
-
 void
 jam_widget_set_visible(GtkWidget *w, gboolean visible) {
 	if (visible)
