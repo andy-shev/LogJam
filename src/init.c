@@ -85,7 +85,7 @@ try_remote_command(JamAccount *acc) {
 #endif /* HAVE_GTK */
 
 static void
-init_app(int *argc, gchar *argv[]) {
+init_app(int *argc, gchar *argv[], int has_gtk) {
 	gint i, shift = 0;
 
 	memset(&app, 0, sizeof(Application));
@@ -115,8 +115,10 @@ init_app(int *argc, gchar *argv[]) {
 		app.conf_dir = g_strdup_printf("%s/.logjam", g_get_home_dir());
 	}
 #ifdef HAVE_GTK
-	app.tooltips = gtk_tooltips_new();
-	gtk_tooltips_enable(app.tooltips);
+	if (has_gtk) {
+		app.tooltips = gtk_tooltips_new();
+		gtk_tooltips_enable(app.tooltips);
+	}
 #endif
 }
 
@@ -208,9 +210,7 @@ setup_glibgdk() {
 
 int
 main(int argc, char* argv[]) {
-#ifdef HAVE_GTK
-	gboolean has_gtk;
-#endif
+	gboolean has_gtk = FALSE;
 	JamDoc *doc;
 
 	setup_locales();
@@ -224,7 +224,7 @@ main(int argc, char* argv[]) {
 	has_gtk = gtk_init_check(&argc, &argv);
 #endif
 
-	init_app(&argc, argv); /* should be called before conf_read */
+	init_app(&argc, argv, has_gtk); /* should be called before conf_read */
 	conf_read(&conf, app.conf_dir);
 	set_defaults();
 	jam_account_logjam_init();
