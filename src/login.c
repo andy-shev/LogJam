@@ -310,7 +310,7 @@ login_check_lastupdate(GtkWindow *parent, JamAccountLJ *acclj) {
 	}
 	dlg = gtk_message_dialog_new(parent, GTK_DIALOG_DESTROY_WITH_PARENT,
 			GTK_MESSAGE_QUESTION, GTK_BUTTONS_YES_NO,
-			msg);
+			"%s", msg);
 	g_free(msg);
 	if (gtk_dialog_run(GTK_DIALOG(dlg)) == GTK_RESPONSE_YES)
 		ret = login_run(GTK_WINDOW(dlg), acclj);
