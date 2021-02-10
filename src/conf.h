@@ -66,7 +66,7 @@ typedef struct {
 #endif /* HAVE_GTK */
 } Options;
 
-enum {
+typedef enum {
 	POSTMODE_GUI,
 	POSTMODE_CMD
 } PostmodeType;
