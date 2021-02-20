@@ -113,7 +113,7 @@ pipe_cb(ForkData *forkdata, gint pipe, GdkInputCondition cond) {
 			waitpid(forkdata->pid, NULL, 0);
 			forkdata->pid = 0;
 			close(pipe);
-			g_set_error(forkdata->err, NET_ERROR, NET_ERROR_GENERIC, buf);
+			g_set_error_literal(forkdata->err, NET_ERROR, NET_ERROR_GENERIC, buf);
 			g_free(buf);
 			gtk_main_quit();
 			break;

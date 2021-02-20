@@ -676,7 +676,7 @@ command_dispatch(Cmdline *cmdline, Command *commands, const char *help, int argc
 		return;
 
 	if (g_ascii_strcasecmp(cmdname, "help") == 0) {
-		g_print(help);
+		g_print("%s", help);
 		exit(EXIT_SUCCESS);
 	}
 	for (i = 0; commands && commands[i].cmdname; i++) {

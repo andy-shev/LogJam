@@ -151,7 +151,7 @@ jam_confirm(GtkWindow *parent, const char *title, const char *msg) {
 	dlg = gtk_message_dialog_new(GTK_WINDOW(parent), 0,
 			GTK_MESSAGE_QUESTION,
 			GTK_BUTTONS_YES_NO,
-			msg);
+			"%s", msg);
 	jam_window_init(GTK_WINDOW(dlg), parent, title, -1, -1);
 	res = (gtk_dialog_run(GTK_DIALOG(dlg)) == GTK_RESPONSE_YES);
 	gtk_widget_destroy(dlg);
@@ -309,7 +309,7 @@ jam_message_va(GtkWindow *parent, MessageType type, gboolean forgettable,
 	/* TODO: switch to jam_dialogs, which are prettier */
 	dlg = gtk_message_dialog_new(parent, 0, msgtype,
 			buttontype,
-			fullmsg);
+			"%s", fullmsg);
 	gtk_window_set_title(GTK_WINDOW(dlg), title);
 	gtk_window_set_transient_for(GTK_WINDOW(dlg), GTK_WINDOW(parent));
 

@@ -419,7 +419,7 @@ lj_entry_new_single_from_result(LJResult *result, GError **err) {
 	}
 
 	if (errs) {
-		g_set_error(err, 0, 0, errs->str);
+		g_set_error_literal(err, 0, 0, errs->str);
 		g_string_free(errs, TRUE);
 	}
 
@@ -847,7 +847,7 @@ lj_entry_from_user_editor(const char *filename, GError **err) {
 	/* g_spawn* would do no good: it disassociates the tty. viva fork! */
 	pid = fork();
 	if (pid < 0) {                 /* fork error */
-		g_set_error(err, G_SPAWN_ERROR, G_SPAWN_ERROR_FORK,
+		g_set_error_literal(err, G_SPAWN_ERROR, G_SPAWN_ERROR_FORK,
 				g_strerror(errno));
 		return NULL;
 	}
@@ -862,7 +862,7 @@ lj_entry_from_user_editor(const char *filename, GError **err) {
 
 	/* parent */
 	if (wait(NULL) != pid) {
-		g_set_error(err, G_SPAWN_ERROR, G_SPAWN_ERROR_FAILED,
+		g_set_error_literal(err, G_SPAWN_ERROR, G_SPAWN_ERROR_FAILED,
 				g_strerror(errno));
 		return NULL;
 	}
