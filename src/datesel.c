@@ -12,6 +12,7 @@
 #include <livejournal/livejournal.h>
 
 #include "datesel.h"
+#include "util-gtk.h"
 
 struct _DateSel {
 	GtkButton parent;

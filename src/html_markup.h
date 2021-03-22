@@ -20,7 +20,7 @@ void html_mark_blockquote  (JamDoc *doc);
 void html_mark_big         (JamDoc *doc);
 void html_mark_small       (JamDoc *doc);
 void html_mark_superscript (JamDoc *doc);
-void html_mark_sbuscript   (JamDoc *doc);
+void html_mark_subscript   (JamDoc *doc);
 void html_mark_ulist       (JamDoc *doc);
 void html_mark_olist       (JamDoc *doc);
 void html_mark_listitem    (JamDoc *doc);

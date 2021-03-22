@@ -11,6 +11,7 @@
 #include "conf_xml.h"
 #include "jam_xml.h"
 #include "account.h"
+#include "util.h"
 
 static GObjectClass *jam_account_parent_class = NULL;
 

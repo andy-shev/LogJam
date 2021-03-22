@@ -8,6 +8,8 @@
 
 #include "gtk-all.h"
 
+#include "util-gtk.h"
+
 #include "conf.h"
 #include "jam.h"
 #include "spawn.h"

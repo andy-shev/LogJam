@@ -3,12 +3,14 @@
  * vim: tabstop=4 shiftwidth=4 noexpandtab :
  */
 
+#include "config.h"
 #include "gtk-all.h"
 
 #include <livejournal/livejournal.h>
 #include <livejournal/gettags.h>
 
 #include "account.h"
+#include "network.h"
 #include "tags.h"
 
 static void

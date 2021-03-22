@@ -23,6 +23,7 @@
 #include "account.h"
 #include "conf.h"
 #include "network.h"
+#include "util.h"
 
 enum {
 	ACCOUNT_CHANGED,

@@ -18,6 +18,7 @@
 #include <signal.h>
 
 #include "conf.h"
+#include "util-gtk.h"
 #include "spawn.h"
 
 #ifdef G_OS_WIN32

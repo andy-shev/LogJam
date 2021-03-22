@@ -13,11 +13,13 @@
 
 #include <livejournal/editfriendgroups.h>
 
+#include "util-gtk.h"
+
 #include "friends.h"
 #include "conf.h"
 #include "friendgroupedit.h"
 #include "network.h"
-#include "util-gtk.h"
+#include "util.h"
 
 typedef struct {
 	GtkWidget *win;

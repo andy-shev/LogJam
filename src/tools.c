@@ -11,6 +11,7 @@
 #include <string.h>
 
 #include "tools.h"
+#include "util.h"
 #include "util-gtk.h"
 
 typedef struct {

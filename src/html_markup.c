@@ -11,8 +11,8 @@
 #include "html_markup.h"
 
 
-void
-html_mark_tag(JamDoc *doc, const char* tag, ...) {
+static void html_mark_tag(JamDoc *doc, const char* tag, ...)
+{
 	GtkTextBuffer *buffer;
 	GtkTextIter start, end;
 	GtkTextMark *ins;

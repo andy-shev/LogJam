@@ -8,6 +8,7 @@
 
 #include "gtk-all.h"
 #include "util-gtk.h"
+#include "util.h"
 
 static void
 tie_toggle_cb(GtkToggleButton *toggle, gboolean *data) {

@@ -12,6 +12,7 @@
 
 #include "conf.h"
 #include "journalstore.h"
+#include "util.h"
 
 struct _JournalStore {
 	JamAccount *account;
@@ -136,7 +137,7 @@ JournalStore* journal_store_open(JamAccount *acc, gboolean create, GError **err)
 		goto out;
 	}
 
-	if (!verify_path(path, FALSE, &err))
+	if (!verify_path(path, FALSE, err))
 		goto out;
 
 	ret = sqlite3_open(path, &db);

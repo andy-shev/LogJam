@@ -13,11 +13,13 @@
 
 #include <livejournal/editfriends.h>
 
+#include "util-gtk.h"
+
 #include "friends.h"
 #include "network.h"
 #include "conf.h"
-#include "util-gtk.h"
 #include "account.h"
+#include "util.h"
 
 #include "friendedit.h"
 

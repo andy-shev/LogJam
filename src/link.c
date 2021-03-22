@@ -13,6 +13,7 @@
 #include "util-gtk.h"
 #include "conf.h"
 #include "jamdoc.h"
+#include "util.h"
 
 typedef struct {
 	GtkWidget *dlg;

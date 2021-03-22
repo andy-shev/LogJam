@@ -25,6 +25,7 @@
 #include "account.h"
 #include "jamview.h"
 #include "lj_dbus.h"
+#include "util.h"
 
 /* what's this?  all of these funny structures in the settings box?
  * well, instead of creating and tearing down all of these widgets, i

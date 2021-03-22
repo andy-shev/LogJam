@@ -14,6 +14,7 @@
 #include "jamdoc.h"
 #include "account.h"
 #include "conf.h"
+#include "util.h"
 
 #ifdef HAVE_GTK
 #include "get_cmd_out.h"

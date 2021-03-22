@@ -7,8 +7,9 @@
 #include "config.h"
 
 #include "gtk-all.h"
-#include "jamdoc.h"
 #include "util-gtk.h"
+#include "jamdoc.h"
+#include "util.h"
 
 static GtkWidget*
 add_menu_item(GtkMenuShell *ms, const gchar *id, const gchar *text) {

@@ -10,6 +10,7 @@
 
 #include <stdlib.h>
 
+#include "util-gtk.h"
 #include "security.h"
 #include "conf.h"
 #include "network.h"
