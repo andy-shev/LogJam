@@ -82,7 +82,7 @@ net_post_blocking(const char *url, GSList *headers, GString *post,
 
 	status = soup_session_send_message(session, req);
 	if (status != SOUP_STATUS_OK) {
-		g_set_error(err, NET_ERROR, NET_ERROR_GENERIC,
+		g_set_error_literal(err, NET_ERROR, NET_ERROR_GENERIC,
 			    req->reason_phrase);
 		goto out;
 	}

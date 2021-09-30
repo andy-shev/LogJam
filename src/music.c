@@ -68,7 +68,7 @@ music_command_detect(const char *command, GError **err) {
 		return NULL;
 
 	if (exit_status != 0) {
-		g_set_error(err, MUSIC_ERROR, MUSIC_COMMAND_ERROR, std_err);
+		g_set_error_literal(err, MUSIC_ERROR, MUSIC_COMMAND_ERROR, std_err);
 		g_free(std_err);
 		return NULL;
 	}
