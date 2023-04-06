@@ -12,6 +12,7 @@
 
 #include "conf.h"
 #include "journalstore.h"
+#include "util.h"
 
 struct _JournalStore {
 	JamAccount *account;

@@ -8,6 +8,7 @@
 
 #include "glib-all.h"
 #include <stdio.h>
+#include "util-gtk.h"
 
 #ifndef G_OS_WIN32
 #include <unistd.h>

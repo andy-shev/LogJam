@@ -12,6 +12,7 @@
 
 #include "tools.h"
 #include "util-gtk.h"
+#include "util.h"
 
 typedef struct {
 	gunichar c;

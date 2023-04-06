@@ -3,6 +3,8 @@
  * vim: tabstop=4 shiftwidth=4 noexpandtab :
  */
 
+#include "config.h"
+
 #include "gtk-all.h"
 
 #include <livejournal/livejournal.h>

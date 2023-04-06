@@ -14,6 +14,7 @@
 #include "conf.h"
 #include "network.h"
 #include "icons.h"
+#include "util-gtk.h"
 
 struct _SecMgr {
 	GtkOptionMenu omenu;

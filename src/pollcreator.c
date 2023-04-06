@@ -12,6 +12,7 @@
 #include "poll.h"
 #include "pollcreator.h"
 #include "util-gtk.h"
+#include "util.h"
 
 typedef struct _PollDlg PollDlg;
 
