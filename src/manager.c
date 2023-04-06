@@ -16,6 +16,7 @@
 #include "checkfriends.h"
 #include "security.h"
 #include "groupedbox.h"
+#include "util.h"
 
 /* manager:
  *  - host

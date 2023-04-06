@@ -18,6 +18,7 @@
 #include "conf_xml.h"
 #include "conf.h"
 #include "account.h"
+#include "util.h"
 
 Configuration conf;
 Application app;

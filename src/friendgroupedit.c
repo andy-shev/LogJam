@@ -18,6 +18,7 @@
 #include "friendgroupedit.h"
 #include "network.h"
 #include "util-gtk.h"
+#include "util.h"
 
 typedef struct {
 	GtkWidget *win;

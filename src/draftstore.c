@@ -23,6 +23,7 @@
 
 #include "draftstore.h"
 #include "conf.h"
+#include "util.h"
 
 struct _DraftStore {
 	char *path;

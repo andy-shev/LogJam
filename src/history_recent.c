@@ -14,6 +14,7 @@
 #include "util-gtk.h"
 #include "history.h"
 #include "network.h"
+#include "util.h"
 
 /* how many entries to load each time "load more..." is clicked. */
 #define HISTORY_LOAD_BATCH 20

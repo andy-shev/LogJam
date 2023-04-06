@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <livejournal/livejournal.h>
+#include "util-gtk.h"
 
 #include "datesel.h"
 

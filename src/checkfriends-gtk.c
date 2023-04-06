@@ -13,6 +13,7 @@
 #include "spawn.h"
 #include "menu.h"
 #include "settings.h"
+#include "util-gtk.h"
 
 #include "throbber.h"
 #include "checkfriends.h"

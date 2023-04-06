@@ -13,6 +13,7 @@
 #include "account.h"
 #include "jam_xml.h"
 #include "conf_xml.h"
+#include "util.h"
 
 const char*
 jam_host_get_stock_icon(JamHost *host) {

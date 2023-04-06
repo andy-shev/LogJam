@@ -14,6 +14,7 @@
 #include "jam_xml.h"
 #include "conf_xml.h"
 #include "network.h"
+#include "util.h"
 
 struct _JamHostLJ {
 	JamHost host;

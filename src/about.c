@@ -13,6 +13,7 @@
 #include "icons.h"
 #include "thanks.h"
 #include "spawn.h"
+#include "util-gtk.h"
 
 /* magic number, defines how long the name will stay centered before scrolling off. */
 #define COUNTER_DELAY 20
